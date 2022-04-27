@@ -11,6 +11,10 @@ public class NetworkPlayer : MonoBehaviour
     public Transform head;
     public Transform leftHand;
     public Transform rightHand;
+
+    public Hand leftHand_hand;
+    public Hand rightHand_hand;
+
     private PhotonView photonView;
 
     private Transform headRig;
@@ -43,8 +47,31 @@ public class NetworkPlayer : MonoBehaviour
             MapPosition(head, headRig);
             MapPosition(leftHand, leftHandRig);
             MapPosition(rightHand, rightHandRig);
+
+            UpdateHandAnimation(InputDevices.GetDeviceAtXRNode(XRNode.LeftHand), leftHand_hand);
+            UpdateHandAnimation(InputDevices.GetDeviceAtXRNode(XRNode.RightHand), rightHand_hand);
         }
-        
+
+    }
+
+    void UpdateHandAnimation(InputDevice targetDevice, Hand hand)
+    {
+        if(targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
+        {
+            hand.SetTrigger(triggerValue);
+        } else
+        {
+            hand.SetTrigger(0);
+        }
+
+        if (targetDevice.TryGetFeatureValue(CommonUsages.grip, out float gripValue))
+        {
+            hand.SetGrip(gripValue);
+        }
+        else
+        {
+            hand.SetGrip(0);
+        }
     }
 
     void MapPosition(Transform target, Transform rigTransform)
