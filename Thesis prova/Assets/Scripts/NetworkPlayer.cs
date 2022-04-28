@@ -6,6 +6,7 @@ using Photon.Pun;
 using UnityEngine.XR.Interaction.Toolkit;
 using Unity.XR.CoreUtils;
 
+[RequireComponent(typeof(ActionBasedController))]
 public class NetworkPlayer : MonoBehaviour
 {
     public Transform head;
@@ -21,6 +22,9 @@ public class NetworkPlayer : MonoBehaviour
     private Transform leftHandRig;
     private Transform rightHandRig;
 
+    ActionBasedController controllerLeft;
+    ActionBasedController controllerRight;
+
 
     void Start()
     {
@@ -30,6 +34,9 @@ public class NetworkPlayer : MonoBehaviour
         headRig = rig.transform.Find("Camera Offset/Main Camera");
         leftHandRig = rig.transform.Find("Camera Offset/LeftHand Controller");
         rightHandRig = rig.transform.Find("Camera Offset/RightHand Controller");
+
+        controllerLeft = rig.transform.Find("Camera Offset/LeftHand Controller").GetComponent<ActionBasedController>();
+        controllerRight = rig.transform.Find("Camera Offset/RightHand Controller").GetComponent<ActionBasedController>();
 
         if (photonView.IsMine)
         {
@@ -48,35 +55,20 @@ public class NetworkPlayer : MonoBehaviour
             MapPosition(leftHand, leftHandRig);
             MapPosition(rightHand, rightHandRig);
 
-            UpdateHandAnimation(InputDevices.GetDeviceAtXRNode(XRNode.LeftHand), leftHand_hand);
-            UpdateHandAnimation(InputDevices.GetDeviceAtXRNode(XRNode.RightHand), rightHand_hand);
+            UpdateHandAnimation(controllerLeft, leftHand_hand);
+            UpdateHandAnimation(controllerRight, rightHand_hand);
         }
 
     }
 
-    void UpdateHandAnimation(InputDevice targetDevice, Hand hand)
+    void UpdateHandAnimation(ActionBasedController controller, Hand hand)
     {
-        if(targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
-        {
-            hand.SetTrigger(triggerValue);
-        } else
-        {
-            hand.SetTrigger(0);
-        }
-
-        if (targetDevice.TryGetFeatureValue(CommonUsages.grip, out float gripValue))
-        {
-            hand.SetGrip(gripValue);
-        }
-        else
-        {
-            hand.SetGrip(0);
-        }
+        hand.SetGrip(controller.selectAction.action.ReadValue<float>());
+        hand.SetTrigger(controller.activateAction.action.ReadValue<float>());
     }
 
     void MapPosition(Transform target, Transform rigTransform)
     {
-
         target.position = rigTransform.position;
         target.rotation = rigTransform.rotation;
     }

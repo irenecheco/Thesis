@@ -72,9 +72,9 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
-  - SynchronizeType: 2
+  - SynchronizeType: 0
     LayerIndex: 1
-  - SynchronizeType: 2
+  - SynchronizeType: 0
     LayerIndex: 2
 --- !u!114 &7816427530916931965
 MonoBehaviour:
@@ -161,9 +161,9 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
-  - SynchronizeType: 2
+  - SynchronizeType: 0
     LayerIndex: 1
-  - SynchronizeType: 2
+  - SynchronizeType: 0
     LayerIndex: 2
 --- !u!114 &8728606581501780602
 MonoBehaviour:
@@ -364,7 +364,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5323934371938465441
 MonoBehaviour:
