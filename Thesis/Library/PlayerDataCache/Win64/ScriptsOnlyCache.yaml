@@ -9,6 +9,7 @@ ScriptsOnlyBuild:
     - ExitGames.Demos.DemoPunVoice.ThirdPersonController
     - Hand
     - HandController
+    - NetworkHand
     - NetworkManager
     - NetworkPlayer
     - NetworkPlayerSpawner
@@ -30,9 +31,6 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.PunBasics.PlayerUI
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
-    PhotonUnityNetworking.Editor.dll:
-    - Photon.Pun.PhotonAnimatorViewEditor
-    - Photon.Pun.PhotonRigidbodyViewEditor
     PhotonUnityNetworking.Utilities.dll:
     - Photon.Pun.UtilityScripts.MoveByKeys
     PhotonUnityNetworking.dll:
@@ -239,61 +237,63 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5272}
     - Class: 114
-      Script: {instanceID: 5472}
+      Script: {instanceID: 5332}
     - Class: 114
-      Script: {instanceID: 5650}
+      Script: {instanceID: 5474}
     - Class: 114
-      Script: {instanceID: 5832}
+      Script: {instanceID: 5652}
     - Class: 114
-      Script: {instanceID: 5850}
+      Script: {instanceID: 5834}
     - Class: 114
-      Script: {instanceID: 5928}
+      Script: {instanceID: 5852}
     - Class: 114
-      Script: {instanceID: 6066}
+      Script: {instanceID: 5930}
     - Class: 114
-      Script: {instanceID: 6112}
+      Script: {instanceID: 6068}
     - Class: 114
-      Script: {instanceID: 6150}
+      Script: {instanceID: 6114}
     - Class: 114
-      Script: {instanceID: 6296}
+      Script: {instanceID: 6152}
     - Class: 114
-      Script: {instanceID: 6350}
+      Script: {instanceID: 6298}
     - Class: 114
-      Script: {instanceID: 6438}
+      Script: {instanceID: 6352}
     - Class: 114
-      Script: {instanceID: 6552}
+      Script: {instanceID: 6440}
     - Class: 114
-      Script: {instanceID: 6734}
+      Script: {instanceID: 6554}
     - Class: 114
-      Script: {instanceID: 6866}
+      Script: {instanceID: 6736}
     - Class: 114
-      Script: {instanceID: 6996}
+      Script: {instanceID: 6868}
     - Class: 114
-      Script: {instanceID: 7094}
+      Script: {instanceID: 6998}
     - Class: 114
-      Script: {instanceID: 7540}
+      Script: {instanceID: 7096}
     - Class: 114
-      Script: {instanceID: 7756}
+      Script: {instanceID: 7542}
     - Class: 114
-      Script: {instanceID: 8022}
+      Script: {instanceID: 7758}
     - Class: 114
-      Script: {instanceID: 8320}
+      Script: {instanceID: 8024}
     - Class: 114
-      Script: {instanceID: 8484}
+      Script: {instanceID: 8322}
     - Class: 114
-      Script: {instanceID: 8614}
+      Script: {instanceID: 8486}
     - Class: 114
-      Script: {instanceID: 8758}
+      Script: {instanceID: 8616}
     - Class: 114
-      Script: {instanceID: 8776}
+      Script: {instanceID: 8760}
     - Class: 114
-      Script: {instanceID: 8890}
+      Script: {instanceID: 8778}
     - Class: 114
-      Script: {instanceID: 8912}
+      Script: {instanceID: 8892}
     - Class: 114
-      Script: {instanceID: 9016}
+      Script: {instanceID: 8914}
     - Class: 114
-      Script: {instanceID: 9246}
+      Script: {instanceID: 9018}
+    - Class: 114
+      Script: {instanceID: 9248}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -1675,7 +1675,7 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
-      Hash: afc5b93a7b192de2dcb3832fe35a5c7e
+      Hash: 1f3520f1942b53bc61c2af90b42680f4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Hand
@@ -1993,7 +1993,7 @@ ScriptsOnlyBuild:
     className: ONSPReflectionZone
   - hash:
       serializedVersion: 2
-      Hash: b7e09ace6e1182a94a167df94c7ecf07
+      Hash: f09cb1bb432a6f27a9948fa563d59ec9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NetworkPlayer
@@ -2501,6 +2501,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: OculusSampleFramework
     className: ControllerBoxController
+  - hash:
+      serializedVersion: 2
+      Hash: 1f3520f1942b53bc61c2af90b42680f4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NetworkHand
   - hash:
       serializedVersion: 2
       Hash: ea41fa959037983f32ebd7c70de46554

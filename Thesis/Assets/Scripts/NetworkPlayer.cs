@@ -13,8 +13,8 @@ public class NetworkPlayer : MonoBehaviour
     public Transform leftHand;
     public Transform rightHand;
 
-    public Hand leftHand_hand;
-    public Hand rightHand_hand;
+    public NetworkHand leftHand_hand;
+    public NetworkHand rightHand_hand;
 
     private PhotonView photonView;
 
@@ -61,10 +61,10 @@ public class NetworkPlayer : MonoBehaviour
 
     }
 
-    void UpdateHandAnimation(ActionBasedController controller, Hand hand)
+    void UpdateHandAnimation(ActionBasedController controller, NetworkHand network_hand)
     {
-        hand.SetGrip(controller.selectAction.action.ReadValue<float>());
-        hand.SetTrigger(controller.activateAction.action.ReadValue<float>());
+        network_hand.SetGrip(controller.selectAction.action.ReadValue<float>());
+        network_hand.SetTrigger(controller.activateAction.action.ReadValue<float>());
     }
 
     void MapPosition(Transform target, Transform rigTransform)

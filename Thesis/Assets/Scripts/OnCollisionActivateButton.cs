@@ -7,32 +7,33 @@ using Photon.Pun;
 public class OnCollisionActivateButton : MonoBehaviourPunCallbacks, IPunObservable
 {
     private string handshake_button = "Handshake Button";
-    private PhotonView photonView;
+    private PhotonView photonViewParent;
 
     // Start is called before the first frame update
     void Start()
     {
-        photonView = GetComponent<PhotonView>();
+        GameObject.Find(handshake_button).GetComponent<Button>().interactable = false;
+        //photonViewParent = GetComponent<PhotonView>();
     }
 
-    private void onTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("Collision triggered");
-        if (!photonView.IsMine)
+        //Debug.Log("Collision triggered");
+        /*if (!photonViewParent.IsMine)
         {
             return;
-        }
+        }*/
         GameObject.Find(handshake_button).GetComponent<Button>().interactable = true;
        
     }
 
-    private void onTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
 
-        if (!photonView.IsMine)
+        /*if (!photonViewParent.IsMine)
         {
             return;
-        }
+        }*/
         GameObject.Find(handshake_button).GetComponent<Button>().interactable = false;
         
     }
