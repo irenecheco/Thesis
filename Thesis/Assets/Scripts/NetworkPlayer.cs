@@ -5,6 +5,7 @@ using UnityEngine.XR;
 using Photon.Pun;
 using UnityEngine.XR.Interaction.Toolkit;
 using Unity.XR.CoreUtils;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(ActionBasedController))]
 public class NetworkPlayer : MonoBehaviour
@@ -59,6 +60,19 @@ public class NetworkPlayer : MonoBehaviour
             UpdateHandAnimation(controllerRight, rightHand_hand);
         }
 
+    }
+
+    public void activateHandshakeConfirm()
+    {
+        if (photonView.IsMine)
+        {
+            GameObject handshakeConfirm = GameObject.Find("Handshake Confirm");
+            GameObject handshakeConfirmButton;
+            handshakeConfirm.GetComponent<Renderer>().enabled = true;
+            handshakeConfirmButton = handshakeConfirm.transform.GetChild(2).gameObject;
+            handshakeConfirmButton.GetComponent<Button>().interactable = true;
+        }
+        
     }
 
     void UpdateHandAnimation(ActionBasedController controller, NetworkHand network_hand)

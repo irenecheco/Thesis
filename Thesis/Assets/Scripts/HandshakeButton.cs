@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using UnityEngine.UI;
 
 public class HandshakeButton : MonoBehaviour
 {
     private GameObject rightHand;
     private GameObject rightController;
     private GameObject player;
+    private GameObject camera;
+    private GameObject otherPlayer;
     private Animator rightHandAnimator;
     private Animation handshakeAnimation;
     private AnimatorStateInfo animStateInfo;
@@ -19,6 +23,7 @@ public class HandshakeButton : MonoBehaviour
         rightHand = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
         rightController = GameObject.Find("Camera Offset/RightHand Controller");
         player = GameObject.Find("Player");
+        camera = GameObject.Find("Camera Offset/Main Camera");
         rightHandAnimator = rightHand.GetComponent<Animator>();
         handshakeAnimation = rightHand.GetComponent<Animation>();
         player.transform.position = GameObject.Find("Camera Offset/RightHand Controller").transform.position;
@@ -26,6 +31,15 @@ public class HandshakeButton : MonoBehaviour
 
     public void OnHandshakePressed()
     {
+
+        otherPlayer = camera.GetComponent<OnCollisionActivateButton>().otherPlayerHead;
+        //Debug.Log($"{otherPlayer.name}");
+        if (!otherPlayer.GetComponent<PhotonView>().IsMine && otherPlayer != null)
+        {
+            GameObject netPlayer;
+            netPlayer = otherPlayer.transform.parent.gameObject;
+            netPlayer.GetComponent<NetworkPlayer>().activateHandshakeConfirm();
+        }
         StartCoroutine(Wait());
     }
 
@@ -45,7 +59,7 @@ public class HandshakeButton : MonoBehaviour
         Destroy(rightController.GetComponent("HandController"));
         rightHand.transform.parent = player.transform;
         player.transform.position = rightController.transform.position;
-        angle = GameObject.Find("Camera Offset/Main Camera").transform.eulerAngles.y;
+        angle = camera.transform.eulerAngles.y;
         player.transform.rotation = Quaternion.Euler(0, angle, 0);
 
         rightHandAnimator.Play("Handshake", -1, 0);

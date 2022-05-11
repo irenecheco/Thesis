@@ -2897,6 +2897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 448fdc99f4f5d6744a8b4c7068584ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  otherPlayerHead: {fileID: 0}
 --- !u!54 &801865829
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4527,7 +4528,7 @@ GameObject:
   - component: {fileID: 1577333644}
   - component: {fileID: 1577333648}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: LeftHand UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

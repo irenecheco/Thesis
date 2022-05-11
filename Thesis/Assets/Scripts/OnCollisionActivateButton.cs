@@ -6,6 +6,7 @@ using Photon.Pun;
 
 public class OnCollisionActivateButton : MonoBehaviourPunCallbacks, IPunObservable
 {
+    public GameObject otherPlayerHead;
     private string handshake_button = "Handshake Button";
     private PhotonView photonViewParent;
 
@@ -23,8 +24,11 @@ public class OnCollisionActivateButton : MonoBehaviourPunCallbacks, IPunObservab
         {
             return;
         }*/
-        GameObject.Find(handshake_button).GetComponent<Button>().interactable = true;
-       
+        if(collider.gameObject.name == "Head")
+        {
+            otherPlayerHead = collider.gameObject;
+            GameObject.Find(handshake_button).GetComponent<Button>().interactable = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
