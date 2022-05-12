@@ -8,7 +8,7 @@ public class OnCollisionActivateButton : MonoBehaviourPunCallbacks, IPunObservab
 {
     public GameObject otherPlayerHead;
     private string handshake_button = "Handshake Button";
-    private PhotonView photonViewParent;
+    //private PhotonView photonViewParent;
 
     // Start is called before the first frame update
     void Start()
@@ -19,33 +19,48 @@ public class OnCollisionActivateButton : MonoBehaviourPunCallbacks, IPunObservab
 
     private void OnTriggerEnter(Collider collider)
     {
-        //Debug.Log("Collision triggered");
-        /*if (!photonViewParent.IsMine)
+        
+        if (collider.gameObject.name == "Head")
         {
-            return;
-        }*/
-        if(collider.gameObject.name == "Head")
+            //Debug.Log($"{collider.transform.GetComponent<PhotonView>()}");
+            PhotonView colliderPhotonView;
+            colliderPhotonView = collider.transform.GetComponent<PhotonView>();
+            if (!colliderPhotonView.IsMine)
+            {
+                otherPlayerHead = collider.gameObject;
+                GameObject.Find(handshake_button).GetComponent<Button>().interactable = true;
+            }
+        }
+        
+    }
+
+    private void OnTriggerStay(Collider collider)
+    {        
+        if (collider.gameObject.name == "Head")
         {
-            otherPlayerHead = collider.gameObject;
-            GameObject.Find(handshake_button).GetComponent<Button>().interactable = true;
+            PhotonView colliderPhotonView;
+            colliderPhotonView = collider.transform.GetComponent<PhotonView>();
+            if (!colliderPhotonView.IsMine)
+            {
+                otherPlayerHead = collider.gameObject;
+                GameObject.Find(handshake_button).GetComponent<Button>().interactable = true;
+            }
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider collider)
     {
 
-        /*if (!photonViewParent.IsMine)
+        if (collider.gameObject.name == "Head")
         {
-            return;
-        }*/
-        GameObject.Find(handshake_button).GetComponent<Button>().interactable = false;
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+            PhotonView colliderPhotonView;
+            colliderPhotonView = collider.transform.GetComponent<PhotonView>();
+            if (!colliderPhotonView.IsMine)
+            {
+                otherPlayerHead = collider.gameObject;
+                GameObject.Find(handshake_button).GetComponent<Button>().interactable = false;
+            }
+        }
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

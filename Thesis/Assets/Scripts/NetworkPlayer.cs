@@ -14,18 +14,11 @@ public class NetworkPlayer : MonoBehaviour
     public Transform leftHand;
     public Transform rightHand;
 
-    public NetworkHand leftHand_hand;
-    public NetworkHand rightHand_hand;
-
     private PhotonView photonView;
 
     private Transform headRig;
     private Transform leftHandRig;
     private Transform rightHandRig;
-
-    ActionBasedController controllerLeft;
-    ActionBasedController controllerRight;
-
 
     void Start()
     {
@@ -35,9 +28,6 @@ public class NetworkPlayer : MonoBehaviour
         headRig = rig.transform.Find("Camera Offset/Main Camera");
         leftHandRig = rig.transform.Find("Camera Offset/LeftHand Controller");
         rightHandRig = rig.transform.Find("Camera Offset/RightHand Controller");
-
-        controllerLeft = rig.transform.Find("Camera Offset/LeftHand Controller").GetComponent<ActionBasedController>();
-        controllerRight = rig.transform.Find("Camera Offset/RightHand Controller").GetComponent<ActionBasedController>();
 
         if (photonView.IsMine)
         {
@@ -55,15 +45,13 @@ public class NetworkPlayer : MonoBehaviour
             MapPosition(head, headRig);
             MapPosition(leftHand, leftHandRig);
             MapPosition(rightHand, rightHandRig);
-
-            UpdateHandAnimation(controllerLeft, leftHand_hand);
-            UpdateHandAnimation(controllerRight, rightHand_hand);
         }
 
     }
 
-    public void activateHandshakeConfirm()
+    public void ActivateHandshakeConfirm()
     {
+        Debug.Log("ActivateHandshakeConfirm entered");
         if (photonView.IsMine)
         {
             GameObject handshakeConfirm = GameObject.Find("Handshake Confirm");
@@ -73,12 +61,6 @@ public class NetworkPlayer : MonoBehaviour
             handshakeConfirmButton.GetComponent<Button>().interactable = true;
         }
         
-    }
-
-    void UpdateHandAnimation(ActionBasedController controller, NetworkHand network_hand)
-    {
-        network_hand.SetGrip(controller.selectAction.action.ReadValue<float>());
-        network_hand.SetTrigger(controller.activateAction.action.ReadValue<float>());
     }
 
     void MapPosition(Transform target, Transform rigTransform)

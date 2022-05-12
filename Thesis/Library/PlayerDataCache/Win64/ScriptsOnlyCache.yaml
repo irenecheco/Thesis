@@ -11,6 +11,8 @@ ScriptsOnlyBuild:
     - HandController
     - HandshakeButton
     - NetworkHand
+    - NetworkHandController
+    - NetworkHandshakeRespond
     - NetworkManager
     - NetworkPlayer
     - NetworkPlayerSpawner
@@ -301,6 +303,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 9250}
     - Class: 114
       Script: {instanceID: 22382}
+    - Class: 114
+      Script: {instanceID: 40040}
+    - Class: 114
+      Script: {instanceID: 52770}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -2006,7 +2012,7 @@ ScriptsOnlyBuild:
     className: ONSPReflectionZone
   - hash:
       serializedVersion: 2
-      Hash: f09cb1bb432a6f27a9948fa563d59ec9
+      Hash: 3e1710c1a3733d6865fab8bd25585e18
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NetworkPlayer
@@ -5064,6 +5070,18 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: OculusSampleFramework
     className: TrackSegment
+  - hash:
+      serializedVersion: 2
+      Hash: ea6275fc630457c9d708d48d5a03c32d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NetworkHandController
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NetworkHandshakeRespond
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
