@@ -16,7 +16,9 @@ public class HandshakeButton : MonoBehaviour
     private GameObject rHandContainer;
     private GameObject rHand;
     private GameObject netPlayer2;
-    float angle;
+    float y_angle;
+    //float x_angle;
+    //float z_angle;
     private Vector3 direction;
     //private Animation handshakeAnimation;
     //private AnimatorStateInfo animStateInfo;
@@ -46,12 +48,12 @@ public class HandshakeButton : MonoBehaviour
             rHand = rHandContainer.transform.GetChild(0).gameObject;
             if(rHand.name == "RightHand")
             {
-                rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position);
+                rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
             }
             else
             {
                 rHand = rHandContainer.transform.GetChild(1).gameObject;
-                rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position);
+                rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
             }
             //Debug.Log($"{rHand.name} è rHand");
             
@@ -81,14 +83,21 @@ public class HandshakeButton : MonoBehaviour
     {
         double time = 0.25;
         GameObject head = netPlayer.transform.GetChild(0).gameObject;
+        GameObject otherRightContr = netPlayer.transform.GetChild(2).gameObject;
         yield return new WaitForSeconds((float)time);
+        Vector3 rPos;
             
         Destroy(rightController.GetComponent("HandController"));
         rightHand.transform.parent = player.transform;
-        player.transform.position = rightController.transform.position;
+        rPos = rightController.transform.position;
+        player.transform.position = rPos;
+        player.transform.position = Vector3.Lerp(rPos, otherRightContr.transform.position, 0.5f);
+        player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, (float)(player.transform.position.z + 0.516));
         direction = head.transform.position - camera.transform.position;
-        angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-        player.transform.rotation = Quaternion.Euler(0, angle, 0);
+        y_angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+        //x_angle = Mathf.Atan2(direction.y, direction.z) * Mathf.Rad2Deg;
+        //z_angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+        player.transform.rotation = Quaternion.Euler(0, y_angle, 0);
 
         rightHandAnimator.Play("Handshake", -1, 0);
     }

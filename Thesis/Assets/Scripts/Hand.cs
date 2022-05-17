@@ -18,11 +18,11 @@ public class Hand : MonoBehaviour
     private string animatorTriggerParam = "Trigger";
 
     //Physics Movement
-    /*[SerializeField] private GameObject followObject;
+    [SerializeField] private GameObject followObject;
     [SerializeField] private float followSpeed = 30f;
     [SerializeField] private float rotateSpeed = 100f;
     [SerializeField] private Vector3 positionOffset;
-    [SerializeField] private Vector3 rotationOffset;*/
+    [SerializeField] private Vector3 rotationOffset;
    
     private Transform _followTarget;
     private Rigidbody _body;
@@ -32,7 +32,7 @@ public class Hand : MonoBehaviour
         //Animation
         animator = GetComponent<Animator>();
 
-        /*//Physics Movement
+        //Physics Movement
         _followTarget = followObject.transform;
         _body = GetComponent<Rigidbody>();
         _body.collisionDetectionMode = CollisionDetectionMode.Continuous;
@@ -41,17 +41,17 @@ public class Hand : MonoBehaviour
 
         //Teleport hands
         _body.position = _followTarget.position;
-        _body.rotation = _followTarget.rotation;*/
+        _body.rotation = _followTarget.rotation;
     }
 
     void Update()
     {
         AnimateHand();
 
-        //PhysicsMove();
+        PhysicsMove();
     }
 
-    /*private void PhysicsMove()
+    private void PhysicsMove()
     {
         //Position
         var positionWithOffset = _followTarget.position + positionOffset;
@@ -63,7 +63,7 @@ public class Hand : MonoBehaviour
         var q = rotationWithOffset * Quaternion.Inverse(_body.rotation);
         q.ToAngleAxis(out float angle, out Vector3 axis);
         _body.angularVelocity = angle * (Mathf.Deg2Rad * rotateSpeed * axis);
-    }*/
+    }
 
     internal void SetGrip(float v)
     {

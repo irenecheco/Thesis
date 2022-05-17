@@ -14,7 +14,10 @@ public class NetworkHandshakeRespond : MonoBehaviour
     private GameObject player;
     private GameObject head;
     private Vector3 cameraPosition;
-    float angle;
+    private Vector3 otherRightContr;
+    float y_angle;
+    //float x_angle;
+    //float z_angle;
     private Vector3 direction;
     //private GameObject otherPlayer;
     private Animator rightHandAnimator;
@@ -37,7 +40,7 @@ public class NetworkHandshakeRespond : MonoBehaviour
         player.transform.position = rightController.transform.position;
     }
 
-    public void OnHandshakePressed(Vector3 position)
+    public void OnHandshakePressed(Vector3 camPosition, Vector3 otherRight)
     {
         /*otherPlayer = camera.GetComponent<OnCollisionActivateButton>().otherPlayerHead;
         //Debug.Log($"{otherPlayer.name}");
@@ -50,7 +53,8 @@ public class NetworkHandshakeRespond : MonoBehaviour
             //Debug.Log($"{netPlayer} is the parent");
             //netPlayer.GetComponent<NetworkPlayer>().ActivateHandshakeConfirm();
         }*/
-        cameraPosition = position;
+        cameraPosition = camPosition;
+        otherRightContr = otherRight;
         StartCoroutine(Wait());
     }
 
@@ -66,13 +70,19 @@ public class NetworkHandshakeRespond : MonoBehaviour
     {
         double time = 0.25;
         yield return new WaitForSeconds((float)time);
+        Vector3 rPos;
 
         Destroy(rightController.GetComponent("NetworkHandController"));
         rightHand.transform.parent = player.transform;
-        player.transform.position = rightController.transform.position;
+        rPos = rightController.transform.position;
+        player.transform.position = rPos;
+        player.transform.position = Vector3.Lerp(rPos, otherRightContr, 0.5f);
+        player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, (float) (player.transform.position.z + 0.516));
         direction = head.transform.position - cameraPosition;
-        angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-        player.transform.rotation = Quaternion.Euler(0, (angle-180), 0);
+        y_angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+        //x_angle = Mathf.Atan2(direction.y, direction.z) * Mathf.Rad2Deg;
+        //z_angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+        player.transform.rotation = Quaternion.Euler(0, (y_angle-180), 0);
 
         rightHandAnimator.Play("Handshake", -1, 0);
     }
