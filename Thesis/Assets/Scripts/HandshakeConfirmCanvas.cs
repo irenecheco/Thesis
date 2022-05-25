@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.UI;
 
-public class HandshakeConfirm : MonoBehaviour, IPunObservable
+public class HandshakeConfirmCanvas : MonoBehaviour, IPunObservable
 {
     private GameObject handshakeConfirm;
     private GameObject handshakeConfirmButton;
@@ -35,8 +35,14 @@ public class HandshakeConfirm : MonoBehaviour, IPunObservable
 
     public void ActivateHandshakeConfirmCanvas()
     {
-        Debug.Log("ActivateHandshakeConfirm entered");
+        //Debug.Log("ActivateHandshakeConfirm entered");
         confirmActive = true;
+    }
+
+    public void DeactivateHandshakeConfirmCanvas()
+    {
+        //Debug.Log("Entered DeactivateHandshakeConfirmCanvas");
+        confirmActive = false;
     }
 
     // Update is called once per frame
@@ -45,9 +51,12 @@ public class HandshakeConfirm : MonoBehaviour, IPunObservable
         if (confirmActive == false)
         {
             handshakeConfirm.transform.GetComponent<Canvas>().enabled = false;
+            handshakeConfirmButton.GetComponent<Button>().interactable = false;
         } else
         {
+            //Debug.Log("Should activate Canvas");
             handshakeConfirm.transform.GetComponent<Canvas>().enabled = true;
+            //Debug.Log($"{handshakeConfirm.transform.GetComponent<Canvas>().enabled}");
             handshakeConfirmButton.GetComponent<Button>().interactable = true;
         }
     }

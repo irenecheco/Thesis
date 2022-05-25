@@ -9,8 +9,9 @@ ScriptsOnlyBuild:
     - ExitGames.Demos.DemoPunVoice.ThirdPersonController
     - Hand
     - HandController
+    - HandshakeActivation
     - HandshakeButton
-    - HandshakeConfirm
+    - HandshakeConfirmCanvas
     - NetworkHand
     - NetworkHandController
     - NetworkHandshakeRespond
@@ -119,6 +120,9 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
+    UnityEditor.UI.dll:
+    - UnityEditor.UI.ButtonEditor
+    - UnityEditor.UI.ImageEditor
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.UI.Button
@@ -191,123 +195,125 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1838}
     - Class: 114
-      Script: {instanceID: 1908}
+      Script: {instanceID: 1910}
     - Class: 114
-      Script: {instanceID: 1932}
+      Script: {instanceID: 1934}
     - Class: 114
-      Script: {instanceID: 1972}
+      Script: {instanceID: 1960}
     - Class: 114
-      Script: {instanceID: 2120}
+      Script: {instanceID: 1976}
     - Class: 114
-      Script: {instanceID: 2182}
+      Script: {instanceID: 2124}
     - Class: 114
-      Script: {instanceID: 2192}
+      Script: {instanceID: 2186}
     - Class: 114
-      Script: {instanceID: 2332}
+      Script: {instanceID: 2196}
     - Class: 114
-      Script: {instanceID: 2436}
+      Script: {instanceID: 2336}
     - Class: 114
-      Script: {instanceID: 2642}
+      Script: {instanceID: 2440}
     - Class: 114
-      Script: {instanceID: 3036}
+      Script: {instanceID: 2646}
     - Class: 114
-      Script: {instanceID: 3458}
+      Script: {instanceID: 3040}
     - Class: 114
-      Script: {instanceID: 3570}
+      Script: {instanceID: 3462}
     - Class: 114
-      Script: {instanceID: 4044}
+      Script: {instanceID: 3574}
     - Class: 114
-      Script: {instanceID: 4050}
+      Script: {instanceID: 4048}
     - Class: 114
-      Script: {instanceID: 4232}
+      Script: {instanceID: 4054}
     - Class: 114
-      Script: {instanceID: 4234}
+      Script: {instanceID: 4236}
     - Class: 114
-      Script: {instanceID: 4304}
+      Script: {instanceID: 4238}
     - Class: 114
-      Script: {instanceID: 4318}
+      Script: {instanceID: 4308}
     - Class: 114
-      Script: {instanceID: 4360}
+      Script: {instanceID: 4322}
     - Class: 114
-      Script: {instanceID: 4382}
+      Script: {instanceID: 4364}
     - Class: 114
-      Script: {instanceID: 4388}
+      Script: {instanceID: 4386}
     - Class: 114
-      Script: {instanceID: 4424}
+      Script: {instanceID: 4392}
     - Class: 114
-      Script: {instanceID: 4566}
+      Script: {instanceID: 4428}
     - Class: 114
-      Script: {instanceID: 4588}
+      Script: {instanceID: 4570}
     - Class: 114
-      Script: {instanceID: 4782}
+      Script: {instanceID: 4592}
     - Class: 114
-      Script: {instanceID: 5020}
+      Script: {instanceID: 4786}
     - Class: 114
-      Script: {instanceID: 5198}
+      Script: {instanceID: 5024}
     - Class: 114
-      Script: {instanceID: 5276}
+      Script: {instanceID: 5202}
     - Class: 114
-      Script: {instanceID: 5336}
+      Script: {instanceID: 5280}
     - Class: 114
-      Script: {instanceID: 5478}
+      Script: {instanceID: 5340}
     - Class: 114
-      Script: {instanceID: 5656}
+      Script: {instanceID: 5482}
     - Class: 114
-      Script: {instanceID: 5838}
+      Script: {instanceID: 5660}
     - Class: 114
-      Script: {instanceID: 5856}
+      Script: {instanceID: 5842}
     - Class: 114
-      Script: {instanceID: 5934}
+      Script: {instanceID: 5860}
     - Class: 114
-      Script: {instanceID: 6036}
+      Script: {instanceID: 5938}
     - Class: 114
-      Script: {instanceID: 6074}
+      Script: {instanceID: 6040}
     - Class: 114
-      Script: {instanceID: 6120}
+      Script: {instanceID: 6078}
     - Class: 114
-      Script: {instanceID: 6158}
+      Script: {instanceID: 6124}
     - Class: 114
-      Script: {instanceID: 6304}
+      Script: {instanceID: 6162}
     - Class: 114
-      Script: {instanceID: 6358}
+      Script: {instanceID: 6202}
     - Class: 114
-      Script: {instanceID: 6446}
+      Script: {instanceID: 6310}
     - Class: 114
-      Script: {instanceID: 6560}
+      Script: {instanceID: 6364}
     - Class: 114
-      Script: {instanceID: 6742}
+      Script: {instanceID: 6452}
     - Class: 114
-      Script: {instanceID: 6874}
+      Script: {instanceID: 6566}
     - Class: 114
-      Script: {instanceID: 7004}
+      Script: {instanceID: 6748}
     - Class: 114
-      Script: {instanceID: 7102}
+      Script: {instanceID: 6880}
     - Class: 114
-      Script: {instanceID: 7548}
+      Script: {instanceID: 7010}
     - Class: 114
-      Script: {instanceID: 7764}
+      Script: {instanceID: 7108}
     - Class: 114
-      Script: {instanceID: 8030}
+      Script: {instanceID: 7554}
     - Class: 114
-      Script: {instanceID: 8328}
+      Script: {instanceID: 7770}
     - Class: 114
-      Script: {instanceID: 8492}
+      Script: {instanceID: 8036}
     - Class: 114
-      Script: {instanceID: 8622}
+      Script: {instanceID: 8334}
     - Class: 114
-      Script: {instanceID: 8766}
+      Script: {instanceID: 8498}
     - Class: 114
-      Script: {instanceID: 8784}
+      Script: {instanceID: 8628}
     - Class: 114
-      Script: {instanceID: 8898}
+      Script: {instanceID: 8772}
     - Class: 114
-      Script: {instanceID: 8920}
+      Script: {instanceID: 8790}
     - Class: 114
-      Script: {instanceID: 9024}
+      Script: {instanceID: 8904}
     - Class: 114
-      Script: {instanceID: 9254}
+      Script: {instanceID: 8926}
     - Class: 114
-      Script: {instanceID: 34300}
+      Script: {instanceID: 9030}
+    - Class: 114
+      Script: {instanceID: 9260}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -505,6 +511,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HandsActiveChecker
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HandshakeActivation
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -3111,6 +3123,12 @@ ScriptsOnlyBuild:
     className: CenterEyeOffset
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HandshakeConfirmCanvas
+  - hash:
+      serializedVersion: 2
       Hash: e14ff447aaf62d9737c2447a225fa4ec
     assemblyName: Oculus.Interaction.dll
     namespaceName: Oculus.Interaction.Input
@@ -5083,12 +5101,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: OculusSampleFramework
     className: TrackSegment
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: HandshakeConfirm
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
