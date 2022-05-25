@@ -15,7 +15,9 @@ public class HandshakeButton : MonoBehaviour
     private GameObject netPlayer;
     private GameObject rHandContainer;
     private GameObject rHand;
-    private GameObject netPlayer2;
+    private GameObject myPlayer;
+    private GameObject myPlayerHead;
+    private GameObject myPlayerConfirm;
     float y_angle;
     //float x_angle;
     //float z_angle;
@@ -39,6 +41,19 @@ public class HandshakeButton : MonoBehaviour
 
     public void OnHandshakePressed()
     {
+        for(int i=0; i<PhotonNetwork.PlayerList.Length; i++)
+        {
+            myPlayer = GameObject.Find($"Network Player {+i}");
+            if(myPlayer.GetComponent<PhotonView>().Owner.IsLocal)
+            {
+                break;
+            }
+        }
+        myPlayerHead = myPlayer.transform.GetChild(0).gameObject;
+        myPlayerConfirm = myPlayerHead.transform.GetChild(0).gameObject;
+        myPlayerConfirm.GetComponent<HandshakeConfirm>().ActivateHandshakeConfirmCanvas();
+       
+
         otherPlayer = camera.GetComponent<OnCollisionActivateButton>().otherPlayerHead;
         //Debug.Log($"{otherPlayer.name}");
         if (!otherPlayer.GetComponent<PhotonView>().IsMine && otherPlayer != null)
@@ -65,18 +80,7 @@ public class HandshakeButton : MonoBehaviour
     {
         rightHand.transform.parent = rightController.transform;
         rightController.AddComponent<HandController>();
-        rightController.GetComponent<HandController>().hand = rightHand.GetComponent<Hand>();
-        /*rHand = rHandContainer.transform.GetChild(0).gameObject;
-        Debug.Log($"{rHand} è rHand");
-        if (rHand.name == "RightHand")
-        {
-            rHand.GetComponent<NetworkHandshakeRespond>().SetBackComponent();
-        }
-        else
-        {
-            rHand = rHandContainer.transform.GetChild(1).gameObject;
-            rHand.GetComponent<NetworkHandshakeRespond>().SetBackComponent();
-        }*/        
+        rightController.GetComponent<HandController>().hand = rightHand.GetComponent<Hand>();      
     }
 
     public IEnumerator Wait()

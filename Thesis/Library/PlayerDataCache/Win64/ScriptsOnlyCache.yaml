@@ -10,6 +10,7 @@ ScriptsOnlyBuild:
     - Hand
     - HandController
     - HandshakeButton
+    - HandshakeConfirm
     - NetworkHand
     - NetworkHandController
     - NetworkHandshakeRespond
@@ -34,6 +35,8 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.PunBasics.PlayerUI
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
+    PhotonUnityNetworking.Editor.dll:
+    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.Utilities.dll:
     - Photon.Pun.UtilityScripts.MoveByKeys
     PhotonUnityNetworking.dll:
@@ -304,7 +307,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9254}
     - Class: 114
-      Script: {instanceID: 22390}
+      Script: {instanceID: 34300}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -5080,6 +5083,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: OculusSampleFramework
     className: TrackSegment
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HandshakeConfirm
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

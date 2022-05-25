@@ -20,9 +20,15 @@ public class NetworkPlayer : MonoBehaviour
     private Transform leftHandRig;
     private Transform rightHandRig;
 
+    private GameObject headObject;
+    private GameObject handshakeConfirm;
+
     void Start()
     {
         photonView = GetComponent<PhotonView>();
+        headObject = this.gameObject.transform.GetChild(0).gameObject;
+        handshakeConfirm = headObject.transform.GetChild(0).gameObject;
+        handshakeConfirm.transform.GetComponent<Canvas>().enabled = false;
 
         XROrigin rig = FindObjectOfType<XROrigin>();
         headRig = rig.transform.Find("Camera Offset/Main Camera");
@@ -47,20 +53,6 @@ public class NetworkPlayer : MonoBehaviour
             MapPosition(rightHand, rightHandRig);
         }
 
-    }
-
-    public void ActivateHandshakeConfirm()
-    {
-        Debug.Log("ActivateHandshakeConfirm entered");
-        if (photonView.IsMine)
-        {
-            GameObject handshakeConfirm = GameObject.Find("Handshake Confirm");
-            GameObject handshakeConfirmButton;
-            handshakeConfirm.GetComponent<Renderer>().enabled = true;
-            handshakeConfirmButton = handshakeConfirm.transform.GetChild(2).gameObject;
-            handshakeConfirmButton.GetComponent<Button>().interactable = true;
-        }
-        
     }
 
     void MapPosition(Transform target, Transform rigTransform)
