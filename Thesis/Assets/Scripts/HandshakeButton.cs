@@ -68,11 +68,4 @@ public class HandshakeButton : MonoBehaviour
         }
     }
 
-    public void SetBackComponent()
-    {
-        rightHand.transform.parent = rightController.transform;
-        rightController.AddComponent<HandController>();
-        rightController.GetComponent<HandController>().hand = rightHand.GetComponent<Hand>();      
-    }
-
 }

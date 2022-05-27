@@ -30,7 +30,7 @@ public class NetworkHandController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (photonView.IsMine)
+        if (!photonView.IsMine)
         {
             UpdateHandAnimation(controllerLeft, leftHand_hand);
             UpdateHandAnimation(controllerRight, rightHand_hand);

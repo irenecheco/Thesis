@@ -42,6 +42,9 @@ MonoBehaviour:
   - CantHearYou
   - ChangeColour
   - HeresWhy
+  - ActivateHandshake
+  - CallHeadMethod
+  - ActivateHandshakeOverNetwork
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -8,7 +8,7 @@ using Unity.XR.CoreUtils;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(ActionBasedController))]
-public class NetworkPlayer : MonoBehaviour
+public class NetworkPlayer : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallback
 {
     public Transform head;
     public Transform leftHand;
@@ -59,5 +59,11 @@ public class NetworkPlayer : MonoBehaviour
     {
         target.position = rigTransform.position;
         target.rotation = rigTransform.rotation;
+    }
+
+    public void OnPhotonInstantiate(PhotonMessageInfo info)
+    {
+        info.Sender.TagObject = this.gameObject;
+        //Debug.Log($"{info.Sender.TagObject}");
     }
 }

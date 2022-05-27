@@ -26,6 +26,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         roomOptions.MaxPlayers = 10;
         roomOptions.IsVisible = true;
         roomOptions.IsOpen = true;
+        roomOptions.PublishUserId = true;
         PhotonNetwork.JoinOrCreateRoom("Room 1", roomOptions, TypedLobby.Default);
     }
 
