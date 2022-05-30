@@ -748,7 +748,8 @@ AnimationClip:
   - time: 1.7666667
     functionName: SetBackComponent
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: bd98c70e98937494897df3524cbaf109,
+      type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

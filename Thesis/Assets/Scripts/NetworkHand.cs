@@ -17,6 +17,7 @@ public class NetworkHand : MonoBehaviour
     private float triggerCurrent;
     private string animatorGripParam = "Grip";
     private string animatorTriggerParam = "Trigger";
+    private PhotonView photonView;
 
     //Physics Movement
     /*[SerializeField] private float followSpeed = 30f;
@@ -25,16 +26,16 @@ public class NetworkHand : MonoBehaviour
     [SerializeField] private Vector3 rotationOffset;
     private GameObject followObject;
     private Transform _followTarget;
-    private Rigidbody _body;
-    private PhotonView photonView;*/
+    private Rigidbody _body;*/
 
     void Start()
     {
         //Animation
         animator = GetComponent<Animator>();
+        photonView = this.gameObject.GetComponentInParent<PhotonView>();
 
         //Physics Movement
-        /*photonView = this.gameObject.GetComponentInParent<PhotonView>();
+        /*
         if (!photonView.IsMine) {
             if (this.gameObject.name == "LeftHand")
             {
@@ -54,12 +55,15 @@ public class NetworkHand : MonoBehaviour
             _body.position = _followTarget.position;
             _body.rotation = _followTarget.rotation;
         }*/
-        
+
     }
 
     void Update()
     {
-        AnimateHand();
+        if (photonView.IsMine)
+        {
+            AnimateHand();
+        }
 
         /*if (!photonView.IsMine)
         {

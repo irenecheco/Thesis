@@ -63,7 +63,7 @@ public class NetworkHandshakeRespond : MonoBehaviour
         rightHand.transform.parent = rightController.transform;
         rightController.AddComponent<NetworkHandController>();
         rightController.GetComponent<NetworkHandController>().rightHand_hand = rightHand.GetComponent<NetworkHand>();
-        rightController.GetComponent<NetworkHandController>().leftHand_hand = leftHand.GetComponent<NetworkHand>();
+        leftController.GetComponent<NetworkHandController>().leftHand_hand = leftHand.GetComponent<NetworkHand>();
     }
 
     public IEnumerator Wait()

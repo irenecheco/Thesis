@@ -663,7 +663,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3009401223206314786}
   m_Layer: 0
-  m_Name: Player
+  m_Name: NetPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1788,8 +1788,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4495268793446162129}
   - component: {fileID: -4774659003028301836}
-  - component: {fileID: 5654050121825399357}
   - component: {fileID: 4274736505858004115}
+  - component: {fileID: 5654050121825399357}
   - component: {fileID: 1490423443896391354}
   - component: {fileID: 3965411057960687155}
   m_Layer: 0
@@ -1843,21 +1843,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &5654050121825399357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5735369834688759995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a81bd25dc5952f48ac3c36a8ffb9629, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  head: {fileID: 3412191941483712095}
-  leftHand: {fileID: 4674626554397184115}
-  rightHand: {fileID: 9218159729409766538}
 --- !u!114 &4274736505858004115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2024,6 +2009,21 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_ButtonPressPoint: 0.5
+--- !u!114 &5654050121825399357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5735369834688759995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a81bd25dc5952f48ac3c36a8ffb9629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 3412191941483712095}
+  leftHand: {fileID: 4674626554397184115}
+  rightHand: {fileID: 9218159729409766538}
 --- !u!114 &1490423443896391354
 MonoBehaviour:
   m_ObjectHideFlags: 0

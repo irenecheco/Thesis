@@ -51,12 +51,14 @@ public class NetworkHandshakeActivation : MonoBehaviour
     {
         playersID[0] = pl1ID;
         playersID[1] = pl2ID;
+        Debug.Log($"id 1 è {playersID[0]}, id 2 è {playersID[1]}");
         photonView.RPC("ActivateHandshakeOverNetwork", RpcTarget.All, playersID as object[]);
     }
 
     [PunRPC]
     public void ActivateHandshakeOverNetwork(object[] ids)
     {
+
         string[] playersIds = new string[2];
         playersIds[0] = (string)ids[0];
         playersIds[1] = (string)ids[1];
@@ -87,7 +89,6 @@ public class NetworkHandshakeActivation : MonoBehaviour
             }
             StartCoroutine(Wait());
 
-            SetBackComponent();
         } else if (playersIds[1] == PhotonNetwork.LocalPlayer.UserId)
         {
             foreach (var item in PhotonNetwork.PlayerList)
@@ -145,7 +146,9 @@ public class NetworkHandshakeActivation : MonoBehaviour
 
         rightHandAnimator.Play("Handshake", -1, 0);
 
-        SetBackComponent();
+        //SetBackComponent();
+
+        //Debug.Log($"{rightHand.transform.parent.gameObject.name} è il parent; {rightController.GetComponent<HandController>().hand} è la mano assegnata");
 
         waitConfirmUI.GetComponent<Canvas>().enabled = false;
         handshakeUI.GetComponent<Canvas>().enabled = true;

@@ -60,7 +60,6 @@ public class NetworkPlayer : MonoBehaviourPunCallbacks, IPunInstantiateMagicCall
         target.position = rigTransform.position;
         target.rotation = rigTransform.rotation;
     }
-
     public void OnPhotonInstantiate(PhotonMessageInfo info)
     {
         info.Sender.TagObject = this.gameObject;
