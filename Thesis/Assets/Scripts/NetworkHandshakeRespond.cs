@@ -42,17 +42,6 @@ public class NetworkHandshakeRespond : MonoBehaviour
 
     public void OnHandshakePressed(Vector3 camPosition, Vector3 otherRight)
     {
-        /*otherPlayer = camera.GetComponent<OnCollisionActivateButton>().otherPlayerHead;
-        //Debug.Log($"{otherPlayer.name}");
-        if (!otherPlayer.GetComponent<PhotonView>().IsMine && otherPlayer != null)
-        {
-            GameObject netPlayer = otherPlayer.transform.parent.gameObject;
-            GameObject rHandContainer = netPlayer.transform.GetChild(2).gameObject;
-            GameObject rHand = rHandContainer.transform.GetChild(0).gameObject;
-            rHand.GetComponent<HandshakeButton>().StartCoroutine(Wait());
-            //Debug.Log($"{netPlayer} is the parent");
-            //netPlayer.GetComponent<NetworkPlayer>().ActivateHandshakeConfirm();
-        }*/
         cameraPosition = camPosition;
         otherRightContr = otherRight;
         StartCoroutine(Wait());
@@ -74,9 +63,10 @@ public class NetworkHandshakeRespond : MonoBehaviour
 
         Destroy(rightController.GetComponent("NetworkHandController"));
         rightHand.transform.parent = player.transform;
-        rPos = rightController.transform.position;
+        /*rPos = rightController.transform.position;
         player.transform.position = rPos;
-        player.transform.position = Vector3.Lerp(otherRightContr, rPos,  0.5f);
+        player.transform.position = Vector3.Lerp(otherRightContr, rPos,  0.5f);*/
+        player.transform.position = new Vector3(head.transform.position.x, (float)(head.transform.position.y - 0.4), head.transform.position.z);
         player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, (float) (player.transform.position.z - 0.516));
         direction = head.transform.position - cameraPosition;
         y_angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
