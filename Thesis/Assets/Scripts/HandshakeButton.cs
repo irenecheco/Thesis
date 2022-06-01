@@ -37,8 +37,15 @@ public class HandshakeButton : MonoBehaviour
     {
         for(int i=0; i<PhotonNetwork.PlayerList.Length; i++)
         {
-            myPlayer = GameObject.Find($"Network Player {+i}");
-            if(myPlayer.GetComponent<PhotonView>().Owner.IsLocal)
+            foreach(var item in PhotonNetwork.PlayerList)
+            {
+                if (item.IsLocal)
+                {
+                    myPlayer = (GameObject)item.TagObject;
+                }
+            }
+            //myPlayer = GameObject.Find($"Network Player {i}");
+            if(myPlayer.GetComponent<PhotonView>().IsMine)
             {
                 break;
             }

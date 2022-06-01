@@ -5,7 +5,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 using Unity.XR.CoreUtils;
 using Photon.Pun;
 
-[RequireComponent(typeof(ActionBasedController))]
 public class NetworkHandController : MonoBehaviour
 {
     private PhotonView photonView;

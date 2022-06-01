@@ -41,7 +41,7 @@ public class NetworkHandshakeActivation : MonoBehaviour
         camera = GameObject.Find("Camera Offset/Main Camera");
         rightHandAnimator = rightHand.GetComponent<Animator>();
         //handshakeAnimation = rightHand.GetComponent<Animation>();
-        player.transform.position = GameObject.Find("Camera Offset/RightHand Controller").transform.position;
+        //player.transform.position = GameObject.Find("Camera Offset/RightHand Controller").transform.position;
         myHead = this.gameObject.transform.GetChild(0).gameObject;
         confirmCanvas = myHead.gameObject.transform.GetChild(0).gameObject;
 
@@ -138,7 +138,7 @@ public class NetworkHandshakeActivation : MonoBehaviour
         player.transform.position = rPos;
         player.transform.position = Vector3.Lerp(rPos, otherRightContr.transform.position, 0.5f);
         player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, (float)(player.transform.position.z + 0.516));
-        direction = head.transform.position - camera.transform.position;
+        direction = camera.transform.position - head.transform.position;
         y_angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
         //x_angle = Mathf.Atan2(direction.y, direction.z) * Mathf.Rad2Deg;
         //z_angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;

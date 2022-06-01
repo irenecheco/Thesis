@@ -7,7 +7,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 using Unity.XR.CoreUtils;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(ActionBasedController))]
 public class NetworkPlayer : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallback
 {
     public Transform head;
@@ -48,6 +47,7 @@ public class NetworkPlayer : MonoBehaviourPunCallbacks, IPunInstantiateMagicCall
     {
         if (photonView.IsMine)
         {
+            //Debug.Log($"Aggiorna e leftHandRig è {leftHandRig}");
             MapPosition(head, headRig);
             MapPosition(leftHand, leftHandRig);
             MapPosition(rightHand, rightHandRig);

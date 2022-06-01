@@ -76,13 +76,13 @@ public class NetworkHandshakeRespond : MonoBehaviour
         rightHand.transform.parent = player.transform;
         rPos = rightController.transform.position;
         player.transform.position = rPos;
-        player.transform.position = Vector3.Lerp(rPos, otherRightContr, 0.5f);
-        player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, (float) (player.transform.position.z + 0.516));
+        player.transform.position = Vector3.Lerp(otherRightContr, rPos,  0.5f);
+        player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, (float) (player.transform.position.z - 0.516));
         direction = head.transform.position - cameraPosition;
         y_angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
         //x_angle = Mathf.Atan2(direction.y, direction.z) * Mathf.Rad2Deg;
         //z_angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-        player.transform.rotation = Quaternion.Euler(0, (y_angle-180), 0);
+        player.transform.rotation = Quaternion.Euler(0, y_angle, 0);
 
         rightHandAnimator.Play("Handshake", -1, 0);
     }
