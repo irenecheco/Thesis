@@ -1713,7 +1713,7 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
-      Hash: b1ebd4b2985afbd8146747ebc315ef9c
+      Hash: ec634ffa7cbe217a4b64e31065caeb20
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Hand
@@ -2541,7 +2541,7 @@ ScriptsOnlyBuild:
     className: ControllerBoxController
   - hash:
       serializedVersion: 2
-      Hash: b1ebd4b2985afbd8146747ebc315ef9c
+      Hash: ec634ffa7cbe217a4b64e31065caeb20
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NetworkHand

@@ -3048,6 +3048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationSpeed: 10
+  flag: 0
 --- !u!1001 &3892900187633217826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3291,3 +3292,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationSpeed: 10
+  flag: 0

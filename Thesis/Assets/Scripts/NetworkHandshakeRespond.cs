@@ -53,22 +53,30 @@ public class NetworkHandshakeRespond : MonoBehaviour
         rightController.AddComponent<NetworkHandController>();
         rightController.GetComponent<NetworkHandController>().rightHand_hand = rightHand.GetComponent<NetworkHand>();
         leftController.GetComponent<NetworkHandController>().leftHand_hand = leftHand.GetComponent<NetworkHand>();
+        rightHand.GetComponent<NetworkHand>().flag = false;
     }
 
     public IEnumerator Wait()
     {
         double time = 0.25;
         yield return new WaitForSeconds((float)time);
-        //Vector3 rPos;
+        float starting_y = 0;
+        Vector3 midPosition;
+
+        if (cameraPosition.y <= head.transform.position.y)
+        {
+            starting_y = cameraPosition.y;
+        }
+        else
+        {
+            starting_y = head.transform.position.y;
+        }
 
         Destroy(rightController.GetComponent("NetworkHandController"));
-        rightHand.GetComponent<NetworkHand>().gripCurrent = 0;
-        rightHand.GetComponent<NetworkHand>().triggerCurrent = 0;
+        rightHand.GetComponent<NetworkHand>().flag = true;
         rightHand.transform.parent = player.transform;
-        /*rPos = rightController.transform.position;
-        player.transform.position = rPos;
-        player.transform.position = Vector3.Lerp(otherRightContr, rPos,  0.5f);*/
-        player.transform.position = new Vector3(head.transform.position.x, (float)(head.transform.position.y - 0.4), head.transform.position.z);
+        midPosition = Vector3.Lerp(head.transform.position, cameraPosition,  0.5f);
+        player.transform.position = new Vector3(midPosition.x, (float)(starting_y - 0.4), midPosition.z);
         //player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, (float) (player.transform.position.z - 0.516));
         direction = (cameraPosition - head.transform.position).normalized;
 
@@ -92,11 +100,13 @@ public class NetworkHandshakeRespond : MonoBehaviour
         {
             player.transform.rotation = new Quaternion(0, 0, 0, 0);
             player.transform.rotation = Quaternion.Euler(0, y_angle, 0);
+            player.transform.Translate(new Vector3((float)(-0.02), 0, (float)(-0.560)), Space.Self);
         }
         else
         {
             player.transform.rotation = new Quaternion(0, 0, 0, 0);
             player.transform.rotation = Quaternion.Euler(0, (y_angle - 180), 0);
+            player.transform.Translate(new Vector3((float)(+0.02), 0, (float)(+0.560)), Space.Self);
         }
 
         rightHandAnimator.Play("Handshake", -1, 0);

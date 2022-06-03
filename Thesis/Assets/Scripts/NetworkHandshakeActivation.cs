@@ -134,24 +134,23 @@ public class NetworkHandshakeActivation : MonoBehaviour
     {
         double time = 0.25;
         GameObject head = otherPlayer.transform.GetChild(0).gameObject;
-        //GameObject otherRightContr = otherPlayer.transform.GetChild(2).gameObject;
         yield return new WaitForSeconds((float)time);
-        //Vector3 rPos;
-        //Vector3 midPosition;
-        //midPosition = Vector3.Lerp(leftHand.transform.position, rightHand.transform.position, 0.5f);
-        //player.transform.position = rightHand.transform.position;
+        float starting_y = 0;
+        Vector3 midPosition;
+
+        if (camera.transform.position.y <= head.transform.position.y)
+        {
+            starting_y = camera.transform.position.y;
+        } else {
+            starting_y = head.transform.position.y;
+        }
 
         Destroy(rightController.GetComponent("HandController"));
-        rightHand.GetComponent<Hand>().gripCurrent = 0;
-        rightHand.GetComponent<Hand>().triggerCurrent = 0;
+        rightHand.GetComponent<Hand>().flag = true;
         rightHand.transform.parent = player.transform;
-        //rPos = rightController.transform.position;
-        //player.transform.position = rPos;
-        //player.transform.position = midPosition;
-        /*Debug.Log($"left hand position {leftHand.transform.position}");
-        Debug.Log($"right hand position {rightHand.transform.position}");
-        Debug.Log($"midpoint position {midPosition}");*/
-        player.transform.position = new Vector3(camera.transform.position.x, (float)(camera.transform.position.y - 0.4), camera.transform.position.z);
+        midPosition = Vector3.Lerp(head.transform.position, camera.transform.position, 0.5f);
+        player.transform.position = new Vector3(midPosition.x, (float)(starting_y - 0.4), midPosition.z);
+        //player.transform.position = new Vector3(camera.transform.position.x, (float)(mid_y - 0.4), camera.transform.position.z);
         //player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, (float)(player.transform.position.z + 0.516));
         direction = (head.transform.position - camera.transform.position).normalized;
         y_angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
@@ -174,10 +173,12 @@ public class NetworkHandshakeActivation : MonoBehaviour
         {
             player.transform.rotation = new Quaternion(0, 0, 0, 0);
             player.transform.rotation = Quaternion.Euler(0, y_angle, 0);
+            player.transform.Translate(new Vector3((float)(-0.02), 0, (float)(-0.560)), Space.Self);
         } else
         {
             player.transform.rotation = new Quaternion(0, 0, 0, 0);
             player.transform.rotation = Quaternion.Euler(0, (y_angle - 180), 0);
+            player.transform.Translate(new Vector3((float)(+0.02), 0, (float)(+0.560)), Space.Self);
         }
         
         

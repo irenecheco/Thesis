@@ -65,6 +65,7 @@ public class HandshakeButton : MonoBehaviour
         rightHand.transform.parent = rightController.transform;
         rightController.AddComponent<HandController>();
         rightController.GetComponent<HandController>().hand = rightHand.GetComponent<Hand>();
+        rightHand.GetComponent<Hand>().flag = false;
     }
 
 }

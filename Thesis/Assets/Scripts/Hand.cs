@@ -12,8 +12,9 @@ public class Hand : MonoBehaviour
     Animator animator;
     private float gripTarget;
     private float triggerTarget;
-    public float gripCurrent;
-    public float triggerCurrent;
+    public bool flag = false;
+    private float gripCurrent;
+    private float triggerCurrent;
     private string animatorGripParam = "Grip";
     private string animatorTriggerParam = "Trigger";
 
@@ -46,7 +47,18 @@ public class Hand : MonoBehaviour
 
     void Update()
     {
-        AnimateHand();
+        if(flag == false)
+        {
+            AnimateHand();
+        } else if (flag == true) 
+        {
+            gripCurrent = 0;
+            animator.SetFloat(animatorGripParam, gripCurrent);
+            triggerCurrent = 0;
+            animator.SetFloat(animatorTriggerParam, triggerCurrent);
+
+        }
+
 
         //PhysicsMove();
     }
