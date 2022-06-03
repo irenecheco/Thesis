@@ -59,20 +59,45 @@ public class NetworkHandshakeRespond : MonoBehaviour
     {
         double time = 0.25;
         yield return new WaitForSeconds((float)time);
-        Vector3 rPos;
+        //Vector3 rPos;
 
         Destroy(rightController.GetComponent("NetworkHandController"));
+        rightHand.GetComponent<NetworkHand>().gripCurrent = 0;
+        rightHand.GetComponent<NetworkHand>().triggerCurrent = 0;
         rightHand.transform.parent = player.transform;
         /*rPos = rightController.transform.position;
         player.transform.position = rPos;
         player.transform.position = Vector3.Lerp(otherRightContr, rPos,  0.5f);*/
         player.transform.position = new Vector3(head.transform.position.x, (float)(head.transform.position.y - 0.4), head.transform.position.z);
-        player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, (float) (player.transform.position.z - 0.516));
-        direction = head.transform.position - cameraPosition;
+        //player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, (float) (player.transform.position.z - 0.516));
+        direction = (cameraPosition - head.transform.position).normalized;
+
         y_angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+        //Debug.Log($"y direction {y_angle}");
+        //Debug.Log($" camera {head.transform.rotation.eulerAngles.y}");
         //x_angle = Mathf.Atan2(direction.y, direction.z) * Mathf.Rad2Deg;
         //z_angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-        player.transform.rotation = Quaternion.Euler(0, y_angle, 0);
+        float head_y_angle = head.transform.rotation.eulerAngles.y;
+        if (y_angle < 0)
+        {
+            float offset = -y_angle;
+            y_angle = 360 - offset;
+        }
+        if (head_y_angle < 0)
+        {
+            float offset = head_y_angle;
+            head_y_angle = 360 - offset;
+        }
+        if ((y_angle - 90) < head_y_angle && head_y_angle < (y_angle + 90))
+        {
+            player.transform.rotation = new Quaternion(0, 0, 0, 0);
+            player.transform.rotation = Quaternion.Euler(0, y_angle, 0);
+        }
+        else
+        {
+            player.transform.rotation = new Quaternion(0, 0, 0, 0);
+            player.transform.rotation = Quaternion.Euler(0, (y_angle - 180), 0);
+        }
 
         rightHandAnimator.Play("Handshake", -1, 0);
     }

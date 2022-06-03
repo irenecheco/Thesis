@@ -12,8 +12,8 @@ public class Hand : MonoBehaviour
     Animator animator;
     private float gripTarget;
     private float triggerTarget;
-    private float gripCurrent;
-    private float triggerCurrent;
+    public float gripCurrent;
+    public float triggerCurrent;
     private string animatorGripParam = "Grip";
     private string animatorTriggerParam = "Trigger";
 

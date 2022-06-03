@@ -136,12 +136,14 @@ public class NetworkHandshakeActivation : MonoBehaviour
         GameObject head = otherPlayer.transform.GetChild(0).gameObject;
         //GameObject otherRightContr = otherPlayer.transform.GetChild(2).gameObject;
         yield return new WaitForSeconds((float)time);
-        Vector3 rPos;
-        Vector3 midPosition;
-        midPosition = Vector3.Lerp(leftHand.transform.position, rightHand.transform.position, 0.5f);
-        player.transform.position = rightHand.transform.position;
+        //Vector3 rPos;
+        //Vector3 midPosition;
+        //midPosition = Vector3.Lerp(leftHand.transform.position, rightHand.transform.position, 0.5f);
+        //player.transform.position = rightHand.transform.position;
 
         Destroy(rightController.GetComponent("HandController"));
+        rightHand.GetComponent<Hand>().gripCurrent = 0;
+        rightHand.GetComponent<Hand>().triggerCurrent = 0;
         rightHand.transform.parent = player.transform;
         //rPos = rightController.transform.position;
         //player.transform.position = rPos;
@@ -150,12 +152,34 @@ public class NetworkHandshakeActivation : MonoBehaviour
         Debug.Log($"right hand position {rightHand.transform.position}");
         Debug.Log($"midpoint position {midPosition}");*/
         player.transform.position = new Vector3(camera.transform.position.x, (float)(camera.transform.position.y - 0.4), camera.transform.position.z);
-        player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, (float)(player.transform.position.z + 0.516));
-        direction = camera.transform.position - head.transform.position;
+        //player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, (float)(player.transform.position.z + 0.516));
+        direction = (head.transform.position - camera.transform.position).normalized;
         y_angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+        //Debug.Log($"y direction {y_angle}");
+        //Debug.Log($" camera {camera.transform.rotation.eulerAngles.y}");
         //x_angle = Mathf.Atan2(direction.y, direction.z) * Mathf.Rad2Deg;
         //z_angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-        player.transform.rotation = Quaternion.Euler(0, (y_angle), 0);
+        float camera_y_angle = camera.transform.rotation.eulerAngles.y;
+        if (y_angle < 0)
+        {
+            float offset = -y_angle;
+            y_angle = 360 - offset;
+        }
+        if(camera_y_angle < 0)
+        {
+            float offset = camera_y_angle;
+            camera_y_angle = 360 - offset;
+        }
+        if ((y_angle - 90) < camera_y_angle && camera_y_angle < (y_angle + 90))
+        {
+            player.transform.rotation = new Quaternion(0, 0, 0, 0);
+            player.transform.rotation = Quaternion.Euler(0, y_angle, 0);
+        } else
+        {
+            player.transform.rotation = new Quaternion(0, 0, 0, 0);
+            player.transform.rotation = Quaternion.Euler(0, (y_angle - 180), 0);
+        }
+        
         
 
         rightHandAnimator.Play("Handshake", -1, 0);
