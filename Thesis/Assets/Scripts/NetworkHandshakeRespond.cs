@@ -100,13 +100,13 @@ public class NetworkHandshakeRespond : MonoBehaviour
         {
             player.transform.rotation = new Quaternion(0, 0, 0, 0);
             player.transform.rotation = Quaternion.Euler(0, y_angle, 0);
-            player.transform.Translate(new Vector3((float)(-0.02), 0, (float)(-0.560)), Space.Self);
+            player.transform.Translate(new Vector3((float)(-0.026), 0, (float)(-0.540)), Space.Self);
         }
         else
         {
             player.transform.rotation = new Quaternion(0, 0, 0, 0);
             player.transform.rotation = Quaternion.Euler(0, (y_angle - 180), 0);
-            player.transform.Translate(new Vector3((float)(+0.02), 0, (float)(+0.560)), Space.Self);
+            player.transform.Translate(new Vector3((float)(+0.026), 0, (float)(+0.540)), Space.Self);
         }
 
         rightHandAnimator.Play("Handshake", -1, 0);
