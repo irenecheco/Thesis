@@ -1564,6 +1564,7 @@ MonoBehaviour:
     sceneIndex: 3
     maxPlayer: 3
   roomUI: {fileID: 1777172919}
+  connectButton: {fileID: 2088116794}
 --- !u!4 &354470868
 Transform:
   m_ObjectHideFlags: 0

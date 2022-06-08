@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Handshake 1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Handshake 2.unity
+    guid: cc20e8719cf7e5a4ba3b466beea50707
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 6dbcd69f2c241b547a7e1d298b94a2f7,
       type: 2}

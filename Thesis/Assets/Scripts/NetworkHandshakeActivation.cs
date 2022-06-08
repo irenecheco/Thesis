@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Unity.XR.CoreUtils;
 
@@ -29,6 +30,8 @@ public class NetworkHandshakeActivation : MonoBehaviour
     //private float x_angle;
     //private float z_angle;
 
+    private int sceneIndex;
+
 
     private string[] playersID = new string[2];
     //private string player2ID;
@@ -36,11 +39,17 @@ public class NetworkHandshakeActivation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
         photonView = this.GetComponent<PhotonView>();
         rightHand = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
         leftHand = GameObject.Find("Camera Offset/LeftHand Controller/LeftHand");
-        waitConfirmUI = leftHand.transform.GetChild(3).gameObject;
-        handshakeUI = leftHand.transform.GetChild(2).gameObject;
+
+        if(sceneIndex == 1)
+        {
+            waitConfirmUI = leftHand.transform.GetChild(3).gameObject;
+            handshakeUI = leftHand.transform.GetChild(2).gameObject;
+        }
+
         rightController = GameObject.Find("Camera Offset/RightHand Controller");
         leftController = GameObject.Find("Camera Offset/LefttHand Controller");
         player = GameObject.Find("Player");
@@ -49,8 +58,11 @@ public class NetworkHandshakeActivation : MonoBehaviour
         //handshakeAnimation = rightHand.GetComponent<Animation>();
         //player.transform.position = GameObject.Find("Camera Offset/RightHand Controller").transform.position;
         myHead = this.gameObject.transform.GetChild(0).gameObject;
-        confirmCanvas = myHead.gameObject.transform.GetChild(0).gameObject;
 
+        if(sceneIndex == 1)
+        {
+            confirmCanvas = myHead.gameObject.transform.GetChild(0).gameObject;
+        }
     }
 
     public void CallActivationOverNetwork(string pl1ID, string pl2ID)

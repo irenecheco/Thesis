@@ -16,11 +16,15 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 {
     public List<DefaultRoom> defaultRooms;
     public GameObject roomUI;
+    public GameObject connectButton;
 
     public void ConnectToServer()
     {
-        PhotonNetwork.ConnectUsingSettings();
-        Debug.Log("Try Connect To Server...");
+        if (!PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.ConnectUsingSettings();
+            Debug.Log("Try Connect To Server...");
+        }
     }
 
     public override void OnConnectedToMaster()
@@ -34,6 +38,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         base.OnJoinedLobby();
         Debug.Log("Lobby joined");
+        connectButton.SetActive(false);
         roomUI.SetActive(true);
     }
 

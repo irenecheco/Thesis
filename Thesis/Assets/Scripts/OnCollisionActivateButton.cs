@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 
 public class OnCollisionActivateButton : MonoBehaviourPunCallbacks, IPunObservable
@@ -10,10 +11,17 @@ public class OnCollisionActivateButton : MonoBehaviourPunCallbacks, IPunObservab
     private string handshake_button = "Handshake Button";
     //private PhotonView photonViewParent;
 
+    private int sceneIndex;
+
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.Find(handshake_button).GetComponent<Button>().interactable = false;
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        if(sceneIndex == 1)
+        {
+            GameObject.Find(handshake_button).GetComponent<Button>().interactable = false;
+        }
         //photonViewParent = GetComponent<PhotonView>();
     }
 
