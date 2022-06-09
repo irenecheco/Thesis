@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HandshakeConfirmCanvas : MonoBehaviour, IPunObservable
 {
     private GameObject handshakeConfirm;
     private GameObject handshakeConfirmButton;
     private bool confirmActive;
+
+    private int sceneIndex;
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -26,11 +29,15 @@ public class HandshakeConfirmCanvas : MonoBehaviour, IPunObservable
     // Start is called before the first frame update
     void Start()
     {
-        handshakeConfirm = this.gameObject;
-        handshakeConfirm.transform.GetComponent<Canvas>().enabled = false;
-        handshakeConfirmButton = handshakeConfirm.transform.GetChild(2).gameObject;
-        confirmActive = false;
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
 
+        if(sceneIndex == 1)
+        {
+            handshakeConfirm = this.gameObject;
+            handshakeConfirm.transform.GetComponent<Canvas>().enabled = false;
+            handshakeConfirmButton = handshakeConfirm.transform.GetChild(2).gameObject;
+            confirmActive = false;
+        }
     }
 
     public void ActivateHandshakeConfirmCanvas()
@@ -48,16 +55,20 @@ public class HandshakeConfirmCanvas : MonoBehaviour, IPunObservable
     // Update is called once per frame
     void Update()
     {
-        if (confirmActive == false)
+        if(sceneIndex == 1)
         {
-            handshakeConfirm.transform.GetComponent<Canvas>().enabled = false;
-            handshakeConfirmButton.GetComponent<Button>().interactable = false;
-        } else
-        {
-            //Debug.Log("Should activate Canvas");
-            handshakeConfirm.transform.GetComponent<Canvas>().enabled = true;
-            //Debug.Log($"{handshakeConfirm.transform.GetComponent<Canvas>().enabled}");
-            handshakeConfirmButton.GetComponent<Button>().interactable = true;
+            if (confirmActive == false)
+            {
+                handshakeConfirm.transform.GetComponent<Canvas>().enabled = false;
+                handshakeConfirmButton.GetComponent<Button>().interactable = false;
+            }
+            else
+            {
+                //Debug.Log("Should activate Canvas");
+                handshakeConfirm.transform.GetComponent<Canvas>().enabled = true;
+                //Debug.Log($"{handshakeConfirm.transform.GetComponent<Canvas>().enabled}");
+                handshakeConfirmButton.GetComponent<Button>().interactable = true;
+            }
         }
     }
 }
