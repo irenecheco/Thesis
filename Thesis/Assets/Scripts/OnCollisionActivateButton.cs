@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
-using UnityEngine.XR;
 
 public class OnCollisionActivateButton : MonoBehaviourPunCallbacks, IPunObservable
 {
@@ -20,9 +19,7 @@ public class OnCollisionActivateButton : MonoBehaviourPunCallbacks, IPunObservab
 
     private bool h2_messageActive;
 
-    private List<InputDevice> devices = new List<InputDevice>();
-    private InputDeviceCharacteristics rControllerCharacteristics = InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
-    private InputDevice targetDevice;
+    public bool buttonAPressed = false;
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -47,14 +44,6 @@ public class OnCollisionActivateButton : MonoBehaviourPunCallbacks, IPunObservab
             GameObject.Find(handshake_button).GetComponent<Button>().interactable = false;
         } else if (sceneIndex == 2)
         {
-            InputDevices.GetDevicesWithCharacteristics(rControllerCharacteristics, devices);
-
-            if (devices.Count > 0)
-            {
-                targetDevice = devices[0];
-            }
-
-
             this.transform.Find(handshake1_confirmCanva).gameObject.SetActive(false);
             this.transform.Find(handshake2_waitingCanva).gameObject.SetActive(false);
             this.transform.Find(handshake2_confirmCanva).gameObject.SetActive(false);
@@ -67,22 +56,18 @@ public class OnCollisionActivateButton : MonoBehaviourPunCallbacks, IPunObservab
     {
         if(sceneIndex == 2)
         {
-            if(h2_messageActive == false)
+            if (h2_messageActive == false)
             {
                 //Debug.Log($"messaggio è {h2_messageActive}");
                 this.transform.Find(handshake2_messageCanva).gameObject.SetActive(false);
-            } else
-            {
-                //Debug.Log($"messaggio è {h2_messageActive}");
-                //Debug.Log($"oggetto è {this.transform.Find(handshake2_messageCanva).gameObject}");
-                this.transform.Find(handshake2_messageCanva).gameObject.SetActive(true);
-                this.transform.Find(handshake2_messageCanva).gameObject.GetComponent<Canvas>().enabled = true;
+                this.transform.Find(handshake2_messageCanva).gameObject.GetComponent<Canvas>().enabled = false;
+                this.transform.Find(handshake2_messageCanva).GetComponent<OnButtonAPressed>().isColliding = false;
             }
 
-            targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue);
-            if(primaryButtonValue == true)
+            if (buttonAPressed == true)
             {
-                Debug.Log("pressing button A");
+                this.transform.Find(handshake2_messageCanva).gameObject.SetActive(false);
+                this.transform.Find(handshake2_messageCanva).gameObject.GetComponent<Canvas>().enabled = false;
             }
         }
     }
@@ -103,7 +88,14 @@ public class OnCollisionActivateButton : MonoBehaviourPunCallbacks, IPunObservab
                     GameObject.Find(handshake_button).GetComponent<Button>().interactable = true;
                 } else if(sceneIndex == 2)
                 {
-                    h2_messageActive = true;
+                    if(buttonAPressed == false)
+                    {
+                        h2_messageActive = true;
+                        this.transform.Find(handshake2_messageCanva).GetComponent<OnButtonAPressed>().otherPlayerHead = otherPlayerHead;
+                        this.transform.Find(handshake2_messageCanva).GetComponent<OnButtonAPressed>().isColliding = true;
+                        this.transform.Find(handshake2_messageCanva).gameObject.SetActive(true);
+                        this.transform.Find(handshake2_messageCanva).gameObject.GetComponent<Canvas>().enabled = true;
+                    }
                 }
                 
             }
@@ -126,7 +118,10 @@ public class OnCollisionActivateButton : MonoBehaviourPunCallbacks, IPunObservab
                 }
                 else if (sceneIndex == 2)
                 {
-                    h2_messageActive = true;
+                    if (buttonAPressed == false)
+                    {
+                        h2_messageActive = true;
+                    }
                 }
             }
         }
@@ -149,6 +144,9 @@ public class OnCollisionActivateButton : MonoBehaviourPunCallbacks, IPunObservab
                 else if (sceneIndex == 2)
                 {
                     h2_messageActive = false;
+                    otherPlayerHead.transform.Find(handshake2_waitingCanva).gameObject.SetActive(false);
+                    otherPlayerHead.transform.Find(handshake2_waitingCanva).gameObject.GetComponent<Canvas>().enabled = false;
+                    buttonAPressed = false;
                 }
             }
         }

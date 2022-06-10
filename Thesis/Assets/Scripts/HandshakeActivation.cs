@@ -6,7 +6,7 @@ using Photon.Pun;
 public class HandshakeActivation : MonoBehaviour
 {
     private GameObject confirmCanvas;
-   private GameObject confirmHead;
+    private GameObject confirmHead;
     private GameObject confirmPlayer;
     private string player1ID;
     private string player2ID;
