@@ -238,15 +238,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7034}
     - Class: 114
-      Script: {instanceID: 7578}
+      Script: {instanceID: 7580}
     - Class: 114
-      Script: {instanceID: 8062}
+      Script: {instanceID: 8064}
     - Class: 114
-      Script: {instanceID: 8144}
+      Script: {instanceID: 8146}
     - Class: 114
-      Script: {instanceID: 8656}
+      Script: {instanceID: 8658}
     - Class: 114
-      Script: {instanceID: 8932}
+      Script: {instanceID: 8934}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -367,15 +367,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7034}
     - Class: 114
-      Script: {instanceID: 7578}
+      Script: {instanceID: 7580}
     - Class: 114
-      Script: {instanceID: 8062}
+      Script: {instanceID: 8064}
     - Class: 114
-      Script: {instanceID: 8144}
+      Script: {instanceID: 8146}
     - Class: 114
-      Script: {instanceID: 8656}
+      Script: {instanceID: 8658}
     - Class: 114
-      Script: {instanceID: 8932}
+      Script: {instanceID: 8934}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -564,33 +564,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7132}
     - Class: 114
-      Script: {instanceID: 7578}
+      Script: {instanceID: 7294}
     - Class: 114
-      Script: {instanceID: 7794}
+      Script: {instanceID: 7580}
     - Class: 114
-      Script: {instanceID: 7798}
+      Script: {instanceID: 7796}
     - Class: 114
-      Script: {instanceID: 8362}
+      Script: {instanceID: 7800}
     - Class: 114
-      Script: {instanceID: 8526}
+      Script: {instanceID: 8364}
     - Class: 114
-      Script: {instanceID: 8656}
+      Script: {instanceID: 8528}
     - Class: 114
-      Script: {instanceID: 8800}
+      Script: {instanceID: 8658}
     - Class: 114
-      Script: {instanceID: 8818}
+      Script: {instanceID: 8802}
     - Class: 114
-      Script: {instanceID: 8932}
+      Script: {instanceID: 8820}
     - Class: 114
-      Script: {instanceID: 8954}
+      Script: {instanceID: 8934}
     - Class: 114
-      Script: {instanceID: 9058}
+      Script: {instanceID: 8956}
     - Class: 114
-      Script: {instanceID: 9288}
+      Script: {instanceID: 9060}
     - Class: 114
-      Script: {instanceID: 24252}
+      Script: {instanceID: 9188}
     - Class: 114
-      Script: {instanceID: 103068}
+      Script: {instanceID: 9292}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -4064,6 +4064,12 @@ ScriptsOnlyBuild:
     className: PlayerInputEditor
   - hash:
       serializedVersion: 2
+      Hash: e1b458e55cd78d30aece8ac46ccdbe8d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: OnButtonAPressed
+  - hash:
+      serializedVersion: 2
       Hash: 6b5208567bb95234d6dca8756321da72
     assemblyName: Oculus.Interaction.dll
     namespaceName: Oculus.Interaction
@@ -5306,6 +5312,12 @@ ScriptsOnlyBuild:
     className: MaterialPropertyBlockEditor
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NetworkHandshakePressedA
+  - hash:
+      serializedVersion: 2
       Hash: 17f29d17324e54a8274037de8371c221
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -5388,18 +5400,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: OculusSampleFramework
     className: TrackSegment
-  - hash:
-      serializedVersion: 2
-      Hash: e1b458e55cd78d30aece8ac46ccdbe8d
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: OnButtonAPressed
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: NetworkHandshakePressedA
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby.unity

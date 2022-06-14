@@ -25,6 +25,8 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
     private string player1ID;
     private string player2ID;
 
+    private bool isPressed;
+    private bool previousFramePressure;
 
     //PhotonView colliderPhotonView;
     PhotonView photonView;
@@ -35,6 +37,9 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         myHead = this.gameObject.transform.parent.gameObject;
         photonView = myHead.gameObject.transform.GetComponent<PhotonView>();
+
+        isPressed = false;
+        previousFramePressure = false;
 
         if (sceneIndex == 2)
         {
@@ -58,21 +63,15 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
                 {
                     //Debug.Log("isColliding è davvero true");
                     targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue);
-                    if (primaryButtonValue == true)
+                    //Debug.Log($"{primaryButtonValue}");
+                    if (primaryButtonValue)
                     {
                         //Debug.Log("pressing button A");
                         if (otherPlayerHead != null)
                         {
+                            isPressed = true;
+                            previousFramePressure = true;
                             SaveIds();
-                            /*myHead.transform.Find(handshake2_confirmCanva).gameObject.SetActive(true);
-                            myHead.transform.Find(handshake2_confirmCanva).gameObject.GetComponent<Canvas>().enabled = true;
-                            otherPlayerHead.transform.Find(handshake2_waitingCanva).gameObject.SetActive(true);
-                            otherPlayerHead.transform.Find(handshake2_waitingCanva).gameObject.GetComponent<Canvas>().enabled = true;
-                            otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.SetActive(false);
-                            otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.GetComponent<Canvas>().enabled = false;
-                            myHead.transform.GetComponent<OnCollisionActivateButton>().buttonAPressed = true;
-                            this.gameObject.transform.GetComponent<Canvas>().enabled = false;
-                            this.gameObject.SetActive(false);*/
 
                         }
                         else
@@ -82,13 +81,9 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
                     }
                     else
                     {
-                        this.gameObject.transform.GetComponent<Canvas>().enabled = true;
-                        this.gameObject.SetActive(true);
-                        otherPlayerHead.transform.Find(handshake2_waitingCanva).gameObject.SetActive(false);
-                        otherPlayerHead.transform.Find(handshake2_waitingCanva).gameObject.GetComponent<Canvas>().enabled = false;
-                        otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.SetActive(true);
-                        otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.GetComponent<Canvas>().enabled = true;
-                        myHead.transform.GetComponent<OnCollisionActivateButton>().buttonAPressed = false;
+                        //Debug.Log("releasing button A");
+                        isPressed = false;
+                        SaveIds();
                     }
                 }
             }            
@@ -100,10 +95,12 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
         if (stream.IsWriting)
         {
             stream.SendNext(isColliding);
+            //stream.SendNext(isPressed);
         }
         else
         {
             this.isColliding = (bool)stream.ReceiveNext();
+            //this.isPressed = (bool)stream.ReceiveNext();
             //Debug.Log($"{this.h2_messageActive}");
         }
     }
@@ -122,7 +119,16 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
 
         player1ID = PhotonNetwork.LocalPlayer.UserId;
 
-        myHead.GetComponent<NetworkHandshakePressedA>().CallPressedAOverNetwork(player1ID, player2ID);
-
+        if(isPressed == true)
+        {
+            myHead.transform.GetComponent<NetworkHandshakePressedA>().CallPressedAOverNetwork(player1ID, player2ID);
+        } else
+        {
+            if(previousFramePressure == true)
+            {
+                previousFramePressure = false;
+                myHead.transform.GetComponent<NetworkHandshakePressedA>().CallReleasedAOverNetwork(player1ID, player2ID);                
+            }           
+        }
     }
 }
