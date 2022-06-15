@@ -107,15 +107,31 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
 
     public void SaveIds()
     {
-        GameObject otherPlayer = otherPlayerHead.transform.parent.gameObject;
-        foreach (var item in PhotonNetwork.PlayerList)
+        if(otherPlayerHead != null)
+        {
+            GameObject otherPlayer = otherPlayerHead.transform.parent.gameObject;
+
+            foreach (var item in PhotonNetwork.PlayerList)
+            {
+                if ((object)item.TagObject == otherPlayer)
+                {
+                    //Debug.Log($"{item.UserId}");
+                    player2ID = item.UserId;
+                }
+            }
+        } else
+        {
+            player2ID = null;
+        }
+        //GameObject otherPlayer = otherPlayerHead.transform.parent.gameObject;
+        /*foreach (var item in PhotonNetwork.PlayerList)
         {
             if ((object)item.TagObject == otherPlayer)
             {
                 //Debug.Log($"{item.UserId}");
                 player2ID = item.UserId;
             }
-        }
+        }*/
 
         player1ID = PhotonNetwork.LocalPlayer.UserId;
 

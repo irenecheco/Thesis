@@ -61,7 +61,8 @@ public class NetworkHandshakeActivation : MonoBehaviour
 
         if(sceneIndex == 1)
         {
-            confirmCanvas = myHead.gameObject.transform.GetChild(0).gameObject;
+            //Debug.Log($"numero figli è {myHead.transform.GetChildCount()}");
+            confirmCanvas = myHead.transform.GetChild(3).gameObject;
         }
     }
 
@@ -69,8 +70,11 @@ public class NetworkHandshakeActivation : MonoBehaviour
     {
         playersID[0] = pl1ID;
         playersID[1] = pl2ID;
-        Debug.Log($"id 1 è {playersID[0]}, id 2 è {playersID[1]}");
-        photonView.RPC("ActivateHandshakeOverNetwork", RpcTarget.All, playersID as object[]);
+        //Debug.Log($"id 1 è {playersID[0]}, id 2 è {playersID[1]}");
+        if(pl1ID != null && pl2ID != null)
+        {
+            photonView.RPC("ActivateHandshakeOverNetwork", RpcTarget.All, playersID as object[]);
+        }
     }
 
     [PunRPC]
