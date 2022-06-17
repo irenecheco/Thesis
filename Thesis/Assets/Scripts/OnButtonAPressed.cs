@@ -27,6 +27,7 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
 
     private bool isPressed;
     private bool previousFramePressure;
+    private bool firstCall;
 
     //PhotonView colliderPhotonView;
     PhotonView photonView;
@@ -40,6 +41,7 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
 
         isPressed = false;
         previousFramePressure = false;
+        firstCall = true;
 
         if (sceneIndex == 2)
         {
@@ -72,7 +74,6 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
                             isPressed = true;
                             previousFramePressure = true;
                             SaveIds();
-
                         }
                         else
                         {
@@ -84,6 +85,15 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
                         //Debug.Log("releasing button A");
                         isPressed = false;
                         SaveIds();
+                    }
+
+                    if(otherPlayerHead != null)
+                    {
+                        GameObject otherPlayerMessage = otherPlayerHead.transform.GetChild(2).gameObject;
+                        if(isPressed && otherPlayerMessage.transform.GetComponent<OnButtonAPressed>().isPressed)
+                        {
+                            Debug.Log("Entrambi gli isPressed sono true");
+                        }
                     }
                 }
             }            
@@ -137,12 +147,17 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
 
         if(isPressed == true)
         {
-            myHead.transform.GetComponent<NetworkHandshakePressedA>().CallPressedAOverNetwork(player1ID, player2ID);
+            if(firstCall == true)
+            {
+                firstCall = false;
+                myHead.transform.GetComponent<NetworkHandshakePressedA>().CallPressedAOverNetwork(player1ID, player2ID);
+            }            
         } else
         {
             if(previousFramePressure == true)
             {
                 previousFramePressure = false;
+                firstCall = true;
                 myHead.transform.GetComponent<NetworkHandshakePressedA>().CallReleasedAOverNetwork(player1ID, player2ID);                
             }           
         }

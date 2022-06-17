@@ -51,7 +51,7 @@ public class HandshakeButton : MonoBehaviour
             }
         }
         myPlayerHead = myPlayer.transform.GetChild(0).gameObject;
-        myPlayerConfirm = myPlayerHead.transform.GetChild(3).gameObject;
+        myPlayerConfirm = myPlayerHead.transform.GetChild(0).gameObject;
         myPlayerConfirm.GetComponent<HandshakeConfirmCanvas>().ActivateHandshakeConfirmCanvas();
         if (this.gameObject.name == "Handshake Button")
         {

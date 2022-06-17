@@ -57,16 +57,20 @@ public class NetworkHandshakePressedA : MonoBehaviour
             }
             if (!otherPlayer.GetComponent<PhotonView>().IsMine && otherPlayer != null)
             {
-                myHead.transform.Find(handshake2_confirmCanva).gameObject.SetActive(true);
-                myHead.transform.Find(handshake2_confirmCanva).gameObject.transform.GetComponent<Canvas>().enabled = true;
+                /*myHead.transform.Find(handshake2_confirmCanva).gameObject.SetActive(true);
+                myHead.transform.Find(handshake2_confirmCanva).gameObject.transform.GetComponent<Canvas>().enabled = true;*/
                 otherPlayerHead.transform.Find(handshake2_waitingCanva).gameObject.SetActive(true);
                 otherPlayerHead.transform.Find(handshake2_waitingCanva).gameObject.transform.GetComponent<Canvas>().enabled = true;
                 otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.transform.GetComponent<Canvas>().enabled = false;
                 otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.SetActive(false);
-                myHead.transform.GetComponent<OnCollisionActivateButton>().buttonAPressed = true;
+                otherPlayerHead.transform.Find(handshake2_confirmCanva).gameObject.transform.GetComponent<Canvas>().enabled = false;
+                otherPlayerHead.transform.Find(handshake2_confirmCanva).gameObject.SetActive(false);
+                myHead.transform.GetComponent<OnCollisionActivateCanvasH2>().buttonAPressed = true;
                 myHead.transform.Find(handshake2_messageCanva).gameObject.transform.GetComponent<Canvas>().enabled = false;
                 myHead.transform.Find(handshake2_messageCanva).gameObject.SetActive(false);
-                otherPlayerHead.transform.GetComponent<OnCollisionActivateButton>().buttonAPressed = true;
+                myHead.transform.Find(handshake2_waitingCanva).gameObject.transform.GetComponent<Canvas>().enabled = false;
+                myHead.transform.Find(handshake2_waitingCanva).gameObject.SetActive(false);
+                otherPlayerHead.transform.GetComponent<OnCollisionActivateCanvasH2>().buttonAPressed = true;
             }
         }
         else if (playersIds[1] == PhotonNetwork.LocalPlayer.UserId)
@@ -83,14 +87,18 @@ public class NetworkHandshakePressedA : MonoBehaviour
             {
                 otherPlayerHead.transform.Find(handshake2_confirmCanva).gameObject.SetActive(true);
                 otherPlayerHead.transform.Find(handshake2_confirmCanva).gameObject.transform.GetComponent<Canvas>().enabled = true;
-                myHead.transform.Find(handshake2_waitingCanva).gameObject.SetActive(true);
-                myHead.transform.Find(handshake2_waitingCanva).gameObject.transform.GetComponent<Canvas>().enabled = true;
+                /*myHead.transform.Find(handshake2_waitingCanva).gameObject.SetActive(true);
+                myHead.transform.Find(handshake2_waitingCanva).gameObject.transform.GetComponent<Canvas>().enabled = true;*/
                 myHead.transform.Find(handshake2_messageCanva).gameObject.transform.GetComponent<Canvas>().enabled = false;
-                myHead.transform.Find(handshake2_messageCanva).gameObject.SetActive(false);                
-                otherPlayerHead.transform.GetComponent<OnCollisionActivateButton>().buttonAPressed = true;
+                myHead.transform.Find(handshake2_messageCanva).gameObject.SetActive(false);
+                myHead.transform.Find(handshake2_confirmCanva).gameObject.transform.GetComponent<Canvas>().enabled = false;
+                myHead.transform.Find(handshake2_confirmCanva).gameObject.SetActive(false);
+                otherPlayerHead.transform.GetComponent<OnCollisionActivateCanvasH2>().buttonAPressed = true;
                 otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.transform.GetComponent<Canvas>().enabled = false;
                 otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.SetActive(false);
-                myHead.transform.GetComponent<OnCollisionActivateButton>().buttonAPressed = true;
+                otherPlayerHead.transform.Find(handshake2_waitingCanva).gameObject.transform.GetComponent<Canvas>().enabled = false;
+                otherPlayerHead.transform.Find(handshake2_waitingCanva).gameObject.SetActive(false);
+                myHead.transform.GetComponent<OnCollisionActivateCanvasH2>().buttonAPressed = true;
             }
         }
     }
@@ -103,7 +111,7 @@ public class NetworkHandshakePressedA : MonoBehaviour
         playersIds[1] = (string)ids[1];
         if (playersIds[0] == PhotonNetwork.LocalPlayer.UserId)
         {
-            foreach (var item in PhotonNetwork.PlayerList)
+            /*foreach (var item in PhotonNetwork.PlayerList)
             {
                 if (item.UserId == playersIds[1])
                 {
@@ -112,23 +120,27 @@ public class NetworkHandshakePressedA : MonoBehaviour
                 }
             }
             if (!otherPlayer.GetComponent<PhotonView>().IsMine && otherPlayer != null)
-            {
+            {*/
                 myHead.transform.Find(handshake2_messageCanva).gameObject.SetActive(true);
                 myHead.transform.Find(handshake2_messageCanva).gameObject.GetComponent<Canvas>().enabled = true;
                 myHead.transform.Find(handshake2_confirmCanva).gameObject.transform.GetComponent<Canvas>().enabled = false;
                 myHead.transform.Find(handshake2_confirmCanva).gameObject.SetActive(false);
-                myHead.transform.GetComponent<OnCollisionActivateButton>().buttonAPressed = false;
+                myHead.transform.Find(handshake2_waitingCanva).gameObject.transform.GetComponent<Canvas>().enabled = false;
+                myHead.transform.Find(handshake2_waitingCanva).gameObject.SetActive(false);
+                myHead.transform.GetComponent<OnCollisionActivateCanvasH2>().buttonAPressed = false;
 
-                otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.SetActive(true);
+                /*otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.SetActive(true);
                 otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.GetComponent<Canvas>().enabled = true;
                 otherPlayerHead.transform.Find(handshake2_waitingCanva).gameObject.GetComponent<Canvas>().enabled = false;
                 otherPlayerHead.transform.Find(handshake2_waitingCanva).gameObject.SetActive(false);
-                otherPlayerHead.transform.GetComponent<OnCollisionActivateButton>().buttonAPressed = false;
-            }
+                otherPlayerHead.transform.Find(handshake2_confirmCanva).gameObject.GetComponent<Canvas>().enabled = false;
+                otherPlayerHead.transform.Find(handshake2_confirmCanva).gameObject.SetActive(false);
+                otherPlayerHead.transform.GetComponent<OnCollisionActivateCanvasH2>().buttonAPressed = false;*/
+            //}
         }
         else if (playersIds[1] == PhotonNetwork.LocalPlayer.UserId)
         {
-            foreach (var item in PhotonNetwork.PlayerList)
+            /*foreach (var item in PhotonNetwork.PlayerList)
             {
                 if (item.UserId == playersIds[0])
                 {
@@ -142,14 +154,19 @@ public class NetworkHandshakePressedA : MonoBehaviour
                 otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.GetComponent<Canvas>().enabled = true;
                 otherPlayerHead.transform.Find(handshake2_confirmCanva).gameObject.transform.GetComponent<Canvas>().enabled = false;
                 otherPlayerHead.transform.Find(handshake2_confirmCanva).gameObject.SetActive(false);
-                otherPlayerHead.transform.GetComponent<OnCollisionActivateButton>().buttonAPressed = false;
+                otherPlayerHead.transform.Find(handshake2_waitingCanva).gameObject.GetComponent<Canvas>().enabled = false;
+                otherPlayerHead.transform.Find(handshake2_waitingCanva).gameObject.SetActive(false);
+                otherPlayerHead.transform.GetComponent<OnCollisionActivateCanvasH2>().buttonAPressed = false;*/
+
 
                 myHead.transform.Find(handshake2_messageCanva).gameObject.SetActive(true);
                 myHead.transform.Find(handshake2_messageCanva).gameObject.GetComponent<Canvas>().enabled = true;
                 myHead.transform.Find(handshake2_waitingCanva).gameObject.GetComponent<Canvas>().enabled = false;
                 myHead.transform.Find(handshake2_waitingCanva).gameObject.SetActive(false);
-                myHead.transform.GetComponent<OnCollisionActivateButton>().buttonAPressed = false;
-            }
+                myHead.transform.Find(handshake2_confirmCanva).gameObject.transform.GetComponent<Canvas>().enabled = false;
+                myHead.transform.Find(handshake2_confirmCanva).gameObject.SetActive(false);
+                myHead.transform.GetComponent<OnCollisionActivateCanvasH2>().buttonAPressed = false;
+            //}
         }
     }
 }

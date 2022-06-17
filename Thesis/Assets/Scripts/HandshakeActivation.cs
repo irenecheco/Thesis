@@ -33,7 +33,7 @@ public class HandshakeActivation : MonoBehaviour
 
         player2ID = PhotonNetwork.LocalPlayer.UserId;
 
-        confirmPlayer.GetComponent<NetworkHandshakeActivation>().CallActivationOverNetwork(player1ID, player2ID);
+        confirmPlayer.GetComponent<NetworkHandshakeActivationH1>().CallActivationOverNetwork(player1ID, player2ID);
 
     }
 }

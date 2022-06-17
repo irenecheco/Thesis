@@ -14,14 +14,16 @@ ScriptsOnlyBuild:
     - HandshakeConfirmCanvas
     - NetworkHand
     - NetworkHandController
-    - NetworkHandshakeActivation
+    - NetworkHandshakeActivationH1
+    - NetworkHandshakeActivationH2
     - NetworkHandshakePressedA
     - NetworkHandshakeRespond
     - NetworkManager
     - NetworkPlayer
     - NetworkPlayerSpawner
     - OnButtonAPressed
-    - OnCollisionActivateButton
+    - OnCollisionActivateButtonH1
+    - OnCollisionActivateCanvasH2
     - PointersController
     - ProximityVoiceTrigger
     - ReturnToLobby
@@ -591,6 +593,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 9188}
     - Class: 114
       Script: {instanceID: 9292}
+    - Class: 114
+      Script: {instanceID: 45296}
+    - Class: 114
+      Script: {instanceID: 55956}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -3716,10 +3722,10 @@ ScriptsOnlyBuild:
     className: EnableSwitch
   - hash:
       serializedVersion: 2
-      Hash: bda1364d3b99e916f5e0474931f7d26a
+      Hash: c4eb2dfaede71c938097c9492fb783dc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: OnCollisionActivateButton
+    className: OnCollisionActivateButtonH1
   - hash:
       serializedVersion: 2
       Hash: e0fd6b206f44251ddce06e242ee39fb8
@@ -4427,7 +4433,7 @@ ScriptsOnlyBuild:
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: NetworkHandshakeActivation
+    className: NetworkHandshakeActivationH1
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -5400,6 +5406,18 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: OculusSampleFramework
     className: TrackSegment
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NetworkHandshakeActivationH2
+  - hash:
+      serializedVersion: 2
+      Hash: bda1364d3b99e916f5e0474931f7d26a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: OnCollisionActivateCanvasH2
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby.unity
