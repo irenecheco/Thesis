@@ -6,6 +6,7 @@ using Photon.Pun;
 using UnityEngine.XR.Interaction.Toolkit;
 using Unity.XR.CoreUtils;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class NetworkPlayer : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallback
 {
@@ -22,12 +23,18 @@ public class NetworkPlayer : MonoBehaviourPunCallbacks, IPunInstantiateMagicCall
     private GameObject headObject;
     private GameObject handshakeConfirm;
 
+    private int sceneIndex;
+
     void Start()
     {
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
         photonView = GetComponent<PhotonView>();
         headObject = this.gameObject.transform.GetChild(0).gameObject;
-        handshakeConfirm = headObject.transform.GetChild(0).gameObject;
-        handshakeConfirm.transform.GetComponent<Canvas>().enabled = false;
+        if(sceneIndex == 1)
+        {
+            handshakeConfirm = headObject.transform.GetChild(0).gameObject;
+            handshakeConfirm.transform.GetComponent<Canvas>().enabled = false;
+        }        
 
         XROrigin rig = FindObjectOfType<XROrigin>();
         headRig = rig.transform.Find("Camera Offset/Main Camera");

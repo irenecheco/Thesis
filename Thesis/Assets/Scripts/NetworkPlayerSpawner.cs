@@ -9,6 +9,7 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
     private GameObject spawnedPlayerPrefab;
     private int flagH1 = 0;
     private int flagH2 = 0;
+    private int flagH3 = 0;
 
     private int sceneIndex;
 
@@ -30,6 +31,12 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
             spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player H2", transform.position, transform.rotation);
             spawnedPlayerPrefab.name = $"Network Player H2 {+flagH2}";
             flagH2++;
+        } else if (sceneIndex == 3)
+        {
+            //Debug.Log("It's scene 2");
+            spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player H3", transform.position, transform.rotation);
+            spawnedPlayerPrefab.name = $"Network Player H3 {+flagH3}";
+            flagH3++;
         }
     }
 
@@ -46,6 +53,10 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.Destroy(spawnedPlayerPrefab);
             flagH2--;
-        }        
+        } else if (sceneIndex == 3)
+        {
+            PhotonNetwork.Destroy(spawnedPlayerPrefab);
+            flagH3--;
+        }
     }
 }

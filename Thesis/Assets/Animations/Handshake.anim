@@ -2271,7 +2271,7 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 1.9
+  - time: 1.8166667
     functionName: SetBackComponent
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: bd98c70e98937494897df3524cbaf109,
