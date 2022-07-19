@@ -18,6 +18,7 @@ ScriptsOnlyBuild:
     - HandshakeConfirmCanvasH2
     - HandshakeMessageCanvasH2
     - HandshakeWaitingCanvasH2
+    - HapticController
     - NetworkHand
     - NetworkHandController
     - NetworkHandControllerH3
@@ -134,10 +135,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -260,6 +259,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 8678}
     - Class: 114
       Script: {instanceID: 8954}
+    - Class: 114
+      Script: {instanceID: 23082}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -747,6 +748,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 9208}
     - Class: 114
       Script: {instanceID: 9312}
+    - Class: 114
+      Script: {instanceID: 23082}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -5616,6 +5619,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: OculusSampleFramework
     className: TrackSegment
+  - hash:
+      serializedVersion: 2
+      Hash: a663d26c7a99afc7bd8135935a29b4c5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HapticController
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby.unity

@@ -2271,6 +2271,14 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0.41666666
+    functionName: SendHaptics
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: 83ee123018f73794296c31c8df153637,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 1.8166667
     functionName: SetBackComponent
     data: 
