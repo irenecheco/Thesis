@@ -82,7 +82,7 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
             if (!otherPlayer.GetComponent<PhotonView>().IsMine && otherPlayer != null)
             {
                 rHandContainer = otherPlayer.transform.GetChild(2).gameObject;
-                if(rHandContainer.transform.GetChild(0).gameObject != null)
+                if(rHandContainer.transform.childCount > 0)
                 {
                     rHand = rHandContainer.transform.GetChild(0).gameObject;
                 }
@@ -110,7 +110,7 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
             if (!otherPlayer.GetComponent<PhotonView>().IsMine && otherPlayer != null)
             {
                 rHandContainer = otherPlayer.transform.GetChild(2).gameObject;
-                if (rHandContainer.transform.GetChild(0).gameObject != null)
+                if (rHandContainer.transform.childCount > 0)
                 {
                     rHand = rHandContainer.transform.GetChild(0).gameObject;
                 }
