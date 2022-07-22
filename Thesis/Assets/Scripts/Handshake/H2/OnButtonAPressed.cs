@@ -16,10 +16,6 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
     public GameObject myHead;
     public GameObject myPlayer;
 
-    /*private string handshake2_messageCanva = "Handshake 2 message";
-    private string handshake2_waitingCanva = "Handshake 2 waiting";
-    private string handshake2_confirmCanva = "Handshake 2 confirm";*/
-
     private string player1ID;
     private string player2ID;
 
@@ -28,10 +24,8 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
     private bool firstCall;
     public bool animationGoing;
 
-    //PhotonView colliderPhotonView;
     PhotonView photonView;
 
-    // Start is called before the first frame update
     void Start()
     {
         myHead = this.gameObject;
@@ -51,7 +45,6 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (photonView.IsMine)
@@ -88,7 +81,7 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
                         if(animationGoing == false)
                         {
                             //Debug.Log("Entrambi gli isPressed sono true");
-                            animationGoing = true;
+                            //animationGoing = true;
                             myPlayer.GetComponent<NetworkHandshakeActivationH2>().CallActivationOverNetwork(player1ID, player2ID);
                         }
                     } else

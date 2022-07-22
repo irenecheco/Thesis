@@ -27,16 +27,12 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
     private Vector3 direction;
 
     private float y_angle;
-    //private float x_angle;
-    //private float z_angle;
 
     private int sceneIndex;
 
 
     private string[] playersID = new string[2];
-    //private string player2ID;
 
-    // Start is called before the first frame update
     void Start()
     {
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -48,8 +44,7 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
         player = GameObject.Find("Player");
         camera = GameObject.Find("Camera Offset/Main Camera");
         rightHandAnimator = rightHand.GetComponent<Animator>();
-        //handshakeAnimation = rightHand.GetComponent<Animation>();
-        //player.transform.position = GameObject.Find("Camera Offset/RightHand Controller").transform.position;
+
         if(this.name != "RightHand")
         {
             myHead = this.gameObject.transform.GetChild(0).gameObject;
@@ -61,7 +56,7 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
     {
         playersID[0] = pl1ID;
         playersID[1] = pl2ID;
-        Debug.Log($"id 1 è {playersID[0]}, id 2 è {playersID[1]}");
+        //Debug.Log($"id 1 è {playersID[0]}, id 2 è {playersID[1]}");
         if (pl1ID != null && pl2ID != null)
         {
             photonView.RPC("ActivateHandshakeOverNetwork", RpcTarget.All, playersID as object[]);
@@ -87,7 +82,10 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
             if (!otherPlayer.GetComponent<PhotonView>().IsMine && otherPlayer != null)
             {
                 rHandContainer = otherPlayer.transform.GetChild(2).gameObject;
-                rHand = rHandContainer.transform.GetChild(0).gameObject;
+                if(rHandContainer.transform.GetChild(0).gameObject != null)
+                {
+                    rHand = rHandContainer.transform.GetChild(0).gameObject;
+                }
                 if (rHand.name == "RightHand")
                 {
                     rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
@@ -97,11 +95,8 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
                     rHand = rHandContainer.transform.GetChild(1).gameObject;
                     rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
                 }
-                //Debug.Log($"{rHand.name} è rHand");
-
             }
             StartCoroutine(Wait());
-
         }
         else if (playersIds[1] == PhotonNetwork.LocalPlayer.UserId)
         {
@@ -115,7 +110,10 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
             if (!otherPlayer.GetComponent<PhotonView>().IsMine && otherPlayer != null)
             {
                 rHandContainer = otherPlayer.transform.GetChild(2).gameObject;
-                rHand = rHandContainer.transform.GetChild(0).gameObject;
+                if (rHandContainer.transform.GetChild(0).gameObject != null)
+                {
+                    rHand = rHandContainer.transform.GetChild(0).gameObject;
+                }
                 if (rHand.name == "RightHand")
                 {
                     rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
@@ -125,8 +123,6 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
                     rHand = rHandContainer.transform.GetChild(1).gameObject;
                     rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
                 }
-                //Debug.Log($"{rHand.name} è rHand");
-
             }
             StartCoroutine(Wait());
         }
@@ -152,16 +148,12 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
         Destroy(rightController.GetComponent("HandController"));
         rightHand.GetComponent<Hand>().flag = true;
         rightHand.transform.parent = player.transform;
+
         midPosition = Vector3.Lerp(head.transform.position, camera.transform.position, 0.5f);
         player.transform.position = new Vector3(midPosition.x, (float)(starting_y - 0.4), midPosition.z);
-        //player.transform.position = new Vector3(camera.transform.position.x, (float)(mid_y - 0.4), camera.transform.position.z);
-        //player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, (float)(player.transform.position.z + 0.516));
         direction = (head.transform.position - camera.transform.position).normalized;
         y_angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-        //Debug.Log($"y direction {y_angle}");
-        //Debug.Log($" camera {camera.transform.rotation.eulerAngles.y}");
-        //x_angle = Mathf.Atan2(direction.y, direction.z) * Mathf.Rad2Deg;
-        //z_angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+        
         float camera_y_angle = camera.transform.rotation.eulerAngles.y;
         if (y_angle < 0)
         {
@@ -187,24 +179,14 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
         }
 
 
-        Debug.Log("Attivo animazione");
+        //Debug.Log("Attivo animazione");
 
         rightHandAnimator.Play("Handshake2", -1, 0);
-
-
-        //SetBackComponent();
-
-        //Debug.Log($"{rightHand.transform.parent.gameObject.name} è il parent; {rightController.GetComponent<HandController>().hand} è la mano assegnata");
-    }
-
-    public void boh()
-    {
-        Debug.Log("Qui entra");
     }
 
     public void SetBackComponent()
     {
-        Debug.Log("Entra nel setBackComponent");
+        //Debug.Log("Entra nel setBackComponent");
         rightHand.transform.parent = rightController.transform;
         rightController.AddComponent<HandController>();
         rightController.GetComponent<HandController>().hand = rightHand.GetComponent<Hand>();

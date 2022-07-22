@@ -22,7 +22,6 @@ public class HandshakeWaitingCanvasH2 : MonoBehaviour, IPunObservable
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         handshake2WaitingCanvas = this.gameObject;
@@ -41,7 +40,6 @@ public class HandshakeWaitingCanvasH2 : MonoBehaviour, IPunObservable
         waitingActive = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (waitingActive == false)
@@ -50,9 +48,7 @@ public class HandshakeWaitingCanvasH2 : MonoBehaviour, IPunObservable
         }
         else
         {
-            //Debug.Log("Should activate Canvas");
             handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = true;
-            //Debug.Log($"{handshakeConfirm.transform.GetComponent<Canvas>().enabled}");
         }
     }
 }

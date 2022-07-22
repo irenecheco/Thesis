@@ -33,7 +33,6 @@ public class OnCollisionActivateCanvasH2 : MonoBehaviourPunCallbacks, IPunObserv
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         sceneIndex = SceneManager.GetActiveScene().buildIndex;

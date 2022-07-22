@@ -22,7 +22,6 @@ public class NetworkHandshakePressedA : MonoBehaviour
 
     private PhotonView photonView;
 
-    // Start is called before the first frame update
     void Start()
     {
         photonView = this.transform.GetComponent<PhotonView>();
@@ -55,10 +54,6 @@ public class NetworkHandshakePressedA : MonoBehaviour
         string[] playersIds = new string[2];
         playersIds[0] = (string)ids[0];
         playersIds[1] = (string)ids[1];
-
-        //Debug.Log($"id1 è {playersIds[0]}, id2 è {playersIds[1]}");
-
-        //Debug.Log($"mio id è {PhotonNetwork.LocalPlayer.UserId}");
 
         if (playersIds[0] == PhotonNetwork.LocalPlayer.UserId)
         {
@@ -132,12 +127,6 @@ public class NetworkHandshakePressedA : MonoBehaviour
 
             otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.transform.GetComponent<HandshakeMessageCanvasH2>().ActivateHandshakeConfirmCanvas();
             otherPlayerHead.transform.Find(handshake2_confirmCanva).gameObject.transform.GetComponent<HandshakeConfirmCanvasH2>().DeactivateHandshakeConfirmCanvas();
-
-            /*Debug.Log("Lancia il set back component da rilascio bottone");
-
-            myRightHand.transform.GetComponent<NetworkHandshakeActivationH2>().SetBackComponent();
-            otherPlayerRightHand.transform.GetComponent<NetworkHandshakeActivationH2>().SetBackComponent();
-            rightHand.transform.GetComponent<NetworkHandshakeActivationH2>().SetBackComponent();*/
         }
     }
 }

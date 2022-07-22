@@ -39,6 +39,7 @@ public class HandH3 : MonoBehaviour
         _body.collisionDetectionMode = CollisionDetectionMode.Continuous;
         _body.interpolation = RigidbodyInterpolation.Interpolate;
         _body.mass = 20f;
+        _body.maxAngularVelocity = 20f;
 
         //Teleport hands
         _body.position = _followTarget.position;
@@ -65,7 +66,7 @@ public class HandH3 : MonoBehaviour
     private void PhysicsMove()
     {
         //Position
-        var positionWithOffset = _followTarget.position + positionOffset;
+        var positionWithOffset = _followTarget.TransformPoint(positionOffset);
         var distance = Vector3.Distance(positionWithOffset, transform.position);
         _body.velocity = (positionWithOffset - transform.position).normalized * (followSpeed * distance);
 
