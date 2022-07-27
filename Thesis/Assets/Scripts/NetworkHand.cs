@@ -4,10 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.XR.CoreUtils;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
+using UnityEngine.XR.Interaction.Toolkit;
 
 [RequireComponent(typeof(Animator))]
 public class NetworkHand : MonoBehaviour
 {
+    private int sceneIndex;
+
     //Animation
     public float animationSpeed;
     Animator animator;
@@ -31,6 +35,17 @@ public class NetworkHand : MonoBehaviour
 
     void Start()
     {
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        if(sceneIndex == 3)
+        {
+            if(this.name == "Right Hand")
+            {
+                var interactionManager = FindObjectOfType<XRInteractionManager>();
+                this.gameObject.GetComponent<XRGrabInteractable>().interactionManager = interactionManager;
+            }
+        }
+
         //Animation
         animator = GetComponent<Animator>();
         photonView = this.gameObject.GetComponentInParent<PhotonView>();
