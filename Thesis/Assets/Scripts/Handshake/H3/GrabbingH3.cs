@@ -26,24 +26,25 @@ public class GrabbingH3 : MonoBehaviour
         myId = PhotonNetwork.LocalPlayer.UserId;        
     }
 
-    public void SetGrabbing(string otherPlId)
+    public void SetGrabbing(GameObject otherNetPlRightHand)
     {
-        otherPlayerId = otherPlId;
+        //otherPlayerId = otherPlId;
         
         myNetRightHand.GetComponent<MessageActivationH3>().isGrabbing = true;
-        otherPlayerId = otherPlId;
-        foreach (var item in PhotonNetwork.PlayerList)
+        //otherPlayerId = otherPlId;
+        /*foreach (var item in PhotonNetwork.PlayerList)
         {
             if (item.UserId == otherPlayerId)
             {
                 otherNetPlayer = (GameObject)item.TagObject;
                 otherNetRightController = otherNetPlayer.transform.GetChild(2).gameObject;
-                if(otherNetRightController.transform.childCount > 0)
-                {
-                    otherNetRightHand = otherNetRightController.transform.GetChild(0).gameObject;
-                }                
+                Debug.Log($"{otherNetRightController.transform.childCount}");
+                if (otherNetRightController.transform.childCount > 0)
+                {*/
+                    otherNetRightHand = otherNetPlRightHand;
+                /*}                
             }
-        }
+        }*/
     }
 
     void Update()
@@ -59,10 +60,14 @@ public class GrabbingH3 : MonoBehaviour
                     myNetRightHand = myNetRightController.transform.GetChild(0).gameObject;
                 }
             }
+        } else
+        {
+            //Debug.Log($"my net right hand is {myNetRightHand.name} e isGrabbing è {myNetRightHand.GetComponent<MessageActivationH3>().isGrabbing}");
         }
 
         if (otherNetRightHand != null)
         {
+            //Debug.Log($"my net right hand is {otherNetRightHand.name} e isGrabbing è {otherNetRightHand.GetComponent<MessageActivationH3>().isGrabbing}");
             if (myNetRightHand.GetComponent<MessageActivationH3>().isGrabbing == true)
             {
                 if (otherNetRightHand.GetComponent<MessageActivationH3>().isGrabbing == true)

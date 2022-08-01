@@ -73,7 +73,7 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
         {
             messageCanvas.GetComponent<Canvas>().enabled = true;
             rightController.GetComponent<ActionBasedController>().enableInputTracking = false;
-            rightHand.GetComponent<GrabbingH3>().SetGrabbing(thisId);
+            rightHand.GetComponent<GrabbingH3>().SetGrabbing(this.gameObject);
         }
     }
 
