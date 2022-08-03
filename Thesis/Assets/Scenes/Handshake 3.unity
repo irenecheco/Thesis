@@ -4923,6 +4923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ed2dc13db572b49acba77a23c3d7d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  otherNetRightHand: {fileID: 0}
 --- !u!4 &1081806821 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8492651328035163686, guid: 1f0e43d5b8c307741be352ed8e2ec312,
@@ -5045,6 +5046,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 13.73, y: 11.39, z: 27.87}
   m_Center: {x: -3.5, y: 2.32, z: 0}
+--- !u!114 &1081806839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081806818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ee123018f73794296c31c8df153637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightController: {fileID: 562466588}
+  amplitude: 0.4
+  duration: 0.5
+  amplitude1H3: 0.2
+  duration1H3: 0.3
+  amplitude2H3: 0.4
+  duration2H3: 0.1
 --- !u!1 &1122186349
 GameObject:
   m_ObjectHideFlags: 0

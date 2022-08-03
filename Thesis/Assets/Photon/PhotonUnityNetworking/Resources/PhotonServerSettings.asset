@@ -47,6 +47,9 @@ MonoBehaviour:
   - ActivateHandshakeOverNetwork
   - PressedAOverNetwork
   - ReleasedAOverNetwork
+  - SetIdsOverNetwork
+  - ActivateGrabMessageOverNetwork
+  - DeactivateGrabMessageOverNetwork
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

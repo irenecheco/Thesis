@@ -21,6 +21,7 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
     private GameObject thisPlayer;
 
     private string thisId;
+    private string localId;
 
     public bool isGrabbing;
 
@@ -62,6 +63,7 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
                     myNetPlayer = (GameObject)item.TagObject;
                     myNetRightController = myNetPlayer.transform.GetChild(2).gameObject;
                     myNetRightHand = myNetRightController.transform.GetChild(0).gameObject;
+                    localId = item.UserId;
                 }
             }
         }
@@ -73,7 +75,8 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
         {
             messageCanvas.GetComponent<Canvas>().enabled = true;
             rightController.GetComponent<ActionBasedController>().enableInputTracking = false;
-            rightHand.GetComponent<GrabbingH3>().SetGrabbing(this.gameObject);
+            rightHand.GetComponent<GrabbingH3>().SetGrabbing(this.gameObject, thisId);
+            myNetPlayer.GetComponent<NetworkGrabMessageActivationH3>().CallActivateGrabMessage(localId, thisId);
         }
     }
 
@@ -87,6 +90,7 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
             {
                 myNetRightHand.GetComponent<MessageActivationH3>().isGrabbing = false;
             }
+            myNetPlayer.GetComponent<NetworkGrabMessageActivationH3>().CallDeactivateGrabMessage(localId, thisId);
         }
     }
 
