@@ -26,6 +26,9 @@ public class GrabbingH3 : MonoBehaviour
 
     private bool areShaking;
 
+    private int frameNumber;
+    private bool firstFrame;
+
     void Start()
     {
         rightController = this.transform.parent.gameObject;
@@ -37,6 +40,8 @@ public class GrabbingH3 : MonoBehaviour
         messageCanvas = headLocal.transform.GetChild(1).gameObject;
 
         areShaking = false;
+        frameNumber = 0;
+        firstFrame = true;
     }
 
     public void SetGrabbing(GameObject otherNetPlRightHand, string otherPlId)
@@ -87,6 +92,21 @@ public class GrabbingH3 : MonoBehaviour
                     areShaking = true;
 
                     this.GetComponent<HapticController>().SendHaptics2H3();
+                    if(firstFrame == true)
+                    {
+                        this.GetComponent<Outline>().enabled = true;
+                        otherNetRightHand.GetComponent<Outline>().enabled = true;
+                        otherNetRightHand.GetComponent<AudioSource>().Play();
+                        firstFrame = false;
+                    }
+                    
+                    frameNumber++;
+                    if(frameNumber >= 30)
+                    {
+                        frameNumber = 0;
+                        this.GetComponent<Outline>().enabled = false;
+                        otherNetRightHand.GetComponent<Outline>().enabled = false;
+                    }
                 }
                 else
                 {
@@ -95,6 +115,7 @@ public class GrabbingH3 : MonoBehaviour
                     otherNetGrabMessageCanvas.GetComponent<Canvas>().enabled = false;
 
                     areShaking = false;
+                    firstFrame = true;
                 }
             }
             else
@@ -110,6 +131,7 @@ public class GrabbingH3 : MonoBehaviour
                 messageCanvas.GetComponent<Canvas>().enabled = false;
                 this.GetComponent<CollidingH3>().isGrabbing = false;
                 areShaking = false;
+                firstFrame = true;
             }
         }
     }

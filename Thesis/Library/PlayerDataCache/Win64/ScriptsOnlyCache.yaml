@@ -35,6 +35,7 @@ ScriptsOnlyBuild:
     - OnButtonAPressed
     - OnCollisionActivateButtonH1
     - OnCollisionActivateCanvasH2
+    - Outline
     - PointersController
     - ProximityVoiceTrigger
     - ReturnToLobby
@@ -528,6 +529,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 8968}
     - Class: 114
       Script: {instanceID: 9144}
+    - Class: 114
+      Script: {instanceID: 59370}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -584,6 +587,8 @@ ScriptsOnlyBuild:
     - Class: 81
       Script: {instanceID: 0}
     - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
@@ -763,6 +768,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 9224}
     - Class: 114
       Script: {instanceID: 9328}
+    - Class: 114
+      Script: {instanceID: 59370}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -5668,6 +5675,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: OculusSampleFramework
     className: TrackSegment
+  - hash:
+      serializedVersion: 2
+      Hash: ff7f58b226cfe4de0dc241bd88d5a904
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Outline
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby.unity

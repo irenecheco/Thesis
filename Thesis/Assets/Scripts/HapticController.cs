@@ -11,7 +11,7 @@ public class HapticController : MonoBehaviour
     public float duration = 0.5f;
     public float amplitude1H3 = 0.2f;
     public float duration1H3 = 0.3f;
-    public float amplitude2H3 = 0.4f;
+    public float amplitude2H3 = 0.3f;
     public float duration2H3 = 1.5f;
 
     public void SendHaptics()
