@@ -125,25 +125,5 @@ public class NetworkGrabMessageActivationH3 : MonoBehaviour
                 ReleasedNetMessageCanvas.GetComponent<Canvas>().enabled = false;
             }
         }
-
-        /*if (plReleased == PhotonNetwork.LocalPlayer.UserId)
-        {
-            foreach (var item in PhotonNetwork.PlayerList)
-            {
-                if (item.UserId == plReleased)
-                {
-                    ReleasedNetPlayer = (GameObject)item.TagObject;
-                    ReleasedNetRightController = ReleasedNetPlayer.transform.GetChild(2).gameObject;
-                    ReleasedNetRightHand = ReleasedNetRightController.transform.GetChild(0).gameObject;
-                    ReleasedNetHead = ReleasedNetPlayer.transform.GetChild(0).gameObject;
-                    ReleasedNetMessageCanvas = ReleasedNetHead.transform.GetChild(2).gameObject;
-                }
-            }            
-
-            ReleasedNetMessageCanvas.GetComponent<Canvas>().enabled = false;
-        }*/
     }
-
-    //Se giocatore locale == grabbed e isgrabbing false --> attiva su giocatore grabbing il messaggio
-    //TODO: opposto -> deactivate message
 }

@@ -86,7 +86,11 @@ public class GrabbingH3 : MonoBehaviour
                 if (otherNetRightHand.GetComponent<MessageActivationH3>().isGrabbing == true)
                 {
                     rightController.GetComponent<ActionBasedController>().enableInputTracking = true;
+                    rightController.GetComponent<HandController>().isGrabbingH3 = true;
+                    myNetRightController.GetComponent<NetworkHandController>().isGrabbingH3 = true;
+                    otherNetRightHand.GetComponent<NetworkHand>().SetGrip(0);
                     messageCanvas.GetComponent<Canvas>().enabled = false;
+                    this.GetComponent<CollidingH3>().otherNetRightHand = otherNetRightHand;
                     this.GetComponent<CollidingH3>().isGrabbing = true;
                     otherNetGrabMessageCanvas.GetComponent<Canvas>().enabled = false;
                     areShaking = true;
@@ -113,6 +117,8 @@ public class GrabbingH3 : MonoBehaviour
                     this.GetComponent<CollidingH3>().isGrabbing = false;
                     messageCanvas.GetComponent<Canvas>().enabled = true;
                     otherNetGrabMessageCanvas.GetComponent<Canvas>().enabled = false;
+                    rightController.GetComponent<HandController>().isGrabbingH3 = false;
+                    myNetRightController.GetComponent<NetworkHandController>().isGrabbingH3 = false;
 
                     areShaking = false;
                     firstFrame = true;
@@ -130,6 +136,8 @@ public class GrabbingH3 : MonoBehaviour
                 }
                 messageCanvas.GetComponent<Canvas>().enabled = false;
                 this.GetComponent<CollidingH3>().isGrabbing = false;
+                rightController.GetComponent<HandController>().isGrabbingH3 = false;
+                myNetRightController.GetComponent<NetworkHandController>().isGrabbingH3 = false;
                 areShaking = false;
                 firstFrame = true;
             }

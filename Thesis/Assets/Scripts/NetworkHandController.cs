@@ -15,6 +15,8 @@ public class NetworkHandController : MonoBehaviour
     ActionBasedController controllerLeft;
     ActionBasedController controllerRight;
 
+    public bool isGrabbingH3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,8 @@ public class NetworkHandController : MonoBehaviour
 
         controllerLeft = rig.transform.Find("Camera Offset/LeftHand Controller").GetComponent<ActionBasedController>();
         controllerRight = rig.transform.Find("Camera Offset/RightHand Controller").GetComponent<ActionBasedController>();
+
+        isGrabbingH3 = false;
     }
 
     // Update is called once per frame
@@ -31,14 +35,27 @@ public class NetworkHandController : MonoBehaviour
     {
         if (photonView.IsMine)
         {
-            UpdateHandAnimation(controllerLeft, leftHand_hand);
-            UpdateHandAnimation(controllerRight, rightHand_hand);
+            UpdateHandAnimationLeft(controllerLeft, leftHand_hand);
+            UpdateHandAnimationRight(controllerRight, rightHand_hand);
         }
     }
 
-    void UpdateHandAnimation(ActionBasedController controller, NetworkHand network_hand)
+    void UpdateHandAnimationLeft(ActionBasedController controller, NetworkHand network_hand)
     {
         network_hand.SetGrip(controller.selectAction.action.ReadValue<float>());
+        network_hand.SetTrigger(controller.activateAction.action.ReadValue<float>());
+    }
+
+    void UpdateHandAnimationRight(ActionBasedController controller, NetworkHand network_hand)
+    {
+        if (isGrabbingH3 == false)
+        {
+            network_hand.SetGrip(controller.selectAction.action.ReadValue<float>());
+        }
+        else
+        {
+            network_hand.SetGrip(0);
+        }
         network_hand.SetTrigger(controller.activateAction.action.ReadValue<float>());
     }
 }

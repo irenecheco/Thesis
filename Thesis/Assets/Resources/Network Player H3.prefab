@@ -1107,6 +1107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHand_hand: {fileID: 8292532128419289096}
   rightHand_hand: {fileID: 1019649469252724599}
+  isGrabbingH3: 0
 --- !u!1 &3973582892624166299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,6 +1777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHand_hand: {fileID: 8292532128419289096}
   rightHand_hand: {fileID: 1019649469252724599}
+  isGrabbingH3: 0
 --- !u!1 &5608434028107015592
 GameObject:
   m_ObjectHideFlags: 0
@@ -2469,8 +2471,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.65, y: 2.9, z: 3.16}
-  m_Center: {x: 0, y: -1.7, z: 1.58}
+  m_Size: {x: 4.22, y: 4.83, z: 3.82}
+  m_Center: {x: 0, y: -1.58, z: 1.58}
 --- !u!1 &8636641829362750135
 GameObject:
   m_ObjectHideFlags: 0

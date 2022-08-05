@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using Photon.Pun;
 
 public class CollidingH3 : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class CollidingH3 : MonoBehaviour
 
     private GameObject rightController;
     private GameObject rightHand;
+
+    public GameObject otherNetRightHand;
 
     void Start()
     {
@@ -20,25 +23,35 @@ public class CollidingH3 : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (isGrabbing == true)
-        {
-            if(collider.gameObject.name == "Sphere")
+        if (collider.gameObject.name == "Sphere")
             {
-                rightController.GetComponent<ActionBasedController>().enableInputTracking = true;
-            }
+                PhotonView colliderPhotonView;
+                colliderPhotonView = collider.transform.GetComponentInParent<PhotonView>();
+                if (!colliderPhotonView.IsMine)
+                {
+                    if (otherNetRightHand != null)
+                    {
+                        otherNetRightHand.transform.GetComponent<XRGrabInteractable>().enabled = true;
+                    }
+                }
         }
     }
 
-    private void OnTriggerStay(Collider collider)
+    /*private void OnTriggerStay(Collider collider)
     {
         if (isGrabbing == true)
         {
             if (collider.gameObject.name == "Sphere")
             {
-                rightController.GetComponent<ActionBasedController>().enableInputTracking = true;
+                PhotonView colliderPhotonView;
+                colliderPhotonView = collider.transform.GetComponentInParent<PhotonView>();
+                if (!colliderPhotonView.IsMine)
+                {
+                    rightController.GetComponent<ActionBasedController>().enableInputTracking = true;
+                }
             }
         }
-    }
+    }*/
 
     private void OnTriggerExit(Collider collider)
     {
@@ -46,7 +59,15 @@ public class CollidingH3 : MonoBehaviour
         {
             if (collider.gameObject.name == "Sphere")
             {
-                rightController.GetComponent<ActionBasedController>().enableInputTracking = false;
+                PhotonView colliderPhotonView;
+                colliderPhotonView = collider.transform.GetComponentInParent<PhotonView>();
+                if (!colliderPhotonView.IsMine)
+                {
+                    if(otherNetRightHand != null)
+                    {
+                        otherNetRightHand.transform.GetComponent<XRGrabInteractable>().enabled = false;
+                    }
+                }
             }
         }
     }

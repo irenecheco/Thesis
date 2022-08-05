@@ -8,17 +8,25 @@ public class HandController : MonoBehaviour
 {
     ActionBasedController controller;
     public Hand hand;
+    public bool isGrabbingH3;
 
     // Start is called before the first frame update
     void Start()
     {
-        controller = GetComponent<ActionBasedController>();   
+        controller = GetComponent<ActionBasedController>();
+        isGrabbingH3 = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        hand.SetGrip(controller.selectAction.action.ReadValue<float>());
+        if(isGrabbingH3 == false)
+        {
+            hand.SetGrip(controller.selectAction.action.ReadValue<float>());
+        } else
+        {
+            hand.SetGrip(0);
+        }
         hand.SetTrigger(controller.activateAction.action.ReadValue<float>());
     }
 }
