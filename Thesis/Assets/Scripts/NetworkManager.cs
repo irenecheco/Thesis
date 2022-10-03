@@ -4,30 +4,35 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-//Class with room information: useful to add new rooms and change their characteristics directly from Unity
-[System.Serializable]
-public class DefaultRoom
-{
-    public string Name;
-    public int sceneIndex;
-    public int maxPlayer;
-}
-
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
     //Code responsible for the setup of the Network Manager, so that multiple users can conncet and switch between rooms
 
     public List<DefaultRoom> defaultRooms;
     public GameObject roomUI;
-    public GameObject connectButton;
+    public GameObject startButton;
+    public GameObject tryingToConnectCanva;
 
-    //Functions that are called every time a new user opens the platform and click on connect button: they connect him to the server.
+    //Function called at the launching of the file
+    public void Start()
+    {
+        //startButton = GameObject.Find("StartUI/Start Button");
+        //roomUI = GameObject.Find("StartUI/RoomsUI");
+    }
+
+    //Functions that are called every time a new user opens the platform and click on "Start tutorial" button: they connect him to the server and start the tutorial.
     public void ConnectToServer()
     {
         if (!PhotonNetwork.IsConnected)
         {
             PhotonNetwork.ConnectUsingSettings();
             Debug.Log("Try Connect To Server...");
+            startButton.SetActive(false);
+            tryingToConnectCanva.SetActive(true);
+        } else
+        {
+            startButton.SetActive(false);
+            roomUI.SetActive(true);
         }
     }
 
@@ -42,38 +47,26 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         base.OnJoinedLobby();
         Debug.Log("Lobby joined");
-        connectButton.SetActive(false);
+        startButton.SetActive(false);
+        tryingToConnectCanva.SetActive(false);
         roomUI.SetActive(true);
     }
 
-    //Function called every time a user select a room: it loads the scene and connect the player to the room (with the other players)
-    public void InitializeRoom(int defaultRoomIndex)
+    //Function called when user starts the tutorial and choose H1: it loads the scene for the H1 tutorial
+    public void StartTutorialH1()
     {
-        DefaultRoom roomSettings = defaultRooms[defaultRoomIndex];
-
-        //Load scene
-        PhotonNetwork.LoadLevel(roomSettings.sceneIndex);
-
-        //Create Room
-        RoomOptions roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = (byte)roomSettings.maxPlayer;
-        roomOptions.IsVisible = true;
-        roomOptions.IsOpen = true;
-        roomOptions.PublishUserId = true;
-        PhotonNetwork.JoinOrCreateRoom(roomSettings.Name, roomOptions, TypedLobby.Default);
+        Application.LoadLevel("Tutorial H1");
     }
 
-    //Functions called when player joins a room: mainly for debug
-    public override void OnJoinedRoom()
+    //Function called when user starts the tutorial and choose H2: it loads the scene for the H2 tutorial
+    public void StartTutorialH2()
     {
-        Debug.Log("Joined A Room");
-        base.OnJoinedRoom();
+        Application.LoadLevel("Tutorial H2");
     }
 
-    public override void OnPlayerEnteredRoom(Player newPlayer)
+    //Function called when user starts the tutorial and choose H3: it loads the scene for the H3 tutorial
+    public void StartTutorialH3()
     {
-        Debug.Log("A new player joined the room");
-        base.OnPlayerEnteredRoom(newPlayer);
+        Application.LoadLevel("Tutorial H3");
     }
-
 }
