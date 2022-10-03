@@ -63,6 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHand_hand: {fileID: 3759992957607686081}
   rightHand_hand: {fileID: 6986825730977748524}
+  isGrabbingH3: 0
 --- !u!1 &75225211487100975
 GameObject:
   m_ObjectHideFlags: 0
@@ -1695,8 +1696,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 3412191941483712095}
-  leftHand: {fileID: 4674626554397184115}
-  rightHand: {fileID: 9218159729409766538}
+  leftHand_controllers: {fileID: 4674626554397184115}
+  rightHand_controllers: {fileID: 9218159729409766538}
+  leftHand_hands: {fileID: 0}
+  rightHand_hands: {fileID: 0}
 --- !u!1 &6051750772397394333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2716,6 +2719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHand_hand: {fileID: 3759992957607686081}
   rightHand_hand: {fileID: 6986825730977748524}
+  isGrabbingH3: 0
 --- !u!1 &9139798617125977906
 GameObject:
   m_ObjectHideFlags: 0
@@ -3280,6 +3284,10 @@ MonoBehaviour:
   rightController: {fileID: 0}
   amplitude: 0.4
   duration: 0.5
+  amplitude1H3: 0.2
+  duration1H3: 0.3
+  amplitude2H3: 0.3
+  duration2H3: 1.5
 --- !u!114 &6986825730977748524
 MonoBehaviour:
   m_ObjectHideFlags: 0

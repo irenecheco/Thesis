@@ -7,6 +7,9 @@ using Unity.XR.CoreUtils;
 
 public class NetworkHandshakeActivationH1 : MonoBehaviour
 {
+    //Code responsible for the activation of the handshake animation over the network: calls a method over the network so
+    //that the involved users get notified and start the animation
+
     private GameObject rightHand;
     private GameObject leftHand;
     private GameObject rightController;
@@ -25,15 +28,10 @@ public class NetworkHandshakeActivationH1 : MonoBehaviour
     private Animator rightHandAnimator;
 
     private Vector3 direction;
-
     private float y_angle;
-    //private float x_angle;
-    //private float z_angle;
     
     private string[] playersID = new string[2];
-    //private string player2ID;
 
-    // Start is called before the first frame update
     void Start()
     {
         photonView = this.GetComponent<PhotonView>();
@@ -48,29 +46,29 @@ public class NetworkHandshakeActivationH1 : MonoBehaviour
         player = GameObject.Find("Player");
         camera = GameObject.Find("Camera Offset/Main Camera");
         rightHandAnimator = rightHand.GetComponent<Animator>();
-        //handshakeAnimation = rightHand.GetComponent<Animation>();
-        //player.transform.position = GameObject.Find("Camera Offset/RightHand Controller").transform.position;
         myHead = this.gameObject.transform.GetChild(0).gameObject;
 
-        //Debug.Log($"numero figli è {myHead.transform.GetChildCount()}");
         confirmCanvas = myHead.transform.GetChild(0).gameObject;        
     }
 
+    //Functions called when the handshake confirm button is pressed
     public void CallActivationOverNetwork(string pl1ID, string pl2ID)
     {
         playersID[0] = pl1ID;
         playersID[1] = pl2ID;
-        //Debug.Log($"id 1 è {playersID[0]}, id 2 è {playersID[1]}");
+
         if(pl1ID != null && pl2ID != null)
         {
+            //Photon Pun method that calls a function over the network
             photonView.RPC("ActivateHandshakeOverNetwork", RpcTarget.All, playersID as object[]);
         }
     }
 
+    //Function called over the network (on every network player): it checks if the player is involved in the handshake and,
+    //if it is, it triggers the animation
     [PunRPC]
     public void ActivateHandshakeOverNetwork(object[] ids)
     {
-
         string[] playersIds = new string[2];
         playersIds[0] = (string)ids[0];
         playersIds[1] = (string)ids[1];
@@ -96,8 +94,6 @@ public class NetworkHandshakeActivationH1 : MonoBehaviour
                     rHand = rHandContainer.transform.GetChild(1).gameObject;
                     rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
                 }
-                //Debug.Log($"{rHand.name} è rHand");
-
             }
             StartCoroutine(Wait());
 
@@ -123,19 +119,12 @@ public class NetworkHandshakeActivationH1 : MonoBehaviour
                     rHand = rHandContainer.transform.GetChild(1).gameObject;
                     rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
                 }
-                //Debug.Log($"{rHand.name} è rHand");
-
             }
             StartCoroutine(Wait());
         }
     }
-    /*public void SetBackComponent()
-    {
-        rightHand.transform.parent = rightController.transform;
-        rightController.AddComponent<HandController>();
-        rightController.GetComponent<HandController>().hand = rightHand.GetComponent<Hand>();
-    }*/
 
+    //Coroutine that trigger the animation on the network player
     public IEnumerator Wait()
     {
         double time = 0.25;
@@ -156,14 +145,8 @@ public class NetworkHandshakeActivationH1 : MonoBehaviour
         rightHand.transform.parent = player.transform;
         midPosition = Vector3.Lerp(head.transform.position, camera.transform.position, 0.5f);
         player.transform.position = new Vector3(midPosition.x, (float)(starting_y - 0.4), midPosition.z);
-        //player.transform.position = new Vector3(camera.transform.position.x, (float)(mid_y - 0.4), camera.transform.position.z);
-        //player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, (float)(player.transform.position.z + 0.516));
         direction = (head.transform.position - camera.transform.position).normalized;
         y_angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-        //Debug.Log($"y direction {y_angle}");
-        //Debug.Log($" camera {camera.transform.rotation.eulerAngles.y}");
-        //x_angle = Mathf.Atan2(direction.y, direction.z) * Mathf.Rad2Deg;
-        //z_angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
         float camera_y_angle = camera.transform.rotation.eulerAngles.y;
         if (y_angle < 0)
         {
@@ -186,14 +169,8 @@ public class NetworkHandshakeActivationH1 : MonoBehaviour
             player.transform.rotation = Quaternion.Euler(0, (y_angle - 180), 0);
             player.transform.Translate(new Vector3((float)(+0.026), 0, (float)(+0.540)), Space.Self);
         }
-        
-        
 
         rightHandAnimator.Play("Handshake", -1, 0);
-
-        //SetBackComponent();
-
-        //Debug.Log($"{rightHand.transform.parent.gameObject.name} è il parent; {rightController.GetComponent<HandController>().hand} è la mano assegnata");
 
         waitConfirmUI.GetComponent<Canvas>().enabled = false;
         handshakeUI.GetComponent<Canvas>().enabled = true;

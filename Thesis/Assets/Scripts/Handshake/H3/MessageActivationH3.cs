@@ -7,6 +7,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class MessageActivationH3 : MonoBehaviour, IPunObservable
 {
+    //Code responsible fot the activation of the message canvas locally when user grab the hand of the other user
+
     private GameObject rightController;
     private GameObject rightHand;
     private GameObject mainCamera;
@@ -37,6 +39,7 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
         headLocal = mainCamera.transform.GetChild(0).gameObject;
         messageCanvas = headLocal.transform.GetChild(1).gameObject;
 
+        //If the network player's object is mine, I cannot grab the hand
         if (photonView.IsMine)
         {
             this.GetComponent<XRGrabInteractable>().enabled = false;
@@ -69,6 +72,7 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
         }
     }
 
+    //When I grab the other user's hand, a message appears in front of me and the network activation is called
     public void ActivateMessage()
     {
         if (!photonView.IsMine && photonView != null)
@@ -80,6 +84,8 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
         }
     }
 
+    //When I release the other user's hand, if I have a message in front of me, it disappears and the network deactivation
+    //is called
     public void DeactivateMessage()
     {
         if (!photonView.IsMine && photonView != null)
@@ -94,6 +100,8 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
         }
     }
 
+    //Method of the Photon Pun library that lets you keep track of a variable through the network (class IPunObservable)
+    //In this case it keeps track of a bool that is true when my user is grabbing
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)

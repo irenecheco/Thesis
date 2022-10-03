@@ -5,6 +5,8 @@ using UnityEngine.XR;
 
 public class BackToLobbyH3 : MonoBehaviour
 {
+    //Code responsible for handling the "Back to lobby" button (just for H3, without ray interactor)
+
     private List<InputDevice> devices = new List<InputDevice>();
     private InputDeviceCharacteristics lControllerCharacteristics = InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller;
     private InputDevice targetDevice;
@@ -15,7 +17,6 @@ public class BackToLobbyH3 : MonoBehaviour
     private GameObject headLocal;
     private GameObject backToLobbyConfirmCanva;
 
-    // Start is called before the first frame update
     void Start()
     {
         headLocal = this.gameObject.transform.GetChild(0).gameObject;
@@ -32,7 +33,8 @@ public class BackToLobbyH3 : MonoBehaviour
         confirmation = false;
     }
 
-    // Update is called once per frame
+    //On X button pressed a confirm message appears: if you press again the X button you return to the lobby, if you press
+    //Y you exit the confirm message and go back to the scene
     void Update()
     {
         targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue);

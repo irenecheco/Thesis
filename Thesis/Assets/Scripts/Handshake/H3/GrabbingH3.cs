@@ -6,6 +6,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class GrabbingH3 : MonoBehaviour
 {
+    //Code responsible for keeping track of grab button pressure
+
     private GameObject myNetPlayer;
     private GameObject myNetRightController;
     private GameObject myNetRightHand;
@@ -44,6 +46,7 @@ public class GrabbingH3 : MonoBehaviour
         firstFrame = true;
     }
 
+    //When I'm grabbing the other user, this function get called and it saves the other user game object
     public void SetGrabbing(GameObject otherNetPlRightHand, string otherPlId)
     {        
         myNetRightHand.GetComponent<MessageActivationH3>().isGrabbing = true;
@@ -62,6 +65,7 @@ public class GrabbingH3 : MonoBehaviour
 
     void Update()
     {
+        //It saves my network player's object whenever it gets instantiated
         if (myNetPlayer == null)
         {
             foreach (var item in PhotonNetwork.PlayerList)
@@ -73,18 +77,18 @@ public class GrabbingH3 : MonoBehaviour
                     myNetRightHand = myNetRightController.transform.GetChild(0).gameObject;
                 }
             }
-        } else
-        {
-            //Debug.Log($"my net right hand is {myNetRightHand.name} e isGrabbing è {myNetRightHand.GetComponent<MessageActivationH3>().isGrabbing}");
         }
 
+        //When I grab the other user's hand it gets saved in SetGrabbing() and this object is not null anymore
         if (otherNetRightHand != null)
         {
-            //Debug.Log($"my net right hand is {otherNetRightHand.name} e isGrabbing è {otherNetRightHand.GetComponent<MessageActivationH3>().isGrabbing}");
+            //Checks if I'm grabbing and if the other user is grabbing
             if (myNetRightHand.GetComponent<MessageActivationH3>().isGrabbing == true)
             {
                 if (otherNetRightHand.GetComponent<MessageActivationH3>().isGrabbing == true)
                 {
+                    //If both users are grabbing they can handshake freely, if one of them release or they get to far they
+                    //cannot handshake anymore
                     rightController.GetComponent<ActionBasedController>().enableInputTracking = true;
                     rightController.GetComponent<HandController>().isGrabbingH3 = true;
                     myNetRightController.GetComponent<NetworkHandController>().isGrabbingH3 = true;
@@ -95,6 +99,7 @@ public class GrabbingH3 : MonoBehaviour
                     otherNetGrabMessageCanvas.GetComponent<Canvas>().enabled = false;
                     areShaking = true;
 
+                    //Haptic, visual and sound feedback are provided during the handshake
                     this.GetComponent<HapticController>().SendHaptics2H3();
                     if(firstFrame == true)
                     {
@@ -114,6 +119,8 @@ public class GrabbingH3 : MonoBehaviour
                 }
                 else
                 {
+                    //If I'm grabbing, but the other user is not, I cannot move my right hand until I release the button or
+                    //the other user grab my hand
                     this.GetComponent<CollidingH3>().isGrabbing = false;
                     messageCanvas.GetComponent<Canvas>().enabled = true;
                     otherNetGrabMessageCanvas.GetComponent<Canvas>().enabled = false;

@@ -6,21 +6,25 @@ using UnityEngine.XR.Interaction.Toolkit;
 [RequireComponent(typeof(ActionBasedController))]
 public class HandController : MonoBehaviour
 {
+    //Code responsible for the set up of grip and target value read from the controller
+
     ActionBasedController controller;
     public Hand hand;
     public bool isGrabbingH3;
 
-    // Start is called before the first frame update
     void Start()
     {
+        //Set up of the variables
         controller = GetComponent<ActionBasedController>();
         isGrabbingH3 = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(isGrabbingH3 == false)
+        //Check if users are doing the handshake in the H3: in that case the grip button is always pressed, so to keep the hand
+        //in a handshake position, grip is set to 0
+
+        if (isGrabbingH3 == false)
         {
             hand.SetGrip(controller.selectAction.action.ReadValue<float>());
         } else

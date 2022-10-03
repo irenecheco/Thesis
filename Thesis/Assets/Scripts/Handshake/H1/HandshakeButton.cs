@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 using Photon.Pun;
 using UnityEngine.UI;
 
 public class HandshakeButton : MonoBehaviour
 {
+    //Code responsible to trigger the confirm canvas once a user press the handshake button (H1)
+
     private GameObject player;
     private GameObject myPlayer;
     private GameObject myPlayerHead;
@@ -16,7 +19,10 @@ public class HandshakeButton : MonoBehaviour
     private GameObject rightHand;
     private GameObject rightController;
 
-    // Start is called before the first frame update
+    private List<InputDevice> devices = new List<InputDevice>();
+    private InputDeviceCharacteristics lControllerCharacteristics = InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller;
+    private InputDevice targetDevice;
+
     void Start()
     {
         rightHand = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
@@ -31,8 +37,35 @@ public class HandshakeButton : MonoBehaviour
             waitConfirmUI = leftHand.transform.GetChild(3).gameObject;
             waitConfirmUI.GetComponent<Canvas>().enabled = false;
         }
+
+        InputDevices.GetDevicesWithCharacteristics(lControllerCharacteristics, devices);
+
+        if (devices.Count > 0)
+        {
+            targetDevice = devices[0];
+        }
     }
 
+    //Checks every frame is the left controller buttons are pressed, if X is pressed handshake button onClick is 
+    //invoked
+    public void Update()
+    {
+        targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue);
+
+        if(this.gameObject.name == "Handshake Button")
+        {
+            if(this.GetComponent<Button>().interactable == true)
+            {
+                if (primaryButtonValue)
+                {
+                    this.GetComponent<Button>().onClick.Invoke();
+                }
+            }
+        }
+    }
+
+    //Function called on the pressed handshake button: it changes the canvas that the player who pressed the button
+    //sees and it activates on his head the confrim canvas
     public void OnHandshakePressed()
     {
         for(int i=0; i<PhotonNetwork.PlayerList.Length; i++)
@@ -44,7 +77,7 @@ public class HandshakeButton : MonoBehaviour
                     myPlayer = (GameObject)item.TagObject;
                 }
             }
-            //myPlayer = GameObject.Find($"Network Player {i}");
+
             if(myPlayer.GetComponent<PhotonView>().IsMine)
             {
                 break;
@@ -60,6 +93,7 @@ public class HandshakeButton : MonoBehaviour
         }
     }
 
+    //Called at the hand of the animation: it sets backe the parent and the components
     public void SetBackComponent()
     {
         rightHand.transform.parent = rightController.transform;

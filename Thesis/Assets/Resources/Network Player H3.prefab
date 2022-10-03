@@ -96,8 +96,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 7171106752124537816}
-  leftHand: {fileID: 865243028786009588}
-  rightHand: {fileID: 3689312902941520141}
+  leftHand_controllers: {fileID: 865243028786009588}
+  rightHand_controllers: {fileID: 3689312902941520141}
+  leftHand_hands: {fileID: 0}
+  rightHand_hands: {fileID: 0}
 --- !u!114 &7819117813129869353
 MonoBehaviour:
   m_ObjectHideFlags: 0

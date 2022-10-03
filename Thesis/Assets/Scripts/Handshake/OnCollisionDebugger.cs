@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class OnCollisionDebugger : MonoBehaviour
 {
+    //Code responsible for collisions debug
+
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log($"{gameObject.name} --> OnCollision ENTER with {collision.gameObject.name}");

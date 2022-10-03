@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class NetworkHandshakePressedA : MonoBehaviour
 {
+    //Code responsible for keeping track of the A button pressure: it changes the canvas according to the button pressure
+
     private string[] playersID = new string[2];
     private GameObject otherPlayer;
     private GameObject myHead;
@@ -32,22 +34,28 @@ public class NetworkHandshakePressedA : MonoBehaviour
         rightHand = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
     }
 
+    //Functions called when a user is pressing the A button
     public void CallPressedAOverNetwork(string pl1ID, string pl2ID)
     {
         playersID[0] = pl1ID;
         playersID[1] = pl2ID;
-        //Debug.Log($"id 1 è {playersID[0]}, id 2 è {playersID[1]}");
+
+        //Photon Pun method that calls a function over the network
         photonView.RPC("PressedAOverNetwork", RpcTarget.All, playersID as object[]);
     }
 
+    //Functions called when a user is releasing the A button
     public void CallReleasedAOverNetwork(string pl1ID, string pl2ID)
     {
         playersID[0] = pl1ID;
         playersID[1] = pl2ID;
-        //Debug.Log($"id 1 è {playersID[0]}, id 2 è {playersID[1]}");
+
+        //Photon Pun method that calls a function over the network
         photonView.RPC("ReleasedAOverNetwork", RpcTarget.All, playersID as object[]);
     }
 
+    //Function called over the network (on every network player): it checks if the player is involved in the handshake and,
+    //if it is, it changes the canvas accordingly
     [PunRPC]
     public void PressedAOverNetwork(object[] ids)
     {
@@ -57,7 +65,7 @@ public class NetworkHandshakePressedA : MonoBehaviour
 
         if (playersIds[0] == PhotonNetwork.LocalPlayer.UserId)
         {
-            //Debug.Log($"quindi mio id è al posto 0");
+            //My user id is in position 0: I am pressing A button
 
             foreach (var item in PhotonNetwork.PlayerList)
             {
@@ -67,8 +75,6 @@ public class NetworkHandshakePressedA : MonoBehaviour
                     otherPlayerHead = otherPlayer.transform.GetChild(0).gameObject;
                     otherPlayerRightController = otherPlayer.gameObject.transform.GetChild(2).gameObject;
                     otherPlayerRightHand = otherPlayerRightController.gameObject.transform.GetChild(0).gameObject;
-
-                    //Debug.Log($"Other player name is {otherPlayer.name}");
                 }
             }
             if (!otherPlayer.GetComponent<PhotonView>().IsMine && otherPlayer != null)
@@ -84,7 +90,7 @@ public class NetworkHandshakePressedA : MonoBehaviour
         }
         else if (playersIds[1] == PhotonNetwork.LocalPlayer.UserId)
         {
-            //Debug.Log($"quindi mio id è al posto 1");
+            //My user id is in position 1: the other player is pressing A button
 
             foreach (var item in PhotonNetwork.PlayerList)
             {
@@ -93,20 +99,24 @@ public class NetworkHandshakePressedA : MonoBehaviour
                     otherPlayer = (GameObject)item.TagObject;
                     otherPlayerHead = otherPlayer.transform.GetChild(0).gameObject;
                     otherPlayerRightController = otherPlayer.gameObject.transform.GetChild(2).gameObject;
-                    otherPlayerRightHand = otherPlayerRightController.gameObject.transform.GetChild(0).gameObject;
-                    //Debug.Log($"Other player name is {otherPlayer.name} and my id is 1");
+                    if(otherPlayerRightController.transform.childCount >= 1)
+                    {
+                        otherPlayerRightHand = otherPlayerRightController.gameObject.transform.GetChild(0).gameObject;
+                    }
                 }
             }
-            if (!otherPlayer.GetComponent<PhotonView>().IsMine && otherPlayer != null)
+            if (!otherPlayer.GetComponent<PhotonView>().IsMine && otherPlayer != null && myHead.GetComponent<OnButtonAPressed>().isPressed == false)
             {
                 otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.transform.GetComponent<HandshakeMessageCanvasH2>().DeactivateHandshakeConfirmCanvas();
                 otherPlayerHead.transform.Find(handshake2_confirmCanva).gameObject.transform.GetComponent<HandshakeConfirmCanvasH2>().ActivateHandshakeConfirmCanvas();
 
-                myHead.transform.GetComponent<OnCollisionActivateCanvasH2>().buttonAPressed = true;
+                //myHead.transform.GetComponent<OnCollisionActivateCanvasH2>().buttonAPressed = true;
             }
         }
     }
 
+    //Function called over the network (on every network player): it checks if the player is involved in the handshake and,
+    //if it is, it changes the canvas accordingly
     [PunRPC]
     public void ReleasedAOverNetwork(object[] ids)
     {
@@ -115,15 +125,16 @@ public class NetworkHandshakePressedA : MonoBehaviour
         playersIds[1] = (string)ids[1];
         if (playersIds[0] == PhotonNetwork.LocalPlayer.UserId)
         {
+            //My user id is in position 0: I am releasing A button
             myHead.transform.GetComponent<OnCollisionActivateCanvasH2>().buttonAPressed = false;
 
             otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.transform.GetComponent<HandshakeMessageCanvasH2>().ActivateHandshakeConfirmCanvas();
             otherPlayerHead.transform.Find(handshake2_waitingCanva).gameObject.transform.GetComponent<HandshakeWaitingCanvasH2>().DeactivateHandshakeConfirmCanvas();
-
         }
         else if (playersIds[1] == PhotonNetwork.LocalPlayer.UserId)
         {
-            myHead.transform.GetComponent<OnCollisionActivateCanvasH2>().buttonAPressed = false;
+            //My user id is in position 1: the other player is releasing A button
+            //myHead.transform.GetComponent<OnCollisionActivateCanvasH2>().buttonAPressed = false;
 
             otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.transform.GetComponent<HandshakeMessageCanvasH2>().ActivateHandshakeConfirmCanvas();
             otherPlayerHead.transform.Find(handshake2_confirmCanva).gameObject.transform.GetComponent<HandshakeConfirmCanvasH2>().DeactivateHandshakeConfirmCanvas();

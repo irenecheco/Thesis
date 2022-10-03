@@ -7,6 +7,9 @@ using Unity.XR.CoreUtils;
 
 public class NetworkHandshakeActivationH2 : MonoBehaviour
 {
+    //Code responsible for the activation of the handshake animation over the network: calls a method over the network so
+    //that the involved users get notified and start the animation
+
     private GameObject rightHand;
     private GameObject leftHand;
     private GameObject rightController;
@@ -52,17 +55,20 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
         }        
     }
 
+    //Functions called when both users are pressing the A button
     public void CallActivationOverNetwork(string pl1ID, string pl2ID)
     {
         playersID[0] = pl1ID;
         playersID[1] = pl2ID;
-        //Debug.Log($"id 1 è {playersID[0]}, id 2 è {playersID[1]}");
         if (pl1ID != null && pl2ID != null)
         {
+            //Photon Pun method that calls a function over the network
             photonView.RPC("ActivateHandshakeOverNetwork", RpcTarget.All, playersID as object[]);
         }
     }
 
+    //Function called over the network (on every network player): it checks if the player is involved in the handshake and,
+    //if it is, it triggers the animation
     [PunRPC]
     public void ActivateHandshakeOverNetwork(object[] ids)
     {
@@ -86,15 +92,23 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
                 {
                     rHand = rHandContainer.transform.GetChild(0).gameObject;
                 }
-                if (rHand.name == "RightHand")
+                if(rHand != null)
                 {
-                    rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
-                }
-                else
-                {
-                    rHand = rHandContainer.transform.GetChild(1).gameObject;
-                    rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
-                }
+                    if (rHand.name == "RightHand")
+                    {
+                        GameObject rContainer = rHand.transform.parent.gameObject;
+                        GameObject netPlayer = rContainer.transform.parent.gameObject;
+                        GameObject netHead = netPlayer.transform.GetChild(0).gameObject;
+                        netHead.GetComponent<OnButtonAPressed>().animationGoing = true;
+                        rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
+                    }
+                    else
+                    {
+                        myHead.GetComponent<OnButtonAPressed>().animationGoing = true;
+                        rHand = rHandContainer.transform.GetChild(1).gameObject;
+                        rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
+                    }
+                }                
             }
             StartCoroutine(Wait());
         }
@@ -114,20 +128,29 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
                 {
                     rHand = rHandContainer.transform.GetChild(0).gameObject;
                 }
-                if (rHand.name == "RightHand")
+                if(rHand != null)
                 {
-                    rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
-                }
-                else
-                {
-                    rHand = rHandContainer.transform.GetChild(1).gameObject;
-                    rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
-                }
+                    if (rHand.name == "RightHand")
+                    {
+                        GameObject rContainer = rHand.transform.parent.gameObject;
+                        GameObject netPlayer = rContainer.transform.parent.gameObject;
+                        GameObject netHead = netPlayer.transform.GetChild(0).gameObject;
+                        netHead.GetComponent<OnButtonAPressed>().animationGoing = true;
+                        rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
+                    }
+                    else
+                    {
+                        myHead.GetComponent<OnButtonAPressed>().animationGoing = true;
+                        rHand = rHandContainer.transform.GetChild(1).gameObject;
+                        rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
+                    }
+                }                
             }
             StartCoroutine(Wait());
         }
     }
 
+    //Coroutine that trigger the animation on the network player
     public IEnumerator Wait()
     {
         double time = 0.25;
@@ -177,21 +200,19 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
             player.transform.rotation = Quaternion.Euler(0, (y_angle - 180), 0);
             player.transform.Translate(new Vector3((float)(+0.026), 0, (float)(+0.540)), Space.Self);
         }
-
-
-        //Debug.Log("Attivo animazione");
-
         rightHandAnimator.Play("Handshake2", -1, 0);
     }
 
     public void SetBackComponent()
     {
-        //Debug.Log("Entra nel setBackComponent");
         rightHand.transform.parent = rightController.transform;
         rightController.AddComponent<HandController>();
         rightController.GetComponent<HandController>().hand = rightHand.GetComponent<Hand>();
         rightHand.GetComponent<Hand>().flag = false;
-        //myHead.gameObject.transform.GetComponent<OnButtonAPressed>().animationGoing = false;
+        if (this.name != "RightHand")
+        {
+            myHead.gameObject.transform.GetComponent<OnButtonAPressed>().animationGoing = false;
+        }
     }
 }
 

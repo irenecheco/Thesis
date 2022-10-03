@@ -6,6 +6,8 @@ using Photon.Pun;
 
 public class OnButtonAPressed : MonoBehaviour, IPunObservable
 {
+    //Code responsible for keeping track of the A button pressure: it triggers the animation if both users press it
+
     private List<InputDevice> devices = new List<InputDevice>();
     private InputDeviceCharacteristics rControllerCharacteristics = InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
     private InputDevice targetDevice;
@@ -37,6 +39,7 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
         firstCall = true;
         animationGoing = false;
 
+        //Saving the right controller characteristics to keep track of the A button
         InputDevices.GetDevicesWithCharacteristics(rControllerCharacteristics, devices);
 
         if (devices.Count > 0)
@@ -49,10 +52,14 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
     {
         if (photonView.IsMine)
         {
+            //isColling is true whenever my player's head collide with another player's head
             if (isColliding == true)
             {
+                //Saving the A button value at every frame
                 targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue);
                 
+                //If the A button is pressed it saves the information in a bool that it needs to check later and it calls
+                //the function that could trigger the handshake
                 if (primaryButtonValue)
                 {
                     //Debug.Log("pressing button A");
@@ -73,6 +80,7 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
                     SaveIds();
                 }
 
+                //Checks if both users are pressing the A button: if true it calls the animation over the network
                 if(otherPlayerHead != null)
                 {
                     GameObject otherPlayer = otherPlayerHead.gameObject.transform.parent.gameObject;
@@ -81,19 +89,18 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
                         if(animationGoing == false)
                         {
                             //Debug.Log("Entrambi gli isPressed sono true");
-                            //animationGoing = true;
+                            animationGoing = true;
                             myPlayer.GetComponent<NetworkHandshakeActivationH2>().CallActivationOverNetwork(player1ID, player2ID);
-                        }
-                    } else
-                    {
-                       //myPlayer.GetComponent<NetworkHandshakeActivationH2>().SetBackComponent();
-                       //otherPlayer.GetComponent<NetworkHandshakeActivationH2>().SetBackComponent();
+                        }                        
                     }
                 }
             }
         }        
     }
 
+    //Method of the Photon Pun library that lets you keep track of a variable through the network (class IPunObservable)
+    //In this case it keeps track of two booleans: isPressed is true when A button is pressed, isColliding is true when players
+    //are colliding (and they can handshake)
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
@@ -105,10 +112,10 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
         {
             this.isColliding = (bool)stream.ReceiveNext();
             this.isPressed = (bool)stream.ReceiveNext();
-            //Debug.Log($"{this.h2_messageActive}");
         }
     }
 
+    //Function to save the ids of the players involved in the handshake and keep track of the A buttons over the network
     public void SaveIds()
     {
         if(otherPlayerHead != null)
@@ -119,17 +126,21 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
             {
                 if ((object)item.TagObject == otherPlayer)
                 {
-                    //Debug.Log($"{item.UserId}");
                     player2ID = item.UserId;
                 }
             }
 
             player1ID = PhotonNetwork.LocalPlayer.UserId;
 
+            //ids saved
+
             if (isPressed == true)
             {
+                //firstCall is a boolean that is true if the previous frame the button was not pressed, so that the method over
+                //the network gets called only on the pressure of the button and not every frame that the button is held
                 if (firstCall == true)
                 {
+                    //Debug.Log("Entra in firstcall true");
                     firstCall = false;
                     myHead.transform.GetComponent<NetworkHandshakePressedA>().CallPressedAOverNetwork(player1ID, player2ID);
                 }

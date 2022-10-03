@@ -6,6 +6,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class HapticController : MonoBehaviour
 {
+    //Code responsible for haptics on the controller
+
     public XRBaseController rightController;
     public float amplitude = 0.4f;
     public float duration = 0.5f;
@@ -14,6 +16,7 @@ public class HapticController : MonoBehaviour
     public float amplitude2H3 = 0.3f;
     public float duration2H3 = 1.5f;
 
+    //Function called whenever an haptic is needed (handshake in H1 and H2)
     public void SendHaptics()
     {
         if(rightController != null)
@@ -22,6 +25,8 @@ public class HapticController : MonoBehaviour
         }
     }
 
+    //In H3 there are two different haptics: first when grabbing other user's hand, second when the other user is grabbing back
+    //and they can handshake
     public void SendHaptics1H3()
     {
         if (rightController != null)
@@ -30,6 +35,7 @@ public class HapticController : MonoBehaviour
         }
     }
 
+    //Second one in stronger and longer
     public void SendHaptics2H3()
     {
         if (rightController != null)

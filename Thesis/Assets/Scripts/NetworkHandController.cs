@@ -7,6 +7,8 @@ using Photon.Pun;
 
 public class NetworkHandController : MonoBehaviour
 {
+    //Code responsible for the set up of grip and target value read from the controller: network correspondent of HandController.cs
+
     private PhotonView photonView;
 
     public NetworkHand leftHand_hand;
@@ -17,9 +19,10 @@ public class NetworkHandController : MonoBehaviour
 
     public bool isGrabbingH3;
 
-    // Start is called before the first frame update
     void Start()
     {
+        //Set up of the variables
+
         photonView = this.transform.parent.gameObject.GetComponent<PhotonView>();
 
         XROrigin rig = FindObjectOfType<XROrigin>();
@@ -30,9 +33,11 @@ public class NetworkHandController : MonoBehaviour
         isGrabbingH3 = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //The hands animation for the network player needs to be updated according to his local player's controllers, so it needs
+        //to be updated only if the photon view component IsMine (is local)
+
         if (photonView.IsMine)
         {
             UpdateHandAnimationLeft(controllerLeft, leftHand_hand);
@@ -48,6 +53,9 @@ public class NetworkHandController : MonoBehaviour
 
     void UpdateHandAnimationRight(ActionBasedController controller, NetworkHand network_hand)
     {
+        //Check if users are doing the handshake in the H3: in that case the grip button is always pressed, so to keep the hand
+        //in a handshake position, grip is set to 0
+
         if (isGrabbingH3 == false)
         {
             network_hand.SetGrip(controller.selectAction.action.ReadValue<float>());

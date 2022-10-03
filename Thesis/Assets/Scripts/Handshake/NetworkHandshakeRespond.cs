@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class NetworkHandshakeRespond : MonoBehaviour
 {
+    //Code responsible for the start of the handshake animation in H1 and H2
+
     private GameObject rightHand;
     private GameObject leftHand;
     private GameObject rightController;
@@ -17,19 +19,11 @@ public class NetworkHandshakeRespond : MonoBehaviour
     private Vector3 cameraPosition;
     private Vector3 otherRightContr;
     float y_angle;
-    //float x_angle;
-    //float z_angle;
     private Vector3 direction;
-    //private GameObject otherPlayer;
     private Animator rightHandAnimator;
-    //private Animation handshakeAnimation;
-    //private AnimatorStateInfo animStateInfo;
-    //private Vector3 rHandPosition;
-    //rivate Vector3 lHandPosition;
 
     private int sceneIndex;
 
-    // Start is called before the first frame update
     void Start()
     {
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -45,6 +39,8 @@ public class NetworkHandshakeRespond : MonoBehaviour
         player.transform.position = rightController.transform.position;
     }
 
+    //Function that saves the camera and hand position (so that the animation starts in the right position) and start
+    //the coroutine for the animation
     public void OnHandshakePressed(Vector3 camPosition, Vector3 otherRight)
     {
         cameraPosition = camPosition;
@@ -52,6 +48,7 @@ public class NetworkHandshakeRespond : MonoBehaviour
         StartCoroutine(Wait());
     }
 
+    //Called at the end of the animation to set back the right object's parent and components
     public void SetBackComponent()
     {
         rightHand.transform.parent = rightController.transform;
@@ -61,6 +58,7 @@ public class NetworkHandshakeRespond : MonoBehaviour
         rightHand.GetComponent<NetworkHand>().flag = false;
     }
 
+    //Coroutine used to start the animation
     public IEnumerator Wait()
     {
         double time = 0.25;
@@ -68,6 +66,7 @@ public class NetworkHandshakeRespond : MonoBehaviour
         float starting_y = 0;
         Vector3 midPosition;
 
+        //Check to understand the direction of the players
         if (cameraPosition.y <= head.transform.position.y)
         {
             starting_y = cameraPosition.y;
@@ -77,19 +76,17 @@ public class NetworkHandshakeRespond : MonoBehaviour
             starting_y = head.transform.position.y;
         }
 
+        //To set the right direction to the animation the right hand has to be detached from the controller and set to a
+        //fixed position and rotation
         Destroy(rightController.GetComponent("NetworkHandController"));
         rightHand.GetComponent<NetworkHand>().flag = true;
         rightHand.transform.parent = player.transform;
         midPosition = Vector3.Lerp(head.transform.position, cameraPosition,  0.5f);
         player.transform.position = new Vector3(midPosition.x, (float)(starting_y - 0.4), midPosition.z);
-        //player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, (float) (player.transform.position.z - 0.516));
         direction = (cameraPosition - head.transform.position).normalized;
 
         y_angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-        //Debug.Log($"y direction {y_angle}");
-        //Debug.Log($" camera {head.transform.rotation.eulerAngles.y}");
-        //x_angle = Mathf.Atan2(direction.y, direction.z) * Mathf.Rad2Deg;
-        //z_angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+
         float head_y_angle = head.transform.rotation.eulerAngles.y;
         if (y_angle < 0)
         {
@@ -113,6 +110,8 @@ public class NetworkHandshakeRespond : MonoBehaviour
             player.transform.rotation = Quaternion.Euler(0, (y_angle - 180), 0);
             player.transform.Translate(new Vector3((float)(+0.026), 0, (float)(+0.540)), Space.Self);
         }
+
+        //Depending on the scene (H1 or H2) the animation trigger different things, hence two different animations
         if(sceneIndex == 1)
         {
             rightHandAnimator.Play("Handshake", -1, 0);

@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -124, y: -19.4}
+  m_AnchoredPosition: {x: 39, y: -35.1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3547968607775375344
@@ -172,8 +172,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 7171106752124537816}
-  leftHand: {fileID: 865243028786009588}
-  rightHand: {fileID: 3689312902941520141}
+  leftHand_controllers: {fileID: 865243028786009588}
+  rightHand_controllers: {fileID: 3689312902941520141}
+  leftHand_hands: {fileID: 0}
+  rightHand_hands: {fileID: 0}
 --- !u!114 &3036896989305652570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,8 +267,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: To handshake this user press       and keep it pressed until the end of
-    the handshake.
+  m_Text: To handshake this user press       and keep it pressed until the other
+    user press it as well.
 --- !u!1 &712630780268825133
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,7 +632,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021766373394883699}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}
@@ -1343,6 +1345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHand_hand: {fileID: 8714540366725032518}
   rightHand_hand: {fileID: 3181891108248703915}
+  isGrabbingH3: 0
 --- !u!1 &3973582892624166299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1756,6 +1759,9 @@ MonoBehaviour:
   - {fileID: 7934888515677523863}
   - {fileID: 4007307870254588429}
   - {fileID: 8914969296961019179}
+  - {fileID: 167927952745188161}
+  - {fileID: 1109263667815204652}
+  - {fileID: 3137954580599779955}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -2004,6 +2010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHand_hand: {fileID: 8714540366725032518}
   rightHand_hand: {fileID: 3181891108248703915}
+  isGrabbingH3: 0
 --- !u!1 &5608434028107015592
 GameObject:
   m_ObjectHideFlags: 0
@@ -2746,7 +2753,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'This user wants to give you a handshake: to accept press the button      
-    and keep it pressed until the end of the action.'
+    .'
 --- !u!1 &8312140093371931943
 GameObject:
   m_ObjectHideFlags: 0
@@ -2796,7 +2803,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8312140093371931943}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}
@@ -3268,7 +3275,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9073298124697526791}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}
@@ -3779,6 +3786,10 @@ MonoBehaviour:
   rightController: {fileID: 0}
   amplitude: 0.4
   duration: 0.5
+  amplitude1H3: 0.2
+  duration1H3: 0.3
+  amplitude2H3: 0.3
+  duration2H3: 1.5
 --- !u!114 &3181891108248703915
 MonoBehaviour:
   m_ObjectHideFlags: 0

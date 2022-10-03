@@ -6,10 +6,14 @@ using UnityEngine.UI;
 
 public class HandshakeConfirmCanvas : MonoBehaviour, IPunObservable
 {
+    //Code responsible for the confirm canvas (if it has to be shown or not) through the network
+
     private GameObject handshakeConfirm;
     private GameObject handshakeConfirmButton;
     private bool confirmActive;
 
+    //Method of the Photon Pun library that lets you keep track of a variable through the network (class IPunObservable)
+    //In this case it keeps track of a bool that is true when the confirm canvas needs to be active
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
@@ -19,11 +23,9 @@ public class HandshakeConfirmCanvas : MonoBehaviour, IPunObservable
         else
         {
             this.confirmActive = (bool)stream.ReceiveNext();
-            //Debug.Log($"{this.confirmActive}");
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         handshakeConfirm = this.gameObject;
@@ -32,21 +34,21 @@ public class HandshakeConfirmCanvas : MonoBehaviour, IPunObservable
         confirmActive = false;
     }
 
+    //Called when the confirm canvas needs to be active
     public void ActivateHandshakeConfirmCanvas()
     {
-        //Debug.Log("ActivateHandshakeConfirm entered");
         confirmActive = true;
     }
 
+    //Called when the confirm canvas needs to be disabled
     public void DeactivateHandshakeConfirmCanvas()
     {
-        //Debug.Log("Entered DeactivateHandshakeConfirmCanvas");
         confirmActive = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //Check if the bool is true to enable or disable the canvas
         if (confirmActive == false)
         {
             handshakeConfirm.transform.GetComponent<Canvas>().enabled = false;
@@ -54,9 +56,7 @@ public class HandshakeConfirmCanvas : MonoBehaviour, IPunObservable
         }
         else
         {
-             //Debug.Log("Should activate Canvas");
              handshakeConfirm.transform.GetComponent<Canvas>().enabled = true;
-             //Debug.Log($"{handshakeConfirm.transform.GetComponent<Canvas>().enabled}");
              handshakeConfirmButton.GetComponent<Button>().interactable = true;
         }
     }

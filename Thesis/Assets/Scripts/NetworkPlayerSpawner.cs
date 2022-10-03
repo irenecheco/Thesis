@@ -6,13 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
 {
+    //Code responsible for the spawn of a new player in the room
+
     private GameObject spawnedPlayerPrefab;
     private int flagH1 = 0;
     private int flagH2 = 0;
     private int flagH3 = 0;
+    private int flagH4 = 0;
 
     private int sceneIndex;
 
+    //When a player joins a room it is spawned and a different name is assigned to him depending on the room and on how
+    //many players are there
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
@@ -33,13 +38,20 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
             flagH2++;
         } else if (sceneIndex == 3)
         {
-            //Debug.Log("It's scene 2");
+            //Debug.Log("It's scene 3");
             spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player H3", transform.position, transform.rotation);
             spawnedPlayerPrefab.name = $"Network Player H3 {+flagH3}";
             flagH3++;
+        } else if (sceneIndex == 4)
+        {
+            //Debug.Log("It's scene 4");
+            spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player H4", transform.position, transform.rotation);
+            spawnedPlayerPrefab.name = $"Network Player H4 {+flagH4}";
+            flagH4++;
         }
     }
 
+    //When a player leaves a room it is destroyed 
     public override void OnLeftRoom()
     {
         base.OnLeftRoom();
@@ -57,6 +69,10 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.Destroy(spawnedPlayerPrefab);
             flagH3--;
+        } else if (sceneIndex == 4)
+        {
+            PhotonNetwork.Destroy(spawnedPlayerPrefab);
+            flagH4--;
         }
     }
 }
