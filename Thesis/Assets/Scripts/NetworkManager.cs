@@ -6,19 +6,11 @@ using Photon.Realtime;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
-    //Code responsible for the setup of the Network Manager, so that multiple users can conncet and switch between rooms
-
-    public List<DefaultRoom> defaultRooms;
+    //Code responsible for the setup of the Network Manager, it lets you access the tutorials
+    
     public GameObject roomUI;
     public GameObject startButton;
     public GameObject tryingToConnectCanva;
-
-    //Function called at the launching of the file
-    public void Start()
-    {
-        //startButton = GameObject.Find("StartUI/Start Button");
-        //roomUI = GameObject.Find("StartUI/RoomsUI");
-    }
 
     //Functions that are called every time a new user opens the platform and click on "Start tutorial" button: they connect him to the server and start the tutorial.
     public void ConnectToServer()

@@ -2016,6 +2016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: {fileID: 28183885}
+  isGrabbingH3: 0
 --- !u!135 &314388862
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3358,6 +3359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: {fileID: 1081806819}
+  isGrabbingH3: 0
 --- !u!135 &562466586
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3838,7 +3840,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3074599546811088007, guid: 64f884351318b694f942625580e64a8b,
+  m_Sprite: {fileID: -2755530517072406904, guid: 7f186a9ac091755489927d745be0185a,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -5033,6 +5035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGrabbing: 0
+  otherNetRightHand: {fileID: 0}
 --- !u!65 &1081806838
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5378,7 +5381,7 @@ GameObject:
   - component: {fileID: 1311727806}
   - component: {fileID: 1311727805}
   m_Layer: 0
-  m_Name: Button x icon
+  m_Name: Button y icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5423,7 +5426,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3074599546811088007, guid: 64f884351318b694f942625580e64a8b,
+  m_Sprite: {fileID: -2755530517072406904, guid: 7f186a9ac091755489927d745be0185a,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -6612,7 +6615,7 @@ GameObject:
   - component: {fileID: 1828635331}
   - component: {fileID: 1828635330}
   m_Layer: 0
-  m_Name: Button y icon
+  m_Name: Button x icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6657,7 +6660,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2755530517072406904, guid: 64f884351318b694f942625580e64a8b,
+  m_Sprite: {fileID: -3074599546811088007, guid: 64f884351318b694f942625580e64a8b,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0

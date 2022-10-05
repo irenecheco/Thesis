@@ -40,7 +40,7 @@ public class BackToLobbyH3 : MonoBehaviour
         targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue);
         targetDevice.TryGetFeatureValue(CommonUsages.secondaryButton, out bool secondaryButtonValue);
 
-        if (primaryButtonValue)
+        if (secondaryButtonValue)
         {
             if(previouFramePressure == false)
             {
@@ -62,7 +62,7 @@ public class BackToLobbyH3 : MonoBehaviour
             previouFramePressure = false;
         }
 
-        if (secondaryButtonValue)
+        if (primaryButtonValue)
         {
             if(confirmation == true)
             {
