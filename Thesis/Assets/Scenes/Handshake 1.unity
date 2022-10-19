@@ -344,7 +344,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 1cbc12e4cd7a0d84895eada38ed8f146, type: 2}
+      objectReference: {fileID: 9100000, guid: 8282407a639bb55498b9551d94cda4c1, type: 2}
     - target: {fileID: 1560489715372324707, guid: 1f0e43d5b8c307741be352ed8e2ec312,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -1445,7 +1445,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: a4441299ce604334fbbf69d96d99585b, type: 2}
+      objectReference: {fileID: 9100000, guid: d894d59e62f48384190660438e8a64bb, type: 2}
     - target: {fileID: 865632264577765061, guid: 1f0e43d5b8c307741be352ed8e2ec312,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10919,6 +10919,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e33a39570c321f4190d3f389c65e06b, type: 3}
+--- !u!1 &3732763865387966214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8494406251882581754, guid: 022995d40e7be12438872a6b22cab4d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5057332986707218940}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3732763865387966215
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3732763865387966214}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 853170fd5e82698498c8b3fbe3da442e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &4073119221283636668 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9127074435791180864, guid: 022995d40e7be12438872a6b22cab4d6,
