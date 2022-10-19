@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Tutorial H3.unity
+- path: Assets/Scenes/Handshake 1.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
