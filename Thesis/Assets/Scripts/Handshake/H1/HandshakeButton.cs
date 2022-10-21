@@ -23,26 +23,31 @@ public class HandshakeButton : MonoBehaviour
     private InputDeviceCharacteristics lControllerCharacteristics = InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller;
     private InputDevice targetDevice;
 
+    public RuntimeAnimatorController mayor_anim_controller;
+
     void Start()
     {
-        rightHand = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
-        rightController = GameObject.Find("Camera Offset/RightHand Controller");
-
-        player = GameObject.Find("Player");
-        player.transform.position = GameObject.Find("Camera Offset/RightHand Controller").transform.position;
-        if(this.gameObject.name == "Handshake Button")
+        if (this.gameObject.name != "NPC_RightHand")
         {
-            handshakeUI = this.gameObject.transform.parent.gameObject;
-            leftHand = handshakeUI.transform.parent.gameObject;
-            waitConfirmUI = leftHand.transform.GetChild(3).gameObject;
-            waitConfirmUI.GetComponent<Canvas>().enabled = false;
-        }
+            rightHand = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
+            rightController = GameObject.Find("Camera Offset/RightHand Controller");
 
-        InputDevices.GetDevicesWithCharacteristics(lControllerCharacteristics, devices);
+            player = GameObject.Find("Player");
+            player.transform.position = GameObject.Find("Camera Offset/RightHand Controller").transform.position;
+            if (this.gameObject.name == "Handshake Button")
+            {
+                handshakeUI = this.gameObject.transform.parent.gameObject;
+                leftHand = handshakeUI.transform.parent.gameObject;
+                waitConfirmUI = leftHand.transform.GetChild(3).gameObject;
+                waitConfirmUI.GetComponent<Canvas>().enabled = false;
+            }
 
-        if (devices.Count > 0)
-        {
-            targetDevice = devices[0];
+            InputDevices.GetDevicesWithCharacteristics(lControllerCharacteristics, devices);
+
+            if (devices.Count > 0)
+            {
+                targetDevice = devices[0];
+            }
         }
     }
 
@@ -50,15 +55,18 @@ public class HandshakeButton : MonoBehaviour
     //invoked
     public void Update()
     {
-        targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue);
-
-        if(this.gameObject.name == "Handshake Button")
+        if(this.gameObject.name != "NPC_RightHand")
         {
-            if(this.GetComponent<Button>().interactable == true)
+            targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue);
+
+            if (this.gameObject.name == "Handshake Button")
             {
-                if (primaryButtonValue)
+                if (this.GetComponent<Button>().interactable == true)
                 {
-                    this.GetComponent<Button>().onClick.Invoke();
+                    if (primaryButtonValue)
+                    {
+                        this.GetComponent<Button>().onClick.Invoke();
+                    }
                 }
             }
         }
@@ -101,5 +109,4 @@ public class HandshakeButton : MonoBehaviour
         rightController.GetComponent<HandController>().hand = rightHand.GetComponent<Hand>();
         rightHand.GetComponent<Hand>().flag = false;
     }
-
 }
