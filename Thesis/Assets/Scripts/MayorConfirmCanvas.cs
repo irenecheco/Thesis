@@ -63,7 +63,7 @@ public class MayorConfirmCanvas : MonoBehaviour
         animator_mayor_right.speed = 0;
     }
 
-    public void backToIdle()
+    public void secondSpeech()
     {
         mayor_hand_holder.transform.position = initial_hand_holder_position;
         mayor_hand_holder.transform.rotation = initial_hand_holder_rotation;
@@ -71,6 +71,13 @@ public class MayorConfirmCanvas : MonoBehaviour
         animator_mayor_head.speed = 1;
         mayor_head.GetComponent<AudioSource>().clip = mayor_speech2;
         mayor_head.GetComponent<AudioSource>().Play();
+        animator_mayor_head.Play("MayorSpeech2_head");
+        animator_mayor_right.Play("MayorSpeech2_right");
+        animator_mayor_left.Play("MayorSpeech2_left");
+    }
+
+    public void backToIdle()
+    {
         animator_mayor_left.SetBool("Default", true);
         animator_mayor_head.SetBool("Default", true);
         animator_mayor_right.SetBool("Default", true);

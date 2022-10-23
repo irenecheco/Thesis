@@ -657,7 +657,7 @@ PrefabInstance:
     - target: {fileID: 4104703238691087710, guid: 1f0e43d5b8c307741be352ed8e2ec312,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.20499998
+      value: -0.205
       objectReference: {fileID: 0}
     - target: {fileID: 4104703238691087710, guid: 1f0e43d5b8c307741be352ed8e2ec312,
         type: 3}
@@ -12080,8 +12080,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e700467005a84cb4ebfff10684ed58b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mayor_speech1: {fileID: 0}
-  mayor_speech2: {fileID: 0}
+  mayor_speech1: {fileID: 8300000, guid: 4549d34d9b665aa4c8da23b588125c71, type: 3}
+  mayor_speech2: {fileID: 8300000, guid: b0bb1cb662e45c243b4cd11740164fff, type: 3}
 --- !u!4 &4073119221283636668 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9127074435791180864, guid: 022995d40e7be12438872a6b22cab4d6,
