@@ -673,7 +673,7 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 7.0333333
+  - time: 6.883333
     functionName: backToIdle
     data: 
     objectReferenceParameter: {fileID: 0}

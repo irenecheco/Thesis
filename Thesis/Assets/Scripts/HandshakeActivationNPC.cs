@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class HandshakeActivationNPC : MonoBehaviour
 {
-    //Code responsible for handshake activation in H1
+    //Code responsible for NPC handshake activation in H1 and H2
+
+    private int sceneIndex;
 
     private GameObject confirmCanvas;
     private GameObject confirmHead;
@@ -33,12 +36,26 @@ public class HandshakeActivationNPC : MonoBehaviour
 
     void Start()
     {
-        confirmCanvas = this.gameObject.transform.parent.gameObject;
-        confirmHead = confirmCanvas.transform.parent.gameObject;
-        confirmNPC = confirmHead.transform.parent.gameObject;
-        confirmLeft = confirmNPC.transform.GetChild(1).gameObject;
-        confirmNPCHandHolder = confirmNPC.transform.GetChild(2).gameObject;
-        confirmRight = confirmNPCHandHolder.transform.GetChild(0).gameObject;
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        if(sceneIndex == 1)
+        {
+            confirmCanvas = this.gameObject.transform.parent.gameObject;
+            confirmHead = confirmCanvas.transform.parent.gameObject;
+            confirmNPC = confirmHead.transform.parent.gameObject;
+            confirmLeft = confirmNPC.transform.GetChild(1).gameObject;
+            confirmNPCHandHolder = confirmNPC.transform.GetChild(2).gameObject;
+            confirmRight = confirmNPCHandHolder.transform.GetChild(0).gameObject;
+
+        } else if(sceneIndex == 2)
+        {
+            confirmCanvas = this.gameObject;
+            confirmHead = confirmCanvas.transform.parent.gameObject;
+            confirmNPC = confirmHead.transform.parent.gameObject;
+            confirmLeft = confirmNPC.transform.GetChild(1).gameObject;
+            confirmNPCHandHolder = confirmNPC.transform.GetChild(2).gameObject;
+            confirmRight = confirmNPCHandHolder.transform.GetChild(0).gameObject;
+        }        
 
         rightController = GameObject.Find("Camera Offset/RightHand Controller");
         leftController = GameObject.Find("Camera Offset/LefttHand Controller");

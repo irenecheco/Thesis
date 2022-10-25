@@ -48,12 +48,14 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
             spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player H2", transform.position, transform.rotation);
             spawnedPlayerPrefab.name = $"Network Player H2 {+flagH2}";
             flagH2++;
+            StartCoroutine(waitForMayor());
         } else if (sceneIndex == 3)
         {
             //Debug.Log("It's scene 3");
             spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player H3", transform.position, transform.rotation);
             spawnedPlayerPrefab.name = $"Network Player H3 {+flagH3}";
             flagH3++;
+            StartCoroutine(waitForMayor());
         } else if (sceneIndex == 4)
         {
             //Debug.Log("It's scene 4");
