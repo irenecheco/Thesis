@@ -25,8 +25,12 @@ public class HandshakeButton : MonoBehaviour
 
     public RuntimeAnimatorController mayor_anim_controller;
 
+    public bool isCollidingWithWaitress;
+
     void Start()
     {
+        isCollidingWithWaitress = false;
+
         if (this.gameObject.name != "NPC_RightHand")
         {
             rightHand = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
@@ -76,28 +80,35 @@ public class HandshakeButton : MonoBehaviour
     //sees and it activates on his head the confrim canvas
     public void OnHandshakePressed()
     {
-        for(int i=0; i<PhotonNetwork.PlayerList.Length; i++)
+        if(isCollidingWithWaitress == false)
         {
-            foreach(var item in PhotonNetwork.PlayerList)
+            for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
             {
-                if (item.IsLocal)
+                foreach (var item in PhotonNetwork.PlayerList)
                 {
-                    myPlayer = (GameObject)item.TagObject;
+                    if (item.IsLocal)
+                    {
+                        myPlayer = (GameObject)item.TagObject;
+                    }
+                }
+
+                if (myPlayer.GetComponent<PhotonView>().IsMine)
+                {
+                    break;
                 }
             }
-
-            if(myPlayer.GetComponent<PhotonView>().IsMine)
+            myPlayerHead = myPlayer.transform.GetChild(0).gameObject;
+            myPlayerConfirm = myPlayerHead.transform.GetChild(0).gameObject;
+            myPlayerConfirm.GetComponent<HandshakeConfirmCanvas>().ActivateHandshakeConfirmCanvas();
+            if (this.gameObject.name == "Handshake Button")
             {
-                break;
+                handshakeUI.GetComponent<Canvas>().enabled = false;
+                waitConfirmUI.GetComponent<Canvas>().enabled = true;
             }
         }
-        myPlayerHead = myPlayer.transform.GetChild(0).gameObject;
-        myPlayerConfirm = myPlayerHead.transform.GetChild(0).gameObject;
-        myPlayerConfirm.GetComponent<HandshakeConfirmCanvas>().ActivateHandshakeConfirmCanvas();
-        if (this.gameObject.name == "Handshake Button")
+        else
         {
-            handshakeUI.GetComponent<Canvas>().enabled = false;
-            waitConfirmUI.GetComponent<Canvas>().enabled = true;
+            Debug.Log("Attiverò animazione con Waitress");
         }
     }
 

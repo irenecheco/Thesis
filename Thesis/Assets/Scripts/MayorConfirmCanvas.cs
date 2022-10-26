@@ -139,6 +139,10 @@ public class MayorConfirmCanvas : MonoBehaviour
         mayor_hand_holder.transform.rotation = initial_hand_holder_rotation;
         animator_mayor_left.speed = 1;
         animator_mayor_head.speed = 1;
+        if(sceneIndex == 3)
+        {
+            animator_mayor_right.speed = 1;
+        }
         mayor_head.GetComponent<AudioSource>().clip = mayor_speech2;
         mayor_head.GetComponent<AudioSource>().Play();
         animator_mayor_head.Play("MayorSpeech2_head");

@@ -42,7 +42,7 @@ public class NetworkHandshakeActivationH1 : MonoBehaviour
         handshakeUI = leftHand.transform.GetChild(2).gameObject;
 
         rightController = GameObject.Find("Camera Offset/RightHand Controller");
-        leftController = GameObject.Find("Camera Offset/LefttHand Controller");
+        leftController = GameObject.Find("Camera Offset/LeftHand Controller");
         player = GameObject.Find("Player");
         camera = GameObject.Find("Camera Offset/Main Camera");
         rightHandAnimator = rightHand.GetComponent<Animator>();

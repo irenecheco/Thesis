@@ -12,6 +12,10 @@ public class GrabbingNPC : MonoBehaviour
     private bool isGrabbing;
 
     private GameObject local_player_right;
+    private GameObject npc_hand_holder;
+    private GameObject npc;
+    private GameObject npc_head;
+    private GameObject npc_head_canvas;
 
     void Start()
     {
@@ -20,6 +24,10 @@ public class GrabbingNPC : MonoBehaviour
         isGrabbing = false;
 
         local_player_right = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
+        npc_hand_holder = this.transform.parent.gameObject;
+        npc = npc_hand_holder.transform.parent.gameObject;
+        npc_head = npc.transform.GetChild(0).gameObject;
+        npc_head_canvas = npc_head.transform.GetChild(0).gameObject;
     }
 
     private void Update()
@@ -56,5 +64,10 @@ public class GrabbingNPC : MonoBehaviour
         isGrabbing = false;
         this.GetComponent<Outline>().enabled = false;
         local_player_right.GetComponent<Outline>().enabled = false;
+        if(npc.gameObject.name == "Mayor")
+        {
+            this.GetComponent<MayorConfirmCanvas>().secondSpeech();
+        }
+        npc_head_canvas.GetComponent<Canvas>().enabled = false;
     }
 }
