@@ -108,7 +108,9 @@ public class HandshakeButton : MonoBehaviour
         }
         else
         {
-            Debug.Log("Attiverò animazione con Waitress");
+            GameObject waitress;
+            waitress = GameObject.Find("Waitress");
+            waitress.GetComponent<HandshakeActivationNPC2>().StartHandshake();
         }
     }
 
