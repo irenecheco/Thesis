@@ -130,6 +130,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8541935843605382962, guid: 274e717619e86184f975387052973f25,
+        type: 3}
+      propertyPath: m_RightHandMoveAction.m_UseReference
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8541935843605382963, guid: 274e717619e86184f975387052973f25,
         type: 3}
       propertyPath: m_RootOrder
