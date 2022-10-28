@@ -183,6 +183,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.vratpolito.prattitoolkit": {
+      "version": "https://github.com/VRatPolito/package-prattitoolkit.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "aa8f8829f4b4b4ff370459a06a0a860abdacdf0b"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,

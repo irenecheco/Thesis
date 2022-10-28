@@ -98,6 +98,7 @@ public class HandshakeActivationNPC : MonoBehaviour
         midPosition = Vector3.Lerp(confirmHead.transform.position, camera.transform.position, 0.5f);
         player.transform.position = new Vector3(midPosition.x, (float)(starting_y - 0.4), midPosition.z);
         confirmNPCHandHolder.transform.position = new Vector3(midPosition.x, (float)(starting_y - 0.4), midPosition.z);
+        //confirmNPCHandHolder.transform.position = Vector3.MoveTowards(transform.position, new Vector3(midPosition.x, (float)(starting_y - 0.4), midPosition.z), Time.deltaTime * 10f);
         direction = (confirmHead.transform.position - camera.transform.position).normalized;
         direction2 = (camera.transform.position - confirmHead.transform.position).normalized;
 
@@ -145,15 +146,18 @@ public class HandshakeActivationNPC : MonoBehaviour
         {
             confirmNPCHandHolder.transform.rotation = new Quaternion(0, 0, 0, 0);
             confirmNPCHandHolder.transform.rotation = Quaternion.Euler(0, y_angle2, 0);
+            //confirmNPCHandHolder.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, y_angle2, 0), Time.deltaTime * 10f);
             confirmNPCHandHolder.transform.Translate(new Vector3((float)(-0.026), 0, (float)(-0.540)), Space.Self);
         }
         else
         {
             confirmNPCHandHolder.transform.rotation = new Quaternion(0, 0, 0, 0);
             confirmNPCHandHolder.transform.rotation = Quaternion.Euler(0, (y_angle2 - 180), 0);
+            //confirmNPCHandHolder.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, (y_angle2 - 180), 0), Time.deltaTime * 10f);
             confirmNPCHandHolder.transform.Translate(new Vector3((float)(+0.026), 0, (float)(+0.540)), Space.Self);
         }
 
+        yield return new WaitForSeconds((float)time);
         rightHandAnimator.Play("Handshake", -1, 0);
         animator_NPC_right.speed = 1;
         animator_NPC_right.Play("Mayor_handshake", 0, 0);

@@ -160,6 +160,26 @@ MonoBehaviour:
   Values:
   - {fileID: 3237196441188119299}
   - {fileID: 3723400732180257426}
+--- !u!114 &111818886891457743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b0a32063e08bc4aaa966ea5423788e, type: 3}
+  m_Name: HTCViveTrackerProfile Standalone
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: HTC Vive Tracker Profile
+  version: 0.0.1
+  featureIdInternal: com.massive.openxr.feature.input.htcvivetracker
+  openxrExtensionStrings: XR_HTCX_vive_tracker_interaction
+  company: MASSIVE
+  priority: 0
+  required: 0
 --- !u!114 &305260092537568169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,6 +256,7 @@ MonoBehaviour:
   - {fileID: 368417474288750569}
   - {fileID: 9193951779435170543}
   - {fileID: 9118934846674066382}
+  - {fileID: 111818886891457743}
   - {fileID: 5616011368090872284}
   - {fileID: -2637490613152070057}
   - {fileID: 305260092537568169}
@@ -244,8 +265,8 @@ MonoBehaviour:
   - {fileID: 1835116215570601449}
   - {fileID: -9075692828558663452}
   - {fileID: 9082634567772802131}
-  m_renderMode: 0
-  m_depthSubmissionMode: 0
+  m_renderMode: 1
+  m_depthSubmissionMode: 1
 --- !u!114 &3723400732180257426
 MonoBehaviour:
   m_ObjectHideFlags: 0
