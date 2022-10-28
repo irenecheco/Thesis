@@ -1,0 +1,17 @@
+{
+    "name": "VRatPolito.Prattitoolkit.VR",
+    "rootNamespace": "PrattiToolkit",
+    "references": [
+        "GUID:b93084ae461bd7c4d9bdec07481fe72a",
+        "GUID:dc960734dc080426fa6612f1c5fe95f3"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
