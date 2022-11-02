@@ -71,6 +71,7 @@ public class HandshakeActivationNPC2 : MonoBehaviour
 
         rightController = GameObject.Find("Camera Offset/RightHand Controller");
         leftController = GameObject.Find("Camera Offset/LefttHand Controller");
+        leftHand = GameObject.Find("Camera Offset/LeftHand Controller/LeftHand");
         rightHand = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
         player = GameObject.Find("Player");
         camera = GameObject.Find("Camera Offset/Main Camera");
@@ -174,13 +175,13 @@ public class HandshakeActivationNPC2 : MonoBehaviour
         {
             player.transform.rotation = new Quaternion(0, 0, 0, 0);
             player.transform.rotation = Quaternion.Euler(0, y_angle, 0);
-            player.transform.Translate(new Vector3((float)(-0.026), 0, (float)(-0.540)), Space.Self);
+            player.transform.Translate(new Vector3((float)(-0.008), 0, (float)(-0.5)), Space.Self);
         }
         else
         {
             player.transform.rotation = new Quaternion(0, 0, 0, 0);
             player.transform.rotation = Quaternion.Euler(0, (y_angle - 180), 0);
-            player.transform.Translate(new Vector3((float)(+0.026), 0, (float)(+0.540)), Space.Self);
+            player.transform.Translate(new Vector3((float)(+0.008), 0, (float)(+0.5)), Space.Self);
         }
 
         if (y_angle2 < 0)
@@ -198,20 +199,26 @@ public class HandshakeActivationNPC2 : MonoBehaviour
         {
             npcHandHolder.transform.rotation = new Quaternion(0, 0, 0, 0);
             npcHandHolder.transform.rotation = Quaternion.Euler(0, y_angle2, 0);
-            npcHandHolder.transform.Translate(new Vector3((float)(-0.026), 0, (float)(-0.540)), Space.Self);
+            npcHandHolder.transform.Translate(new Vector3((float)(-0.035), 0, (float)(-0.540)), Space.Self);
         }
         else
         {
             npcHandHolder.transform.rotation = new Quaternion(0, 0, 0, 0);
             npcHandHolder.transform.rotation = Quaternion.Euler(0, (y_angle2 - 180), 0);
-            npcHandHolder.transform.Translate(new Vector3((float)(+0.026), 0, (float)(+0.540)), Space.Self);
+            npcHandHolder.transform.Translate(new Vector3((float)(+0.035), 0, (float)(+0.540)), Space.Self);
         }
 
         rightHandAnimator.Play("Handshake", -1, 0);
         animator_NPC_right.Play("Waitress_handshake", 0, 0);
         animator_NPC_head.Play("Waitress_handshake_head", 0, 0);
         animator_NPC_left.Play("Waitress_handshake_left", 0, 0);
-
+        
+        if(sceneIndex == 1)
+        {            
+            GameObject canvas;
+            canvas = leftHand.transform.GetChild(2).gameObject;
+            canvas.GetComponent<Canvas>().enabled = false;
+        }
     }
 
     public void secondSpeech()

@@ -9,7 +9,7 @@ public class SetCoffeeGrab : MonoBehaviour
     private GameObject coffeeTray;
     private GameObject coffeeCup;
 
-    private bool childexists;
+    public bool childexists;
 
     void Start()
     {

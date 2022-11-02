@@ -26,10 +26,12 @@ public class HandshakeButton : MonoBehaviour
     public RuntimeAnimatorController mayor_anim_controller;
 
     public bool isCollidingWithWaitress;
+    public bool firstHandshake;
 
     void Start()
     {
         isCollidingWithWaitress = false;
+        firstHandshake = true;
 
         if (this.gameObject.name != "NPC_RightHand")
         {
@@ -108,9 +110,13 @@ public class HandshakeButton : MonoBehaviour
         }
         else
         {
-            GameObject waitress;
-            waitress = GameObject.Find("Waitress");
-            waitress.GetComponent<HandshakeActivationNPC2>().StartHandshake();
+            if(firstHandshake == true)
+            {
+                GameObject waitress;
+                waitress = GameObject.Find("Waitress");
+                waitress.GetComponent<HandshakeActivationNPC2>().StartHandshake();
+                firstHandshake = false;
+            }            
         }
     }
 

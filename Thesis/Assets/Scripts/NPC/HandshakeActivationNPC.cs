@@ -122,13 +122,13 @@ public class HandshakeActivationNPC : MonoBehaviour
         {
             player.transform.rotation = new Quaternion(0, 0, 0, 0);
             player.transform.rotation = Quaternion.Euler(0, y_angle, 0);
-            player.transform.Translate(new Vector3((float)(-0.026), 0, (float)(-0.540)), Space.Self);
+            player.transform.Translate(new Vector3((float)(-0.028), 0, (float)(-0.540)), Space.Self);
         }
         else
         {
             player.transform.rotation = new Quaternion(0, 0, 0, 0);
             player.transform.rotation = Quaternion.Euler(0, (y_angle - 180), 0);
-            player.transform.Translate(new Vector3((float)(+0.026), 0, (float)(+0.540)), Space.Self);
+            player.transform.Translate(new Vector3((float)(+0.028), 0, (float)(+0.540)), Space.Self);
         }
 
         if (y_angle2 < 0)
@@ -147,14 +147,14 @@ public class HandshakeActivationNPC : MonoBehaviour
             confirmNPCHandHolder.transform.rotation = new Quaternion(0, 0, 0, 0);
             confirmNPCHandHolder.transform.rotation = Quaternion.Euler(0, y_angle2, 0);
             //confirmNPCHandHolder.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, y_angle2, 0), Time.deltaTime * 10f);
-            confirmNPCHandHolder.transform.Translate(new Vector3((float)(-0.026), 0, (float)(-0.540)), Space.Self);
+            confirmNPCHandHolder.transform.Translate(new Vector3((float)(-0.008), 0, (float)(-0.50)), Space.Self);
         }
         else
         {
             confirmNPCHandHolder.transform.rotation = new Quaternion(0, 0, 0, 0);
             confirmNPCHandHolder.transform.rotation = Quaternion.Euler(0, (y_angle2 - 180), 0);
             //confirmNPCHandHolder.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, (y_angle2 - 180), 0), Time.deltaTime * 10f);
-            confirmNPCHandHolder.transform.Translate(new Vector3((float)(+0.026), 0, (float)(+0.540)), Space.Self);
+            confirmNPCHandHolder.transform.Translate(new Vector3((float)(+0.008), 0, (float)(+0.50)), Space.Self);
         }
 
         yield return new WaitForSeconds((float)time);

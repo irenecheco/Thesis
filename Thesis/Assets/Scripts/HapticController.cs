@@ -8,7 +8,7 @@ public class HapticController : MonoBehaviour
 {
     //Code responsible for haptics on the controller
 
-    public XRBaseController rightController;
+    public XRBaseController controller;
     public float amplitude = 0.4f;
     public float duration = 0.5f;
     public float amplitude1H3 = 0.2f;
@@ -19,9 +19,9 @@ public class HapticController : MonoBehaviour
     //Function called whenever an haptic is needed (handshake in H1 and H2)
     public void SendHaptics()
     {
-        if(rightController != null)
+        if(controller != null)
         {
-            rightController.SendHapticImpulse(amplitude, duration);
+            controller.SendHapticImpulse(amplitude, duration);
         }
     }
 
@@ -29,18 +29,18 @@ public class HapticController : MonoBehaviour
     //and they can handshake
     public void SendHaptics1H3()
     {
-        if (rightController != null)
+        if (controller != null)
         {
-            rightController.SendHapticImpulse(amplitude1H3, duration1H3);
+            controller.SendHapticImpulse(amplitude1H3, duration1H3);
         }
     }
 
     //Second one in stronger and longer
     public void SendHaptics2H3()
     {
-        if (rightController != null)
+        if (controller != null)
         {
-            rightController.SendHapticImpulse(amplitude2H3, duration2H3);
+            controller.SendHapticImpulse(amplitude2H3, duration2H3);
         }
     }
 }

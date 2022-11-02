@@ -39,6 +39,7 @@ public class WaitressActivateCanvas : MonoBehaviour
             leftHand = GameObject.Find("Camera Offset/LeftHand Controller/LeftHand");
             handshake_canvas = leftHand.transform.GetChild(2).gameObject;
             handshake_button = handshake_canvas.transform.GetChild(1).gameObject;
+            handshake_canvas.GetComponent<Canvas>().enabled = false;
         }        
 
         npc = this.gameObject;
@@ -72,8 +73,13 @@ public class WaitressActivateCanvas : MonoBehaviour
         {
             if(sceneIndex == 1)
             {
+                handshake_canvas.GetComponent<Canvas>().enabled = true;
                 handshake_button.GetComponent<Button>().interactable = true;
                 handshake_button.GetComponent<HandshakeButton>().isCollidingWithWaitress = true;
+
+                leftHand.GetComponent<HapticController>().amplitude = 0.2f;
+                leftHand.GetComponent<HapticController>().duration = 0.2f;
+                leftHand.GetComponent<HapticController>().SendHaptics();
 
             } else if(sceneIndex == 2)
             {
@@ -94,6 +100,8 @@ public class WaitressActivateCanvas : MonoBehaviour
             {
                 handshake_button.GetComponent<Button>().interactable = false;
                 handshake_button.GetComponent<HandshakeButton>().isCollidingWithWaitress = false;
+                handshake_canvas.GetComponent<Canvas>().enabled = false;
+                handshake_button.GetComponent<HandshakeButton>().firstHandshake = true;
             } else if(sceneIndex == 2)
             {
                 npcMessage.GetComponent<Canvas>().enabled = false;
@@ -122,6 +130,7 @@ public class WaitressActivateCanvas : MonoBehaviour
                     Destroy(coffeCupTemp);
                     environment.GetComponent<FruitSpawner>().SpawnCoffee();
                     coffeeTray.transform.GetChild(0).gameObject.GetComponent<XRGrabInteractable>().enabled = false;
+                    leftHand.GetComponent<SetCoffeeGrab>().childexists = false;
                 }
             }            
         }
