@@ -80,6 +80,7 @@ public class WaitressActivateCanvas : MonoBehaviour
                 leftHand.GetComponent<HapticController>().amplitude = 0.2f;
                 leftHand.GetComponent<HapticController>().duration = 0.2f;
                 leftHand.GetComponent<HapticController>().SendHaptics();
+                handshake_canvas.GetComponent<AudioSource>().Play();
 
             } else if(sceneIndex == 2)
             {

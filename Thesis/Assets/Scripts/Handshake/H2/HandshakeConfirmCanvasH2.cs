@@ -28,7 +28,7 @@ public class HandshakeConfirmCanvasH2 : MonoBehaviour,  IPunObservable
     void Start()
     {
         handshake2ConfirmCanvas = this.gameObject;
-        handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled = false;
+        //handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled = false;
     }
 
     //Called when the confirm canvas needs to be active

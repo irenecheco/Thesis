@@ -22,6 +22,19 @@ public class HapticController : MonoBehaviour
         if(controller != null)
         {
             controller.SendHapticImpulse(amplitude, duration);
+            if(this.gameObject.name == "RightHand")
+            {
+                if (this.gameObject.GetComponent<AudioSource>() != null)
+                {
+                    this.gameObject.GetComponent<AudioSource>().Play();
+                }
+
+                if(this.gameObject.GetComponent<Outline>() != null)
+                {
+                    this.gameObject.GetComponent<Outline>().enabled = true;
+                    StartCoroutine(Wait());
+                }                
+            }                       
         }
     }
 
@@ -42,5 +55,12 @@ public class HapticController : MonoBehaviour
         {
             controller.SendHapticImpulse(amplitude2H3, duration2H3);
         }
+    }
+
+    public IEnumerator Wait()
+    {
+        double time = 0.3;
+        yield return new WaitForSeconds((float)time);
+        this.gameObject.GetComponent<Outline>().enabled = false;
     }
 }

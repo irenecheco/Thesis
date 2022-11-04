@@ -622,7 +622,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -180, y: 0, z: -180}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.3}
+  m_AnchoredPosition: {x: 0, y: -0.295}
   m_SizeDelta: {x: 600, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3517269217364501409
@@ -1703,11 +1703,11 @@ GameObject:
   - component: {fileID: 2792988328357999654}
   - component: {fileID: 3231098736663679007}
   - component: {fileID: 1851842986899462783}
-  - component: {fileID: 8029279033553315557}
+  - component: {fileID: 6283931094556992393}
   - component: {fileID: 5010167108430730150}
-  - component: {fileID: 5623601791352532312}
+  - component: {fileID: 7713698122581727740}
+  - component: {fileID: 6966484730503168729}
   - component: {fileID: 7934888515677523863}
-  - component: {fileID: 4007307870254588429}
   - component: {fileID: 3430525072337851813}
   - component: {fileID: 8914969296961019179}
   m_Layer: 0
@@ -1756,8 +1756,8 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 3231098736663679007}
+  - {fileID: 6966484730503168729}
   - {fileID: 7934888515677523863}
-  - {fileID: 4007307870254588429}
   - {fileID: 8914969296961019179}
   - {fileID: 167927952745188161}
   - {fileID: 1109263667815204652}
@@ -1800,7 +1800,7 @@ MonoBehaviour:
   AutoCreateRecorderIfNotFound: 0
   UsePrimaryRecorder: 1
   SetupDebugSpeaker: 0
---- !u!135 &8029279033553315557
+--- !u!135 &6283931094556992393
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1826,7 +1826,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &5623601791352532312
+--- !u!54 &7713698122581727740
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1842,6 +1842,22 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 3
+--- !u!114 &6966484730503168729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4816765236188314565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
 --- !u!114 &7934888515677523863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1856,22 +1872,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherPlayerHead: {fileID: 0}
   buttonAPressed: 0
---- !u!114 &4007307870254588429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4816765236188314565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 1
-  m_TeleportEnabled: 0
-  m_TeleportIfDistanceGreaterThan: 3
 --- !u!114 &3430525072337851813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2793,7 +2793,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -180, y: 0, z: -180}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.3}
+  m_AnchoredPosition: {x: 0, y: -0.295}
   m_SizeDelta: {x: 600, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5224825560965011128
@@ -3265,7 +3265,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -180, y: 0, z: -180}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.3}
+  m_AnchoredPosition: {x: 0, y: -0.295}
   m_SizeDelta: {x: 600, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5635846957174564009
@@ -3275,7 +3275,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9073298124697526791}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}
@@ -3783,7 +3783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ee123018f73794296c31c8df153637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightController: {fileID: 0}
+  controller: {fileID: 0}
   amplitude: 0.4
   duration: 0.5
   amplitude1H3: 0.2

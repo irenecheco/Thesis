@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 using Photon.Pun;
 using UnityEngine.UI;
 
@@ -9,8 +10,10 @@ public class HandshakeConfirmCanvas : MonoBehaviour, IPunObservable
     //Code responsible for the confirm canvas (if it has to be shown or not) through the network
 
     private GameObject handshakeConfirm;
+    private GameObject player_head;
     private GameObject handshakeConfirmButton;
     private bool confirmActive;
+    private bool firstSound;
 
     //Method of the Photon Pun library that lets you keep track of a variable through the network (class IPunObservable)
     //In this case it keeps track of a bool that is true when the confirm canvas needs to be active
@@ -29,9 +32,11 @@ public class HandshakeConfirmCanvas : MonoBehaviour, IPunObservable
     void Start()
     {
         handshakeConfirm = this.gameObject;
+        player_head = handshakeConfirm.transform.parent.gameObject;
         handshakeConfirm.transform.GetComponent<Canvas>().enabled = false;
         handshakeConfirmButton = handshakeConfirm.transform.GetChild(2).gameObject;
         confirmActive = false;
+        firstSound = true;
     }
 
     //Called when the confirm canvas needs to be active
@@ -53,11 +58,17 @@ public class HandshakeConfirmCanvas : MonoBehaviour, IPunObservable
         {
             handshakeConfirm.transform.GetComponent<Canvas>().enabled = false;
             handshakeConfirmButton.GetComponent<Button>().interactable = false;
+            firstSound = true;
         }
         else
         {
-             handshakeConfirm.transform.GetComponent<Canvas>().enabled = true;
-             handshakeConfirmButton.GetComponent<Button>().interactable = true;
+            handshakeConfirm.transform.GetComponent<Canvas>().enabled = true;
+            handshakeConfirmButton.GetComponent<Button>().interactable = true;
+            if (firstSound == true)
+            {
+                handshakeConfirm.GetComponent<AudioSource>().Play();
+                firstSound = false;
+            }
         }
     }
 }

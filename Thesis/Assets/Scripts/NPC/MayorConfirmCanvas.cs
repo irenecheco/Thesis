@@ -73,6 +73,7 @@ public class MayorConfirmCanvas : MonoBehaviour
         initial_hand_holder_position = mayor_hand_holder.transform.position;
         initial_hand_holder_rotation = mayor_hand_holder.transform.rotation;
 
+
         if(sceneIndex == 2)
         {
             InputDevices.GetDevicesWithCharacteristics(rControllerCharacteristics, devices);
@@ -123,9 +124,11 @@ public class MayorConfirmCanvas : MonoBehaviour
     public void activateMayorCanvas()
     {
         mayor_head_canvas.GetComponent<Canvas>().enabled = true;
+        
         if(sceneIndex == 1)
         {
             mayor_confirm_button.GetComponent<Button>().interactable = true;
+            mayor_head_canvas.GetComponent<AudioSource>().Play();
         }
         animator_mayor_head.speed = 0;
         animator_mayor_left.speed = 0;

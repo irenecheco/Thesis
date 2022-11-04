@@ -28,7 +28,7 @@ public class HandshakeWaitingCanvasH2 : MonoBehaviour, IPunObservable
     void Start()
     {
         handshake2WaitingCanvas = this.gameObject;
-        handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = false;
+        //handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = false;
     }
 
     //Called when the waiting canvas needs to be active

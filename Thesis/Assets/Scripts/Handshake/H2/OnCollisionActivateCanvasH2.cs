@@ -39,20 +39,6 @@ public class OnCollisionActivateCanvasH2 : MonoBehaviourPunCallbacks, IPunObserv
         h2_messageActive = false;
     }
 
-    void Update()
-    {
-        /*if (h2_messageActive == false)
-        {                
-            this.transform.Find(handshake2_messageCanva).gameObject.transform.GetComponent<HandshakeMessageCanvasH2>().DeactivateHandshakeConfirmCanvas();
-            this.gameObject.transform.GetComponent<OnButtonAPressed>().isColliding = false;
-        }*/
-
-        /*if (buttonAPressed == true)
-        {
-            this.transform.Find(handshake2_messageCanva).gameObject.transform.GetComponent<HandshakeMessageCanvasH2>().DeactivateHandshakeConfirmCanvas();
-        }*/
-    }
-
     //Function called on trigger entered: it activates the message canvas on the other player head only if the two heads collide
     //and button A is not pressed
     private void OnTriggerEnter(Collider collider)
@@ -63,7 +49,7 @@ public class OnCollisionActivateCanvasH2 : MonoBehaviourPunCallbacks, IPunObserv
             colliderPhotonView = collider.transform.GetComponent<PhotonView>();
             if (!colliderPhotonView.IsMine)
             {
-                otherPlayerHead = collider.gameObject;
+                    otherPlayerHead = collider.gameObject;
 
                 if (buttonAPressed == false)
                 {
@@ -76,28 +62,6 @@ public class OnCollisionActivateCanvasH2 : MonoBehaviourPunCallbacks, IPunObserv
         }
     }
 
-    //Function called on trigger stay: it activates the message canvas on the other player head only if the two heads collide and button A is not pressed
-   /* private void OnTriggerStay(Collider collider)
-    {
-        if (collider.gameObject.name == "Head")
-        {
-            PhotonView colliderPhotonView;
-            colliderPhotonView = collider.transform.GetComponent<PhotonView>();
-            if (!colliderPhotonView.IsMine)
-            {
-                otherPlayerHead = collider.gameObject;
-                
-                if (buttonAPressed == false)
-                {
-                    h2_messageActive = true;
-                } else
-                {
-                    h2_messageActive = false;
-                }
-            }
-        }
-    }*/
-
     //Function called on trigger exit: it disable the message canvas if the two heads are not colliding
     private void OnTriggerExit(Collider collider)
     {
@@ -107,9 +71,8 @@ public class OnCollisionActivateCanvasH2 : MonoBehaviourPunCallbacks, IPunObserv
             colliderPhotonView = collider.transform.GetComponent<PhotonView>();
             if (!colliderPhotonView.IsMine)
             {
-                otherPlayerHead = collider.gameObject;
-                
-                //h2_messageActive = false;
+               otherPlayerHead = collider.gameObject;
+
                 otherPlayerHead.transform.Find(handshake2_waitingCanva).gameObject.transform.GetComponent<HandshakeWaitingCanvasH2>().DeactivateHandshakeConfirmCanvas();
                 otherPlayerHead.transform.Find(handshake2_confirmCanva).gameObject.transform.GetComponent<HandshakeConfirmCanvasH2>().DeactivateHandshakeConfirmCanvas();
                 otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.transform.GetComponent<HandshakeMessageCanvasH2>().DeactivateHandshakeConfirmCanvas();

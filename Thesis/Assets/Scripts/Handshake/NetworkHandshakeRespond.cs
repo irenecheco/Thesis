@@ -102,13 +102,13 @@ public class NetworkHandshakeRespond : MonoBehaviour
         {
             player.transform.rotation = new Quaternion(0, 0, 0, 0);
             player.transform.rotation = Quaternion.Euler(0, y_angle, 0);
-            player.transform.Translate(new Vector3((float)(-0.026), 0, (float)(-0.540)), Space.Self);
+            player.transform.Translate(new Vector3((float)(-0.01), 0, (float)(-0.51)), Space.Self);
         }
         else
         {
             player.transform.rotation = new Quaternion(0, 0, 0, 0);
             player.transform.rotation = Quaternion.Euler(0, (y_angle - 180), 0);
-            player.transform.Translate(new Vector3((float)(+0.026), 0, (float)(+0.540)), Space.Self);
+            player.transform.Translate(new Vector3((float)(+0.01), 0, (float)(+0.51)), Space.Self);
         }
 
         //Depending on the scene (H1 or H2) the animation trigger different things, hence two different animations

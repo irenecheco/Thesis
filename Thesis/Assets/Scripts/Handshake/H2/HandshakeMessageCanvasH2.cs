@@ -28,7 +28,7 @@ public class HandshakeMessageCanvasH2 : MonoBehaviour, IPunObservable
     void Start()
     {
         handshake2MessageCanvas = this.gameObject;
-        handshake2MessageCanvas.transform.GetComponent<Canvas>().enabled = false;
+        //handshake2MessageCanvas.transform.GetComponent<Canvas>().enabled = false;
     }
 
     //Called when the message canvas needs to be active

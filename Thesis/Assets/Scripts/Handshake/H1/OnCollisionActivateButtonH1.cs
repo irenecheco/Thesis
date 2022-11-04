@@ -13,6 +13,7 @@ public class OnCollisionActivateButtonH1 : MonoBehaviourPunCallbacks
     private string handshake_button = "Handshake Button";
     private GameObject button;
     private GameObject handshakeUI;
+    private GameObject waitingUI;
     private GameObject leftHand;
 
     private int sceneIndex;
@@ -28,6 +29,7 @@ public class OnCollisionActivateButtonH1 : MonoBehaviourPunCallbacks
             handshakeUI = button.transform.parent.gameObject;
             handshakeUI.GetComponent<Canvas>().enabled = false;
             leftHand = handshakeUI.transform.parent.gameObject;
+            waitingUI = leftHand.transform.GetChild(3).gameObject;          
         }
     }
 
@@ -44,35 +46,21 @@ public class OnCollisionActivateButtonH1 : MonoBehaviourPunCallbacks
                 {
                     otherPlayerHead = collider.gameObject;
 
-                    handshakeUI.GetComponent<Canvas>().enabled = true;
-                    button.transform.GetComponent<Button>().interactable = true;
+                    if(waitingUI.GetComponent<Canvas>().enabled == false)
+                    {
+                        handshakeUI.GetComponent<Canvas>().enabled = true;
+                        button.transform.GetComponent<Button>().interactable = true;
+                        handshakeUI.GetComponent<AudioSource>().enabled = true;
 
-                    leftHand.GetComponent<HapticController>().amplitude = 0.2f;
-                    leftHand.GetComponent<HapticController>().duration = 0.2f;
-                    leftHand.GetComponent<HapticController>().SendHaptics();
+                        leftHand.GetComponent<HapticController>().amplitude = 0.2f;
+                        leftHand.GetComponent<HapticController>().duration = 0.2f;
+                        leftHand.GetComponent<HapticController>().SendHaptics();
+                        handshakeUI.GetComponent<AudioSource>().Play();
+                    }                    
                 }
             }
         }               
     }
-
-    //Function called on trigger stay: it keeps the handshake button active only if the two heads collide
-    /*private void OnTriggerStay(Collider collider)
-    {
-        if(sceneIndex == 1)
-        {
-            if (collider.gameObject.name == "Head")
-            {
-                PhotonView colliderPhotonView;
-                colliderPhotonView = collider.transform.GetComponent<PhotonView>();
-                if (!colliderPhotonView.IsMine)
-                {
-                    otherPlayerHead = collider.gameObject;
-
-                    GameObject.Find(handshake_button).transform.GetComponent<Button>().interactable = true;
-                }
-            }
-        }        
-    }*/
 
     //Function called on trigger exited: it disables the handshake button if the two heads does not collide anymore
     private void OnTriggerExit(Collider collider)
@@ -87,6 +75,7 @@ public class OnCollisionActivateButtonH1 : MonoBehaviourPunCallbacks
                 {
                     otherPlayerHead = collider.gameObject;
 
+                    handshakeUI.GetComponent<AudioSource>().enabled = false;
                     button.transform.GetComponent<Button>().interactable = false;
                     handshakeUI.GetComponent<Canvas>().enabled = false;
                 }
