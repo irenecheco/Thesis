@@ -21,20 +21,28 @@ public class HapticController : MonoBehaviour
     {
         if(controller != null)
         {
+            controller.SendHapticImpulse(amplitude, duration);                     
+        }
+    }
+
+    public void SendHapticsinAnimation()
+    {
+        if (controller != null)
+        {
             controller.SendHapticImpulse(amplitude, duration);
-            if(this.gameObject.name == "RightHand")
+            if (this.gameObject.name == "RightHand")
             {
                 if (this.gameObject.GetComponent<AudioSource>() != null)
                 {
                     this.gameObject.GetComponent<AudioSource>().Play();
                 }
 
-                if(this.gameObject.GetComponent<Outline>() != null)
+                if (this.gameObject.GetComponent<Outline>() != null)
                 {
                     this.gameObject.GetComponent<Outline>().enabled = true;
                     StartCoroutine(Wait());
-                }                
-            }                       
+                }
+            }
         }
     }
 

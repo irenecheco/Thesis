@@ -12,7 +12,7 @@ public class HandshakeConfirmCanvas : MonoBehaviour, IPunObservable
     private GameObject handshakeConfirm;
     private GameObject player_head;
     private GameObject handshakeConfirmButton;
-    private bool confirmActive;
+    public bool confirmActive;
     private bool firstSound;
 
     //Method of the Photon Pun library that lets you keep track of a variable through the network (class IPunObservable)

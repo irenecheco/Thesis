@@ -37,7 +37,6 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
 
         if(sceneIndex == 1)
         {
-            //Debug.Log("It's scene 1");
             spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player H1", transform.position, transform.rotation);
             spawnedPlayerPrefab.name = $"Network Player H1 {+flagH1}";
             flagH1++;

@@ -10,6 +10,7 @@ public class HandshakeConfirmCanvasH2 : MonoBehaviour,  IPunObservable
 
     private bool confirmActive;
     private GameObject handshake2ConfirmCanvas;
+    private bool previousFrame;
 
     //Method of the Photon Pun library that lets you keep track of a variable through the network (class IPunObservable)
     //In this case it keeps track of a bool that is true when the confirm canvas needs to be active
@@ -28,6 +29,7 @@ public class HandshakeConfirmCanvasH2 : MonoBehaviour,  IPunObservable
     void Start()
     {
         handshake2ConfirmCanvas = this.gameObject;
+        previousFrame = false;
         //handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled = false;
     }
 
@@ -48,11 +50,27 @@ public class HandshakeConfirmCanvasH2 : MonoBehaviour,  IPunObservable
         //Check if the bool is true to enable or disable the canvas
         if (confirmActive == false)
         {
-            handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled = false;
+            if(previousFrame == true)
+            {
+                if(handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled == true)
+                {
+                    handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled = false;
+                }                
+                previousFrame = false;
+            }            
         }
         else
         {
-            handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled = true;
+            if(previousFrame == false)
+            {
+                if (handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled == false)
+                {
+                    handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled = true;
+                    handshake2ConfirmCanvas.GetComponent<AudioSource>().enabled = true;
+                    handshake2ConfirmCanvas.GetComponent<AudioSource>().Play();
+                }                
+                previousFrame = true;
+            }            
         }
     }
 }

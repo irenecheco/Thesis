@@ -278,6 +278,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "EnableHandshake",
+                    "type": "Button",
+                    "id": "b7ecf2be-9de6-4e90-a84f-047fa1d191b4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -456,6 +465,17 @@
                     "action": "Translate Anchor",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "9f80a949-3972-49df-898b-1808be07643f",
+                    "path": "<XRController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EnableHandshake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -735,6 +755,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "EnableHandshake",
+                    "type": "Button",
+                    "id": "95e7e1cb-1a3b-44a7-b9a4-7f0791160047",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Select Value",
                     "type": "Value",
                     "id": "39bbf1ac-21a3-413d-90f6-6dbf6efeaabe",
@@ -974,6 +1003,17 @@
                     "action": "Translate Anchor",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "1bd4f134-4d4f-40ab-aff1-6d38936a49aa",
+                    "path": "<XRController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EnableHandshake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

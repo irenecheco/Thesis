@@ -27,7 +27,7 @@ public class MayorConfirmCanvas : MonoBehaviour
 
     private Vector3 initial_hand_holder_position;
     private Quaternion initial_hand_holder_rotation;
-    private bool activeCanvas;
+    public bool activeCanvas;
     public bool isColliding;
     public bool firstHandshake;
 
@@ -128,6 +128,9 @@ public class MayorConfirmCanvas : MonoBehaviour
         if(sceneIndex == 1)
         {
             mayor_confirm_button.GetComponent<Button>().interactable = true;
+        }
+        if(sceneIndex != 3)
+        {
             mayor_head_canvas.GetComponent<AudioSource>().Play();
         }
         animator_mayor_head.speed = 0;
@@ -138,6 +141,7 @@ public class MayorConfirmCanvas : MonoBehaviour
 
     public void secondSpeech()
     {
+        activeCanvas = false;
         mayor_hand_holder.transform.position = initial_hand_holder_position;
         mayor_hand_holder.transform.rotation = initial_hand_holder_rotation;
         animator_mayor_left.speed = 1;

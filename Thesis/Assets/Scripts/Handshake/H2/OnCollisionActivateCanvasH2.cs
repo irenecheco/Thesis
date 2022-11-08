@@ -34,7 +34,7 @@ public class OnCollisionActivateCanvasH2 : MonoBehaviourPunCallbacks, IPunObserv
 
     void Start()
     {
-        this.transform.Find(handshake2_waitingCanva).gameObject.transform.GetComponent<HandshakeWaitingCanvasH2>().DeactivateHandshakeConfirmCanvas();
+        this.transform.Find(handshake2_waitingCanva).gameObject.transform.GetComponent<HandshakeWaitingCanvasH2>().DeactivateHandshakeWaitingCanvas();
         this.transform.Find(handshake2_confirmCanva).gameObject.transform.GetComponent<HandshakeConfirmCanvasH2>().DeactivateHandshakeConfirmCanvas();
         h2_messageActive = false;
     }
@@ -53,10 +53,12 @@ public class OnCollisionActivateCanvasH2 : MonoBehaviourPunCallbacks, IPunObserv
 
                 if (buttonAPressed == false)
                 {
-                    //When two players' heads are colliding it saves the other player
+                    //When two players' heads are colliding it saves the other player                    
                     this.gameObject.transform.GetComponent<OnButtonAPressed>().otherPlayerHead = otherPlayerHead;
                     this.gameObject.transform.GetComponent<OnButtonAPressed>().isColliding = true;
-                    otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.transform.GetComponent<HandshakeMessageCanvasH2>().ActivateHandshakeConfirmCanvas();
+                    GameObject messageCanva = otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject;
+
+                    messageCanva.GetComponent<HandshakeMessageCanvasH2>().ActivateHandshakeMessageCanvas();
                 }
             }
         }
@@ -73,9 +75,9 @@ public class OnCollisionActivateCanvasH2 : MonoBehaviourPunCallbacks, IPunObserv
             {
                otherPlayerHead = collider.gameObject;
 
-                otherPlayerHead.transform.Find(handshake2_waitingCanva).gameObject.transform.GetComponent<HandshakeWaitingCanvasH2>().DeactivateHandshakeConfirmCanvas();
+                otherPlayerHead.transform.Find(handshake2_waitingCanva).gameObject.transform.GetComponent<HandshakeWaitingCanvasH2>().DeactivateHandshakeWaitingCanvas();
                 otherPlayerHead.transform.Find(handshake2_confirmCanva).gameObject.transform.GetComponent<HandshakeConfirmCanvasH2>().DeactivateHandshakeConfirmCanvas();
-                otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.transform.GetComponent<HandshakeMessageCanvasH2>().DeactivateHandshakeConfirmCanvas();
+                otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.transform.GetComponent<HandshakeMessageCanvasH2>().DeactivateHandshakeMessageCanvas();
                 buttonAPressed = false;
             }
         }

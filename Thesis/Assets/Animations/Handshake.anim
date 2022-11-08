@@ -2272,7 +2272,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.41666666
-    functionName: SendHaptics
+    functionName: SendHapticsinAnimation
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 83ee123018f73794296c31c8df153637,
       type: 3}
@@ -2280,7 +2280,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 1.8166667
-    functionName: SetBackComponent
+    functionName: SetBackComp
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: bd98c70e98937494897df3524cbaf109,
       type: 3}

@@ -49,7 +49,7 @@ public class NetworkHandshakeRespond : MonoBehaviour
     }
 
     //Called at the end of the animation to set back the right object's parent and components
-    public void SetBackComponent()
+    public void SetBackComp()
     {
         rightHand.transform.parent = rightController.transform;
         rightController.AddComponent<NetworkHandController>();

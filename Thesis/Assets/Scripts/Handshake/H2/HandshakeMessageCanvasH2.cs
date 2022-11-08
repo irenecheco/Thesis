@@ -10,6 +10,7 @@ public class HandshakeMessageCanvasH2 : MonoBehaviour, IPunObservable
 
     private bool messageActive;
     private GameObject handshake2MessageCanvas;
+    private bool previousFrame;
 
     //Method of the Photon Pun library that lets you keep track of a variable through the network (class IPunObservable)
     //In this case it keeps track of a bool that is true when the message canvas needs to be active
@@ -28,17 +29,18 @@ public class HandshakeMessageCanvasH2 : MonoBehaviour, IPunObservable
     void Start()
     {
         handshake2MessageCanvas = this.gameObject;
+        previousFrame = false;
         //handshake2MessageCanvas.transform.GetComponent<Canvas>().enabled = false;
     }
 
     //Called when the message canvas needs to be active
-    public void ActivateHandshakeConfirmCanvas()
+    public void ActivateHandshakeMessageCanvas()
     {
         messageActive = true;
     }
 
     //Called when the message canvas needs to be disabled
-    public void DeactivateHandshakeConfirmCanvas()
+    public void DeactivateHandshakeMessageCanvas()
     {
         messageActive = false;
     }
@@ -48,11 +50,27 @@ public class HandshakeMessageCanvasH2 : MonoBehaviour, IPunObservable
         //Check if the bool is true to enable or disable the canvas
         if (messageActive == false)
         {
-            handshake2MessageCanvas.transform.GetComponent<Canvas>().enabled = false;
+            if(previousFrame == true)
+            {
+                if(handshake2MessageCanvas.transform.GetComponent<Canvas>().enabled == true)
+                {
+                    handshake2MessageCanvas.transform.GetComponent<Canvas>().enabled = false;
+                }                
+                previousFrame = false;
+            }            
         }
         else
         {
-            handshake2MessageCanvas.transform.GetComponent<Canvas>().enabled = true;
+            if(previousFrame == false)
+            {
+                if (handshake2MessageCanvas.transform.GetComponent<Canvas>().enabled == false)
+                {
+                    handshake2MessageCanvas.transform.GetComponent<Canvas>().enabled = true;
+                    handshake2MessageCanvas.GetComponent<AudioSource>().enabled = true;
+                    handshake2MessageCanvas.GetComponent<AudioSource>().Play();
+                }                
+                previousFrame = true;
+            }            
         }
     }
 }

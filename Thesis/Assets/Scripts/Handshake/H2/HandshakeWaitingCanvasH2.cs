@@ -10,6 +10,7 @@ public class HandshakeWaitingCanvasH2 : MonoBehaviour, IPunObservable
 
     private bool waitingActive;
     private GameObject handshake2WaitingCanvas;
+    private bool previousFrame;
 
     //Method of the Photon Pun library that lets you keep track of a variable through the network (class IPunObservable)
     //In this case it keeps track of a bool that is true when the waiting canvas needs to be active
@@ -28,17 +29,18 @@ public class HandshakeWaitingCanvasH2 : MonoBehaviour, IPunObservable
     void Start()
     {
         handshake2WaitingCanvas = this.gameObject;
+        previousFrame = false;
         //handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = false;
     }
 
     //Called when the waiting canvas needs to be active
-    public void ActivateHandshakeConfirmCanvas()
+    public void ActivateHandshakeWaitingCanvas()
     {
         waitingActive = true;
     }
 
     //Called when the waiting canvas needs to be disabled
-    public void DeactivateHandshakeConfirmCanvas()
+    public void DeactivateHandshakeWaitingCanvas()
     {
         waitingActive = false;
     }
@@ -48,11 +50,19 @@ public class HandshakeWaitingCanvasH2 : MonoBehaviour, IPunObservable
         //Check if the bool is true to enable or disable the canvas
         if (waitingActive == false)
         {
-            handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = false;
+            if(previousFrame == true)
+            {
+                handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = false;
+                previousFrame = false;
+            }            
         }
         else
         {
-            handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = true;
+            if(previousFrame == false)
+            {
+                handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = true;
+                previousFrame = true;
+            }            
         }
     }
 }

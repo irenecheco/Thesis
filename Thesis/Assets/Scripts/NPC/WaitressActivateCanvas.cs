@@ -11,7 +11,7 @@ public class WaitressActivateCanvas : MonoBehaviour
 
     private int sceneIndex;
 
-    private GameObject leftHand;
+    [SerializeField] private GameObject leftHand;
     private GameObject handshake_canvas;
     private GameObject handshake_button;
 
@@ -27,16 +27,14 @@ public class WaitressActivateCanvas : MonoBehaviour
     private Animator animator_NPC_left;
     private Animator animator_NPC_right;
 
-    private GameObject environment;
+    [SerializeField] private GameObject environment;
 
     void Start()
     {
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        environment = GameObject.Find("Environment");
 
         if (sceneIndex == 1)
         {
-            leftHand = GameObject.Find("Camera Offset/LeftHand Controller/LeftHand");
             handshake_canvas = leftHand.transform.GetChild(2).gameObject;
             handshake_button = handshake_canvas.transform.GetChild(1).gameObject;
             handshake_canvas.GetComponent<Canvas>().enabled = false;
@@ -85,6 +83,8 @@ public class WaitressActivateCanvas : MonoBehaviour
             } else if(sceneIndex == 2)
             {
                 npcMessage.GetComponent<Canvas>().enabled = true;
+                npcMessage.GetComponent<AudioSource>().enabled = true;
+                npcMessage.GetComponent<AudioSource>().Play();
                 npc.GetComponent<HandshakeActivationNPC2>().isCollidingWithWaitress = true;
             } else if (sceneIndex == 3)
             {

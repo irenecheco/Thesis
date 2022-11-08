@@ -17,12 +17,10 @@ public class HandshakeActivationNPC : MonoBehaviour
     private GameObject confirmRight;
     private GameObject confirmNPCHandHolder;
 
-    private GameObject rightHand;
-    private GameObject leftHand;
-    private GameObject rightController;
-    private GameObject leftController;
-    private GameObject player;
-    private GameObject camera;
+    [SerializeField] private GameObject rightHand;
+    [SerializeField] private GameObject rightController;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject camera;
 
     private Animator rightHandAnimator;
     private Animator animator_NPC_head;
@@ -57,11 +55,6 @@ public class HandshakeActivationNPC : MonoBehaviour
             confirmRight = confirmNPCHandHolder.transform.GetChild(0).gameObject;
         }        
 
-        rightController = GameObject.Find("Camera Offset/RightHand Controller");
-        leftController = GameObject.Find("Camera Offset/LefttHand Controller");
-        rightHand = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
-        player = GameObject.Find("Player");
-        camera = GameObject.Find("Camera Offset/Main Camera");
         rightHandAnimator = rightHand.GetComponent<Animator>();
 
         animator_NPC_head = confirmHead.GetComponent<Animator>();
