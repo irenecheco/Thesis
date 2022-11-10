@@ -11,10 +11,7 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
     //that the involved users get notified and start the animation
 
     private GameObject rightHand;
-    private GameObject leftHand;
     private GameObject rightController;
-    private GameObject leftController;
-    private GameObject player;
     private GameObject camera;
     private GameObject rHandContainer;
     private GameObject rHand;
@@ -25,34 +22,22 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
     private GameObject myHead;
     private PhotonView photonView;
 
-    private Animator rightHandAnimator;
-
-    private Vector3 direction;
-
-    private float y_angle;
-
-    private int sceneIndex;
-
+    private GameObject fakeHandHolder;
+    private GameObject fakeHand;
 
     private string[] playersID = new string[2];
 
     void Start()
     {
-        sceneIndex = SceneManager.GetActiveScene().buildIndex;
         rightHand = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
-        leftHand = GameObject.Find("Camera Offset/LeftHand Controller/LeftHand");
 
         rightController = GameObject.Find("Camera Offset/RightHand Controller");
-        leftController = GameObject.Find("Camera Offset/LefttHand Controller");
-        player = GameObject.Find("Player");
+        fakeHandHolder = GameObject.Find("FakeHandHolder");
+        fakeHand = fakeHandHolder.transform.GetChild(0).gameObject;
         camera = GameObject.Find("Camera Offset/Main Camera");
-        rightHandAnimator = rightHand.GetComponent<Animator>();
 
-        if(this.name != "RightHand")
-        {
-            myHead = this.gameObject.transform.GetChild(0).gameObject;
-            photonView = this.GetComponent<PhotonView>();
-        }        
+        myHead = this.gameObject.transform.GetChild(0).gameObject;
+        photonView = this.GetComponent<PhotonView>();       
     }
 
     //Functions called when both users are pressing the A button
@@ -153,10 +138,21 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
     //Coroutine that trigger the animation on the network player
     public IEnumerator Wait()
     {
-        double time = 0.25;
+        float time = (float)0.25;
         GameObject head = otherPlayer.transform.GetChild(0).gameObject;
-        yield return new WaitForSeconds((float)time);
-        float starting_y = 0;
+        yield return new WaitForSeconds(time);
+
+        rightHand.SetActive(false);
+        fakeHand.SetActive(true);
+
+        fakeHand.GetComponent<HandshakeFakeHand>().DoHandshake(camera.transform.position, head.transform.position);
+
+        //waitConfirmUI.GetComponent<Canvas>().enabled = false;
+        //handshakeUI.GetComponent<Canvas>().enabled = true;
+
+        //confirmCanvas.GetComponent<HandshakeConfirmCanvas>().DeactivateHandshakeConfirmCanvas();
+
+        /*float starting_y = 0;
         Vector3 midPosition;
 
         if (camera.transform.position.y <= head.transform.position.y)
@@ -200,7 +196,7 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
             player.transform.rotation = Quaternion.Euler(0, (y_angle - 180), 0);
             player.transform.Translate(new Vector3((float)(+0.026), 0, (float)(+0.540)), Space.Self);
         }
-        rightHandAnimator.Play("Handshake2", -1, 0);
+        rightHandAnimator.Play("Handshake2", -1, 0);*/
     }
 
     public void SetBackComponent()
@@ -214,5 +210,7 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
             myHead.gameObject.transform.GetComponent<OnButtonAPressed>().animationGoing = false;
         }
     }
+
+
 }
 

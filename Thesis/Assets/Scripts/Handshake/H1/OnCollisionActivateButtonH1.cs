@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Unity.XR.CoreUtils;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class OnCollisionActivateButtonH1 : MonoBehaviourPunCallbacks
 {
@@ -54,7 +55,7 @@ public class OnCollisionActivateButtonH1 : MonoBehaviourPunCallbacks
                     otherPlayerHead = collider.gameObject;
                     origin.GetComponent<ActiveHandController>().isColliding = true;
 
-                    if (origin.GetComponent<ActiveHandController>().activeLeft)
+                    if (leftHand.transform.parent.gameObject.GetComponent<XRRayInteractor>().enabled == true)
                     {
                         if (waitingUI_l.GetComponent<Canvas>().enabled == false)
                         {
@@ -67,8 +68,11 @@ public class OnCollisionActivateButtonH1 : MonoBehaviourPunCallbacks
                             handshakeUI_l.GetComponent<AudioSource>().Play();
                             GameObject buttonL = handshakeUI_l.transform.GetChild(1).gameObject;
                             buttonL.GetComponent<HandshakeButton>().collidingPlayerHead = otherPlayerHead;
+                            handshakeUI_r.GetComponent<AudioSource>().Play();
+                            GameObject buttonR = handshakeUI_r.transform.GetChild(1).gameObject;
+                            buttonR.GetComponent<HandshakeButton>().collidingPlayerHead = otherPlayerHead;
                         }
-                    }else
+                    } else
                     {
                         if (waitingUI_r.GetComponent<Canvas>().enabled == false)
                         {
@@ -81,6 +85,9 @@ public class OnCollisionActivateButtonH1 : MonoBehaviourPunCallbacks
                             handshakeUI_r.GetComponent<AudioSource>().Play();
                             GameObject buttonR = handshakeUI_r.transform.GetChild(1).gameObject;
                             buttonR.GetComponent<HandshakeButton>().collidingPlayerHead = otherPlayerHead;
+                            handshakeUI_l.GetComponent<AudioSource>().Play();
+                            GameObject buttonL = handshakeUI_l.transform.GetChild(1).gameObject;
+                            buttonL.GetComponent<HandshakeButton>().collidingPlayerHead = otherPlayerHead;
                         }
                     }                                        
                 }

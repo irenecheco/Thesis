@@ -42,7 +42,7 @@ public class HandshakeConfirmCanvas : MonoBehaviour, IPunObservable
     //Called when the confirm canvas needs to be active
     public void ActivateHandshakeConfirmCanvas()
     {
-        confirmActive = true;
+        confirmActive = true;       
     }
 
     //Called when the confirm canvas needs to be disabled
@@ -57,13 +57,11 @@ public class HandshakeConfirmCanvas : MonoBehaviour, IPunObservable
         if (confirmActive == false)
         {
             handshakeConfirm.transform.GetComponent<Canvas>().enabled = false;
-            handshakeConfirmButton.GetComponent<Button>().interactable = false;
             firstSound = true;
         }
         else
         {
             handshakeConfirm.transform.GetComponent<Canvas>().enabled = true;
-            handshakeConfirmButton.GetComponent<Button>().interactable = true;
             if (firstSound == true)
             {
                 handshakeConfirm.GetComponent<AudioSource>().Play();

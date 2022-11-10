@@ -30,22 +30,31 @@ public class HandshakeMessageCanvasH2 : MonoBehaviour, IPunObservable
     {
         handshake2MessageCanvas = this.gameObject;
         previousFrame = false;
-        //handshake2MessageCanvas.transform.GetComponent<Canvas>().enabled = false;
     }
 
     //Called when the message canvas needs to be active
     public void ActivateHandshakeMessageCanvas()
     {
         messageActive = true;
+        if(handshake2MessageCanvas != null)
+        {
+            handshake2MessageCanvas.GetComponent<Canvas>().enabled = true;
+            handshake2MessageCanvas.GetComponent<AudioSource>().enabled = true;
+            handshake2MessageCanvas.GetComponent<AudioSource>().Play();
+        }        
     }
 
     //Called when the message canvas needs to be disabled
     public void DeactivateHandshakeMessageCanvas()
     {
         messageActive = false;
+        if(handshake2MessageCanvas != null)
+        {
+            handshake2MessageCanvas.transform.GetComponent<Canvas>().enabled = false;
+        }        
     }
 
-    void Update()
+    /*void Update()
     {
         //Check if the bool is true to enable or disable the canvas
         if (messageActive == false)
@@ -72,5 +81,5 @@ public class HandshakeMessageCanvasH2 : MonoBehaviour, IPunObservable
                 previousFrame = true;
             }            
         }
-    }
+    }*/
 }

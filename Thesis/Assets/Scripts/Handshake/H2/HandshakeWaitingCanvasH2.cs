@@ -37,15 +37,23 @@ public class HandshakeWaitingCanvasH2 : MonoBehaviour, IPunObservable
     public void ActivateHandshakeWaitingCanvas()
     {
         waitingActive = true;
+        if(handshake2WaitingCanvas != null)
+        {
+            handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = true;
+        }
     }
 
     //Called when the waiting canvas needs to be disabled
     public void DeactivateHandshakeWaitingCanvas()
     {
         waitingActive = false;
+        if(handshake2WaitingCanvas != null)
+        {
+            handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = false;
+        }        
     }
 
-    void Update()
+    /*void Update()
     {
         //Check if the bool is true to enable or disable the canvas
         if (waitingActive == false)
@@ -64,5 +72,5 @@ public class HandshakeWaitingCanvasH2 : MonoBehaviour, IPunObservable
                 previousFrame = true;
             }            
         }
-    }
+    }*/
 }

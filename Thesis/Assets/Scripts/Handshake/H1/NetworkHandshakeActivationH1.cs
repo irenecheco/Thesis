@@ -13,39 +13,38 @@ public class NetworkHandshakeActivationH1 : MonoBehaviour
     private GameObject rightHand;
     private GameObject leftHand;
     private GameObject rightController;
-    private GameObject leftController;
-    private GameObject player;
     private GameObject camera;
     private GameObject rHandContainer;
     private GameObject rHand;
     private GameObject otherPlayer;
     private GameObject confirmCanvas;
-    private GameObject waitConfirmUI;
-    private GameObject handshakeUI;
+    private GameObject waitConfirmUI_l;
+    private GameObject handshakeUI_l;
+    private GameObject waitConfirmUI_r;
+    private GameObject handshakeUI_r;
     private GameObject myHead;
     private PhotonView photonView;
 
-    private Animator rightHandAnimator;
-
-    private Vector3 direction;
-    private float y_angle;
+    private GameObject fakeHandHolder;
+    private GameObject fakeHand;
     
     private string[] playersID = new string[2];
 
-    void Start()
+    void Awake()
     {
         photonView = this.GetComponent<PhotonView>();
         rightHand = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
         leftHand = GameObject.Find("Camera Offset/LeftHand Controller/LeftHand");
 
-        waitConfirmUI = leftHand.transform.GetChild(3).gameObject;
-        handshakeUI = leftHand.transform.GetChild(2).gameObject;
+        waitConfirmUI_l = leftHand.transform.GetChild(3).gameObject;
+        handshakeUI_l = leftHand.transform.GetChild(2).gameObject;
+        waitConfirmUI_r = rightHand.transform.GetChild(3).gameObject;
+        handshakeUI_r = rightHand.transform.GetChild(2).gameObject;
 
         rightController = GameObject.Find("Camera Offset/RightHand Controller");
-        leftController = GameObject.Find("Camera Offset/LeftHand Controller");
-        player = GameObject.Find("Player");
+        fakeHandHolder = GameObject.Find("FakeHandHolder");
+        fakeHand = fakeHandHolder.transform.GetChild(0).gameObject;
         camera = GameObject.Find("Camera Offset/Main Camera");
-        rightHandAnimator = rightHand.GetComponent<Animator>();
         myHead = this.gameObject.transform.GetChild(0).gameObject;
 
         confirmCanvas = myHead.transform.GetChild(0).gameObject;        
@@ -127,53 +126,25 @@ public class NetworkHandshakeActivationH1 : MonoBehaviour
     //Coroutine that trigger the animation on the network player
     public IEnumerator Wait()
     {
-        double time = 0.25;
+        float time = (float)0.25;
         GameObject head = otherPlayer.transform.GetChild(0).gameObject;
-        yield return new WaitForSeconds((float)time);
-        float starting_y = 0;
-        Vector3 midPosition;
+        yield return new WaitForSeconds(time);
 
-        if (camera.transform.position.y <= head.transform.position.y)
-        {
-            starting_y = camera.transform.position.y;
-        } else {
-            starting_y = head.transform.position.y;
-        }
+        rightHand.SetActive(false);
+        fakeHand.SetActive(true);
 
-        Destroy(rightController.GetComponent("HandController"));
-        rightHand.GetComponent<Hand>().flag = true;
-        rightHand.transform.parent = player.transform;
-        midPosition = Vector3.Lerp(head.transform.position, camera.transform.position, 0.5f);
-        player.transform.position = new Vector3(midPosition.x, (float)(starting_y - 0.4), midPosition.z);
-        direction = (head.transform.position - camera.transform.position).normalized;
-        y_angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-        float camera_y_angle = camera.transform.rotation.eulerAngles.y;
-        if (y_angle < 0)
-        {
-            float offset = -y_angle;
-            y_angle = 360 - offset;
-        }
-        if(camera_y_angle < 0)
-        {
-            float offset = camera_y_angle;
-            camera_y_angle = 360 - offset;
-        }
-        if ((y_angle - 90) < camera_y_angle && camera_y_angle < (y_angle + 90))
-        {
-            player.transform.rotation = new Quaternion(0, 0, 0, 0);
-            player.transform.rotation = Quaternion.Euler(0, y_angle, 0);
-            player.transform.Translate(new Vector3((float)(-0.028), 0, (float)(-0.540)), Space.Self);
-        } else
-        {
-            player.transform.rotation = new Quaternion(0, 0, 0, 0);
-            player.transform.rotation = Quaternion.Euler(0, (y_angle - 180), 0);
-            player.transform.Translate(new Vector3((float)(+0.028), 0, (float)(+0.540)), Space.Self);
-        }
+        fakeHand.GetComponent<HandshakeFakeHand>().DoHandshake(camera.transform.position, head.transform.position);
 
-        rightHandAnimator.Play("Handshake", -1, 0);
-
-        waitConfirmUI.GetComponent<Canvas>().enabled = false;
-        handshakeUI.GetComponent<Canvas>().enabled = true;
+        if(waitConfirmUI_l.GetComponent<Canvas>().enabled == true)
+        {
+            waitConfirmUI_l.GetComponent<Canvas>().enabled = false;
+            handshakeUI_l.GetComponent<Canvas>().enabled = true;
+        }
+        if(waitConfirmUI_r.GetComponent<Canvas>().enabled == true)
+        {
+            waitConfirmUI_r.GetComponent<Canvas>().enabled = false;
+            handshakeUI_r.GetComponent<Canvas>().enabled = true;
+        }       
 
         confirmCanvas.GetComponent<HandshakeConfirmCanvas>().DeactivateHandshakeConfirmCanvas();
     }

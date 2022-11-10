@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Unity.XR.CoreUtils;
+using UnityEngine.SceneManagement;
 
 public class OnCollisionDeactivateCanvasH1 : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class OnCollisionDeactivateCanvasH1 : MonoBehaviour
         leftHand = handshakeUI_l.transform.parent.gameObject;
         rightHand = handshakeUI_r.transform.parent.gameObject;
         waitingUI_l = leftHand.transform.GetChild(3).gameObject;
-        waitingUI_r = rightHand.transform.GetChild(3).gameObject;
+        waitingUI_r = rightHand.transform.GetChild(3).gameObject;        
 
         origin = FindObjectOfType<XROrigin>();
     }

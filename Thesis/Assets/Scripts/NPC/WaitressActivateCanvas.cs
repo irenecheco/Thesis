@@ -99,7 +99,7 @@ public class WaitressActivateCanvas : MonoBehaviour
         {
             if(sceneIndex == 1)
             {
-                handshake_button.GetComponent<Button>().interactable = false;
+                //handshake_button.GetComponent<Button>().interactable = false;
                 handshake_button.GetComponent<HandshakeButton>().isCollidingWithWaitress = false;
                 handshake_canvas.GetComponent<Canvas>().enabled = false;
                 handshake_button.GetComponent<HandshakeButton>().firstHandshake = true;

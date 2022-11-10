@@ -9,6 +9,7 @@ public class OnCollisionActivateCanvasH2 : MonoBehaviourPunCallbacks, IPunObserv
     //Code responsible for activating the handshake message when two players collide
 
     public GameObject otherPlayerHead;
+    private GameObject rightHandLocal;
   
     private string handshake2_messageCanva = "Handshake 2 message";
     private string handshake2_waitingCanva = "Handshake 2 waiting";
@@ -32,11 +33,12 @@ public class OnCollisionActivateCanvasH2 : MonoBehaviourPunCallbacks, IPunObserv
         }*/
     }
 
-    void Start()
+    void Awake()
     {
         this.transform.Find(handshake2_waitingCanva).gameObject.transform.GetComponent<HandshakeWaitingCanvasH2>().DeactivateHandshakeWaitingCanvas();
         this.transform.Find(handshake2_confirmCanva).gameObject.transform.GetComponent<HandshakeConfirmCanvasH2>().DeactivateHandshakeConfirmCanvas();
         h2_messageActive = false;
+        rightHandLocal = GameObject.Find("Camera Offset/RightHand Controller/RightHand").gameObject;
     }
 
     //Function called on trigger entered: it activates the message canvas on the other player head only if the two heads collide
@@ -49,7 +51,7 @@ public class OnCollisionActivateCanvasH2 : MonoBehaviourPunCallbacks, IPunObserv
             colliderPhotonView = collider.transform.GetComponent<PhotonView>();
             if (!colliderPhotonView.IsMine)
             {
-                    otherPlayerHead = collider.gameObject;
+                otherPlayerHead = collider.gameObject;
 
                 if (buttonAPressed == false)
                 {
@@ -59,13 +61,17 @@ public class OnCollisionActivateCanvasH2 : MonoBehaviourPunCallbacks, IPunObserv
                     GameObject messageCanva = otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject;
 
                     messageCanva.GetComponent<HandshakeMessageCanvasH2>().ActivateHandshakeMessageCanvas();
+                    rightHandLocal.GetComponent<HapticController>().amplitude = 0.2f;
+                    rightHandLocal.GetComponent<HapticController>().duration = 0.2f;
+                    rightHandLocal.GetComponent<HapticController>().SendHaptics();
+                    messageCanva.GetComponent<AudioSource>().Play();
                 }
             }
         }
     }
 
     //Function called on trigger exit: it disable the message canvas if the two heads are not colliding
-    private void OnTriggerExit(Collider collider)
+    /*private void OnTriggerExit(Collider collider)
     {
         if (collider.gameObject.name == "Head")
         {
@@ -81,5 +87,5 @@ public class OnCollisionActivateCanvasH2 : MonoBehaviourPunCallbacks, IPunObserv
                 buttonAPressed = false;
             }
         }
-    }
+    }*/
 }

@@ -37,15 +37,25 @@ public class HandshakeConfirmCanvasH2 : MonoBehaviour,  IPunObservable
     public void ActivateHandshakeConfirmCanvas()
     {
         confirmActive = true;
+        if(handshake2ConfirmCanvas != null)
+        {
+            handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled = true;
+            handshake2ConfirmCanvas.GetComponent<AudioSource>().enabled = true;
+            handshake2ConfirmCanvas.GetComponent<AudioSource>().Play();
+        }
     }
 
     //Called when the confirm canvas needs to be disabled
     public void DeactivateHandshakeConfirmCanvas()
     {
         confirmActive = false;
+        if (handshake2ConfirmCanvas != null)
+        {
+            handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled = false;
+        }
     }
 
-    void Update()
+    /*void Update()
     {
         //Check if the bool is true to enable or disable the canvas
         if (confirmActive == false)
@@ -72,5 +82,5 @@ public class HandshakeConfirmCanvasH2 : MonoBehaviour,  IPunObservable
                 previousFrame = true;
             }            
         }
-    }
+    }*/
 }

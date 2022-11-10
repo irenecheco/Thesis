@@ -58,7 +58,6 @@ public class HandshakeButton : MonoBehaviour
         }
 
         _button = this.GetComponent<Button>();
-        handshakeUI = this.gameObject.transform.parent.gameObject;
         _canvas = handshakeUI.GetComponent<Canvas>();
 
         _enableHandshake.action.performed += ctx => {
@@ -67,7 +66,8 @@ public class HandshakeButton : MonoBehaviour
                 if(collidingPlayerHead != null)
                 {
                     GameObject confirmCanvas = collidingPlayerHead.transform.GetChild(0).gameObject;
-                    if (confirmCanvas.GetComponent<HandshakeConfirmCanvas>().confirmActive)
+                    Debug.Log($"Entra qui e confirm canvas è {confirmCanvas.GetComponent<HandshakeConfirmCanvas>().confirmActive}");
+                    if (confirmCanvas.GetComponent<HandshakeConfirmCanvas>().confirmActive == true)
                     {
                         confirmCanvas.transform.GetChild(2).gameObject.GetComponent<HandshakeActivation>().CallHeadMethod();
                     } else
@@ -120,7 +120,7 @@ public class HandshakeButton : MonoBehaviour
         {
             if(firstHandshake == true)
             {
-                waitress.GetComponent<HandshakeActivationNPC2>().StartHandshake();
+                waitress.GetComponent<HandshakeActivationNPC>().StartHandshake();
                 firstHandshake = false;
             }            
         }

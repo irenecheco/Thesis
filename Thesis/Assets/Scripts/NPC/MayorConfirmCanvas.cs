@@ -144,6 +144,7 @@ public class MayorConfirmCanvas : MonoBehaviour
         activeCanvas = false;
         mayor_hand_holder.transform.position = initial_hand_holder_position;
         mayor_hand_holder.transform.rotation = initial_hand_holder_rotation;
+        animator_mayor_right.speed = 1;
         animator_mayor_left.speed = 1;
         animator_mayor_head.speed = 1;
         if(sceneIndex == 3)
