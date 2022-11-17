@@ -23,8 +23,8 @@ public class OnCollisionDeactivateCanvasH1 : MonoBehaviour
 
     void Start()
     {
-        handshakeUI_l = GameObject.Find("Camera Offset/LeftHand Controller/LeftHand/Handshake UI").gameObject;
-        handshakeUI_r = GameObject.Find("Camera Offset/RightHand Controller/RightHand/Handshake UI").gameObject;
+        handshakeUI_l = GameObject.Find("Camera Offset/LeftHand Controller/LeftHand/Handshake UI");
+        handshakeUI_r = GameObject.Find("Camera Offset/RightHand Controller/RightHand/Handshake UI");
         handshakeUI_l.GetComponent<Canvas>().enabled = false;
         handshakeUI_r.GetComponent<Canvas>().enabled = false;
         leftHand = handshakeUI_l.transform.parent.gameObject;

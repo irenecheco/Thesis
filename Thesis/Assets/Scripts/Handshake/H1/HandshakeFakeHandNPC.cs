@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class HandshakeFakeHandNPC : MonoBehaviour
 {
+    //Code responsible for starting the animation of NPC fake hand
+
     private float ending_y;
     private float y_angle;
     private float time = (float)0.75;
@@ -23,6 +25,7 @@ public class HandshakeFakeHandNPC : MonoBehaviour
         fakeHandAnimator = this.GetComponent<Animator>();
     }
 
+    //Function invoked when handshake needs to start
     public void DoHandshake(Vector3 NPCPosition, Vector3 playerPosition, GameObject NPCHand_holder)
     {
         if (NPCPosition.y <= playerPosition.y)
@@ -50,6 +53,7 @@ public class HandshakeFakeHandNPC : MonoBehaviour
         Invoke("SecondPartHandshake", time);
     }
 
+    //Once the fake hands are in position, this function triggers the up-and-down animation
     public void SecondPartHandshake()
     {
         fakeHandAnimator.Play("Handshake", -1, 0);

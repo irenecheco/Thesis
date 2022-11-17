@@ -10,33 +10,27 @@ public class CollidingH3 : MonoBehaviour
 
     public bool isGrabbing;
 
-    private GameObject rightController;
-    private GameObject rightHand;
-
     public GameObject otherNetRightHand;
 
     void Start()
     {
         isGrabbing = false;
-
-        rightHand = this.gameObject;
-        rightController = rightHand.transform.parent.gameObject; 
     }
 
     //Function called on collision entered: when the users' heads collide the other user's hand becomes grabbable
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.name == "Sphere")
+        {
+            PhotonView colliderPhotonView;
+            colliderPhotonView = collider.transform.GetComponentInParent<PhotonView>();
+            if (!colliderPhotonView.IsMine)
             {
-                PhotonView colliderPhotonView;
-                colliderPhotonView = collider.transform.GetComponentInParent<PhotonView>();
-                if (!colliderPhotonView.IsMine)
+                if (otherNetRightHand != null)
                 {
-                    if (otherNetRightHand != null)
-                    {
-                        otherNetRightHand.transform.GetComponent<XRGrabInteractable>().enabled = true;
-                    }
+                   otherNetRightHand.transform.GetComponent<XRGrabInteractable>().enabled = true;
                 }
+            }
         }
     }
 

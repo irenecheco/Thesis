@@ -8,11 +8,13 @@ using VRatPolito.PrattiToolkit;
 
 public class ActiveHandController : MonoBehaviour
 {
+    //Code responsible for handling the controller in use H1
+
     public ActionBasedController LeftHand, RightHand;
     public bool activeLeft;
-    public bool isColliding;
+    public bool isColliding = false;
+    public bool isCollidingWithWaitress = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         LeftHand.activateAction.action.performed += ctx => {
@@ -26,9 +28,16 @@ public class ActiveHandController : MonoBehaviour
                 {
                     LeftHand.transform.GetChildRecursive("Wait For Confirm UI").gameObject.GetComponent<Canvas>().enabled = true;
                     RightHand.transform.GetChildRecursive("Wait For Confirm UI").gameObject.GetComponent<Canvas>().enabled = false;
+                }                
+            }
+            if (isCollidingWithWaitress)
+            {
+                if (RightHand.transform.GetChildRecursive("Handshake UI").gameObject.GetComponent<Canvas>().enabled == true)
+                {
+                    LeftHand.transform.GetChildRecursive("Handshake UI").gameObject.GetComponent<Canvas>().enabled = true;
+                    RightHand.transform.GetChildRecursive("Handshake UI").gameObject.GetComponent<Canvas>().enabled = false;
                 }
-                
-            }            
+            }
             activeLeft = true;
             LeftHand.GetComponent<XRRayInteractor>().enabled = true;
             RightHand.GetComponent<XRRayInteractor>().enabled = false;
@@ -49,6 +58,14 @@ public class ActiveHandController : MonoBehaviour
                     RightHand.transform.GetChildRecursive("Wait For Confirm UI").GetComponent<Canvas>().enabled = true;
                 }
                 
+            }
+            if (isCollidingWithWaitress)
+            {
+                if (LeftHand.transform.GetChildRecursive("Handshake UI").GetComponent<Canvas>().enabled == true)
+                {
+                    LeftHand.transform.GetChildRecursive("Handshake UI").GetComponent<Canvas>().enabled = false;
+                    RightHand.transform.GetChildRecursive("Handshake UI").GetComponent<Canvas>().enabled = true;
+                }
             }
             activeLeft = false;            
             LeftHand.GetComponent<XRRayInteractor>().enabled = false;

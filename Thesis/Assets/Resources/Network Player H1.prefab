@@ -1428,7 +1428,7 @@ GameObject:
   - component: {fileID: 2772545144721726277}
   - component: {fileID: 1222858057526182143}
   - component: {fileID: 4067697030127654806}
-  - component: {fileID: 4376421885586587472}
+  - component: {fileID: 5030565003336827915}
   m_Layer: 5
   m_Name: Handshake Confirm
   m_TagString: Untagged
@@ -1663,7 +1663,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4376421885586587472
+--- !u!114 &5030565003336827915
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1672,7 +1672,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4710933943844070419}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45444548df627ba42a0ae5d7c757cead, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c1b298ca24b61641b956b7cb5536dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElasticFactor: 0
@@ -3887,5 +3887,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightController: {fileID: 34575303170100443}
-  x: 0.017
-  z: 0.015
+  x: 0.054
+  z: -0.017
+  y: 0

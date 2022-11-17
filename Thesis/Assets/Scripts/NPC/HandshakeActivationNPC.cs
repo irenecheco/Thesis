@@ -16,6 +16,7 @@ public class HandshakeActivationNPC : MonoBehaviour
     private GameObject confirmHead;
     private GameObject confirmNPC;
     private GameObject NPC_rightHand;
+    private GameObject NPC_rightMesh;
     private GameObject confirmNPCHandHolder;
 
     [SerializeField] private GameObject rightHand;
@@ -25,6 +26,8 @@ public class HandshakeActivationNPC : MonoBehaviour
     [SerializeField] private GameObject fakeHandNPC;
     [SerializeField] private GameObject camera;
     [SerializeField] private GameObject NPCHand_holder;
+
+    private Color baseColor = new Color(0.8000001f, 0.4848836f, 0.3660862f, 1.0f);
 
     void Start()
     {
@@ -45,6 +48,7 @@ public class HandshakeActivationNPC : MonoBehaviour
             }
             confirmNPCHandHolder = confirmNPC.transform.GetChild(2).gameObject;
             NPC_rightHand = confirmNPCHandHolder.transform.GetChild(0).gameObject;
+            NPC_rightMesh = NPC_rightHand.transform.FindChildRecursive("hands:Lhand").gameObject;
             fakeHand = fakeHand_holder.transform.GetChild(0).gameObject;            
 
         } else if(sceneIndex == 2)
@@ -62,6 +66,7 @@ public class HandshakeActivationNPC : MonoBehaviour
             }
             confirmNPCHandHolder = confirmNPC.transform.GetChild(2).gameObject;
             NPC_rightHand = confirmNPCHandHolder.transform.GetChild(0).gameObject;
+            NPC_rightMesh = NPC_rightHand.transform.FindChildRecursive("hands:Lhand").gameObject;
             fakeHand = fakeHand_holder.transform.GetChild(0).gameObject;
         }        
     }
@@ -89,6 +94,7 @@ public class HandshakeActivationNPC : MonoBehaviour
         if(confirmNPC.gameObject.name == "Mayor")
         {
             confirmCanvas.GetComponent<Canvas>().enabled = false;
+            NPC_rightMesh.GetComponent<SkinnedMeshRenderer>().material.color = baseColor;
         }        
     }
 }

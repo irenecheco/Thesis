@@ -44,7 +44,7 @@ public class NetworkHandshakeActivationH1 : MonoBehaviour
         rightController = GameObject.Find("Camera Offset/RightHand Controller");
         fakeHandHolder = GameObject.Find("FakeHandHolder");
         fakeHand = fakeHandHolder.transform.GetChild(0).gameObject;
-        camera = GameObject.Find("Camera Offset/Main Camera");
+        camera = Camera.main.gameObject;
         myHead = this.gameObject.transform.GetChild(0).gameObject;
 
         confirmCanvas = myHead.transform.GetChild(0).gameObject;        
@@ -86,12 +86,12 @@ public class NetworkHandshakeActivationH1 : MonoBehaviour
                 rHand = rHandContainer.transform.GetChild(0).gameObject;
                 if (rHand.name == "RightHand")
                 {
-                    rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
+                    rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position);
                 }
                 else
                 {
                     rHand = rHandContainer.transform.GetChild(1).gameObject;
-                    rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
+                    rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position);
                 }
             }
             StartCoroutine(Wait());
@@ -111,12 +111,12 @@ public class NetworkHandshakeActivationH1 : MonoBehaviour
                 rHand = rHandContainer.transform.GetChild(0).gameObject;
                 if (rHand.name == "RightHand")
                 {
-                    rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
+                    rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position);
                 }
                 else
                 {
                     rHand = rHandContainer.transform.GetChild(1).gameObject;
-                    rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
+                    rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position);
                 }
             }
             StartCoroutine(Wait());

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.InputSystem;
 
 public class MayorConfirmCanvas : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class MayorConfirmCanvas : MonoBehaviour
     private GameObject mayor_confirm_button;
     private GameObject mayor_left;
     private GameObject mayor_right;
+    private GameObject mayor_rightMesh;
     private GameObject mayor;
     private GameObject mayor_hand_holder;
 
@@ -31,9 +33,13 @@ public class MayorConfirmCanvas : MonoBehaviour
     public bool isColliding;
     public bool firstHandshake;
 
-    private List<InputDevice> devices = new List<InputDevice>();
+    [SerializeField] private InputActionReference _enableHandshake2;
+
+    private Color waitingColor = new Color(0.4135279f, 0.7409829f, 0.9056604f, 1.0f);
+
+    /*private List<InputDevice> devices = new List<InputDevice>();
     private InputDeviceCharacteristics rControllerCharacteristics = InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
-    private InputDevice targetDevice;
+    private InputDevice targetDevice;*/
 
     void Start()
     {
@@ -72,16 +78,35 @@ public class MayorConfirmCanvas : MonoBehaviour
         }
         initial_hand_holder_position = mayor_hand_holder.transform.position;
         initial_hand_holder_rotation = mayor_hand_holder.transform.rotation;
+        mayor_rightMesh = mayor_right.transform.FindChildRecursive("hands:Lhand").gameObject;
 
 
-        if(sceneIndex == 2)
+        if (sceneIndex == 2)
         {
-            InputDevices.GetDevicesWithCharacteristics(rControllerCharacteristics, devices);
+            /*InputDevices.GetDevicesWithCharacteristics(rControllerCharacteristics, devices);
 
             if (devices.Count > 0)
             {
                 targetDevice = devices[0];
-            }
+            }*/
+
+            _enableHandshake2.action.started += ctx =>
+            {
+                if (isColliding == true)
+                {
+                    if (this.GetComponent<AngleOfViewControl>().isLooking)
+                    {
+                        if (activeCanvas == true)
+                        {
+                            if (firstHandshake == true)
+                            {
+                                mayor_head_canvas.GetComponent<HandshakeActivationNPC>().StartHandshake();
+                                firstHandshake = false;
+                            }
+                        }
+                    }                    
+                }
+            };
         }
 
         if(sceneIndex == 3)
@@ -94,7 +119,7 @@ public class MayorConfirmCanvas : MonoBehaviour
     {
         if(isColliding == true)
         {
-            if (sceneIndex == 2)
+            /*if (sceneIndex == 2)
             {
                 if (activeCanvas == true)
                 {
@@ -110,7 +135,8 @@ public class MayorConfirmCanvas : MonoBehaviour
                         }
                     }
                 }
-            } else if(sceneIndex == 3)
+            } else*/ 
+            if(sceneIndex == 3)
             {
                 if(firstHandshake == true)
                 {
@@ -124,8 +150,9 @@ public class MayorConfirmCanvas : MonoBehaviour
     public void activateMayorCanvas()
     {
         mayor_head_canvas.GetComponent<Canvas>().enabled = true;
-        
-        if(sceneIndex == 1)
+        mayor_rightMesh.GetComponent<SkinnedMeshRenderer>().material.color = waitingColor;
+
+        if (sceneIndex == 1)
         {
             mayor_confirm_button.GetComponent<Button>().interactable = true;
         }

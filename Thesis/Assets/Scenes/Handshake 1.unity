@@ -1217,6 +1217,7 @@ MonoBehaviour:
   activeCanvas: 0
   isColliding: 0
   firstHandshake: 0
+  _enableHandshake2: {fileID: 0}
 --- !u!1 &50522836
 GameObject:
   m_ObjectHideFlags: 0
@@ -3625,7 +3626,7 @@ MonoBehaviour:
   m_SphereCastRadius: 0.1
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 32
+    m_Bits: 544
   m_RaycastTriggerInteraction: 1
   m_HitClosestOnly: 0
   m_HoverToSelect: 0
@@ -5933,7 +5934,7 @@ PrefabInstance:
     - target: {fileID: 4104703238691087710, guid: 1f0e43d5b8c307741be352ed8e2ec312,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4104703238691087710, guid: 1f0e43d5b8c307741be352ed8e2ec312,
         type: 3}
@@ -5943,7 +5944,7 @@ PrefabInstance:
     - target: {fileID: 4104703238691087710, guid: 1f0e43d5b8c307741be352ed8e2ec312,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: 4104703238691087710, guid: 1f0e43d5b8c307741be352ed8e2ec312,
         type: 3}
@@ -7794,7 +7795,7 @@ MonoBehaviour:
   m_SphereCastRadius: 0.1
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 32
+    m_Bits: 544
   m_RaycastTriggerInteraction: 1
   m_HitClosestOnly: 0
   m_HoverToSelect: 0
@@ -9231,6 +9232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftHand: {fileID: 1616878802}
+  rightHand: {fileID: 2061015876}
   environment: {fileID: 635437403}
 --- !u!114 &1002703329
 MonoBehaviour:
@@ -10185,6 +10187,7 @@ MonoBehaviour:
   RightHand: {fileID: 803011133}
   activeLeft: 0
   isColliding: 0
+  isCollidingWithWaitress: 0
 --- !u!1 &1331446885
 GameObject:
   m_ObjectHideFlags: 0
@@ -12012,13 +12015,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454082097}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1bfb14feec61a40489e8f5c965fed40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isCollidingWithWaitress: 0
   firstHandshake: 0
+  _enableHandshake2: {fileID: 0}
 --- !u!54 &1454082099
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16152,7 +16156,7 @@ PrefabInstance:
     - target: {fileID: 4104703238691087710, guid: 1238eb8cbb39e1443917c9614ef64588,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4104703238691087710, guid: 1238eb8cbb39e1443917c9614ef64588,
         type: 3}
@@ -16162,7 +16166,7 @@ PrefabInstance:
     - target: {fileID: 4104703238691087710, guid: 1238eb8cbb39e1443917c9614ef64588,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: 4104703238691087710, guid: 1238eb8cbb39e1443917c9614ef64588,
         type: 3}
@@ -16727,6 +16731,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06c3732cbce29d04fb2dad41449f161a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: 0
+  z: 0
+  y: 0
   rightController: {fileID: 803011128}
 --- !u!1001 &2329640256081123486
 PrefabInstance:
@@ -17243,6 +17250,7 @@ MonoBehaviour:
   activeCanvas: 0
   isColliding: 0
   firstHandshake: 0
+  _enableHandshake2: {fileID: 0}
 --- !u!4 &4073119221283636668 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9127074435791180864, guid: 022995d40e7be12438872a6b22cab4d6,

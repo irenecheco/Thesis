@@ -20,11 +20,11 @@ public class HandshakeButton : MonoBehaviour
     private GameObject myPlayerConfirm;
     private GameObject handshakeUI;
     private GameObject waitConfirmUI;
-    private GameObject leftHand;
+    private GameObject hand;
 
-    private List<UnityEngine.XR.InputDevice> devices = new List<UnityEngine.XR.InputDevice>();
+    /*private List<UnityEngine.XR.InputDevice> devices = new List<UnityEngine.XR.InputDevice>();
     private InputDeviceCharacteristics lControllerCharacteristics = InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller;
-    private UnityEngine.XR.InputDevice targetDevice;
+    private UnityEngine.XR.InputDevice targetDevice;*/
 
     //public RuntimeAnimatorController mayor_anim_controller;
 
@@ -46,19 +46,21 @@ public class HandshakeButton : MonoBehaviour
             player.transform.position = rightController.transform.position;
         }        
         handshakeUI = this.gameObject.transform.parent.gameObject;
-        leftHand = handshakeUI.transform.parent.gameObject;
-        waitConfirmUI = leftHand.transform.GetChild(3).gameObject;
+        hand = handshakeUI.transform.parent.gameObject;
+        waitConfirmUI = hand.transform.GetChild(3).gameObject;
         waitConfirmUI.GetComponent<Canvas>().enabled = false;
 
-        InputDevices.GetDevicesWithCharacteristics(lControllerCharacteristics, devices);
+        /*InputDevices.GetDevicesWithCharacteristics(lControllerCharacteristics, devices);
 
         if (devices.Count > 0)
         {
             targetDevice = devices[0];
-        }
+        }*/
 
         _button = this.GetComponent<Button>();
         _canvas = handshakeUI.GetComponent<Canvas>();
+
+        //When primary button in pressed, if user is colliding with waitress or player, it starts the handshake
 
         _enableHandshake.action.performed += ctx => {
             if (_canvas.enabled == true)
@@ -66,7 +68,7 @@ public class HandshakeButton : MonoBehaviour
                 if(collidingPlayerHead != null)
                 {
                     GameObject confirmCanvas = collidingPlayerHead.transform.GetChild(0).gameObject;
-                    Debug.Log($"Entra qui e confirm canvas è {confirmCanvas.GetComponent<HandshakeConfirmCanvas>().confirmActive}");
+                    //Debug.Log($"Entra qui e confirm canvas è {confirmCanvas.GetComponent<HandshakeConfirmCanvas>().confirmActive}");
                     if (confirmCanvas.GetComponent<HandshakeConfirmCanvas>().confirmActive == true)
                     {
                         confirmCanvas.transform.GetChild(2).gameObject.GetComponent<HandshakeActivation>().CallHeadMethod();
@@ -87,7 +89,7 @@ public class HandshakeButton : MonoBehaviour
     }
 
     //Function called on the pressed handshake button: it changes the canvas that the player who pressed the button
-    //sees and it activates on his head the confrim canvas
+    //sees and it activates on his head the confirm canvas
     public void OnHandshakePressed()
     {
         if(isCollidingWithWaitress == false)
@@ -122,6 +124,7 @@ public class HandshakeButton : MonoBehaviour
             {
                 waitress.GetComponent<HandshakeActivationNPC>().StartHandshake();
                 firstHandshake = false;
+                handshakeUI.GetComponent<Canvas>().enabled = false;
             }            
         }
     }

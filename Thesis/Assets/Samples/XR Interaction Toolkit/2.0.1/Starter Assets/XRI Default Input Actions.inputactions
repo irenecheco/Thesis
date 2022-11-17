@@ -825,6 +825,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Handshake2Control",
+                    "type": "Button",
+                    "id": "a0716ef7-1f64-42f6-bc8a-4fedd822d7fd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1012,6 +1021,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "EnableHandshake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2d15eda1-08ee-4372-8028-85e724726ee2",
+                    "path": "<XRController>{RightHand}/primaryButton",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Handshake2Control",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

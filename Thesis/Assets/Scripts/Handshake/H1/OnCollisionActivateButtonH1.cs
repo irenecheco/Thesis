@@ -29,8 +29,8 @@ public class OnCollisionActivateButtonH1 : MonoBehaviourPunCallbacks
 
         if(sceneIndex == 1)
         {
-            handshakeUI_l = GameObject.Find("Camera Offset/LeftHand Controller/LeftHand/Handshake UI").gameObject;
-            handshakeUI_r = GameObject.Find("Camera Offset/RightHand Controller/RightHand/Handshake UI").gameObject;
+            handshakeUI_l = GameObject.Find("Camera Offset/LeftHand Controller/LeftHand/Handshake UI");
+            handshakeUI_r = GameObject.Find("Camera Offset/RightHand Controller/RightHand/Handshake UI");
             origin = FindObjectOfType<XROrigin>();
             handshakeUI_l.GetComponent<Canvas>().enabled = false;
             handshakeUI_r.GetComponent<Canvas>().enabled = false;

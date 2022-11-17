@@ -12,6 +12,8 @@ public class HandshakeWaitingCanvasH2 : MonoBehaviour, IPunObservable
     private GameObject handshake2WaitingCanvas;
     private bool previousFrame;
 
+    private PhotonView parentPhotonView;
+
     //Method of the Photon Pun library that lets you keep track of a variable through the network (class IPunObservable)
     //In this case it keeps track of a bool that is true when the waiting canvas needs to be active
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -30,47 +32,50 @@ public class HandshakeWaitingCanvasH2 : MonoBehaviour, IPunObservable
     {
         handshake2WaitingCanvas = this.gameObject;
         previousFrame = false;
-        //handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = false;
+        parentPhotonView = this.transform.parent.GetComponent<PhotonView>();
     }
 
     //Called when the waiting canvas needs to be active
     public void ActivateHandshakeWaitingCanvas()
     {
         waitingActive = true;
-        if(handshake2WaitingCanvas != null)
+        /*if(handshake2WaitingCanvas != null)
         {
             handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = true;
-        }
+        }*/
     }
 
     //Called when the waiting canvas needs to be disabled
     public void DeactivateHandshakeWaitingCanvas()
     {
         waitingActive = false;
-        if(handshake2WaitingCanvas != null)
+        /*if(handshake2WaitingCanvas != null)
         {
             handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = false;
-        }        
+        }*/
     }
 
     /*void Update()
     {
         //Check if the bool is true to enable or disable the canvas
-        if (waitingActive == false)
+        if (!parentPhotonView.IsMine)
         {
-            if(previousFrame == true)
+            if (waitingActive == false)
             {
-                handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = false;
-                previousFrame = false;
-            }            
-        }
-        else
-        {
-            if(previousFrame == false)
+                if (previousFrame == true)
+                {
+                    handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = false;
+                    previousFrame = false;
+                }
+            }
+            else
             {
-                handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = true;
-                previousFrame = true;
-            }            
-        }
+                if (previousFrame == false)
+                {
+                    handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = true;
+                    previousFrame = true;
+                }
+            }
+        }        
     }*/
 }

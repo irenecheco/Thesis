@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class NetworkHandshakeFakeHand : MonoBehaviour
 {
+    //Code responsible for starting the animation between network fake hands
+
     private float ending_y;
     //private float y_angle;
     private float time = (float)0.75;
@@ -18,8 +20,9 @@ public class NetworkHandshakeFakeHand : MonoBehaviour
 
     private Animator fakeHandAnimator;
 
-    public float x = 0.05f;
-    public float z = 0.05f;
+    public double x;
+    public double z;
+    public double y;
 
     private void Awake()
     {
@@ -27,6 +30,7 @@ public class NetworkHandshakeFakeHand : MonoBehaviour
         fakeHandAnimator = this.GetComponent<Animator>();
     }
 
+    //Function invoked when handshake needs to start
     public void DoHandshake(Vector3 myPosition, Vector3 otherPosition)
     {
         if (myPosition.y <= otherPosition.y)
@@ -49,11 +53,12 @@ public class NetworkHandshakeFakeHand : MonoBehaviour
         direction = Quaternion.LookRotation((otherPosition - myPosition), Vector3.up);
 
         fakeHand_holder.transform.DORotateQuaternion(direction, time);
-        fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + x), (float)(ending_y - 0.4), (midPosition.z - z)), time);
+        fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float)x), (float)(ending_y - 0.4 - y), (midPosition.z - (float)z)), time);
 
         Invoke("SecondPartHandshake", time);
     }
 
+    //Once the fake hands are in position, this function triggers the up-and-down animation
     public void SecondPartHandshake()
     {
         fakeHandAnimator.Play("Handshake", -1, 0);

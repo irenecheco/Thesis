@@ -11,9 +11,14 @@ public class HandshakeConfirmCanvas : MonoBehaviour, IPunObservable
 
     private GameObject handshakeConfirm;
     private GameObject player_head;
-    private GameObject handshakeConfirmButton;
+    private GameObject player;
+    private GameObject player_rightController;
+    private GameObject player_rightMesh;
     public bool confirmActive;
     private bool firstSound;
+
+    private Color baseColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+    private Color waitingColor = new Color(0.4135279f, 0.7409829f, 0.9056604f, 1.0f);
 
     //Method of the Photon Pun library that lets you keep track of a variable through the network (class IPunObservable)
     //In this case it keeps track of a bool that is true when the confirm canvas needs to be active
@@ -33,8 +38,10 @@ public class HandshakeConfirmCanvas : MonoBehaviour, IPunObservable
     {
         handshakeConfirm = this.gameObject;
         player_head = handshakeConfirm.transform.parent.gameObject;
+        player = player_head.transform.parent.gameObject;
+        player_rightController = player.transform.FindChildRecursive("Right Hand").gameObject;
+        player_rightMesh = player_rightController.transform.FindChildRecursive("hands:Lhand").gameObject;
         handshakeConfirm.transform.GetComponent<Canvas>().enabled = false;
-        handshakeConfirmButton = handshakeConfirm.transform.GetChild(2).gameObject;
         confirmActive = false;
         firstSound = true;
     }
@@ -57,11 +64,13 @@ public class HandshakeConfirmCanvas : MonoBehaviour, IPunObservable
         if (confirmActive == false)
         {
             handshakeConfirm.transform.GetComponent<Canvas>().enabled = false;
+            player_rightMesh.GetComponent<SkinnedMeshRenderer>().material.color = baseColor;
             firstSound = true;
         }
         else
         {
             handshakeConfirm.transform.GetComponent<Canvas>().enabled = true;
+            player_rightMesh.GetComponent<SkinnedMeshRenderer>().material.color = waitingColor;
             if (firstSound == true)
             {
                 handshakeConfirm.GetComponent<AudioSource>().Play();

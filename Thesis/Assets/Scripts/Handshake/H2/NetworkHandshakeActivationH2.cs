@@ -13,28 +13,32 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
     private GameObject rightHand;
     private GameObject rightController;
     private GameObject camera;
-    private GameObject rHandContainer;
-    private GameObject rHand;
+    private GameObject otherRHandContainer;
+    private GameObject otherRHand;
     private GameObject otherPlayer;
     private GameObject confirmCanvas;
-    private GameObject waitConfirmUI;
-    private GameObject handshakeUI;
+    private GameObject messageCanvas;
     private GameObject myHead;
     private PhotonView photonView;
+    private GameObject handMesh;
+    private GameObject otherHandMesh;
 
     private GameObject fakeHandHolder;
     private GameObject fakeHand;
+
+    private Color baseColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
     private string[] playersID = new string[2];
 
     void Start()
     {
         rightHand = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
+        handMesh = rightHand.transform.FindChildRecursive("hands:Lhand").gameObject;
 
         rightController = GameObject.Find("Camera Offset/RightHand Controller");
         fakeHandHolder = GameObject.Find("FakeHandHolder");
         fakeHand = fakeHandHolder.transform.GetChild(0).gameObject;
-        camera = GameObject.Find("Camera Offset/Main Camera");
+        camera = Camera.main.gameObject;
 
         myHead = this.gameObject.transform.GetChild(0).gameObject;
         photonView = this.GetComponent<PhotonView>();       
@@ -45,6 +49,7 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
     {
         playersID[0] = pl1ID;
         playersID[1] = pl2ID;
+
         if (pl1ID != null && pl2ID != null)
         {
             //Photon Pun method that calls a function over the network
@@ -57,12 +62,13 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
     [PunRPC]
     public void ActivateHandshakeOverNetwork(object[] ids)
     {
-
+        //Debug.Log("Activate handshake over network");
         string[] playersIds = new string[2];
         playersIds[0] = (string)ids[0];
         playersIds[1] = (string)ids[1];
         if (playersIds[0] == PhotonNetwork.LocalPlayer.UserId)
         {
+            //Debug.Log("Player locale è 0");
             foreach (var item in PhotonNetwork.PlayerList)
             {
                 if (item.UserId == playersIds[1])
@@ -72,33 +78,26 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
             }
             if (!otherPlayer.GetComponent<PhotonView>().IsMine && otherPlayer != null)
             {
-                rHandContainer = otherPlayer.transform.GetChild(2).gameObject;
-                if(rHandContainer.transform.childCount > 0)
+                //Debug.Log("altro player != null");
+                otherRHandContainer = otherPlayer.transform.GetChild(2).gameObject;
+                otherRHand = otherRHandContainer.transform.GetChild(0).gameObject;
+
+                if (otherRHand.activeSelf)
                 {
-                    rHand = rHandContainer.transform.GetChild(0).gameObject;
+                    //Debug.Log("mano destra altro giocatore attiva");
+                    otherRHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position);
                 }
-                if(rHand != null)
-                {
-                    if (rHand.name == "RightHand")
-                    {
-                        GameObject rContainer = rHand.transform.parent.gameObject;
-                        GameObject netPlayer = rContainer.transform.parent.gameObject;
-                        GameObject netHead = netPlayer.transform.GetChild(0).gameObject;
-                        netHead.GetComponent<OnButtonAPressed>().animationGoing = true;
-                        rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
-                    }
-                    else
-                    {
-                        myHead.GetComponent<OnButtonAPressed>().animationGoing = true;
-                        rHand = rHandContainer.transform.GetChild(1).gameObject;
-                        rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
-                    }
-                }                
+                otherHandMesh = otherRHand.transform.FindChildRecursive("hands:Lhand").gameObject;
+                GameObject netHead = otherPlayer.transform.GetChild(0).gameObject;
+                netHead.GetComponent<OnButtonAPressed>().animationGoing = true;
+                confirmCanvas = netHead.transform.GetChild(0).gameObject;
+                messageCanvas = netHead.transform.GetChild(2).gameObject;        
             }
             StartCoroutine(Wait());
         }
         else if (playersIds[1] == PhotonNetwork.LocalPlayer.UserId)
         {
+            Debug.Log("Player locale è 1");
             foreach (var item in PhotonNetwork.PlayerList)
             {
                 if (item.UserId == playersIds[0])
@@ -108,28 +107,20 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
             }
             if (!otherPlayer.GetComponent<PhotonView>().IsMine && otherPlayer != null)
             {
-                rHandContainer = otherPlayer.transform.GetChild(2).gameObject;
-                if (rHandContainer.transform.childCount > 0)
+                //Debug.Log("altro player != null");
+                otherRHandContainer = otherPlayer.transform.GetChild(2).gameObject;
+                otherRHand = otherRHandContainer.transform.GetChild(0).gameObject;
+
+                if (rightHand.activeSelf)
                 {
-                    rHand = rHandContainer.transform.GetChild(0).gameObject;
+                    //Debug.Log("mano destra altro giocatore attiva");
+                    otherRHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position);
                 }
-                if(rHand != null)
-                {
-                    if (rHand.name == "RightHand")
-                    {
-                        GameObject rContainer = rHand.transform.parent.gameObject;
-                        GameObject netPlayer = rContainer.transform.parent.gameObject;
-                        GameObject netHead = netPlayer.transform.GetChild(0).gameObject;
-                        netHead.GetComponent<OnButtonAPressed>().animationGoing = true;
-                        rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
-                    }
-                    else
-                    {
-                        myHead.GetComponent<OnButtonAPressed>().animationGoing = true;
-                        rHand = rHandContainer.transform.GetChild(1).gameObject;
-                        rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, rightController.transform.position);
-                    }
-                }                
+                otherHandMesh = otherRHand.transform.FindChildRecursive("hands:Lhand").gameObject;
+                GameObject netHead = otherPlayer.transform.GetChild(0).gameObject;
+                netHead.GetComponent<OnButtonAPressed>().animationGoing = true;
+                confirmCanvas = netHead.transform.GetChild(0).gameObject;
+                messageCanvas = netHead.transform.GetChild(2).gameObject;
             }
             StartCoroutine(Wait());
         }
@@ -138,6 +129,7 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
     //Coroutine that trigger the animation on the network player
     public IEnumerator Wait()
     {
+        //Debug.Log("entra in coroutine");
         float time = (float)0.25;
         GameObject head = otherPlayer.transform.GetChild(0).gameObject;
         yield return new WaitForSeconds(time);
@@ -147,70 +139,11 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
 
         fakeHand.GetComponent<HandshakeFakeHand>().DoHandshake(camera.transform.position, head.transform.position);
 
-        //waitConfirmUI.GetComponent<Canvas>().enabled = false;
-        //handshakeUI.GetComponent<Canvas>().enabled = true;
-
-        //confirmCanvas.GetComponent<HandshakeConfirmCanvas>().DeactivateHandshakeConfirmCanvas();
-
-        /*float starting_y = 0;
-        Vector3 midPosition;
-
-        if (camera.transform.position.y <= head.transform.position.y)
-        {
-            starting_y = camera.transform.position.y;
-        }
-        else
-        {
-            starting_y = head.transform.position.y;
-        }
-
-        Destroy(rightController.GetComponent("HandController"));
-        rightHand.GetComponent<Hand>().flag = true;
-        rightHand.transform.parent = player.transform;
-
-        midPosition = Vector3.Lerp(head.transform.position, camera.transform.position, 0.5f);
-        player.transform.position = new Vector3(midPosition.x, (float)(starting_y - 0.4), midPosition.z);
-        direction = (head.transform.position - camera.transform.position).normalized;
-        y_angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-        
-        float camera_y_angle = camera.transform.rotation.eulerAngles.y;
-        if (y_angle < 0)
-        {
-            float offset = -y_angle;
-            y_angle = 360 - offset;
-        }
-        if (camera_y_angle < 0)
-        {
-            float offset = camera_y_angle;
-            camera_y_angle = 360 - offset;
-        }
-        if ((y_angle - 90) < camera_y_angle && camera_y_angle < (y_angle + 90))
-        {
-            player.transform.rotation = new Quaternion(0, 0, 0, 0);
-            player.transform.rotation = Quaternion.Euler(0, y_angle, 0);
-            player.transform.Translate(new Vector3((float)(-0.026), 0, (float)(-0.540)), Space.Self);
-        }
-        else
-        {
-            player.transform.rotation = new Quaternion(0, 0, 0, 0);
-            player.transform.rotation = Quaternion.Euler(0, (y_angle - 180), 0);
-            player.transform.Translate(new Vector3((float)(+0.026), 0, (float)(+0.540)), Space.Self);
-        }
-        rightHandAnimator.Play("Handshake2", -1, 0);*/
+        confirmCanvas.GetComponent<Canvas>().enabled = false;
+        messageCanvas.GetComponent<Canvas>().enabled = true;
+        myHead.gameObject.transform.GetComponent<OnButtonAPressed>().animationGoing = false;
+        //handMesh.GetComponent<SkinnedMeshRenderer>().material.color = baseColor;
+        otherHandMesh.GetComponent<SkinnedMeshRenderer>().material.color = baseColor;
     }
-
-    public void SetBackComponent()
-    {
-        rightHand.transform.parent = rightController.transform;
-        rightController.AddComponent<HandController>();
-        rightController.GetComponent<HandController>().hand = rightHand.GetComponent<Hand>();
-        rightHand.GetComponent<Hand>().flag = false;
-        if (this.name != "RightHand")
-        {
-            myHead.gameObject.transform.GetComponent<OnButtonAPressed>().animationGoing = false;
-        }
-    }
-
-
 }
 

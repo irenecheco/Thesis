@@ -10,24 +10,27 @@ public class OnCollisionDeactivateCanvasH2 : MonoBehaviour
     //Code responsible for deactivating the handshake button when two players exit collision
 
     private GameObject otherPlayerHead;
+    private GameObject otherPlayer;
+    private GameObject otherRightHand;
+    private GameObject otherHandMesh;
 
     private GameObject thisHead;
     private PhotonView colliderParentPhotonView;
     private GameObject colliderParent;
+    private GameObject rightHand;
+    private GameObject handMesh;
+
+    private Color baseColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+
     private string handshake2_messageCanva = "Handshake 2 message";
     private string handshake2_waitingCanva = "Handshake 2 waiting";
     private string handshake2_confirmCanva = "Handshake 2 confirm";
 
-    private bool h2_messageActive;
-
-    public bool buttonAPressed = false;
-
     void Start()
     {
         thisHead = this.transform.parent.gameObject;
-        thisHead.transform.Find(handshake2_waitingCanva).gameObject.transform.GetComponent<HandshakeWaitingCanvasH2>().DeactivateHandshakeWaitingCanvas();
-        thisHead.transform.Find(handshake2_confirmCanva).gameObject.transform.GetComponent<HandshakeConfirmCanvasH2>().DeactivateHandshakeConfirmCanvas();
-        h2_messageActive = false;
+        rightHand = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
+        handMesh = rightHand.transform.FindChildRecursive("hands:Lhand").gameObject;
     }
 
     //Function called on trigger exited: it disables the handshake button if the two heads does not collide anymore
@@ -39,12 +42,22 @@ public class OnCollisionDeactivateCanvasH2 : MonoBehaviour
             colliderParentPhotonView = colliderParent.transform.GetComponent<PhotonView>();
             if (!colliderParentPhotonView.IsMine)
             {
+                //Debug.Log("esce da collisione con altro Deactivate collider");
                 otherPlayerHead = collider.gameObject.transform.parent.gameObject;
+                otherPlayer = otherPlayerHead.transform.parent.gameObject;
+                otherRightHand = otherPlayer.transform.FindChildRecursive("Right Hand").gameObject;
+                otherHandMesh = otherRightHand.transform.FindChildRecursive("hands:Lhand").gameObject;
 
-                otherPlayerHead.transform.FindChildRecursive(handshake2_waitingCanva).gameObject.transform.GetComponent<HandshakeWaitingCanvasH2>().DeactivateHandshakeWaitingCanvas();
-                otherPlayerHead.transform.FindChildRecursive(handshake2_confirmCanva).gameObject.transform.GetComponent<HandshakeConfirmCanvasH2>().DeactivateHandshakeConfirmCanvas();
-                otherPlayerHead.transform.FindChildRecursive(handshake2_messageCanva).gameObject.transform.GetComponent<HandshakeMessageCanvasH2>().DeactivateHandshakeMessageCanvas();
-                buttonAPressed = false;
+                this.transform.parent.gameObject.GetComponent<OnButtonAPressed>().isColliding = false;
+                GameObject confirmCanvas = otherPlayerHead.transform.Find(handshake2_confirmCanva).gameObject;
+
+                handMesh.GetComponent<SkinnedMeshRenderer>().material.color = baseColor;
+                rightHand.transform.GetChild(2).gameObject.GetComponent<Canvas>().enabled = false;
+                otherHandMesh.GetComponent<SkinnedMeshRenderer>().material.color = baseColor;
+
+                confirmCanvas.transform.GetComponent<Canvas>().enabled = false;
+                confirmCanvas.transform.GetComponent<AudioSource>().enabled = false;
+                otherPlayerHead.transform.FindChildRecursive(handshake2_messageCanva).gameObject.transform.GetComponent<Canvas>().enabled = false;
             }
         }
     }

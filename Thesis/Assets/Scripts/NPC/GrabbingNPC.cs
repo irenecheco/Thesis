@@ -13,7 +13,6 @@ public class GrabbingNPC : MonoBehaviour
 
     private GameObject local_player_right;
     private GameObject npc_hand_holder;
-    private GameObject npc_right;
     private GameObject npc;
     private GameObject npc_head;
     private GameObject npc_head_canvas;
@@ -58,6 +57,11 @@ public class GrabbingNPC : MonoBehaviour
             local_player_right.GetComponent<AudioSource>().Play();
             firstFrame = false;
             isGrabbing = true;
+            if (npc.gameObject.name == "Waitress")
+            {
+                npc_head_canvas = npc_head.transform.GetChild(0).gameObject;
+                npc_head_canvas.GetComponent<Canvas>().enabled = false;
+            }
         }
     }
 

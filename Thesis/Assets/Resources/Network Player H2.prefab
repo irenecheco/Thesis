@@ -174,8 +174,8 @@ MonoBehaviour:
   head: {fileID: 7171106752124537816}
   leftHand_controllers: {fileID: 865243028786009588}
   rightHand_controllers: {fileID: 3689312902941520141}
-  leftHand_hands: {fileID: 0}
-  rightHand_hands: {fileID: 0}
+  leftHand_hands: {fileID: 6978653604513791865}
+  rightHand_hands: {fileID: 4768995515689964027}
 --- !u!114 &3036896989305652570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +231,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.3, y: 2.3, z: 2.3}
+  m_Size: {x: 2.8, y: 2.8, z: 2.8}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8685998184715079615
 MonoBehaviour:
@@ -245,7 +245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b852a8231fdcf9d409f3f153beaf855d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonAPressed: 0
 --- !u!1 &311293666952646482
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,7 +855,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021766373394883699}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1984180b80083d4da017cf8ca96b492, type: 3}
   m_Name: 
@@ -1911,6 +1910,7 @@ GameObject:
   - component: {fileID: 7934888515677523863}
   - component: {fileID: 3430525072337851813}
   - component: {fileID: 8914969296961019179}
+  - component: {fileID: 5601720925642366616}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -1960,7 +1960,6 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 3231098736663679007}
   - {fileID: 6966484730503168729}
-  - {fileID: 7934888515677523863}
   - {fileID: 8914969296961019179}
   - {fileID: 167927952745188161}
   - {fileID: 1109263667815204652}
@@ -2027,8 +2026,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.3, y: 2.3, z: 2.3}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!54 &7713698122581727740
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2074,7 +2073,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherPlayerHead: {fileID: 0}
-  buttonAPressed: 0
 --- !u!114 &3430525072337851813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2105,6 +2103,21 @@ MonoBehaviour:
   myPlayer: {fileID: 0}
   isPressed: 0
   animationGoing: 0
+  _enableHandshake2: {fileID: 1467412214754747385, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+--- !u!114 &5601720925642366616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4816765236188314565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5ab68e46e8d9db4593e55a2c0bebe84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLooking: 0
 --- !u!1 &4827658919233103988
 GameObject:
   m_ObjectHideFlags: 0
@@ -3051,7 +3064,7 @@ GameObject:
   - component: {fileID: 7827255497665567002}
   - component: {fileID: 6709741230436601296}
   - component: {fileID: 167927952745188161}
-  - component: {fileID: 6497381698301723546}
+  - component: {fileID: 7693622510923527880}
   m_Layer: 5
   m_Name: Handshake 2 confirm
   m_TagString: Untagged
@@ -3167,12 +3180,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8312140093371931943}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbd73f0937d769640927395943318042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &6497381698301723546
+--- !u!82 &7693622510923527880
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3736,7 +3749,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9073298124697526791}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 756999271ee21f94a845594778276fd9, type: 3}
   m_Name: 
@@ -3913,7 +3926,7 @@ PrefabInstance:
         type: 3}
       propertyPath: rightHand
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5288686711420865345}
     - target: {fileID: 8270208951607370510, guid: 801b8a372f131d3468471c0924ed07be,
         type: 3}
       propertyPath: fakeHand_holder
@@ -3951,8 +3964,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightController: {fileID: 5522750049843087708}
-  x: 0.017
-  z: 0.015
+  x: 0.054
+  z: -0.017
+  y: 0
 --- !u!1001 &6354576477930445351
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4202,7 +4216,7 @@ PrefabInstance:
     - target: {fileID: 4104703238691087710, guid: 1f0e43d5b8c307741be352ed8e2ec312,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: -0.015
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4104703238691087710, guid: 1f0e43d5b8c307741be352ed8e2ec312,
         type: 3}

@@ -12,6 +12,8 @@ public class HandshakeConfirmCanvasH2 : MonoBehaviour,  IPunObservable
     private GameObject handshake2ConfirmCanvas;
     private bool previousFrame;
 
+    private PhotonView parentPhotonView;
+
     //Method of the Photon Pun library that lets you keep track of a variable through the network (class IPunObservable)
     //In this case it keeps track of a bool that is true when the confirm canvas needs to be active
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -30,57 +32,60 @@ public class HandshakeConfirmCanvasH2 : MonoBehaviour,  IPunObservable
     {
         handshake2ConfirmCanvas = this.gameObject;
         previousFrame = false;
-        //handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled = false;
+        parentPhotonView = this.transform.parent.GetComponent<PhotonView>();
     }
 
     //Called when the confirm canvas needs to be active
     public void ActivateHandshakeConfirmCanvas()
     {
         confirmActive = true;
-        if(handshake2ConfirmCanvas != null)
+        /*if(handshake2ConfirmCanvas != null)
         {
             handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled = true;
             handshake2ConfirmCanvas.GetComponent<AudioSource>().enabled = true;
             handshake2ConfirmCanvas.GetComponent<AudioSource>().Play();
-        }
+        }*/
     }
 
     //Called when the confirm canvas needs to be disabled
     public void DeactivateHandshakeConfirmCanvas()
     {
         confirmActive = false;
-        if (handshake2ConfirmCanvas != null)
+        /*if (handshake2ConfirmCanvas != null)
         {
             handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled = false;
-        }
+        }*/
     }
 
     /*void Update()
     {
         //Check if the bool is true to enable or disable the canvas
-        if (confirmActive == false)
+        if (!parentPhotonView.IsMine)
         {
-            if(previousFrame == true)
+            if (confirmActive == false)
             {
-                if(handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled == true)
+                if (previousFrame == true)
                 {
-                    handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled = false;
-                }                
-                previousFrame = false;
-            }            
-        }
-        else
-        {
-            if(previousFrame == false)
+                    if (handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled == true)
+                    {
+                        handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled = false;
+                    }
+                    previousFrame = false;
+                }
+            }
+            else
             {
-                if (handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled == false)
+                if (previousFrame == false)
                 {
-                    handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled = true;
-                    handshake2ConfirmCanvas.GetComponent<AudioSource>().enabled = true;
-                    handshake2ConfirmCanvas.GetComponent<AudioSource>().Play();
-                }                
-                previousFrame = true;
-            }            
-        }
+                    if (handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled == false)
+                    {
+                        handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled = true;
+                        handshake2ConfirmCanvas.GetComponent<AudioSource>().enabled = true;
+                        handshake2ConfirmCanvas.GetComponent<AudioSource>().Play();
+                    }
+                    previousFrame = true;
+                }
+            }
+        }        
     }*/
 }

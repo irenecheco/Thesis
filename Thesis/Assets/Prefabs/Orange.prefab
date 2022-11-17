@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8341503874132701994}
   - component: {fileID: 8364859178963050888}
   - component: {fileID: 4861817579325155722}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5520099303725626219}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

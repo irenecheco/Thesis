@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2145101745519250471}
   - component: {fileID: 688436772211136353}
   - component: {fileID: 7863143150920755883}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cafe cup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4315918190468277408}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
