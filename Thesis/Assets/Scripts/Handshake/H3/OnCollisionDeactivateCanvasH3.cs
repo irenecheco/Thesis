@@ -13,11 +13,13 @@ public class OnCollisionDeactivateCanvasH3 : MonoBehaviourPunCallbacks
 
     public GameObject otherPlayerHead;
     private GameObject messageCanvas;
-    private GameObject rightHand;
+    private GameObject rightHandController;
+
+    public GameObject otherRightHand;
 
     public void Start()
     {
-        rightHand = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
+        rightHandController = GameObject.Find("Camera Offset/RightHand Controller");
     }
 
     //Function called on trigger entered: it activates the handshake button only if the two heads collide
@@ -33,7 +35,14 @@ public class OnCollisionDeactivateCanvasH3 : MonoBehaviourPunCallbacks
                 messageCanvas = otherPlayerHead.transform.GetChild(2).gameObject;
                 messageCanvas.GetComponent<Canvas>().enabled = false;
                 messageCanvas.GetComponent<AudioSource>().enabled = false;
+                rightHandController.transform.FindChildRecursive("RightHand").gameObject.GetComponent<GrabbingH3>().isColliding = false;
             }
-        }               
+            rightHandController.GetComponent<XRDirectInteractor>().allowSelect = false;
+            if(otherRightHand!= null)
+            {
+                otherRightHand.GetComponent<MessageActivationH3>().isGrabbing = false;
+                //Debug.Log($"{otherRightHand.GetComponent<MessageActivationH3>().isGrabbing} and other hand is {otherRightHand.gameObject.name}");
+            }            
+        }
     }
 }

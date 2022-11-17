@@ -9,6 +9,7 @@ public class GrabbingH3 : MonoBehaviour
     //Code responsible for keeping track of grab button pressure
 
     private GameObject myNetPlayer;
+    private GameObject myNetHead;
     private GameObject myNetRightController;
     private GameObject myNetRightHand;
 
@@ -30,6 +31,7 @@ public class GrabbingH3 : MonoBehaviour
 
     private int frameNumber;
     private bool firstFrame;
+    public bool isColliding;
 
     void Start()
     {
@@ -37,13 +39,14 @@ public class GrabbingH3 : MonoBehaviour
 
         myId = PhotonNetwork.LocalPlayer.UserId;
 
-        mainCamera = GameObject.Find("Camera Offset/Main Camera");
+        mainCamera = Camera.main.gameObject;
         headLocal = mainCamera.transform.GetChild(0).gameObject;
         messageCanvas = headLocal.transform.GetChild(1).gameObject;
 
         areShaking = false;
         frameNumber = 0;
         firstFrame = true;
+        isColliding = false;
     }
 
     //When I'm grabbing the other user, this function get called and it saves the other user game object
@@ -61,6 +64,8 @@ public class GrabbingH3 : MonoBehaviour
                 otherNetGrabMessageCanvas = otherNetHead.transform.GetChild(2).gameObject;
             }
         }
+
+        myNetHead.transform.FindChildRecursive("DeactivateCollider").gameObject.GetComponent<OnCollisionDeactivateCanvasH3>().otherRightHand = otherNetPlRightHand;
     }
 
     void Update()
@@ -73,6 +78,7 @@ public class GrabbingH3 : MonoBehaviour
                 if (item.UserId == myId)
                 {
                     myNetPlayer = (GameObject)item.TagObject;
+                    myNetHead = myNetPlayer.transform.GetChild(0).gameObject;
                     myNetRightController = myNetPlayer.transform.GetChild(2).gameObject;
                     myNetRightHand = myNetRightController.transform.GetChild(0).gameObject;
                 }
@@ -136,11 +142,16 @@ public class GrabbingH3 : MonoBehaviour
                 if (otherNetRightHand.GetComponent<MessageActivationH3>().isGrabbing == false)
                 {
                     otherNetGrabMessageCanvas.GetComponent<Canvas>().enabled = false;
+                    if (isColliding)
+                    {
+                        otherNetGrabMessageCanvas.GetComponent<Canvas>().enabled = true;
+                    }
                 }
                 else
                 {
                     otherNetGrabMessageCanvas.GetComponent<Canvas>().enabled = true;
                 }
+                
                 messageCanvas.GetComponent<Canvas>().enabled = false;
                 this.GetComponent<CollidingH3>().isGrabbing = false;
                 rightController.GetComponent<HandController>().isGrabbingH3 = false;

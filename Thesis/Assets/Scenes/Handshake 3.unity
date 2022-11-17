@@ -9604,6 +9604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherNetRightHand: {fileID: 0}
+  isColliding: 0
 --- !u!4 &1081806821 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8492651328035163686, guid: 1f0e43d5b8c307741be352ed8e2ec312,

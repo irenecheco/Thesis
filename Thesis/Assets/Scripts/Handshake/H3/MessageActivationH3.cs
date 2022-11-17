@@ -35,7 +35,7 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
         photonView = this.transform.GetParentComponent<PhotonView>();
         rightController = GameObject.Find("Camera Offset/RightHand Controller");
         rightHand = rightController.transform.GetChild(0).gameObject;
-        mainCamera = GameObject.Find("Camera Offset/Main Camera");
+        mainCamera = Camera.main.gameObject;
         headLocal = mainCamera.transform.GetChild(0).gameObject;
         messageCanvas = headLocal.transform.GetChild(1).gameObject;
 
@@ -57,10 +57,6 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
                 {
                     thisId = item.UserId;
                 }
-            }
-
-            foreach (var item in PhotonNetwork.PlayerList)
-            {
                 if (item.UserId == PhotonNetwork.LocalPlayer.UserId)
                 {
                     myNetPlayer = (GameObject)item.TagObject;
@@ -69,6 +65,17 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
                     localId = item.UserId;
                 }
             }
+
+            /*foreach (var item in PhotonNetwork.PlayerList)
+            {
+                if (item.UserId == PhotonNetwork.LocalPlayer.UserId)
+                {
+                    myNetPlayer = (GameObject)item.TagObject;
+                    myNetRightController = myNetPlayer.transform.GetChild(2).gameObject;
+                    myNetRightHand = myNetRightController.transform.GetChild(0).gameObject;
+                    localId = item.UserId;
+                }
+            }*/
         }
     }
 
@@ -97,6 +104,7 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
                 myNetRightHand.GetComponent<MessageActivationH3>().isGrabbing = false;
             }
             myNetPlayer.GetComponent<NetworkGrabMessageActivationH3>().CallDeactivateGrabMessage(localId, thisId);
+            this.transform.localPosition = new Vector3(0, 0, 0);
         }
     }
 

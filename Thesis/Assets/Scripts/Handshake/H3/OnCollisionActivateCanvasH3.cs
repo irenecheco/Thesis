@@ -14,10 +14,12 @@ public class OnCollisionActivateCanvasH3 : MonoBehaviourPunCallbacks
     public GameObject otherPlayerHead;
     private GameObject messageCanvas;
     private GameObject rightHand;
+    private GameObject rightHandController;
 
     public void Start()
     {
         rightHand = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
+        rightHandController = rightHand.transform.parent.gameObject;
     }
 
     //Function called on trigger entered: it activates the handshake button only if the two heads collide
@@ -38,9 +40,14 @@ public class OnCollisionActivateCanvasH3 : MonoBehaviourPunCallbacks
                     rightHand.GetComponent<HapticController>().amplitude = 0.2f;
                     rightHand.GetComponent<HapticController>().duration = 0.2f;
                     rightHand.GetComponent<HapticController>().SendHaptics();
+                    rightHand.GetComponent<GrabbingH3>().isColliding = true;
                 }                
                 messageCanvas.GetComponent<AudioSource>().Play();
             }
+            if(rightHandController!= null)
+            {
+                rightHandController.GetComponent<XRDirectInteractor>().allowSelect = true;
+            }            
         }               
     }
 }

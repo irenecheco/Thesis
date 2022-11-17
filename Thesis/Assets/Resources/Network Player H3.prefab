@@ -1735,6 +1735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherPlayerHead: {fileID: 0}
+  otherRightHand: {fileID: 0}
 --- !u!1 &5522750049843087708
 GameObject:
   m_ObjectHideFlags: 0
@@ -3776,7 +3777,7 @@ MonoBehaviour:
   m_SmoothRotation: 0
   m_SmoothRotationAmount: 5
   m_TightenRotation: 0.5
-  m_ThrowOnDetach: 1
+  m_ThrowOnDetach: 0
   m_ThrowSmoothingDuration: 0.25
   m_ThrowSmoothingCurve:
     serializedVersion: 2
