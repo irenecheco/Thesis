@@ -149,16 +149,25 @@ public class MayorConfirmCanvas : MonoBehaviour
 
     public void activateMayorCanvas()
     {
-        mayor_head_canvas.GetComponent<Canvas>().enabled = true;
-        mayor_rightMesh.GetComponent<SkinnedMeshRenderer>().material.color = waitingColor;
-
         if (sceneIndex == 1)
         {
             mayor_confirm_button.GetComponent<Button>().interactable = true;
         }
         if(sceneIndex != 3)
         {
+            mayor_head_canvas.GetComponent<Canvas>().enabled = true;
             mayor_head_canvas.GetComponent<AudioSource>().Play();
+            mayor_rightMesh.GetComponent<SkinnedMeshRenderer>().material.color = waitingColor;
+        }
+        else
+        {
+            mayor_right.GetComponent<GrabbingNPC>().initialPosition = mayor_right.transform.localPosition;
+            mayor_hand_holder.GetComponent<ActivateBlueHand>().isReady = true;
+            if (mayor_hand_holder.GetComponent<ActivateBlueHand>().isCollidingWithMayor)
+            {
+                mayor_rightMesh.GetComponent<SkinnedMeshRenderer>().material.color = waitingColor;
+                mayor_head_canvas.GetComponent<Canvas>().enabled = true;
+            }
         }
         animator_mayor_head.speed = 0;
         animator_mayor_left.speed = 0;
@@ -177,6 +186,7 @@ public class MayorConfirmCanvas : MonoBehaviour
         if(sceneIndex == 3)
         {
             animator_mayor_right.speed = 1;
+            mayor_hand_holder.GetComponent<ActivateBlueHand>().isReady = false;
         }
         mayor_head.GetComponent<AudioSource>().clip = mayor_speech2;
         mayor_head.GetComponent<AudioSource>().Play();

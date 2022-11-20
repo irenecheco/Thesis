@@ -476,6 +476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: {fileID: 0}
+  isGrabbingH3: 0
 --- !u!114 &5599754612029871805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1151,6 +1152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: {fileID: 0}
+  isGrabbingH3: 0
 --- !u!114 &5269641835932086387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1253,7 +1255,6 @@ GameObject:
   - component: {fileID: 2425919202999566559}
   - component: {fileID: 2425919202999566553}
   - component: {fileID: 2425919202999566554}
-  - component: {fileID: 2425919202999566552}
   m_Layer: 0
   m_Name: Camera Offset
   m_TagString: Untagged
@@ -1307,15 +1308,3 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 3
---- !u!114 &2425919202999566552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2425919202999566558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 448fdc99f4f5d6744a8b4c7068584ed4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

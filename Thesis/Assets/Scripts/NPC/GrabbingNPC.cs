@@ -9,22 +9,30 @@ public class GrabbingNPC : MonoBehaviour
 
     private int frameNumber;
     private bool firstFrame;
-    private bool isGrabbing;
+    public bool isGrabbing;
+    public bool releasedForCollision;
 
     private GameObject local_player_right;
     private GameObject npc_hand_holder;
     private GameObject npc;
     private GameObject npc_head;
     private GameObject npc_head_canvas;
+    private GameObject rightController;
+
+    public Vector3 initialPosition;
+
+    private Color baseColor = new Color(0.8000001f, 0.4848836f, 0.3660862f, 1.0f);
 
     void Start()
     {
         frameNumber = 0;
         firstFrame = true;
         isGrabbing = false;
+        releasedForCollision = false;
 
         local_player_right = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
-        npc_hand_holder = this.transform.parent.gameObject;
+        rightController = local_player_right.transform.parent.gameObject;
+    npc_hand_holder = this.transform.parent.gameObject;
         npc = npc_hand_holder.transform.parent.gameObject;
         npc_head = npc.transform.GetChild(0).gameObject;
         if(npc.gameObject.name == "Mayor")
@@ -57,11 +65,15 @@ public class GrabbingNPC : MonoBehaviour
             local_player_right.GetComponent<AudioSource>().Play();
             firstFrame = false;
             isGrabbing = true;
+            rightController.GetComponent<HandController>().isGrabbingH3 = true;
             if (npc.gameObject.name == "Waitress")
             {
                 npc_head_canvas = npc_head.transform.GetChild(0).gameObject;
                 npc_head_canvas.GetComponent<Canvas>().enabled = false;
-            }
+            } else if (npc.gameObject.name == "Mayor")
+            {
+                this.transform.FindChildRecursive("hands:Lhand").gameObject.GetComponent<SkinnedMeshRenderer>().material.color = baseColor;
+            }                
         }
     }
 
@@ -72,13 +84,18 @@ public class GrabbingNPC : MonoBehaviour
         isGrabbing = false;
         this.GetComponent<Outline>().enabled = false;
         local_player_right.GetComponent<Outline>().enabled = false;
-        if(npc.gameObject.name == "Mayor")
+        rightController.GetComponent<HandController>().isGrabbingH3 = false;
+        if (npc.gameObject.name == "Mayor")
         {
             this.GetComponent<MayorConfirmCanvas>().secondSpeech();
             npc_head_canvas.GetComponent<Canvas>().enabled = false;
+            this.transform.localPosition = initialPosition;
         } else if (npc.gameObject.name == "Waitress")
         {
-            npc.GetComponent<HandshakeActivationNPC2>().secondSpeech();
+            if(releasedForCollision == false)
+            {
+                npc.GetComponent<HandshakeActivationNPC2>().secondSpeech();
+            }            
             this.GetComponent<XRGrabInteractable>().enabled = false;
         }
     }

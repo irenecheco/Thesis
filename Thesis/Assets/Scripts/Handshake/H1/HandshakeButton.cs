@@ -63,28 +63,33 @@ public class HandshakeButton : MonoBehaviour
         //When primary button in pressed, if user is colliding with waitress or player, it starts the handshake
 
         _enableHandshake.action.performed += ctx => {
-            if (_canvas.enabled == true)
+            if(_canvas!= null)
             {
-                if(collidingPlayerHead != null)
+                if (_canvas.enabled == true)
                 {
-                    GameObject confirmCanvas = collidingPlayerHead.transform.GetChild(0).gameObject;
-                    //Debug.Log($"Entra qui e confirm canvas è {confirmCanvas.GetComponent<HandshakeConfirmCanvas>().confirmActive}");
-                    if (confirmCanvas.GetComponent<HandshakeConfirmCanvas>().confirmActive == true)
+                    if (collidingPlayerHead != null)
                     {
-                        confirmCanvas.transform.GetChild(2).gameObject.GetComponent<HandshakeActivation>().CallHeadMethod();
-                    } else
+                        GameObject confirmCanvas = collidingPlayerHead.transform.GetChild(0).gameObject;
+                        //Debug.Log($"Entra qui e confirm canvas è {confirmCanvas.GetComponent<HandshakeConfirmCanvas>().confirmActive}");
+                        if (confirmCanvas.GetComponent<HandshakeConfirmCanvas>().confirmActive == true)
+                        {
+                            confirmCanvas.transform.GetChild(2).gameObject.GetComponent<HandshakeActivation>().CallHeadMethod();
+                        }
+                        else
+                        {
+                            _button.onClick.Invoke();
+                        }
+                    }
+                    else
                     {
                         _button.onClick.Invoke();
                     }
-                } else
+                }
+                /*if (mayor_head.GetComponent<MayorConfirmCanvas>().activeCanvas == true)
                 {
-                    _button.onClick.Invoke();
-                }               
+                    mayor_head.transform.FindChildRecursive("HandshakeConfirm Button").GetComponent<HandshakeActivationNPC>().StartHandshake();
+                }*/
             }
-            /*if (mayor_head.GetComponent<MayorConfirmCanvas>().activeCanvas == true)
-            {
-                mayor_head.transform.FindChildRecursive("HandshakeConfirm Button").GetComponent<HandshakeActivationNPC>().StartHandshake();
-            }*/
         };
     }
 

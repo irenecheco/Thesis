@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class OnCollisionSetBool : MonoBehaviour
 {
@@ -8,13 +10,19 @@ public class OnCollisionSetBool : MonoBehaviour
     private GameObject local_player_head;
     private GameObject npc;
     private GameObject npc_head;
+    private GameObject npc_right;
+    [SerializeField] private GameObject rightHandController;
+
+    private int sceneIndex;
 
     void Start()
     {
-        local_player_head = GameObject.Find("Camera Offset/Main Camera");
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        local_player_head = Camera.main.gameObject;
 
         npc = this.gameObject;
         npc_head = npc.transform.GetChild(0).gameObject;
+        npc_right = npc.transform.FindChildRecursive("NPC_RightHand").gameObject;
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -22,6 +30,10 @@ public class OnCollisionSetBool : MonoBehaviour
         if(collider.gameObject == local_player_head)
         {
             npc_head.GetComponent<MayorConfirmCanvas>().isColliding = true;
+            if(sceneIndex == 3)
+            {
+                rightHandController.GetComponent<XRDirectInteractor>().allowSelect = true;
+            }
         }
     }
 
@@ -41,6 +53,12 @@ public class OnCollisionSetBool : MonoBehaviour
         if(collider.gameObject == local_player_head)
         {
             npc_head.GetComponent<MayorConfirmCanvas>().isColliding = false;
+            if (sceneIndex == 3)
+            {
+                if (npc_right.GetComponent<GrabbingNPC>().isGrabbing == true) {
+                    rightHandController.GetComponent<XRDirectInteractor>().allowSelect = false;
+                }                
+            }
         }
     }
 }

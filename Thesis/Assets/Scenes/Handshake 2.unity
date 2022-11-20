@@ -10502,6 +10502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a5d450c575cd54fa884bb55d9340c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rightHandController: {fileID: 0}
 --- !u!1001 &1449996929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11480,6 +11481,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06c3732cbce29d04fb2dad41449f161a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: 0
+  z: 0
+  y: 0
   rightController: {fileID: 562466582}
 --- !u!1 &1639626425
 GameObject:
@@ -12115,7 +12119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45444548df627ba42a0ae5d7c757cead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ElasticFactor: 0
+  ElasticFactor: 10
 --- !u!1 &1671175296
 GameObject:
   m_ObjectHideFlags: 0
@@ -14808,7 +14812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45444548df627ba42a0ae5d7c757cead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ElasticFactor: 0
+  ElasticFactor: 10
 --- !u!1 &1862288373
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,10 +14,10 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
     private GameObject mainCamera;
     private GameObject headLocal;
     private GameObject messageCanvas;
-    private GameObject myNetPlayer;
-    private GameObject myNetRightController;
-    private GameObject myNetRightHand;
-    private GameObject otherPlayerRightHand;
+    private GameObject localNetPlayer;
+    private GameObject localNetRightController;
+    private GameObject localNetRightHand;
+    //private GameObject otherPlayerRightHand;
     private GameObject thisRightHand;
     private GameObject thisRightController;
     private GameObject thisPlayer;
@@ -26,18 +26,20 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
     private string localId;
 
     public bool isGrabbing;
+    public bool isGrabbed;
 
     private PhotonView photonView;
 
     void Start()
     {
         isGrabbing = false;
+        isGrabbed = false;
         photonView = this.transform.GetParentComponent<PhotonView>();
         rightController = GameObject.Find("Camera Offset/RightHand Controller");
         rightHand = rightController.transform.GetChild(0).gameObject;
-        mainCamera = Camera.main.gameObject;
-        headLocal = mainCamera.transform.GetChild(0).gameObject;
-        messageCanvas = headLocal.transform.GetChild(1).gameObject;
+        //mainCamera = Camera.main.gameObject;
+        //headLocal = mainCamera.transform.GetChild(0).gameObject;
+        messageCanvas = rightHand.transform.GetChild(3).gameObject;
 
         //If the network player's object is mine, I cannot grab the hand
         if (photonView.IsMine)
@@ -59,23 +61,12 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
                 }
                 if (item.UserId == PhotonNetwork.LocalPlayer.UserId)
                 {
-                    myNetPlayer = (GameObject)item.TagObject;
-                    myNetRightController = myNetPlayer.transform.GetChild(2).gameObject;
-                    myNetRightHand = myNetRightController.transform.GetChild(0).gameObject;
+                    localNetPlayer = (GameObject)item.TagObject;
+                    localNetRightController = localNetPlayer.transform.GetChild(2).gameObject;
+                    localNetRightHand = localNetRightController.transform.GetChild(0).gameObject;
                     localId = item.UserId;
                 }
             }
-
-            /*foreach (var item in PhotonNetwork.PlayerList)
-            {
-                if (item.UserId == PhotonNetwork.LocalPlayer.UserId)
-                {
-                    myNetPlayer = (GameObject)item.TagObject;
-                    myNetRightController = myNetPlayer.transform.GetChild(2).gameObject;
-                    myNetRightHand = myNetRightController.transform.GetChild(0).gameObject;
-                    localId = item.UserId;
-                }
-            }*/
         }
     }
 
@@ -84,10 +75,12 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
     {
         if (!photonView.IsMine && photonView != null)
         {
+            isGrabbed = true;
             messageCanvas.GetComponent<Canvas>().enabled = true;
             rightController.GetComponent<ActionBasedController>().enableInputTracking = false;
             rightHand.GetComponent<GrabbingH3>().SetGrabbing(this.gameObject, thisId);
-            myNetPlayer.GetComponent<NetworkGrabMessageActivationH3>().CallActivateGrabMessage(localId, thisId);
+            localNetRightHand.GetComponent<MessageActivationH3>().isGrabbing = true;
+            localNetPlayer.GetComponent<NetworkGrabMessageActivationH3>().CallActivateGrabMessage(localId, thisId);
         }
     }
 
@@ -97,14 +90,15 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
     {
         if (!photonView.IsMine && photonView != null)
         {
+            isGrabbed = false;
             messageCanvas.GetComponent<Canvas>().enabled = false;
             rightController.GetComponent<ActionBasedController>().enableInputTracking = true;
-            if (myNetRightHand != null)
-            {
-                myNetRightHand.GetComponent<MessageActivationH3>().isGrabbing = false;
-            }
-            myNetPlayer.GetComponent<NetworkGrabMessageActivationH3>().CallDeactivateGrabMessage(localId, thisId);
+            rightHand.GetComponent<GrabbingH3>().SetReleasing(this.gameObject, thisId);
+            localNetRightHand.GetComponent<MessageActivationH3>().isGrabbing = false;
             this.transform.localPosition = new Vector3(0, 0, 0);
+            this.transform.localRotation = new Quaternion(0, 0, 0, 0);
+            this.transform.localRotation = Quaternion.Euler(0, 0, -90);
+            localNetPlayer.GetComponent<NetworkGrabMessageActivationH3>().CallDeactivateGrabMessage(localId, thisId);
         }
     }
 
@@ -115,10 +109,12 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
         if (stream.IsWriting)
         {
             stream.SendNext(isGrabbing);
+            stream.SendNext(isGrabbed);
         }
         else
         {
             this.isGrabbing = (bool)stream.ReceiveNext();
+            this.isGrabbed = (bool)stream.ReceiveNext();
         }
     }
 }

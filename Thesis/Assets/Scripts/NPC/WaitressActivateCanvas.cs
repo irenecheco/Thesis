@@ -32,6 +32,7 @@ public class WaitressActivateCanvas : MonoBehaviour
     private Animator animator_NPC_right;
 
     [SerializeField] private GameObject environment;
+    private GameObject rightHandController;
 
     private XROrigin origin;
 
@@ -73,12 +74,13 @@ public class WaitressActivateCanvas : MonoBehaviour
         {
             npcRight.GetComponent<XRGrabInteractable>().enabled = false;
             npcMessage = npcHead.transform.GetChild(0).gameObject;
+            rightHandController = rightHand.transform.parent.gameObject;
         }
     }
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.name == "Main Camera")
+        if (collider.gameObject.name == "Head Local")
         {
             if(sceneIndex == 1)
             {
@@ -114,13 +116,15 @@ public class WaitressActivateCanvas : MonoBehaviour
                 npcMessage.GetComponent<Canvas>().enabled = true;
                 npcMessage.GetComponent<AudioSource>().enabled = true;
                 npcMessage.GetComponent<AudioSource>().Play();
+                rightHandController.GetComponent<XRDirectInteractor>().allowSelect = true;
+                npcRight.GetComponent<GrabbingNPC>().releasedForCollision = false;
             }
         }
     }
 
     private void OnTriggerExit(Collider collider)
     {
-        if (collider.gameObject.name == "Main Camera")
+        if (collider.gameObject.name == "Head Local")
         {
             if(sceneIndex == 1)
             {
@@ -137,8 +141,14 @@ public class WaitressActivateCanvas : MonoBehaviour
                 npc.GetComponent<HandshakeActivationNPC2>().firstHandshake = true;
             } else if (sceneIndex == 3)
             {
+                if(npcRight.GetComponent<GrabbingNPC>().isGrabbing == true)
+                {
+                    rightHandController.GetComponent<XRDirectInteractor>().allowSelect = false;
+                    npcRight.GetComponent<GrabbingNPC>().releasedForCollision = true;
+                }                
                 npcRight.GetComponent<XRGrabInteractable>().enabled = false;
                 npcMessage.GetComponent<Canvas>().enabled = false;
+                
             }
 
             animator_NPC_head.Play("WaitressIdle_head");

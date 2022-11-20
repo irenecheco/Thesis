@@ -14,7 +14,7 @@ public class AngleOfViewControl : MonoBehaviour
     void Start()
     {
         camera = Camera.main.gameObject;
-        otherHead = this.transform.GetChild(0).gameObject;
+        otherHead = this.gameObject;
         isLooking = false;
     }
 

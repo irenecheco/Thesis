@@ -9,10 +9,6 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
 {
     //Code responsible for keeping track of the A button pressure: it triggers the animation if both users press it
 
-    /*private List<InputDevice> devices = new List<InputDevice>();
-    private InputDeviceCharacteristics rControllerCharacteristics = InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
-    private InputDevice targetDevice;*/
-
     public bool isColliding = false;
 
     public GameObject otherPlayerHead;
@@ -105,68 +101,6 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
             }
         };
     }
-
-    /*void Update()
-    {
-        if (photonView.IsMine)
-        {
-            //isColling is true whenever my player's head collide with another player's head
-            if (isColliding == true)
-            {
-                if (otherPlayerHead != null)
-                {
-                    if (isPressed == false && otherPlayerHead.transform.GetComponent<OnButtonAPressed>().isPressed == false)
-                    {
-                        otherPlayer = otherPlayerHead.transform.parent.gameObject;
-                        otherRightHand = otherPlayer.transform.FindChildRecursive("Right Hand").gameObject;
-                        otherHandMesh = otherRightHand.transform.FindChildRecursive("hands:Lhand").gameObject;
-                        otherHandMesh.GetComponent<SkinnedMeshRenderer>().material.color = baseColor;
-                        otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.transform.GetComponent<Canvas>().enabled = true;
-                    }
-                }*/
-                   
-                //Saving the A button value at every frame
-                //targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue);
-                
-                //If the A button is pressed it saves the information in a bool that it needs to check later and it calls
-                //the function that could trigger the handshake
-                /*if (primaryButtonValue)
-                {
-                    //Debug.Log("pressing button A");
-                    if (otherPlayerHead != null)
-                    {
-                        isPressed = true;
-                        if (previousFramePressure == false)
-                        {
-                            SaveIds();
-                        }
-                        previousFramePressure = true;
-                    }
-                }
-                else
-                {
-                    //Debug.Log("releasing button A");
-                    isPressed = false;
-                    SaveIds();
-                }*/
-
-                //Checks if both users are pressing the A button: if true it calls the animation over the network
-                /*if(otherPlayerHead != null)
-                {*/
-                    //GameObject otherPlayer = otherPlayerHead.gameObject.transform.parent.gameObject;
-                    /*if(isPressed && otherPlayerHead.transform.GetComponent<OnButtonAPressed>().isPressed)
-                    {
-                        if(animationGoing == false)
-                        {*/
-                            //Debug.Log("Entrambi gli isPressed sono true");
-                            /*animationGoing = true;
-                            myPlayer.GetComponent<NetworkHandshakeActivationH2>().CallActivationOverNetwork(player1ID, player2ID);
-                        }                        
-                    }
-                }*/
-            /*}
-        }        
-    }*/
 
     //Method of the Photon Pun library that lets you keep track of a variable through the network (class IPunObservable)
     //In this case it keeps track of two booleans: isPressed is true when A button is pressed, isColliding is true when players

@@ -21,30 +21,27 @@ public class OnCollisionActivateButtonH1 : MonoBehaviourPunCallbacks
 
     private XROrigin origin;
 
-    private int sceneIndex;
+    public bool firstEntered;
 
     void Start()
     {
-        sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        handshakeUI_l = GameObject.Find("Camera Offset/LeftHand Controller/LeftHand/Handshake UI");
+        handshakeUI_r = GameObject.Find("Camera Offset/RightHand Controller/RightHand/Handshake UI");
+        origin = FindObjectOfType<XROrigin>();
+        handshakeUI_l.GetComponent<Canvas>().enabled = false;
+        handshakeUI_r.GetComponent<Canvas>().enabled = false;
+        leftHand = handshakeUI_l.transform.parent.gameObject;
+        rightHand = handshakeUI_r.transform.parent.gameObject;
+        waitingUI_l = leftHand.transform.GetChild(3).gameObject;
+        waitingUI_r = rightHand.transform.GetChild(3).gameObject;
 
-        if(sceneIndex == 1)
-        {
-            handshakeUI_l = GameObject.Find("Camera Offset/LeftHand Controller/LeftHand/Handshake UI");
-            handshakeUI_r = GameObject.Find("Camera Offset/RightHand Controller/RightHand/Handshake UI");
-            origin = FindObjectOfType<XROrigin>();
-            handshakeUI_l.GetComponent<Canvas>().enabled = false;
-            handshakeUI_r.GetComponent<Canvas>().enabled = false;
-            leftHand = handshakeUI_l.transform.parent.gameObject;
-            rightHand = handshakeUI_r.transform.parent.gameObject;
-            waitingUI_l = leftHand.transform.GetChild(3).gameObject;
-            waitingUI_r = rightHand.transform.GetChild(3).gameObject;
-        }
+        firstEntered = true;
     }
 
     //Function called on trigger entered: it activates the handshake button only if the two heads collide
     private void OnTriggerEnter(Collider collider)
     {
-        if(sceneIndex == 1)
+        if (this.transform.parent.GetComponent<PhotonView>().IsMine)
         {
             if (collider.gameObject.name == "Head")
             {
@@ -52,46 +49,52 @@ public class OnCollisionActivateButtonH1 : MonoBehaviourPunCallbacks
                 colliderPhotonView = collider.transform.GetComponent<PhotonView>();
                 if (!colliderPhotonView.IsMine)
                 {
-                    otherPlayerHead = collider.gameObject;
-                    origin.GetComponent<ActiveHandController>().isColliding = true;
-
-                    if (leftHand.transform.parent.gameObject.GetComponent<XRRayInteractor>().enabled == true)
+                    if (firstEntered)
                     {
-                        if (waitingUI_l.GetComponent<Canvas>().enabled == false)
-                        {
-                            handshakeUI_l.GetComponent<Canvas>().enabled = true;
-                            handshakeUI_l.GetComponent<AudioSource>().enabled = true;
+                        otherPlayerHead = collider.gameObject;
+                        origin.GetComponent<ActiveHandController>().isColliding = true;
 
-                            leftHand.GetComponent<HapticController>().amplitude = 0.2f;
-                            leftHand.GetComponent<HapticController>().duration = 0.2f;
-                            leftHand.GetComponent<HapticController>().SendHaptics();
-                            handshakeUI_l.GetComponent<AudioSource>().Play();
-                            GameObject buttonL = handshakeUI_l.transform.GetChild(1).gameObject;
-                            buttonL.GetComponent<HandshakeButton>().collidingPlayerHead = otherPlayerHead;
-                            handshakeUI_r.GetComponent<AudioSource>().Play();
-                            GameObject buttonR = handshakeUI_r.transform.GetChild(1).gameObject;
-                            buttonR.GetComponent<HandshakeButton>().collidingPlayerHead = otherPlayerHead;
-                        }
-                    } else
-                    {
-                        if (waitingUI_r.GetComponent<Canvas>().enabled == false)
+                        if (leftHand.transform.parent.gameObject.GetComponent<XRRayInteractor>().enabled == true)
                         {
-                            handshakeUI_r.GetComponent<Canvas>().enabled = true;
-                            handshakeUI_r.GetComponent<AudioSource>().enabled = true;
+                            if (waitingUI_l.GetComponent<Canvas>().enabled == false)
+                            {
+                                handshakeUI_l.GetComponent<Canvas>().enabled = true;
+                                handshakeUI_l.GetComponent<AudioSource>().enabled = true;
 
-                            rightHand.GetComponent<HapticController>().amplitude = 0.2f;
-                            rightHand.GetComponent<HapticController>().duration = 0.2f;
-                            rightHand.GetComponent<HapticController>().SendHaptics();
-                            handshakeUI_r.GetComponent<AudioSource>().Play();
-                            GameObject buttonR = handshakeUI_r.transform.GetChild(1).gameObject;
-                            buttonR.GetComponent<HandshakeButton>().collidingPlayerHead = otherPlayerHead;
-                            handshakeUI_l.GetComponent<AudioSource>().Play();
-                            GameObject buttonL = handshakeUI_l.transform.GetChild(1).gameObject;
-                            buttonL.GetComponent<HandshakeButton>().collidingPlayerHead = otherPlayerHead;
+                                leftHand.GetComponent<HapticController>().amplitude = 0.2f;
+                                leftHand.GetComponent<HapticController>().duration = 0.2f;
+                                leftHand.GetComponent<HapticController>().SendHaptics();
+                                handshakeUI_l.GetComponent<AudioSource>().Play();
+                                GameObject buttonL = handshakeUI_l.transform.GetChild(1).gameObject;
+                                buttonL.GetComponent<HandshakeButton>().collidingPlayerHead = otherPlayerHead;
+                                handshakeUI_r.GetComponent<AudioSource>().Play();
+                                GameObject buttonR = handshakeUI_r.transform.GetChild(1).gameObject;
+                                buttonR.GetComponent<HandshakeButton>().collidingPlayerHead = otherPlayerHead;
+                            }
                         }
-                    }                                        
+                        else
+                        {
+                            if (waitingUI_r.GetComponent<Canvas>().enabled == false)
+                            {
+                                handshakeUI_r.GetComponent<Canvas>().enabled = true;
+                                handshakeUI_r.GetComponent<AudioSource>().enabled = true;
+
+                                rightHand.GetComponent<HapticController>().amplitude = 0.2f;
+                                rightHand.GetComponent<HapticController>().duration = 0.2f;
+                                rightHand.GetComponent<HapticController>().SendHaptics();
+                                handshakeUI_r.GetComponent<AudioSource>().Play();
+                                GameObject buttonR = handshakeUI_r.transform.GetChild(1).gameObject;
+                                buttonR.GetComponent<HandshakeButton>().collidingPlayerHead = otherPlayerHead;
+                                handshakeUI_l.GetComponent<AudioSource>().Play();
+                                GameObject buttonL = handshakeUI_l.transform.GetChild(1).gameObject;
+                                buttonL.GetComponent<HandshakeButton>().collidingPlayerHead = otherPlayerHead;
+                            }
+                        }
+                        firstEntered = false;
+                        this.transform.parent.transform.FindChildRecursive("DeactivateCollider").gameObject.GetComponent<OnCollisionDeactivateCanvasH1>().firstExited = true;
+                    }
                 }
             }
-        }               
+        }
     }
 }

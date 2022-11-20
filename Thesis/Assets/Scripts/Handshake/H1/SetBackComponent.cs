@@ -64,6 +64,7 @@ public class SetBackComponent : MonoBehaviour
             if (netHead != null && netHead.gameObject.name == "Head")
             {
                 netHead.gameObject.transform.GetComponent<OnButtonAPressed>().animationGoing = false;
+                netHead.gameObject.transform.GetComponent<OnButtonAPressed>().isPressed = false;
             }
         }
 

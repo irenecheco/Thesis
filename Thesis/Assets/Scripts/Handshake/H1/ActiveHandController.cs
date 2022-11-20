@@ -17,61 +17,71 @@ public class ActiveHandController : MonoBehaviour
 
     void Start()
     {
-        LeftHand.activateAction.action.performed += ctx => {
-            if (isColliding)
+        LeftHand.activateAction.action.performed += ctx =>
+        {
+            if (LeftHand != null && RightHand != null)
             {
-                if(RightHand.transform.GetChildRecursive("Handshake UI").gameObject.GetComponent<Canvas>().enabled == true)
+                if (isColliding)
                 {
-                    LeftHand.transform.GetChildRecursive("Handshake UI").gameObject.GetComponent<Canvas>().enabled = true;
-                    RightHand.transform.GetChildRecursive("Handshake UI").gameObject.GetComponent<Canvas>().enabled = false;
-                } else if(RightHand.transform.GetChildRecursive("Wait For Confirm UI").gameObject.GetComponent<Canvas>().enabled == true)
-                {
-                    LeftHand.transform.GetChildRecursive("Wait For Confirm UI").gameObject.GetComponent<Canvas>().enabled = true;
-                    RightHand.transform.GetChildRecursive("Wait For Confirm UI").gameObject.GetComponent<Canvas>().enabled = false;
-                }                
-            }
-            if (isCollidingWithWaitress)
-            {
-                if (RightHand.transform.GetChildRecursive("Handshake UI").gameObject.GetComponent<Canvas>().enabled == true)
-                {
-                    LeftHand.transform.GetChildRecursive("Handshake UI").gameObject.GetComponent<Canvas>().enabled = true;
-                    RightHand.transform.GetChildRecursive("Handshake UI").gameObject.GetComponent<Canvas>().enabled = false;
+                    if (RightHand.transform.GetChildRecursive("Handshake UI").gameObject.GetComponent<Canvas>().enabled == true)
+                    {
+                        LeftHand.transform.GetChildRecursive("Handshake UI").gameObject.GetComponent<Canvas>().enabled = true;
+                        RightHand.transform.GetChildRecursive("Handshake UI").gameObject.GetComponent<Canvas>().enabled = false;
+                    }
+                    else if (RightHand.transform.GetChildRecursive("Wait For Confirm UI").gameObject.GetComponent<Canvas>().enabled == true)
+                    {
+                        LeftHand.transform.GetChildRecursive("Wait For Confirm UI").gameObject.GetComponent<Canvas>().enabled = true;
+                        RightHand.transform.GetChildRecursive("Wait For Confirm UI").gameObject.GetComponent<Canvas>().enabled = false;
+                    }
                 }
+                if (isCollidingWithWaitress)
+                {
+                    if (RightHand.transform.GetChildRecursive("Handshake UI").gameObject.GetComponent<Canvas>().enabled == true)
+                    {
+                        LeftHand.transform.GetChildRecursive("Handshake UI").gameObject.GetComponent<Canvas>().enabled = true;
+                        RightHand.transform.GetChildRecursive("Handshake UI").gameObject.GetComponent<Canvas>().enabled = false;
+                    }
+                }
+                activeLeft = true;
+                LeftHand.GetComponent<XRRayInteractor>().enabled = true;
+                RightHand.GetComponent<XRRayInteractor>().enabled = false;
+                LeftHand.GetComponent<XRInteractorLineVisual>().enabled = true;
+                RightHand.GetComponent<XRInteractorLineVisual>().enabled = false;
+
             }
-            activeLeft = true;
-            LeftHand.GetComponent<XRRayInteractor>().enabled = true;
-            RightHand.GetComponent<XRRayInteractor>().enabled = false;
-            LeftHand.GetComponent<XRInteractorLineVisual>().enabled = true;
-            RightHand.GetComponent<XRInteractorLineVisual>().enabled = false;
-            
         };
+            
         RightHand.activateAction.action.performed += ctx => {
-            if (isColliding)
+            if (LeftHand != null && RightHand != null)
             {
-                if (LeftHand.transform.GetChildRecursive("Handshake UI").GetComponent<Canvas>().enabled == true)
+                if (isColliding)
                 {
-                    LeftHand.transform.GetChildRecursive("Handshake UI").GetComponent<Canvas>().enabled = false;
-                    RightHand.transform.GetChildRecursive("Handshake UI").GetComponent<Canvas>().enabled = true;
-                } else if(LeftHand.transform.GetChildRecursive("Wait For Confirm UI").gameObject.GetComponent<Canvas>().enabled == true)
-                {
-                    LeftHand.transform.GetChildRecursive("Wait For Confirm UI").GetComponent<Canvas>().enabled = false;
-                    RightHand.transform.GetChildRecursive("Wait For Confirm UI").GetComponent<Canvas>().enabled = true;
+                    if (LeftHand.transform.GetChildRecursive("Handshake UI").GetComponent<Canvas>().enabled == true)
+                    {
+                        LeftHand.transform.GetChildRecursive("Handshake UI").GetComponent<Canvas>().enabled = false;
+                        RightHand.transform.GetChildRecursive("Handshake UI").GetComponent<Canvas>().enabled = true;
+                    }
+                    else if (LeftHand.transform.GetChildRecursive("Wait For Confirm UI").gameObject.GetComponent<Canvas>().enabled == true)
+                    {
+                        LeftHand.transform.GetChildRecursive("Wait For Confirm UI").GetComponent<Canvas>().enabled = false;
+                        RightHand.transform.GetChildRecursive("Wait For Confirm UI").GetComponent<Canvas>().enabled = true;
+                    }
+
                 }
-                
-            }
-            if (isCollidingWithWaitress)
-            {
-                if (LeftHand.transform.GetChildRecursive("Handshake UI").GetComponent<Canvas>().enabled == true)
+                if (isCollidingWithWaitress)
                 {
-                    LeftHand.transform.GetChildRecursive("Handshake UI").GetComponent<Canvas>().enabled = false;
-                    RightHand.transform.GetChildRecursive("Handshake UI").GetComponent<Canvas>().enabled = true;
+                    if (LeftHand.transform.GetChildRecursive("Handshake UI").GetComponent<Canvas>().enabled == true)
+                    {
+                        LeftHand.transform.GetChildRecursive("Handshake UI").GetComponent<Canvas>().enabled = false;
+                        RightHand.transform.GetChildRecursive("Handshake UI").GetComponent<Canvas>().enabled = true;
+                    }
                 }
+                activeLeft = false;
+                LeftHand.GetComponent<XRRayInteractor>().enabled = false;
+                RightHand.GetComponent<XRRayInteractor>().enabled = true;
+                LeftHand.GetComponent<XRInteractorLineVisual>().enabled = false;
+                RightHand.GetComponent<XRInteractorLineVisual>().enabled = true;
             }
-            activeLeft = false;            
-            LeftHand.GetComponent<XRRayInteractor>().enabled = false;
-            RightHand.GetComponent<XRRayInteractor>().enabled = true;
-            LeftHand.GetComponent<XRInteractorLineVisual>().enabled = false;
-            RightHand.GetComponent<XRInteractorLineVisual>().enabled = true;
             
         };
     }

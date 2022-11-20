@@ -18,8 +18,9 @@ public class OnCollisionDeactivateCanvasH1 : MonoBehaviour
 
     private XROrigin origin;
 
-    private PhotonView colliderParentPhotonView;
-    private GameObject colliderParent;
+    private PhotonView colliderPhotonView;
+
+    public bool firstExited;
 
     void Start()
     {
@@ -33,33 +34,42 @@ public class OnCollisionDeactivateCanvasH1 : MonoBehaviour
         waitingUI_r = rightHand.transform.GetChild(3).gameObject;        
 
         origin = FindObjectOfType<XROrigin>();
+
+        firstExited = true;
     }
 
     //Function called on trigger exited: it disables the handshake button if the two heads does not collide anymore
     private void OnTriggerExit(Collider collider)
     {
-        if (collider.gameObject.name == "DeactivateCollider")
+        if (this.transform.parent.GetComponent<PhotonView>().IsMine)
         {
-            colliderParent = collider.transform.parent.gameObject;
-            colliderParentPhotonView = colliderParent.transform.GetComponent<PhotonView>();
-            if (!colliderParentPhotonView.IsMine)
+            if (collider.gameObject.name == "Head")
             {
-                origin.GetComponent<ActiveHandController>().isColliding = false;
-                if(handshakeUI_l.GetComponent<Canvas>().enabled == true)
+                colliderPhotonView = collider.transform.GetComponent<PhotonView>();
+                if (!colliderPhotonView.IsMine)
                 {
-                    handshakeUI_l.GetComponent<Canvas>().enabled = false;
-                }
-                if (handshakeUI_r.GetComponent<Canvas>().enabled == true)
-                {
-                    handshakeUI_r.GetComponent<Canvas>().enabled = false;
-                }
-                if (waitingUI_l.GetComponent<Canvas>().enabled == true)
-                {
-                    waitingUI_l.GetComponent<Canvas>().enabled = false;
-                }
-                if (waitingUI_r.GetComponent<Canvas>().enabled == true)
-                {
-                    waitingUI_r.GetComponent<Canvas>().enabled = false;
+                    if (firstExited)
+                    {
+                        origin.GetComponent<ActiveHandController>().isColliding = false;
+                        if (handshakeUI_l.GetComponent<Canvas>().enabled == true)
+                        {
+                            handshakeUI_l.GetComponent<Canvas>().enabled = false;
+                        }
+                        if (handshakeUI_r.GetComponent<Canvas>().enabled == true)
+                        {
+                            handshakeUI_r.GetComponent<Canvas>().enabled = false;
+                        }
+                        if (waitingUI_l.GetComponent<Canvas>().enabled == true)
+                        {
+                            waitingUI_l.GetComponent<Canvas>().enabled = false;
+                        }
+                        if (waitingUI_r.GetComponent<Canvas>().enabled == true)
+                        {
+                            waitingUI_r.GetComponent<Canvas>().enabled = false;
+                        }
+                        firstExited = false;
+                        this.transform.parent.transform.FindChildRecursive("ActivateCollider").gameObject.GetComponent<OnCollisionActivateButtonH1>().firstEntered = true;
+                    }
                 }
             }
         }
