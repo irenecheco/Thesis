@@ -59,11 +59,13 @@ public class NetworkHandController : MonoBehaviour
         if (isGrabbingH3 == false)
         {
             network_hand.SetGrip(controller.selectAction.action.ReadValue<float>());
+            network_hand.SetTrigger(controller.activateAction.action.ReadValue<float>());
         }
         else
         {
             network_hand.SetGrip(0);
+            network_hand.SetTrigger(0);
         }
-        network_hand.SetTrigger(controller.activateAction.action.ReadValue<float>());
+        
     }
 }

@@ -1794,6 +1794,7 @@ MonoBehaviour:
   - Name: Handshake4
     sceneIndex: 4
     maxPlayer: 3
+  countPl: 0
 --- !u!4 &354470868
 Transform:
   m_ObjectHideFlags: 0
@@ -7135,8 +7136,8 @@ MonoBehaviour:
   m_Camera: {fileID: 1748483005}
   m_OriginBaseGameObject: {fileID: 1315508680}
   m_CameraFloorOffsetObject: {fileID: 1486660015}
-  m_RequestedTrackingOriginMode: 2
-  m_CameraYOffset: 1.93
+  m_RequestedTrackingOriginMode: 1
+  m_CameraYOffset: 1.45
 --- !u!4 &1315508682
 Transform:
   m_ObjectHideFlags: 0

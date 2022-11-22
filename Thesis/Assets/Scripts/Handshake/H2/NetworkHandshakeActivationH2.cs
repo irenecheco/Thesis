@@ -85,7 +85,7 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
                 if (otherRHand.activeSelf)
                 {
                     //Debug.Log("mano destra altro giocatore attiva");
-                    otherRHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position);
+                    otherRHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, false);
                 }
                 otherHandMesh = otherRHand.transform.FindChildRecursive("hands:Lhand").gameObject;
                 GameObject netHead = otherPlayer.transform.GetChild(0).gameObject;
@@ -114,7 +114,7 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
                 if (rightHand.activeSelf)
                 {
                     //Debug.Log("mano destra altro giocatore attiva");
-                    otherRHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position);
+                    otherRHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, true);
                 }
                 otherHandMesh = otherRHand.transform.FindChildRecursive("hands:Lhand").gameObject;
                 GameObject netHead = otherPlayer.transform.GetChild(0).gameObject;

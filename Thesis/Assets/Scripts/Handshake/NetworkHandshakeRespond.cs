@@ -21,6 +21,8 @@ public class NetworkHandshakeRespond : MonoBehaviour
 
     private int sceneIndex;
 
+    private bool firstConf;
+
     void Start()
     {
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -35,8 +37,9 @@ public class NetworkHandshakeRespond : MonoBehaviour
 
     //Function that saves the camera and hand position (so that the animation starts in the right position) and start
     //the coroutine for the animation
-    public void OnHandshakePressed(Vector3 camPosition)
+    public void OnHandshakePressed(Vector3 camPosition, bool firstConfirming)
     {
+        firstConf = firstConfirming;
         cameraPosition = camPosition;
         StartCoroutine(Wait());
     }
@@ -56,7 +59,7 @@ public class NetworkHandshakeRespond : MonoBehaviour
         rightHand.SetActive(false);
         netFakeHand.SetActive(true);
 
-        netFakeHand.GetComponent<NetworkHandshakeFakeHand>().DoHandshake(head.transform.position, cameraPosition);        
+        netFakeHand.GetComponent<NetworkHandshakeFakeHand>().DoHandshake(head.transform.position, cameraPosition, firstConf);        
     }
 
     public IEnumerator Wait2()

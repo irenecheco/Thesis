@@ -73,53 +73,55 @@ public class NetworkHandshakeActivationH1 : MonoBehaviour
         playersIds[1] = (string)ids[1];
         if (playersIds[0] == PhotonNetwork.LocalPlayer.UserId)
         {
-            foreach( var item in PhotonNetwork.PlayerList)
-            {
-                if(item.UserId == playersIds[1])
+                //My player is in position 0: I am confirming
+                foreach (var item in PhotonNetwork.PlayerList)
                 {
-                    otherPlayer = (GameObject)item.TagObject;
+                    if (item.UserId == playersIds[1])
+                    {
+                        otherPlayer = (GameObject)item.TagObject;
+                    }
                 }
-            }
-            if (!otherPlayer.GetComponent<PhotonView>().IsMine && otherPlayer != null)
-            {
-                rHandContainer = otherPlayer.transform.GetChild(2).gameObject;
-                rHand = rHandContainer.transform.GetChild(0).gameObject;
-                if (rHand.name == "RightHand")
+                if (!otherPlayer.GetComponent<PhotonView>().IsMine && otherPlayer != null)
                 {
-                    rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position);
+                    rHandContainer = otherPlayer.transform.GetChild(2).gameObject;
+                    rHand = rHandContainer.transform.GetChild(0).gameObject;
+                    if (rHand.name == "RightHand")
+                    {
+                        rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, true);
+                    }
+                    else
+                    {
+                        rHand = rHandContainer.transform.GetChild(1).gameObject;
+                        rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, true);
+                    }
+                    StartCoroutine(Wait());
                 }
-                else
-                {
-                    rHand = rHandContainer.transform.GetChild(1).gameObject;
-                    rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position);
-                }
-            }
-            StartCoroutine(Wait());
 
         } else if (playersIds[1] == PhotonNetwork.LocalPlayer.UserId)
         {
+            //My player is in position 1: the other player is confirming
             foreach (var item in PhotonNetwork.PlayerList)
-            {
-                if (item.UserId == playersIds[0])
                 {
-                    otherPlayer = (GameObject)item.TagObject;
+                    if (item.UserId == playersIds[0])
+                    {
+                        otherPlayer = (GameObject)item.TagObject;
+                    }
                 }
-            }
-            if (!otherPlayer.GetComponent<PhotonView>().IsMine && otherPlayer != null)
-            {
-                rHandContainer = otherPlayer.transform.GetChild(2).gameObject;
-                rHand = rHandContainer.transform.GetChild(0).gameObject;
-                if (rHand.name == "RightHand")
+                if (!otherPlayer.GetComponent<PhotonView>().IsMine && otherPlayer != null)
                 {
-                    rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position);
-                }
-                else
-                {
-                    rHand = rHandContainer.transform.GetChild(1).gameObject;
-                    rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position);
-                }
-            }
-            StartCoroutine(Wait());
+                    rHandContainer = otherPlayer.transform.GetChild(2).gameObject;
+                    rHand = rHandContainer.transform.GetChild(0).gameObject;
+                    if (rHand.name == "RightHand")
+                    {
+                        rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, false);
+                    }
+                    else
+                    {
+                        rHand = rHandContainer.transform.GetChild(1).gameObject;
+                        rHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, false);
+                    }
+                    StartCoroutine(Wait());
+                }            
         }
     }
 
