@@ -25,7 +25,7 @@ public class NetworkTooltipBillBoarded : MonoBehaviour
         {
             _lookAt = Camera.main.transform.position;
             _lookAt.y = transform.position.y;
-            if (sceneIndex != 3)
+            if (sceneIndex != 3 && sceneIndex != 4)
             {
                 this.transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(this.transform.position - _lookAt, Vector3.up), Time.deltaTime * ElasticFactor);
             } else

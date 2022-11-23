@@ -5354,7 +5354,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1059044243
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5421,8 +5421,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 354470867}
         m_TargetAssemblyTypeName: NetworkManager, Assembly-CSharp
-        m_MethodName: InitializeRoom
-        m_Mode: 3
+        m_MethodName: StartTutorialH4
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6197,7 +6197,7 @@ MonoBehaviour:
   m_OriginBaseGameObject: {fileID: 1315508680}
   m_CameraFloorOffsetObject: {fileID: 1486660015}
   m_RequestedTrackingOriginMode: 1
-  m_CameraYOffset: 1.45
+  m_CameraYOffset: 1.3
 --- !u!4 &1315508682
 Transform:
   m_ObjectHideFlags: 0

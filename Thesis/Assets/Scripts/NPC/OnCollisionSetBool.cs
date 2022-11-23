@@ -33,6 +33,9 @@ public class OnCollisionSetBool : MonoBehaviour
             if(sceneIndex == 3)
             {
                 rightHandController.GetComponent<XRDirectInteractor>().allowSelect = true;
+            } else if(sceneIndex == 3)
+            {
+                rightHandController.GetComponent<XRDirectInteractor>().allowSelect = true;
             }
         }
     }
@@ -58,6 +61,12 @@ public class OnCollisionSetBool : MonoBehaviour
                 if (npc_right.GetComponent<GrabbingNPC>().isGrabbing == true) {
                     rightHandController.GetComponent<XRDirectInteractor>().allowSelect = false;
                 }                
+            } else if(sceneIndex == 4)
+            {
+                if (npc_right.GetComponent<GrabbingNPC>().isGrabbing == true)
+                {
+                    rightHandController.GetComponent<XRDirectInteractor>().allowSelect = false;
+                }
             }
         }
     }

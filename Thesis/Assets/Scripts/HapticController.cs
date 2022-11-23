@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.SceneManagement;
 
 public class HapticController : MonoBehaviour
 {
@@ -15,6 +16,13 @@ public class HapticController : MonoBehaviour
     public float duration1H3 = 0.3f;
     public float amplitude2H3 = 0.3f;
     public float duration2H3 = 1.5f;
+
+    private int sceneIndex;
+
+    private void Start()
+    {
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
+    }
 
     //Function called whenever an haptic is needed (handshake in H1 and H2)
     public void SendHaptics()
@@ -34,7 +42,10 @@ public class HapticController : MonoBehaviour
             {
                 if (this.gameObject.GetComponent<AudioSource>() != null)
                 {
-                    this.gameObject.GetComponent<AudioSource>().Play();
+                    if(sceneIndex!= 4)
+                    {
+                        this.gameObject.GetComponent<AudioSource>().Play();
+                    }
                 }
 
                 if (this.gameObject.GetComponent<Outline>() != null)

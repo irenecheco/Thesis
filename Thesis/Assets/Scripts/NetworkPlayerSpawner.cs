@@ -61,6 +61,7 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
             spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player H4", transform.position, transform.rotation);
             spawnedPlayerPrefab.name = $"Network Player H4 {+flagH4}";
             flagH4++;
+            StartCoroutine(waitForMayor());
         }
     }
 

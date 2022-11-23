@@ -109,7 +109,7 @@ public class MayorConfirmCanvas : MonoBehaviour
             };
         }
 
-        if(sceneIndex == 3)
+        if(sceneIndex == 3 || sceneIndex == 4)
         {
             mayor_right.GetComponent<XRGrabInteractable>().enabled = false;
         }
@@ -136,7 +136,7 @@ public class MayorConfirmCanvas : MonoBehaviour
                     }
                 }
             } else*/ 
-            if(sceneIndex == 3)
+            if(sceneIndex == 3 || sceneIndex == 4)
             {
                 if(firstHandshake == true)
                 {
@@ -153,7 +153,7 @@ public class MayorConfirmCanvas : MonoBehaviour
         {
             mayor_confirm_button.GetComponent<Button>().interactable = true;
         }
-        if(sceneIndex != 3)
+        if(sceneIndex != 3 && sceneIndex != 4)
         {
             mayor_head_canvas.GetComponent<Canvas>().enabled = true;
             mayor_head_canvas.GetComponent<AudioSource>().Play();
@@ -161,13 +161,26 @@ public class MayorConfirmCanvas : MonoBehaviour
         }
         else
         {
-            mayor_right.GetComponent<GrabbingNPC>().initialPosition = mayor_right.transform.localPosition;
-            mayor_hand_holder.GetComponent<ActivateBlueHand>().isReady = true;
-            if (mayor_hand_holder.GetComponent<ActivateBlueHand>().isCollidingWithMayor)
+            if(sceneIndex == 3)
             {
-                mayor_rightMesh.GetComponent<SkinnedMeshRenderer>().material.color = waitingColor;
-                mayor_head_canvas.GetComponent<Canvas>().enabled = true;
+                mayor_right.GetComponent<GrabbingNPC>().initialPosition = mayor_right.transform.localPosition;
+                mayor_hand_holder.GetComponent<ActivateBlueHand>().isReady = true;
+                if (mayor_hand_holder.GetComponent<ActivateBlueHand>().isCollidingWithMayor)
+                {
+                    mayor_rightMesh.GetComponent<SkinnedMeshRenderer>().material.color = waitingColor;
+                    mayor_head_canvas.GetComponent<Canvas>().enabled = true;
+                }
+            } else if(sceneIndex == 4)
+            {
+                mayor_right.GetComponent<GrabbingNPC>().initialPosition = mayor_right.transform.localPosition;
+                mayor_hand_holder.GetComponent<ActivateBlueHandH4>().isReady = true;
+                if (mayor_hand_holder.GetComponent<ActivateBlueHandH4>().isCollidingWithMayor)
+                {
+                    mayor_rightMesh.GetComponent<SkinnedMeshRenderer>().material.color = waitingColor;
+                    mayor_head_canvas.GetComponent<Canvas>().enabled = true;
+                }
             }
+            
         }
         animator_mayor_head.speed = 0;
         animator_mayor_left.speed = 0;
@@ -187,6 +200,10 @@ public class MayorConfirmCanvas : MonoBehaviour
         {
             animator_mayor_right.speed = 1;
             mayor_hand_holder.GetComponent<ActivateBlueHand>().isReady = false;
+        } else if(sceneIndex == 4)
+        {
+            animator_mayor_right.speed = 1;
+            mayor_hand_holder.GetComponent<ActivateBlueHandH4>().isReady = false;
         }
         mayor_head.GetComponent<AudioSource>().clip = mayor_speech2;
         mayor_head.GetComponent<AudioSource>().Play();

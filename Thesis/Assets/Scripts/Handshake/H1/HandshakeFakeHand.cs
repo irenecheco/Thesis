@@ -19,6 +19,7 @@ public class HandshakeFakeHand : MonoBehaviour
     public double y;
 
     [SerializeField] private GameObject rightController;
+    [SerializeField] private GameObject rightHand;
     private GameObject fakeHand_holder;
 
     private Animator fakeHandAnimator;
@@ -71,6 +72,29 @@ public class HandshakeFakeHand : MonoBehaviour
             .Append(fakeHand_holder.transform.DOMoveY(fakeHand_holder.transform.position.y + (float)0.200, (float)0.25))
             .Append(fakeHand_holder.transform.DOMoveY((float)(ending_y - 0.4), (float)0.25))
             .Play();*/
+        fakeHandAnimator.Play("Handshake", -1, 0);
+        //fakeHandAnimator.speed = 0;
+    }
+
+    public void DoHandshakeH4(Vector3 myPosition, Vector3 otherPosition)
+    {
+        startingPosition = rightController.transform.position;
+        startingRotation = rightController.transform.rotation;
+
+        fakeHand_holder.transform.position = new Vector3(startingPosition.x - (float)0.02, startingPosition.y, startingPosition.z - (float)0.09);
+        fakeHand_holder.transform.rotation = startingRotation;
+
+        /*direction = Quaternion.LookRotation((otherPosition - myPosition), Vector3.up);
+        direction.x = 0;
+        direction.z = 0;*/
+
+        fakeHand_holder.transform.rotation = Quaternion.LookRotation(otherPosition - myPosition, Vector3.up);
+
+        //fakeHand_holder.transform.DORotateQuaternion(direction * Quaternion.AngleAxis((float)10.0, transform.forward), 0f);
+        //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float) 0.017), (float)(ending_y - 0.4), (midPosition.z - (float)0.015)), time);
+        //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x), (float)(ending_y - 0.4), (midPosition.z)), time);
+
+        //Invoke("SecondPartHandshake", time);
         fakeHandAnimator.Play("Handshake", -1, 0);
         //fakeHandAnimator.speed = 0;
     }

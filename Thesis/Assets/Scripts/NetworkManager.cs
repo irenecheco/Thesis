@@ -61,4 +61,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         Application.LoadLevel("Tutorial H3");
     }
+
+    public void StartTutorialH4()
+    {
+        Application.LoadLevel("Tutorial H4");
+    }
 }

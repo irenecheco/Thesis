@@ -834,6 +834,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Handshake4Release",
+                    "type": "Button",
+                    "id": "b7cc83b0-012d-4b6e-97c7-6270814bb36e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1032,6 +1041,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Handshake2Control",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "04e1c7a0-df74-441f-a47a-143329db4ace",
+                    "path": "<XRController>{RightHand}/gripPressed",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Handshake4Release",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

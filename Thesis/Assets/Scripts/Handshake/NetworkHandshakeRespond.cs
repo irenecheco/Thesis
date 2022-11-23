@@ -5,13 +5,15 @@ using Photon.Pun;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class NetworkHandshakeRespond : MonoBehaviour
 {
     //Code responsible for the start of the handshake animation in H1 and H2
 
-    private GameObject rightHand;
-    private GameObject rightController;
+    [SerializeField] private GameObject rightHand;
+    [SerializeField] private GameObject rightController;
+    private GameObject localRightController;
     private GameObject networkPlayer;
     private GameObject head;
     private Vector3 cameraPosition;
@@ -27,12 +29,13 @@ public class NetworkHandshakeRespond : MonoBehaviour
     {
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        rightHand = this.gameObject;
-        rightController = rightHand.transform.parent.gameObject;
+        //rightHand = this.gameObject;
+        //rightController = rightHand.transform.parent.gameObject;
         networkPlayer = rightController.transform.parent.gameObject;
         netFakeHandHolder = networkPlayer.transform.GetChild(3).gameObject;
         netFakeHand = netFakeHandHolder.transform.GetChild(0).gameObject;
         head = networkPlayer.transform.GetChild(0).gameObject;
+        localRightController = GameObject.Find("Camera Offset/RightHand Controller");
     }
 
     //Function that saves the camera and hand position (so that the animation starts in the right position) and start
@@ -58,8 +61,15 @@ public class NetworkHandshakeRespond : MonoBehaviour
 
         rightHand.SetActive(false);
         netFakeHand.SetActive(true);
+        
+        if(sceneIndex == 4)
+        {
+            localRightController.GetComponent<XRDirectInteractor>().allowSelect = false;
+            localRightController.GetComponent<ActionBasedController>().enableInputTracking = true;
+            //rightHand.GetComponent<XRGrabInteractable>().enabled = false;
+        }        
 
-        netFakeHand.GetComponent<NetworkHandshakeFakeHand>().DoHandshake(head.transform.position, cameraPosition, firstConf);        
+        netFakeHand.GetComponent<NetworkHandshakeFakeHand>().DoHandshakeH4(head.transform.position, cameraPosition, firstConf);        
     }
 
     public IEnumerator Wait2()
@@ -72,10 +82,22 @@ public class NetworkHandshakeRespond : MonoBehaviour
 
         yield return new WaitForSeconds(time);
 
+        
+        //this.transform.FindChildRecursive("RightHand").GetComponent<MessageActivationH4>().isGrabbing = false;
+
         rightHand.SetActive(true);
         netFakeHand.SetActive(false);
 
-        if(sceneIndex == 2)
+        if(sceneIndex == 4)
+        {
+            rightHand.transform.localPosition = new Vector3(0, 0, 0);
+            rightHand.transform.localRotation = new Quaternion(0, 0, 0, 0);
+            rightHand.transform.localRotation = Quaternion.Euler(0, 0, -90);
+
+            localRightController.GetComponent<XRDirectInteractor>().allowSelect = true;
+        }        
+
+        if (sceneIndex == 2)
         {
             head.gameObject.transform.GetComponent<OnButtonAPressed>().animationGoing = false;
         }        

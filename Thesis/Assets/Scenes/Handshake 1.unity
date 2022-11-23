@@ -6564,6 +6564,11 @@ PrefabInstance:
       objectReference: {fileID: 50387148}
     - target: {fileID: 8270208951607370510, guid: 801b8a372f131d3468471c0924ed07be,
         type: 3}
+      propertyPath: NPC_handHolder
+      value: 
+      objectReference: {fileID: 1164041532}
+    - target: {fileID: 8270208951607370510, guid: 801b8a372f131d3468471c0924ed07be,
+        type: 3}
       propertyPath: fakeHand_holder
       value: 
       objectReference: {fileID: 1045577497}
@@ -6603,6 +6608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2411db458f38f54db811a8337d9b111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rightController: {fileID: 0}
   x: 0.03
   z: 0.025
 --- !u!1 &697418043
@@ -16852,6 +16858,7 @@ MonoBehaviour:
   z: 0
   y: 0
   rightController: {fileID: 803011128}
+  rightHand: {fileID: 0}
 --- !u!1001 &2329640256081123486
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -97,7 +97,7 @@ public class HandshakeActivationNPC2 : MonoBehaviour
 
     public void secondSpeech()
     {
-        if (sceneIndex != 3)
+        if (sceneIndex != 3 && sceneIndex != 4)
         {
             npcHandHolder.transform.position = initial_hand_holder_position;
             npcHandHolder.transform.rotation = initial_hand_holder_rotation;

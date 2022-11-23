@@ -54,14 +54,6 @@ public class NetworkPlayer : MonoBehaviourPunCallbacks, IPunInstantiateMagicCall
         leftHandRig = rig.transform.Find("Camera Offset/LeftHand Controller");
         rightHandRig = rig.transform.Find("Camera Offset/RightHand Controller");
 
-        //In H4 the XR Origin is slightly different because it also has the hand tracking
-        if(sceneIndex == 4)
-        {
-            headRig = rig.transform.Find("Camera Offset/OculusInteractionSampleRig - no controllers/OVRCameraRig/TrackingSpace/CenterEyeAnchor");
-            leftHandRig = rig.transform.Find("Camera Offset/OculusInteractionSampleRig - no controllers/InputOVR/Hands Controller/LeftHand/LeftHandVisual/OculusHand_L");
-            rightHandRig = rig.transform.Find("Camera Offset/OculusInteractionSampleRig - no controllers/InputOVR/Hands Controller/RightHand/RightHandVisual/OculusHand_R");
-        }
-
         //In the local scene the network player (corrisponding to the local player) has to be hidden to not have the same
         //player rendering two times on top of each other
         if (photonView.IsMine)
@@ -80,74 +72,12 @@ public class NetworkPlayer : MonoBehaviourPunCallbacks, IPunInstantiateMagicCall
 
         if (photonView.IsMine)
         {
-            if(sceneIndex == 4)
-            {
-                //In H4 the movement mapping change if the player is using the controllers or the hands tracking, hence
-                //the following if
-                if(this.GetComponent<HandsOrControllersH4>().handsOn == true)
-                {
-                    if (newUpdateHand == false)
-                    {
-                        leftHandRig = rig.transform.Find("Camera Offset/OculusInteractionSampleRig - no controllers/InputOVR/Hands/LeftHand/LeftHandVisual/OculusHand_L").transform;
-                        rightHandRig = rig.transform.Find("Camera Offset/OculusInteractionSampleRig - no controllers/InputOVR/Hands/RightHand/RightHandVisual/OculusHand_R").transform;
-                        newUpdateHand = true;
-                        newUpdateControllers = false;
-                    }
-
-                    if (leftHand_hands.parent.gameObject.activeSelf == true)
-                    {
-                        MapPosition(head, headRig);
-                        MapPosition(leftHand_hands, leftHandRig);
-                        MapPosition(rightHand_hands, rightHandRig);
-                    }
-                }
-                else
-                {
-                    if (newUpdateControllers == false)
-                    {
-                        leftHandRig = rig.transform.Find("Camera Offset/OculusInteractionSampleRig - no controllers/InputOVR/Hands Controller/LeftHand/LeftHandVisual/OculusHand_L").transform;
-                        rightHandRig = rig.transform.Find("Camera Offset/OculusInteractionSampleRig - no controllers/InputOVR/Hands Controller/RightHand/RightHandVisual/OculusHand_R").transform;
-                        newUpdateControllers = true;
-                        newUpdateHand = false;
-                    }
-
-                    if (leftHand_controllers.parent.gameObject.activeSelf == true)
-                    {
-                        MapPosition(head, headRig);
-                        MapPosition(leftHand_controllers, leftHandRig);
-                        MapPosition(rightHand_controllers, rightHandRig);
-                    }
-                }
-            } else
-            {
+            
                 //In the other scenes the mapping is done according to the controllers
                 MapPosition(head, headRig);
                 MapPosition(leftHand_controllers, leftHandRig);
                 MapPosition(rightHand_controllers, rightHandRig);
-            }            
-        }
-
-        //In H4 different hands need to be render according to the controllers used (controllers vs hand tracking)
-        if (!photonView.IsMine)
-        {
-            if (sceneIndex == 4)
-            {
-                if (this.GetComponent<HandsOrControllersH4>().handsOn == true)
-                {
-                    leftHand_controllers.parent.gameObject.SetActive(false);
-                    //rightHand_controllers.gameObject.SetActive(false);
-                    leftHand_hands.parent.gameObject.SetActive(true);
-                    //rightHand_hands.gameObject.SetActive(true);
-                }
-                else
-                {
-                    leftHand_hands.parent.gameObject.SetActive(false);
-                    //rightHand_hands.gameObject.SetActive(false);
-                    leftHand_controllers.parent.gameObject.SetActive(true);
-                    //rightHand_controllers.gameObject.SetActive(true);
-                }
-            }
-        }                
+        }             
     }
 
     //Function used to map network head and hands to local heads and hands
