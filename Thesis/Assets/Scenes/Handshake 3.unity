@@ -9314,6 +9314,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGrabbing: 0
   releasedForCollision: 0
+  fakeHand: {fileID: 0}
+  rightHand: {fileID: 1081806818}
+  fakeHandNPC: {fileID: 0}
+  NPC_rightHand: {fileID: 1032083449}
+  rightController: {fileID: 562466582}
   initialPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1032083455
 MonoBehaviour:
@@ -11550,6 +11555,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGrabbing: 0
   releasedForCollision: 0
+  fakeHand: {fileID: 0}
+  rightHand: {fileID: 1081806818}
+  fakeHandNPC: {fileID: 0}
+  NPC_rightHand: {fileID: 1283764379}
+  rightController: {fileID: 562466582}
   initialPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1283764387 stripped
 GameObject:

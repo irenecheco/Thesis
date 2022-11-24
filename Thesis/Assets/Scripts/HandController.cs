@@ -32,7 +32,6 @@ public class HandController : MonoBehaviour
         {
             hand.SetGrip(0);
             hand.SetTrigger(0);
-        }
-        
+        }        
     }
 }

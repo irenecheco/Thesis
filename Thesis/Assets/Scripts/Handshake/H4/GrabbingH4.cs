@@ -33,6 +33,8 @@ public class GrabbingH4 : MonoBehaviour
 
     private bool areShaking;
 
+    public bool npcAnimationGoing;
+
     private int frameNumber;
     private bool firstFrame;
     public bool isColliding;
@@ -59,17 +61,24 @@ public class GrabbingH4 : MonoBehaviour
         frameNumber = 0;
         firstFrame = true;
         isColliding = false;
+        npcAnimationGoing = false;
 
         _releaseHandshake4.action.performed += ctx =>
         { 
             if(myNetPlayer != null)
             {
-                if(myNetPlayer.GetComponent<NetworkGrabMessageActivationH4>().animationGoing == true)
+                if(myNetPlayer.GetComponent<NetworkGrabMessageActivationH4>().animationGoing == true || npcAnimationGoing == true)
                 {
+                    
                     rightController.GetComponent<XRDirectInteractor>().allowSelect = true;
+                    //rightController.GetComponent<ActionBasedController>().enableInputTracking = true;
                     myNetPlayer.GetComponent<NetworkGrabMessageActivationH4>().animationGoing = false;
                     rightController.GetComponent<HandController>().isGrabbingH3 = false;
                     myNetRightController.GetComponent<NetworkHandController>().isGrabbingH3 = false;
+                    myNetRightHand.GetComponent<MessageActivationH4>().isGrabbing = false;
+                    npcAnimationGoing = false;
+
+                    //Debug.Log("entra in release");
                 }
             }
         };
@@ -163,6 +172,8 @@ public class GrabbingH4 : MonoBehaviour
 
                             SaveAndCallActivation(otherNetPlayer, otherNetRightHand);
 
+                            //this.GetComponent<Animator>().Play("Handshake", -1, 0);
+
                             Invoke("disableOutline", 0.30f);
                         }
 
@@ -215,7 +226,10 @@ public class GrabbingH4 : MonoBehaviour
                 }
                 messageCanvas.GetComponent<Canvas>().enabled = false;
                 this.GetComponent<CollidingH4>().isGrabbing = false;
-                rightController.GetComponent<HandController>().isGrabbingH3 = false;
+                if(npcAnimationGoing == false)
+                {
+                    rightController.GetComponent<HandController>().isGrabbingH3 = false;
+                }                
                 myNetRightController.GetComponent<NetworkHandController>().isGrabbingH3 = false;
                 areShaking = false;
                 firstFrame = true;

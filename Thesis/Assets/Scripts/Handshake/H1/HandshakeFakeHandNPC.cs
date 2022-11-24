@@ -82,6 +82,8 @@ public class HandshakeFakeHandNPC : MonoBehaviour
         startingPosition = rightController.transform.position;
         startingRotation = rightController.transform.rotation;
 
+        rightController.transform.FindChildRecursive("RightHand").GetComponent<GrabbingH4>().npcAnimationGoing = true;
+
         fakeHand_holder.transform.position = startingPosition;
 
         /*direction = Quaternion.LookRotation((otherPosition - myPosition), Vector3.up);

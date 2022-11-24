@@ -138,48 +138,48 @@ public class NetworkHandshakeFakeHand : MonoBehaviour
         
         //fakeHand_holder.transform.rotation = Quaternion.Euler(0, 180, -90);
 
-        /*direction = Quaternion.LookRotation((otherPosition - myPosition), Vector3.up);
+        direction = Quaternion.LookRotation((otherPosition - myPosition), Vector3.up);
         direction.x = 0;
-        direction.z = 0;*/
+        direction.z = 0;
 
-        fakeHand_holder.transform.rotation = Quaternion.LookRotation(otherPosition - myPosition, Vector3.up);
-        //fakeHand_holder.transform.DORotateQuaternion(direction, time);
+        //fakeHand_holder.transform.rotation = Quaternion.LookRotation(otherPosition - myPosition, Vector3.up);
+        fakeHand_holder.transform.DORotateQuaternion(direction, 0f);
 
 
         if (firstConfirming)
         {
-            Debug.Log("first confirming true");
+            //Debug.Log("first confirming true");
             if (localPlayer.GetComponent<firstPlayer>().isFirstPlayer)
             {
-                Debug.Log("first confirming true e primo giocatore");
-                fakeHand_holder.transform.position += new Vector3((-(float)0.005), 0, (-(float)0.045));
-                fakeHand_holder.transform.position += new Vector3((float)0.02, 0, (float)0.09);
+                //Debug.Log("first confirming true e primo giocatore");
+                fakeHand_holder.transform.position += new Vector3((-(float)0.04), 0, (-(float)0.14));
+                //fakeHand_holder.transform.position += new Vector3((float)0, 0, -(float)0.05);
                 //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float)0.005), (float)(ending_y - 0.4), (midPosition.z + (float)0.045)), time);
             }
             else
             {
-                Debug.Log("first confirming true e secondo giocatore");
-                fakeHand_holder.transform.position += new Vector3(- (float)0.02, 0,- (float)0.09);
+                //Debug.Log("first confirming true e secondo giocatore");
+                //fakeHand_holder.transform.position += new Vector3((float)0, 0,- (float)0.05);
                 //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0.005), (float)(ending_y - 0.4), (midPosition.z - (float)0.045)), time);
-                fakeHand_holder.transform.position += new Vector3(((float)0.005), 0, ((float)0.045));
+                fakeHand_holder.transform.position += new Vector3((-(float)0.02), 0, (-(float)0.04));
             }
 
         }
         else
         {
-            Debug.Log("first confirming false");
+            //Debug.Log("first confirming false");
             if (localPlayer.GetComponent<firstPlayer>().isFirstPlayer)
             {
-                Debug.Log("first confirming false e primo giocatore");
-                fakeHand_holder.transform.position += new Vector3((float)0.02, 0, (float)0.09);
-                fakeHand_holder.transform.position += new Vector3((-(float)0.005), 0, (-(float)0.045));
+                //Debug.Log("first confirming false e primo giocatore");
+                //fakeHand_holder.transform.position += new Vector3((float)0, 0, -(float)0.05);
+                fakeHand_holder.transform.position += new Vector3((-(float)0.04), 0, (-(float)0.14));
                 //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float)0.005), (float)(ending_y - 0.4), (midPosition.z + (float)0.045)), time);
             }
             else
             {
-                Debug.Log("first confirming false e secondo giocatore");
-                fakeHand_holder.transform.position += new Vector3(-(float)0.02, 0, -(float)0.09);
-                fakeHand_holder.transform.position += new Vector3(((float)0.005), 0, ((float)0.045));
+                //Debug.Log("first confirming false e secondo giocatore");
+                //fakeHand_holder.transform.position += new Vector3(-(float)0, 0, -(float)0.05);
+                fakeHand_holder.transform.position += new Vector3((-(float)0.02), 0, (-(float)0.04));
                 //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0.005), (float)(ending_y - 0.4), (midPosition.z - (float)0.045)), time);
             }
         }

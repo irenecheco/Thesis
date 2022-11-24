@@ -1895,6 +1895,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 3401693735405824894}
   - {fileID: 8533004713988359192}
   - {fileID: 8554449309108627209}
   - {fileID: 404542919657973969}
@@ -3810,6 +3811,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85fe3e82125edd640a0b1a3b0926cda5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rightHand: {fileID: 413022119107907270}
+  rightController: {fileID: 34575303170100443}
 --- !u!114 &2165573619909794533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3975,6 +3978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightController: {fileID: 34575303170100443}
+  rightHand: {fileID: 0}
   x: 0.054
   z: -0.017
   y: 0

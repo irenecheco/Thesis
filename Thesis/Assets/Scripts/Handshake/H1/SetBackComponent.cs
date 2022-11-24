@@ -8,7 +8,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class SetBackComponent : MonoBehaviour
 {
     private GameObject fakeHand;
-    [SerializeField] private GameObject NPC_handHolder;
+    public GameObject NPC_handHolder;
 
     [SerializeField] private GameObject fakeHand_holder;
     [SerializeField] private GameObject netRightController;
@@ -113,23 +113,28 @@ public class SetBackComponent : MonoBehaviour
     public IEnumerator Wait4()
     {
         float time = (float)0.25;
-        yield return new WaitForSeconds(time);
-
-        fakeHand_holder.transform.DOMove(rightHand.transform.position, time);
-        fakeHand_holder.transform.DORotateQuaternion(rightHand.transform.rotation * Quaternion.Euler(0, 0, 90), time);
+        //yield return new WaitForSeconds(time);
+        
+        if(netRightController!= null)
+        {
+            rightHand.transform.SetParent(netRightController.transform);
+            netRightController.GetComponent<NetworkHandController>().isGrabbingH3 = false;
+            fakeHand_holder.transform.DOMove(netRightController.transform.position, time);
+            fakeHand_holder.transform.DORotateQuaternion(netRightController.transform.rotation, time);
+            //rightHand.GetComponent<XRGrabInteractable>().enabled = true;
+            //rightHand.GetComponent<XRGrabInteractable>().attachTransform = rightHand.transform.GetChild(2).transform;
+        }
+        else
+        {
+            fakeHand_holder.transform.DOMove(rightHand.transform.position, time);
+            fakeHand_holder.transform.DORotateQuaternion(rightHand.transform.rotation * Quaternion.Euler(0, 0, 90), time);
+        }
+        
 
         yield return new WaitForSeconds(time);
 
         rightHand.SetActive(true);
         fakeHand.SetActive(false);
-
-        if(netRightController!= null)
-        {
-            rightHand.transform.SetParent(netRightController.transform);
-            netRightController.GetComponent<NetworkHandController>().isGrabbingH3 = false;
-            //rightHand.GetComponent<XRGrabInteractable>().enabled = true;
-            //rightHand.GetComponent<XRGrabInteractable>().attachTransform = rightHand.transform.GetChild(2).transform;
-        }
 
         localRightController.GetComponent<HandController>().isGrabbingH3 = false;
 
@@ -137,7 +142,7 @@ public class SetBackComponent : MonoBehaviour
         {
             if (NPC_handHolder.transform.parent.gameObject.name == "Mayor")
             {
-                
+                //Debug.Log("Entra in name = Mayor di set back component");
                 rightHand.transform.SetParent(NPC_handHolder.transform);
                 rightHand.transform.localPosition = new Vector3(0, 0, 0);
                 rightHand.transform.localRotation = new Quaternion(0, 0, 0, 0);
@@ -145,12 +150,17 @@ public class SetBackComponent : MonoBehaviour
                 NPCHead = NPC_handHolder.transform.parent.gameObject.transform.GetChild(0).gameObject;
                 NPCLeft = NPC_handHolder.transform.parent.gameObject.transform.GetChild(1).gameObject;
                 NPCHead.GetComponent<MayorConfirmCanvas>().secondSpeech();
+                //rightHand.GetComponent<GrabbingNPC>().isReleased();
             }
             else
             {
-                rightHand.transform.localPosition = new Vector3((float)-0.02, 0, (float)-0.09);
+                rightHand.transform.SetParent(NPC_handHolder.transform);
+                rightHand.transform.localPosition = new Vector3(0, 0, 0);
                 rightHand.transform.localRotation = new Quaternion(0, 0, 0, 0);
                 rightHand.transform.localRotation = Quaternion.Euler(0, 0, -90);
+                NPCHead = NPC_handHolder.transform.parent.gameObject.transform.GetChild(0).gameObject;
+                NPCLeft = NPC_handHolder.transform.parent.gameObject.transform.GetChild(1).gameObject;
+                secondSpeech();
             }
         }
         else

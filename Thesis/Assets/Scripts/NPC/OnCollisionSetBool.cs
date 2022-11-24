@@ -33,7 +33,7 @@ public class OnCollisionSetBool : MonoBehaviour
             if(sceneIndex == 3)
             {
                 rightHandController.GetComponent<XRDirectInteractor>().allowSelect = true;
-            } else if(sceneIndex == 3)
+            } else if(sceneIndex == 4)
             {
                 rightHandController.GetComponent<XRDirectInteractor>().allowSelect = true;
             }

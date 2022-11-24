@@ -32,7 +32,7 @@ public class NetworkHandshakeRespond : MonoBehaviour
         //rightHand = this.gameObject;
         //rightController = rightHand.transform.parent.gameObject;
         networkPlayer = rightController.transform.parent.gameObject;
-        netFakeHandHolder = networkPlayer.transform.GetChild(3).gameObject;
+        netFakeHandHolder = networkPlayer.transform.FindChildRecursive("FakeHandHolder").gameObject;
         netFakeHand = netFakeHandHolder.transform.GetChild(0).gameObject;
         head = networkPlayer.transform.GetChild(0).gameObject;
         localRightController = GameObject.Find("Camera Offset/RightHand Controller");
@@ -67,9 +67,13 @@ public class NetworkHandshakeRespond : MonoBehaviour
             localRightController.GetComponent<XRDirectInteractor>().allowSelect = false;
             localRightController.GetComponent<ActionBasedController>().enableInputTracking = true;
             //rightHand.GetComponent<XRGrabInteractable>().enabled = false;
+            netFakeHand.GetComponent<NetworkHandshakeFakeHand>().DoHandshakeH4(head.transform.position, cameraPosition, firstConf);
+        } else
+        {
+            netFakeHand.GetComponent<NetworkHandshakeFakeHand>().DoHandshake(head.transform.position, cameraPosition, firstConf);
         }        
 
-        netFakeHand.GetComponent<NetworkHandshakeFakeHand>().DoHandshakeH4(head.transform.position, cameraPosition, firstConf);        
+               
     }
 
     public IEnumerator Wait2()

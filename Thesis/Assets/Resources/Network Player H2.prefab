@@ -4081,6 +4081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightController: {fileID: 5522750049843087708}
+  rightHand: {fileID: 0}
   x: 0.054
   z: -0.017
   y: 0
@@ -4571,3 +4572,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85fe3e82125edd640a0b1a3b0926cda5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rightHand: {fileID: 5288686711420865345}
+  rightController: {fileID: 5522750049843087708}

@@ -17,13 +17,13 @@ public class GrabbingNPC : MonoBehaviour
     [SerializeField] private GameObject rightHand;
     [SerializeField] private GameObject fakeHandNPC;
     [SerializeField] private GameObject NPC_rightHand;
+    private GameObject npc_hand_holder;
 
     private GameObject local_player_right;
-    private GameObject npc_hand_holder;
     private GameObject npc;
     private GameObject npc_head;
     private GameObject npc_head_canvas;
-    private GameObject rightController;
+    [SerializeField]private GameObject rightController;
     private GameObject npc_right_mesh;
 
     public Vector3 initialPosition;
@@ -41,8 +41,11 @@ public class GrabbingNPC : MonoBehaviour
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         local_player_right = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
-        rightController = local_player_right.transform.parent.gameObject;
-    npc_hand_holder = this.transform.parent.gameObject;
+        if(rightController == null)
+        {
+            rightController = local_player_right.transform.parent.gameObject;
+        }        
+        npc_hand_holder = this.transform.parent.gameObject;
         npc = npc_hand_holder.transform.parent.gameObject;
         npc_head = npc.transform.GetChild(0).gameObject;
         if(npc.gameObject.name == "Mayor")
@@ -71,12 +74,16 @@ public class GrabbingNPC : MonoBehaviour
         local_player_right.GetComponent<HapticController>().SendHaptics2H3();
         if (firstFrame == true)
         {
+            rightController.GetComponent<HandController>().isGrabbingH3 = true;
+            if(sceneIndex == 3)
+            {
+                rightHand.GetComponent<GrabbingH3>().npcAnimationGoing = true;
+            }
             this.GetComponent<Outline>().enabled = true;
             local_player_right.GetComponent<Outline>().enabled = true;
             local_player_right.GetComponent<AudioSource>().Play();
             firstFrame = false;
-            isGrabbing = true;
-            rightController.GetComponent<HandController>().isGrabbingH3 = true;
+            isGrabbing = true;            
             if (npc.gameObject.name == "Waitress")
             {
                 npc_head_canvas = npc_head.transform.GetChild(0).gameObject;
@@ -87,6 +94,7 @@ public class GrabbingNPC : MonoBehaviour
             }
             if(sceneIndex == 4)
             {
+                rightHand.GetComponent<GrabbingH4>().npcAnimationGoing = true;
                 StartCoroutine(Wait());
             }
         }
@@ -94,13 +102,17 @@ public class GrabbingNPC : MonoBehaviour
 
     public void isReleased()
     {
+        //Debug.Log("Entra in is released");
         firstFrame = true;
         this.transform.GetComponent<XRGrabInteractable>().enabled = false;
         isGrabbing = false;
         this.GetComponent<Outline>().enabled = false;
         local_player_right.GetComponent<Outline>().enabled = false;
         rightController.GetComponent<HandController>().isGrabbingH3 = false;
-        
+        if (sceneIndex == 3)
+        {
+            rightHand.GetComponent<GrabbingH3>().npcAnimationGoing = false;
+        }
         if (npc.gameObject.name == "Mayor")
         {
             if (sceneIndex != 4)
@@ -118,7 +130,10 @@ public class GrabbingNPC : MonoBehaviour
         {
             if(releasedForCollision == false)
             {
-                npc.GetComponent<HandshakeActivationNPC2>().secondSpeech();
+                if (sceneIndex != 4)
+                {
+                    npc.GetComponent<HandshakeActivationNPC2>().secondSpeech();
+                }                
             }            
             this.GetComponent<XRGrabInteractable>().enabled = false;
         }
@@ -129,7 +144,7 @@ public class GrabbingNPC : MonoBehaviour
         float time = (float)0.25;
         //GameObject head = otherPlayer.transform.GetChild(0).gameObject;
         yield return new WaitForSeconds(time);
-        //rightController.GetComponent<XRDirectInteractor>().allowSelect = false;
+        rightController.GetComponent<XRDirectInteractor>().allowSelect = false;
         //rightController.GetComponent<ActionBasedController>().enableInputTracking = true;
 
         rightHand.SetActive(false);
@@ -139,6 +154,7 @@ public class GrabbingNPC : MonoBehaviour
         fakeHandNPC.SetActive(true);
 
         fakeHandNPC.GetComponent<SetBackComponent>().rightHand = NPC_rightHand;
+        fakeHandNPC.GetComponent<SetBackComponent>().NPC_handHolder = npc_hand_holder;
 
         fakeHand.GetComponent<HandshakeFakeHand>().DoHandshakeH4(Camera.main.transform.position, npc_head.transform.position);
         fakeHandNPC.GetComponent<HandshakeFakeHandNPC>().DoHandshakeH4(npc_head.transform.position, Camera.main.transform.position, npc_hand_holder);

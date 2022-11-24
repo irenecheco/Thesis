@@ -35,6 +35,7 @@ public class GrabbingH3 : MonoBehaviour
     private int frameNumber;
     private bool firstFrame;
     public bool isColliding;
+    public bool npcAnimationGoing;
 
     private Color baseColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     private Color waitingColor = new Color(0.4135279f, 0.7409829f, 0.9056604f, 1.0f);
@@ -42,6 +43,7 @@ public class GrabbingH3 : MonoBehaviour
     void Start()
     {
         rightController = this.transform.parent.gameObject;
+        npcAnimationGoing = false;
 
         myId = PhotonNetwork.LocalPlayer.UserId;
 
@@ -151,7 +153,7 @@ public class GrabbingH3 : MonoBehaviour
                         this.GetComponent<CollidingH3>().isGrabbing = true;
                         messageCanvas.GetComponent<Canvas>().enabled = true;
                         otherNetGrabMessageCanvas.GetComponent<Canvas>().enabled = false;
-                        rightController.GetComponent<HandController>().isGrabbingH3 = true;
+                        rightController.GetComponent<HandController>().isGrabbingH3 = true;                        
                         myNetRightController.GetComponent<NetworkHandController>().isGrabbingH3 = true;
 
                         areShaking = false;
@@ -192,7 +194,10 @@ public class GrabbingH3 : MonoBehaviour
                 }
                 messageCanvas.GetComponent<Canvas>().enabled = false;
                 this.GetComponent<CollidingH3>().isGrabbing = false;
-                rightController.GetComponent<HandController>().isGrabbingH3 = false;
+                if (npcAnimationGoing == false)
+                {
+                    rightController.GetComponent<HandController>().isGrabbingH3 = false;
+                }
                 myNetRightController.GetComponent<NetworkHandController>().isGrabbingH3 = false;
                 areShaking = false;
                 firstFrame = true;
