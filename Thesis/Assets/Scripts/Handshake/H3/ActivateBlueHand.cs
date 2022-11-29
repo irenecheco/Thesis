@@ -14,6 +14,8 @@ public class ActivateBlueHand : MonoBehaviour
     private Color waitingColor = new Color(0.4135279f, 0.7409829f, 0.9056604f, 1.0f);
     private Color baseColor = new Color(0.8000001f, 0.4848836f, 0.3660862f, 1.0f);
 
+    private System.DateTime initialTimeH3Mayor;
+
     void Start()
     {
         isReady = false;
@@ -28,6 +30,9 @@ public class ActivateBlueHand : MonoBehaviour
             isCollidingWithMayor = true;
             if (isReady)
             {
+                InteractionsCount.startedInteractionsFromMayorH3++;
+                initialTimeH3Mayor = System.DateTime.UtcNow;
+                mayor_rightMesh.transform.parent.transform.parent.GetComponent<GrabbingNPC>().initialTimeH3Mayor = initialTimeH3Mayor;
                 mayor_rightMesh.GetComponent<SkinnedMeshRenderer>().material.color = waitingColor;
                 mayor_head_canvas.GetComponent<Canvas>().enabled = true;
             }

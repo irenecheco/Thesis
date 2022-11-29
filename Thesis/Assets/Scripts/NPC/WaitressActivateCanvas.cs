@@ -134,6 +134,10 @@ public class WaitressActivateCanvas : MonoBehaviour
                 rightHandController.GetComponent<XRDirectInteractor>().allowSelect = true;
                 npcRight.GetComponent<GrabbingNPC>().releasedForCollision = false;
             }
+
+            animator_NPC_head.SetBool("Waiting", true);
+            animator_NPC_left.SetBool("Waiting", true);
+            animator_NPC_right.SetBool("Waiting", true);
         }
     }
 
@@ -175,9 +179,21 @@ public class WaitressActivateCanvas : MonoBehaviour
                 npcMessage.GetComponent<Canvas>().enabled = false;
             }
 
-            animator_NPC_head.Play("WaitressIdle_head");
-            animator_NPC_right.Play("WaitressIdle_right");
-            animator_NPC_left.Play("WaitressIdle_left");
+            if (animator_NPC_head.GetCurrentAnimatorStateInfo(0).IsName("Waitress_waiting_head"))
+            {
+                animator_NPC_head.SetBool("Waiting", false);
+                animator_NPC_right.SetBool("Waiting", false);
+                animator_NPC_left.SetBool("Waiting", false);
+            } else
+            {
+                animator_NPC_head.SetBool("Waiting", false);
+                animator_NPC_right.SetBool("Waiting", false);
+                animator_NPC_left.SetBool("Waiting", false);
+                animator_NPC_head.Play("WaitressIdle_head");
+                animator_NPC_right.Play("WaitressIdle_right");
+                animator_NPC_left.Play("WaitressIdle_left");
+            }
+                        
 
             if (npcHead.GetComponent<AudioSource>().isPlaying)
             {

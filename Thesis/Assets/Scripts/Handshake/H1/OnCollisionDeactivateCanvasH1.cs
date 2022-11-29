@@ -21,6 +21,7 @@ public class OnCollisionDeactivateCanvasH1 : MonoBehaviour
     private PhotonView colliderPhotonView;
 
     public bool firstExited;
+    //private Color baseColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
     void Start()
     {
@@ -67,6 +68,10 @@ public class OnCollisionDeactivateCanvasH1 : MonoBehaviour
                         {
                             waitingUI_r.GetComponent<Canvas>().enabled = false;
                         }
+                        GameObject myConfirmCanvas = this.transform.parent.GetChild(0).gameObject;
+                        GameObject confirmCanvas = collider.transform.GetChild(0).gameObject;
+                        confirmCanvas.GetComponent<HandshakeConfirmCanvas>().DeactivateHandshakeConfirmCanvas();
+                        myConfirmCanvas.GetComponent<HandshakeConfirmCanvas>().DeactivateHandshakeConfirmCanvas();
                         firstExited = false;
                         this.transform.parent.transform.FindChildRecursive("ActivateCollider").gameObject.GetComponent<OnCollisionActivateButtonH1>().firstEntered = true;
                     }

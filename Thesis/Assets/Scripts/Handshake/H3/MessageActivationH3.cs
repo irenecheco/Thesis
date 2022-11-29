@@ -77,7 +77,7 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
         {
             isGrabbed = true;
             messageCanvas.GetComponent<Canvas>().enabled = true;
-            rightController.GetComponent<ActionBasedController>().enableInputTracking = false;
+            //rightController.GetComponent<ActionBasedController>().enableInputTracking = false;
             rightHand.GetComponent<GrabbingH3>().SetGrabbing(this.gameObject, thisId);
             localNetRightHand.GetComponent<MessageActivationH3>().isGrabbing = true;
             localNetPlayer.GetComponent<NetworkGrabMessageActivationH3>().CallActivateGrabMessage(localId, thisId);
@@ -92,7 +92,7 @@ public class MessageActivationH3 : MonoBehaviour, IPunObservable
         {
             isGrabbed = false;
             messageCanvas.GetComponent<Canvas>().enabled = false;
-            rightController.GetComponent<ActionBasedController>().enableInputTracking = true;
+            //rightController.GetComponent<ActionBasedController>().enableInputTracking = true;
             rightHand.GetComponent<GrabbingH3>().SetReleasing(this.gameObject, thisId);
             localNetRightHand.GetComponent<MessageActivationH3>().isGrabbing = false;
             this.transform.localPosition = new Vector3(0, 0, 0);

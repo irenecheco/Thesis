@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
+using NLog.Unity;
 
 public class GrabbingH4 : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class GrabbingH4 : MonoBehaviour
     private GameObject mainCamera;
     private GameObject headLocal;
     private GameObject messageCanvas;
+    private GameObject confirmCanvas;
 
     private string myId;
     private string otherPlayerId;
@@ -38,11 +40,19 @@ public class GrabbingH4 : MonoBehaviour
     private int frameNumber;
     private bool firstFrame;
     public bool isColliding;
+    private bool firstFrameForCount;
+    private bool firstFrameForCount2;
+    private bool otherGrabbedFirst;
 
     private string player1ID;
     private string player2ID;
 
+    private System.DateTime initialTimeH4Player;
+    private System.DateTime finalTimeH4Player;
+
     private Color baseColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+    private Color yellowColor = new Color(0.8679245f, 0.8271183f, 0.4208615f, 1.0f);
+    private Color greenColor = new Color(0.4291207f, 0.7924528f, 0.6037189f, 1.0f);
     private Color waitingColor = new Color(0.4135279f, 0.7409829f, 0.9056604f, 1.0f);
 
     [SerializeField] private InputActionReference _releaseHandshake4;
@@ -62,6 +72,9 @@ public class GrabbingH4 : MonoBehaviour
         firstFrame = true;
         isColliding = false;
         npcAnimationGoing = false;
+        firstFrameForCount = true;
+        firstFrameForCount2 = true;
+        otherGrabbedFirst = false;
 
         _releaseHandshake4.action.performed += ctx =>
         { 
@@ -145,8 +158,28 @@ public class GrabbingH4 : MonoBehaviour
                     {
                         if (firstFrame == true)
                         {
-                            //If both users are grabbing they can handshake freely, if one of them release or they get to far they
+                            //If both users are grabbing handshake animation starts, if one of them release or they get to far they
                             //cannot handshake anymore
+
+                            if (otherGrabbedFirst)
+                            {
+                                InteractionsCount.finishedInteractionsH4++;
+                                finalTimeH4Player = System.DateTime.UtcNow;
+                                if (otherNetHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == baseColor)
+                                {
+                                    NLogConfig.LogLine($"{"White_Version"};TimeFromCanvasAppearing:{(finalTimeH4Player - initialTimeH4Player).TotalMilliseconds.ToString("#.00")} ms");
+                                }
+                                else if (otherNetHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == yellowColor)
+                                {
+                                    NLogConfig.LogLine($"{"Yellow_Version"};TimeFromCanvasAppearing:{(finalTimeH4Player - initialTimeH4Player).TotalMilliseconds.ToString("#.00")} ms");
+                                }
+                                else if (otherNetHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == greenColor)
+                                {
+                                    NLogConfig.LogLine($"{"Green_Version"};TimeFromCanvasAppearing:{(finalTimeH4Player - initialTimeH4Player).TotalMilliseconds.ToString("#.00")} ms");
+                                }
+                                otherGrabbedFirst = false;
+                            }                            
+
                             rightController.GetComponent<ActionBasedController>().enableInputTracking = true;
                             rightController.GetComponent<HandController>().isGrabbingH3 = true;
                             myNetRightController.GetComponent<NetworkHandController>().isGrabbingH3 = true;
@@ -169,6 +202,8 @@ public class GrabbingH4 : MonoBehaviour
                             otherNetRightHand.GetComponent<Outline>().enabled = true;
                             otherNetRightHand.GetComponent<AudioSource>().Play();
                             firstFrame = false;
+                            firstFrameForCount = true;
+                            firstFrameForCount2 = true;
 
                             SaveAndCallActivation(otherNetPlayer, otherNetRightHand);
 
@@ -184,12 +219,19 @@ public class GrabbingH4 : MonoBehaviour
                         //the other user grab my hand
                         this.GetComponent<CollidingH4>().isGrabbing = true;
                         messageCanvas.GetComponent<Canvas>().enabled = true;
+                        if (firstFrameForCount2 == true)
+                        {
+                            InteractionsCount.startedInteractionsFromTesterH4++;
+                            firstFrameForCount2 = false;
+                        }
+                        rightController.GetComponent<ActionBasedController>().enableInputTracking = false;
                         otherNetGrabMessageCanvas.GetComponent<Canvas>().enabled = false;
                         rightController.GetComponent<HandController>().isGrabbingH3 = true;
                         myNetRightController.GetComponent<NetworkHandController>().isGrabbingH3 = true;
 
                         areShaking = false;
                         firstFrame = true;
+                        firstFrameForCount = true;
                     }
                 }
             }
@@ -211,19 +253,34 @@ public class GrabbingH4 : MonoBehaviour
                         if (isColliding)
                         {
                             otherNetGrabMessageCanvas.GetComponent<Canvas>().enabled = true;
+                            otherNetGrabConfirmCanvas.GetComponent<Canvas>().enabled = false;
                         }
                         else
                         {
                             otherNetGrabMessageCanvas.GetComponent<Canvas>().enabled = false;
+                            otherNetGrabConfirmCanvas.GetComponent<Canvas>().enabled = false;
                         }
+                        firstFrameForCount = true;
+                        firstFrameForCount2 = true;
                     }
                     else
                     {
+                        if(firstFrameForCount == true)
+                        {
+                            otherGrabbedFirst = true;
+                            initialTimeH4Player = System.DateTime.UtcNow;
+                            InteractionsCount.startedInteractionsFromExperimenterH4++;
+                            firstFrameForCount = false;
+                        }
+                        
+                        otherNetGrabConfirmCanvas.GetComponent<Canvas>().enabled = true;
                         otherNetGrabMessageCanvas.GetComponent<Canvas>().enabled = false;
                         otherNetRightMesh = otherNetRightHand.transform.FindChildRecursive("hands:Lhand").gameObject;
                         otherNetRightMesh.GetComponent<SkinnedMeshRenderer>().material.color = waitingColor;
+                        firstFrameForCount2 = true;
                     }
                 }
+                rightController.GetComponent<ActionBasedController>().enableInputTracking = true;
                 messageCanvas.GetComponent<Canvas>().enabled = false;
                 this.GetComponent<CollidingH4>().isGrabbing = false;
                 if(npcAnimationGoing == false)

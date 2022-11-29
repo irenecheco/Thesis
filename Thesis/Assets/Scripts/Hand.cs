@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.XR.CoreUtils;
 
+public enum HandshakeKind : int { StartMenu, Handshake1, Handshake2, Handshake3, Handshake4 }
+
 [RequireComponent(typeof(Animator))]
 public class Hand : MonoBehaviour
 {

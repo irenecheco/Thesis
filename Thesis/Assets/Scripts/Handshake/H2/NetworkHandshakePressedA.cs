@@ -20,6 +20,8 @@ public class NetworkHandshakePressedA : MonoBehaviour
     private GameObject handMesh;
     private GameObject otherHandMesh;
 
+    private System.DateTime initialTimeH2Player;
+
     private Color baseColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     private Color waitingColor = new Color(0.4135279f, 0.7409829f, 0.9056604f, 1.0f);
 
@@ -94,6 +96,7 @@ public class NetworkHandshakePressedA : MonoBehaviour
                     {
                         GameObject confirmCanvas = otherPlayerHead.transform.Find(handshake2_confirmCanva).gameObject;
 
+                    InteractionsCount.startedInteractionsFromTesterH2++;
                         // cambia colore alla mia mano locale
                         //handMesh.GetComponent<SkinnedMeshRenderer>().material.color = waitingColor;
                         rightHand.GetComponent<HapticController>().amplitude = 0.1f;
@@ -112,6 +115,8 @@ public class NetworkHandshakePressedA : MonoBehaviour
             }
             else if (playersIds[1] == PhotonNetwork.LocalPlayer.UserId)
             {
+            GameObject localNetPlayer = null;
+            GameObject localPlayerHead = null;
                 //My user id is in position 1: the other player is pressing A button
                 foreach (var item in PhotonNetwork.PlayerList)
                 {
@@ -123,14 +128,27 @@ public class NetworkHandshakePressedA : MonoBehaviour
                         otherPlayerRightHand = otherPlayerRightController.gameObject.transform.GetChild(0).gameObject;
                         otherHandMesh = otherPlayerRightHand.transform.FindChildRecursive("hands:Lhand").gameObject;
 
-                    }
+                    } else if(item.UserId == playersIds[1])
+                {
+                    localNetPlayer = (GameObject)item.TagObject;
+                    localPlayerHead = localNetPlayer.transform.GetChild(0).gameObject;
+                }
                 }
                 if (!otherPlayer.GetComponent<PhotonView>().IsMine && otherPlayer != null && myHead.GetComponent<OnButtonAPressed>().isPressed == false)
                 {
                     GameObject confirmCanvas = otherPlayerHead.transform.Find(handshake2_confirmCanva).gameObject;
 
-                    // colora mano dell'altro
-                    otherHandMesh.GetComponent<SkinnedMeshRenderer>().material.color = waitingColor;
+                // colora mano dell'altro
+                if (!this.GetComponent<PhotonView>().IsMine)
+                {
+                    InteractionsCount.startedInteractionsFromExperimenterH2++;
+                    initialTimeH2Player = System.DateTime.UtcNow;
+                    //Debug.Log($"{initialTimeH2Player}");
+                    //Debug.Log($"Entra qui e initial tim è {initialTimeH2Player}");
+                    localPlayerHead.GetComponent<OnButtonAPressed>().initialTimeH2Player = initialTimeH2Player;
+                }
+                
+                otherHandMesh.GetComponent<SkinnedMeshRenderer>().material.color = waitingColor;
 
                     rightHand.transform.GetChild(2).gameObject.GetComponent<Canvas>().enabled = false;
                     otherPlayerHead.transform.Find(handshake2_messageCanva).gameObject.transform.GetComponent<Canvas>().enabled = false;
@@ -241,7 +259,7 @@ public class NetworkHandshakePressedA : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log($"my ispressed is {myHead.gameObject.transform.GetComponent<OnButtonAPressed>().isPressed} and my head is {myHead.gameObject.name}");
+                    //Debug.Log($"my ispressed is {myHead.gameObject.transform.GetComponent<OnButtonAPressed>().isPressed} and my head is {myHead.gameObject.name}");
                     GameObject confirmCanvas = otherPlayerHead.transform.Find(handshake2_confirmCanva).gameObject;
 
                     // colore altra mano normale

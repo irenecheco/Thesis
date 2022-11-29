@@ -13,6 +13,7 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
     private int flagH2 = 0;
     private int flagH3 = 0;
     private int flagH4 = 0;
+    private int flagH5 = 0;
 
     private int sceneIndex;
 
@@ -63,6 +64,14 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
             flagH4++;
             StartCoroutine(waitForMayor());
         }
+        /*else if (sceneIndex == 5)
+        {
+            //Debug.Log("It's scene 4");
+            spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player H5", transform.position, transform.rotation);
+            spawnedPlayerPrefab.name = $"Network Player H5 {+flagH5}";
+            flagH5++;
+            StartCoroutine(waitForMayor());
+        }*/
     }
 
     //When a player leaves a room it is destroyed 
@@ -88,6 +97,11 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
             PhotonNetwork.Destroy(spawnedPlayerPrefab);
             flagH4--;
         }
+        /*else if (sceneIndex == 5)
+        {
+            PhotonNetwork.Destroy(spawnedPlayerPrefab);
+            flagH5--;
+        }*/
     }
 
     IEnumerator waitForMayor()

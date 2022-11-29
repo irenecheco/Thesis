@@ -14,13 +14,18 @@ public class OnCollisionActivateCanvasH4 : MonoBehaviourPunCallbacks
     public GameObject otherPlayerHead;
     private GameObject messageCanvas;
     private GameObject rightHand;
+    
     private GameObject rightHandController;
     private GameObject otherPlayerRightHand;
+    
 
     public bool firstEntered;
 
+    private int sceneIndex;
+
     public void Start()
     {
+        
         rightHand = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
         rightHandController = rightHand.transform.parent.gameObject;
         firstEntered = true;
@@ -39,28 +44,30 @@ public class OnCollisionActivateCanvasH4 : MonoBehaviourPunCallbacks
                 {
                     if (firstEntered)
                     {
-                        //Debug.Log("enter collision");
-                        otherPlayerHead = collider.gameObject;
-                        otherPlayerRightHand = otherPlayerHead.transform.parent.transform.FindChildRecursive("RightHand").gameObject;
-                        rightHand.GetComponent<GrabbingH4>().otherNetRightHand = otherPlayerRightHand;
-                        this.transform.parent.transform.FindChildRecursive("DeactivateCollider").gameObject.GetComponent<OnCollisionDeactivateCanvasH4>().otherRightHand = otherPlayerRightHand;
-                        messageCanvas = otherPlayerHead.transform.GetChild(2).gameObject;
-                        messageCanvas.GetComponent<Canvas>().enabled = true;
-                        messageCanvas.GetComponent<AudioSource>().enabled = true;
-                        if (rightHand != null)
-                        {
-                            rightHand.GetComponent<HapticController>().amplitude = 0.2f;
-                            rightHand.GetComponent<HapticController>().duration = 0.2f;
-                            rightHand.GetComponent<HapticController>().SendHaptics();
-                            rightHand.GetComponent<GrabbingH4>().isColliding = true;
-                        }
-                        messageCanvas.GetComponent<AudioSource>().Play();
-                        if (rightHandController != null)
-                        {
-                            rightHandController.GetComponent<XRDirectInteractor>().allowSelect = true;
-                        }
-                        firstEntered = false;
-                        this.transform.parent.transform.FindChildRecursive("DeactivateCollider").gameObject.GetComponent<OnCollisionDeactivateCanvasH4>().firstExited = true;
+                        
+                            //Debug.Log("enter collision");
+                            otherPlayerHead = collider.gameObject;
+                            otherPlayerRightHand = otherPlayerHead.transform.parent.transform.FindChildRecursive("RightHand").gameObject;
+                            rightHand.GetComponent<GrabbingH4>().otherNetRightHand = otherPlayerRightHand;
+                            this.transform.parent.transform.FindChildRecursive("DeactivateCollider").gameObject.GetComponent<OnCollisionDeactivateCanvasH4>().otherRightHand = otherPlayerRightHand;
+                            messageCanvas = otherPlayerHead.transform.GetChild(2).gameObject;
+                            messageCanvas.GetComponent<Canvas>().enabled = true;
+                            messageCanvas.GetComponent<AudioSource>().enabled = true;
+                            if (rightHand != null)
+                            {
+                                rightHand.GetComponent<HapticController>().amplitude = 0.2f;
+                                rightHand.GetComponent<HapticController>().duration = 0.2f;
+                                rightHand.GetComponent<HapticController>().SendHaptics();
+                                rightHand.GetComponent<GrabbingH4>().isColliding = true;
+                            }
+                            messageCanvas.GetComponent<AudioSource>().Play();
+                            if (rightHandController != null)
+                            {
+                                rightHandController.GetComponent<XRDirectInteractor>().allowSelect = true;
+                            }
+                            firstEntered = false;
+                            this.transform.parent.transform.FindChildRecursive("DeactivateCollider").gameObject.GetComponent<OnCollisionDeactivateCanvasH4>().firstExited = true;
+                                                
                     }                   
                 }
             }

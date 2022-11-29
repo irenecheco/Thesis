@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
+using NLog.Unity;
 
 public class HandshakeActivationNPC2 : MonoBehaviour
 {
@@ -29,6 +30,9 @@ public class HandshakeActivationNPC2 : MonoBehaviour
 
     public bool isCollidingWithWaitress;
     public bool firstHandshake;
+
+    public System.DateTime initialTimeH2Waitress;
+    private System.DateTime finalTimeH2Waitress;
 
     [SerializeField] private InputActionReference _enableHandshake2;
 
@@ -78,7 +82,15 @@ public class HandshakeActivationNPC2 : MonoBehaviour
                     {
                         if (firstHandshake == true)
                         {
+                            finalTimeH2Waitress = System.DateTime.UtcNow;
+                            NLogConfig.LogLine($"{"Waitress"};TimeFromCanvasAppearing:{(finalTimeH2Waitress - initialTimeH2Waitress).TotalMilliseconds.ToString("#.00")} ms");
                             this.GetComponent<HandshakeActivationNPC>().StartHandshake();
+                            if(npc.name == "Waitress")
+                            {
+                                animator_NPC_right.SetBool("Waiting", false);
+                                animator_NPC_left.SetBool("Waiting", false);
+                                animator_NPC_head.SetBool("Waiting", false);
+                            }                            
                             firstHandshake = false;
                             npcHead.transform.GetChild(0).gameObject.GetComponent<Canvas>().enabled = false;
                         }

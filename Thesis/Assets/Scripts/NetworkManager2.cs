@@ -49,13 +49,13 @@ public class NetworkManager2 : MonoBehaviourPunCallbacks
     //Functions called when player joins a room: mainly for debug
     public override void OnJoinedRoom()
     {
-        Debug.Log("Joined A Room");
+        //Debug.Log("Joined A Room");
         base.OnJoinedRoom();
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        Debug.Log("A new player joined the room");
+        //Debug.Log("A new player joined the room");
         base.OnPlayerEnteredRoom(newPlayer);
         /*countPl = PhotonNetwork.CountOfPlayers;
         foreach (var item in PhotonNetwork.PlayerList)

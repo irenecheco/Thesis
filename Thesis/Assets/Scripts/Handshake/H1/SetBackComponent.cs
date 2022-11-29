@@ -108,6 +108,10 @@ public class SetBackComponent : MonoBehaviour
         animator_NPC_head.Play("WaitressSpeech_head");
         animator_NPC_right.Play("WaitressSpeech_right");
         animator_NPC_left.Play("WaitressSpeech_left");
+
+            animator_NPC_right.SetBool("Waiting", false);
+            animator_NPC_left.SetBool("Waiting", false);
+            animator_NPC_head.SetBool("Waiting", false);
     }
 
     public IEnumerator Wait4()

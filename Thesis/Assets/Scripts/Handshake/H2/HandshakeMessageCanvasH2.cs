@@ -52,7 +52,7 @@ public class HandshakeMessageCanvasH2 : MonoBehaviour, IPunObservable
     public void DeactivateHandshakeMessageCanvas()
     {
         messageActive = false;
-        Debug.Log($"chiamato deactivate, messageActive è {messageActive}");
+        //Debug.Log($"chiamato deactivate, messageActive è {messageActive}");
         /*if(handshake2MessageCanvas != null)
         {
             handshake2MessageCanvas.transform.GetComponent<Canvas>().enabled = false;

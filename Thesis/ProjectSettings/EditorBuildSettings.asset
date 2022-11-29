@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Handshake 4.unity
     guid: 46d103c1b15722a4d8b198e7f8eaf96c
+  - enabled: 0
+    path: Assets/Scenes/Handshake 5.unity
+    guid: c1e42a646eed20b4db7b88dc941e45c0
   - enabled: 1
     path: Assets/Scenes/Tutorial H1.unity
     guid: c8087cb729094ba4282a8aabc2a7b544

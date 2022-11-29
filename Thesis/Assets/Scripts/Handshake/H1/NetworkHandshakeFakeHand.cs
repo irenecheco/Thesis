@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Photon.Pun;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.SceneManagement;
 
 public class NetworkHandshakeFakeHand : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class NetworkHandshakeFakeHand : MonoBehaviour
     private GameObject rightControllerLocal;
 
     private Animator fakeHandAnimator;
+    private int sceneIndex;
 
     public double x;
     public double z;
@@ -32,6 +34,7 @@ public class NetworkHandshakeFakeHand : MonoBehaviour
 
     private void Awake()
     {
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
         fakeHand_holder = this.transform.parent.gameObject;
         fakeHandAnimator = this.GetComponent<Animator>();
 
@@ -67,42 +70,78 @@ public class NetworkHandshakeFakeHand : MonoBehaviour
         fakeHand_holder.transform.rotation = startingRotation;
 
         direction = Quaternion.LookRotation((otherPosition - myPosition), Vector3.up);
-        /*direction.x = 0;
-        direction.z = 0;*/
+        direction.x = 0;
+        direction.z = 0;
 
         fakeHand_holder.transform.DORotateQuaternion(direction, time);
         
         
         if (firstConfirming)
         {
-            Debug.Log("first confirming true");
+            //Debug.Log("first confirming true");
             if(localPlayer.GetComponent<firstPlayer>().isFirstPlayer)
             {
-                Debug.Log("first confirming true e primo giocatore");
-                fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0.005), (float)(ending_y - 0.4), (midPosition.z - (float)0.045)), time);
-                //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float)0.005), (float)(ending_y - 0.4), (midPosition.z + (float)0.045)), time);
+                //Debug.Log("first confirming true e primo giocatore");
+                if (sceneIndex == 1)
+                {
+                    //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0), (float)(ending_y - 0.4), (midPosition.z - (float)0)), time);
+                    //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0.005), (float)(ending_y - 0.4), (midPosition.z - (float)0.045)), time);
+                    fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0.03), (float)(ending_y - 0.4), (midPosition.z + (float)0.045)), time);
+                } else if(sceneIndex == 2)
+                {
+                    fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0.03), (float)(ending_y - 0.4), (midPosition.z + (float)0.045)), time);
+                    //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float)0.03), (float)(ending_y - 0.4), (midPosition.z - (float)0.045)), time);
+                }
+                
+                
             } else
             {
-                Debug.Log("first confirming true e secondo giocatore");
-                //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0.005), (float)(ending_y - 0.4), (midPosition.z - (float)0.045)), time);
-                fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float)0.005), (float)(ending_y - 0.4), (midPosition.z + (float)0.045)), time);
+                //Debug.Log("first confirming true e secondo giocatore");
+                if (sceneIndex == 1)
+                {
+                    fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float)0.03), (float)(ending_y - 0.4), (midPosition.z - (float)0.045)), time);
+                    //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float)0.005), (float)(ending_y - 0.4), (midPosition.z + (float)0.045)), time);
+                } else if(sceneIndex == 2)
+                {
+                    fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float)0.03), (float)(ending_y - 0.4), (midPosition.z - (float)0.045)), time);
+                    //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0.03), (float)(ending_y - 0.4), (midPosition.z + (float)0.045)), time);
+                }
             }
             
         }
         else
         {
-            Debug.Log("first confirming false");
+            //Debug.Log("first confirming false");
             if (localPlayer.GetComponent<firstPlayer>().isFirstPlayer)
             {
-                Debug.Log("first confirming false e primo giocatore");
-                fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0.005), (float)(ending_y - 0.4), (midPosition.z - (float)0.045)), time);
-                //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float)0.005), (float)(ending_y - 0.4), (midPosition.z + (float)0.045)), time);
+                //Debug.Log("first confirming false e primo giocatore");
+                if (sceneIndex == 1)
+                {
+                    //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0), (float)(ending_y - 0.4), (midPosition.z - (float)0)), time);
+                    //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0.005), (float)(ending_y - 0.4), (midPosition.z - (float)0.045)), time);
+                    fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0.03), (float)(ending_y - 0.4), (midPosition.z + (float)0.045)), time);
+                } else if(sceneIndex == 2)
+                {
+                    fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0.03), (float)(ending_y - 0.4), (midPosition.z + (float)0.045)), time);
+                    //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float)0.03), (float)(ending_y - 0.4), (midPosition.z - (float)0.045)), time);
+                }
+                
+                
             }
             else
             {
-                Debug.Log("first confirming false e secondo giocatore");
-                fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float)0.005), (float)(ending_y - 0.4), (midPosition.z + (float)0.045)), time);
-                //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0.005), (float)(ending_y - 0.4), (midPosition.z - (float)0.045)), time);
+                //Debug.Log("first confirming false e secondo giocatore");
+                if(sceneIndex == 1)
+                {
+                    //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float)0.005), (float)(ending_y - 0.4), (midPosition.z + (float)0.045)), time);
+                    fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float)0.03), (float)(ending_y - 0.4), (midPosition.z - (float)0.045)), time);
+                    //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0.03), (float)(ending_y - 0.4), (midPosition.z + (float)0.045)), time);
+                } else if(sceneIndex == 2)
+                {
+                    //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0.03), (float)(ending_y - 0.4), (midPosition.z + (float)0.045)), time);
+                    fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float)0.03), (float)(ending_y - 0.4), (midPosition.z - (float)0.045)), time);
+                }
+                
             }
         }
         
@@ -129,12 +168,13 @@ public class NetworkHandshakeFakeHand : MonoBehaviour
             ending_y = otherPosition.y;
         }*/
 
-        //midPosition = Vector3.Lerp(otherPosition, myPosition, 0.5f);
+        midPosition = Vector3.Lerp(otherPosition, myPosition, 0.5f);
 
         startingPosition = rightControllerLocal.transform.position;
         startingRotation = rightControllerLocal.transform.rotation;
 
-        fakeHand_holder.transform.position = startingPosition;
+        //fakeHand_holder.transform.position = startingPosition;
+        fakeHand_holder.transform.position = new Vector3(midPosition.x, startingPosition.y, midPosition.z);
         
         //fakeHand_holder.transform.rotation = Quaternion.Euler(0, 180, -90);
 
@@ -152,7 +192,8 @@ public class NetworkHandshakeFakeHand : MonoBehaviour
             if (localPlayer.GetComponent<firstPlayer>().isFirstPlayer)
             {
                 //Debug.Log("first confirming true e primo giocatore");
-                fakeHand_holder.transform.position += new Vector3((-(float)0.04), 0, (-(float)0.14));
+                //fakeHand_holder.transform.position += new Vector3((+(float)0.03), 0, (-(float)0.045));
+                fakeHand_holder.transform.position += new Vector3((-(float)0.03), 0, (+(float)0.02));
                 //fakeHand_holder.transform.position += new Vector3((float)0, 0, -(float)0.05);
                 //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float)0.005), (float)(ending_y - 0.4), (midPosition.z + (float)0.045)), time);
             }
@@ -161,7 +202,8 @@ public class NetworkHandshakeFakeHand : MonoBehaviour
                 //Debug.Log("first confirming true e secondo giocatore");
                 //fakeHand_holder.transform.position += new Vector3((float)0, 0,- (float)0.05);
                 //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0.005), (float)(ending_y - 0.4), (midPosition.z - (float)0.045)), time);
-                fakeHand_holder.transform.position += new Vector3((-(float)0.02), 0, (-(float)0.04));
+                //fakeHand_holder.transform.position += new Vector3((-(float)0.03), 0, (+(float)0.045));
+                fakeHand_holder.transform.position += new Vector3((+(float)0.03), 0, (-(float)0.02));
             }
 
         }
@@ -172,14 +214,16 @@ public class NetworkHandshakeFakeHand : MonoBehaviour
             {
                 //Debug.Log("first confirming false e primo giocatore");
                 //fakeHand_holder.transform.position += new Vector3((float)0, 0, -(float)0.05);
-                fakeHand_holder.transform.position += new Vector3((-(float)0.04), 0, (-(float)0.14));
+                fakeHand_holder.transform.position += new Vector3((-(float)0.03), 0, (+(float)0.02));
+                //fakeHand_holder.transform.position += new Vector3((+(float)0.03), 0, (-(float)0.045));
                 //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float)0.005), (float)(ending_y - 0.4), (midPosition.z + (float)0.045)), time);
             }
             else
             {
                 //Debug.Log("first confirming false e secondo giocatore");
-                //fakeHand_holder.transform.position += new Vector3(-(float)0, 0, -(float)0.05);
-                fakeHand_holder.transform.position += new Vector3((-(float)0.02), 0, (-(float)0.04));
+                //fakeHand_holder.transform.position += new Vector3(-(float)0, 0, -(float)0.05);                
+                //fakeHand_holder.transform.position += new Vector3((-(float)0.03), 0, (+(float)0.045));
+                fakeHand_holder.transform.position += new Vector3((+(float)0.03), 0, (-(float)0.02));
                 //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0.005), (float)(ending_y - 0.4), (midPosition.z - (float)0.045)), time);
             }
         }

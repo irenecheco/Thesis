@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.XR;
 using Photon.Pun;
 using UnityEngine.InputSystem;
+using NLog.Unity;
 
 public class OnButtonAPressed : MonoBehaviour, IPunObservable
 {
@@ -22,6 +23,8 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
     private GameObject handMesh;
 
     private Color baseColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+    private Color yellowColor = new Color(0.8679245f, 0.8271183f, 0.4208615f, 1.0f);
+    private Color greenColor = new Color(0.4291207f, 0.7924528f, 0.6037189f, 1.0f);
 
     private string player1ID;
     private string player2ID;
@@ -31,6 +34,9 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
     public bool animationGoing;
 
     PhotonView photonView;
+
+    public System.DateTime initialTimeH2Player;
+    private System.DateTime finalTimeH2Player;
 
     private string handshake2_messageCanva = "Handshake 2 message";
 
@@ -70,6 +76,20 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
                             {
                                 if (animationGoing == false)
                                 {
+                                    InteractionsCount.finishedInteractionsH2++;
+                                    finalTimeH2Player = System.DateTime.UtcNow;
+                                    if (otherPlayerHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == baseColor)
+                                    {
+                                        NLogConfig.LogLine($"{"White_Version"};TimeFromCanvasAppearing:{(finalTimeH2Player - initialTimeH2Player).TotalMilliseconds.ToString("#.00")} ms");
+                                    }
+                                    else if (otherPlayerHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == yellowColor)
+                                    {
+                                        NLogConfig.LogLine($"{"Yellow_Version"};TimeFromCanvasAppearing:{(finalTimeH2Player - initialTimeH2Player).TotalMilliseconds.ToString("#.00")} ms");
+                                    }
+                                    else if (otherPlayerHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == greenColor)
+                                    {
+                                        NLogConfig.LogLine($"{"Green_Version"};TimeFromCanvasAppearing:{(finalTimeH2Player - initialTimeH2Player).TotalMilliseconds.ToString("#.00")} ms");
+                                    }
                                     //Debug.Log("Entrambi gli isPressed sono true");
                                     animationGoing = true;
                                     myPlayer.GetComponent<NetworkHandshakeActivationH2>().CallActivationOverNetwork(player1ID, player2ID);
@@ -132,23 +152,25 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
 
         player1ID = PhotonNetwork.LocalPlayer.UserId;
 
-        //ids saved
-
-        if (isPressed == true)
+        if(player1ID!= null && player2ID != null)
         {
-            //firstCall is a boolean that is true if the previous frame the button was not pressed, so that the method over
-            //the network gets called only on the pressure of the button and not every frame that the button is held
-            if (firstCall == true)
+            if (isPressed == true)
             {
-                //Debug.Log("Entra in firstcall true");
-                firstCall = false;
-                myHead.transform.GetComponent<NetworkHandshakePressedA>().CallPressedAOverNetwork(player1ID, player2ID);
+                //firstCall is a boolean that is true if the previous frame the button was not pressed, so that the method over
+                //the network gets called only on the pressure of the button and not every frame that the button is held
+                if (firstCall == true)
+                {
+                    //Debug.Log("Entra in firstcall true");
+                    firstCall = false;
+                    myHead.transform.GetComponent<NetworkHandshakePressedA>().CallPressedAOverNetwork(player1ID, player2ID);
+                }
+            }
+            else
+            {
+                firstCall = true;
+                myHead.transform.GetComponent<NetworkHandshakePressedA>().CallReleasedAOverNetwork(player1ID, player2ID);
             }
         }
-        else
-        {
-            firstCall = true;
-            myHead.transform.GetComponent<NetworkHandshakePressedA>().CallReleasedAOverNetwork(player1ID, player2ID);
-        }    
+        //ids saved           
     }
 }

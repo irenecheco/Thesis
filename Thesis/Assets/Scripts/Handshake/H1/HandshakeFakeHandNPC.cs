@@ -49,8 +49,8 @@ public class HandshakeFakeHandNPC : MonoBehaviour
         fakeHand_holder.transform.rotation = startingRotation * Quaternion.Euler(0, 0, 90);
 
         direction = Quaternion.LookRotation((playerPosition - NPCPosition), Vector3.up);
-        /*direction.x = 0;
-        direction.z = 0;*/
+        direction.x = 0;
+        direction.z = 0;
 
         fakeHand_holder.transform.DORotateQuaternion(direction, time);
         fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0.042), (float)(ending_y - 0.39), (midPosition.z + (float)0.01)), time);
@@ -79,20 +79,29 @@ public class HandshakeFakeHandNPC : MonoBehaviour
 
     public void DoHandshakeH4(Vector3 NPCPosition, Vector3 playerPosition, GameObject NPCHand_holder)
     {
+        midPosition = Vector3.Lerp(playerPosition, NPCPosition, 0.5f);
+
         startingPosition = rightController.transform.position;
         startingRotation = rightController.transform.rotation;
 
         rightController.transform.FindChildRecursive("RightHand").GetComponent<GrabbingH4>().npcAnimationGoing = true;
 
-        fakeHand_holder.transform.position = startingPosition;
+        fakeHand_holder.transform.position = new Vector3(midPosition.x, startingPosition.y, midPosition.z);
+        //fakeHand_holder.transform.position = startingPosition;
 
+        direction = Quaternion.LookRotation((playerPosition - NPCPosition), Vector3.up);
+        direction.x = 0;
+        direction.z = 0;
+
+        fakeHand_holder.transform.DORotateQuaternion(direction, 0f);
         /*direction = Quaternion.LookRotation((otherPosition - myPosition), Vector3.up);
         direction.x = 0;
         direction.z = 0;*/
 
-        fakeHand_holder.transform.rotation = Quaternion.LookRotation(playerPosition - NPCPosition, Vector3.up);
-        fakeHand_holder.transform.position += new Vector3(-(float)0.02, 0, -(float)0.09);
-        fakeHand_holder.transform.position += new Vector3(((float)0.005), 0, ((float)0.045));
+        //fakeHand_holder.transform.rotation = Quaternion.LookRotation(playerPosition - NPCPosition, Vector3.up);
+        //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x - (float)0.042), (float)(ending_y - 0.39), (midPosition.z + (float)0.01)), time);
+        fakeHand_holder.transform.position += new Vector3(-(float)0.042, 0, +(float)0.01);
+        //fakeHand_holder.transform.position += new Vector3(((float)0.005), 0, ((float)0.045));
 
         //fakeHand_holder.transform.DORotateQuaternion(direction * Quaternion.AngleAxis((float)10.0, transform.forward), 0f);
         //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float) 0.017), (float)(ending_y - 0.4), (midPosition.z - (float)0.015)), time);

@@ -19,10 +19,6 @@ public class NetworkHandshakeActivationH4 : MonoBehaviour
     private GameObject otherHand;
     private GameObject otherPlayer;
     private GameObject confirmCanvas;
-    /*private GameObject waitConfirmUI_l;
-    private GameObject handshakeUI_l;
-    private GameObject waitConfirmUI_r;
-    private GameObject handshakeUI_r;*/
     private GameObject myHead;
     private GameObject localNetPlayer;
     private PhotonView photonView;
@@ -42,11 +38,6 @@ public class NetworkHandshakeActivationH4 : MonoBehaviour
         {
             localNetPlayer = this.gameObject;
         }
-
-        /*waitConfirmUI_l = leftHand.transform.GetChild(3).gameObject;
-        handshakeUI_l = leftHand.transform.GetChild(2).gameObject;
-        waitConfirmUI_r = rightHand.transform.GetChild(3).gameObject;
-        handshakeUI_r = rightHand.transform.GetChild(2).gameObject;*/
 
         rightController = GameObject.Find("Camera Offset/RightHand Controller");
         fakeHandHolder = GameObject.Find("FakeHandHolder");
@@ -136,14 +127,17 @@ public class NetworkHandshakeActivationH4 : MonoBehaviour
                     {*/
                     otherHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, false);
                     otherHand.GetComponent<MessageActivationH4>().isGrabbing = false;
-                    
+
                     /*}
                     else
                     {
                         otherHand = rHandContainer.transform.GetChild(1).gameObject;
                         otherHand.GetComponent<NetworkHandshakeRespond>().OnHandshakePressed(camera.transform.position, false);
                     }*/
-                    StartCoroutine(Wait());
+                    if (rightHand.activeSelf)
+                    {
+                        StartCoroutine(Wait());
+                    }                    
                 }
             }
         }
@@ -163,18 +157,5 @@ public class NetworkHandshakeActivationH4 : MonoBehaviour
         fakeHand.SetActive(true);
 
         fakeHand.GetComponent<HandshakeFakeHand>().DoHandshakeH4(camera.transform.position, head.transform.position);
-
-        /*if(waitConfirmUI_l.GetComponent<Canvas>().enabled == true)
-        {
-            waitConfirmUI_l.GetComponent<Canvas>().enabled = false;
-            handshakeUI_l.GetComponent<Canvas>().enabled = true;
-        }
-        if(waitConfirmUI_r.GetComponent<Canvas>().enabled == true)
-        {
-            waitConfirmUI_r.GetComponent<Canvas>().enabled = false;
-            handshakeUI_r.GetComponent<Canvas>().enabled = true;
-        }*/       
-
-        //confirmCanvas.GetComponent<HandshakeConfirmCanvas>().DeactivateHandshakeConfirmCanvas();
     }
 }

@@ -1,0 +1,756 @@
+2022/11/29/01:52:09:786 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/01:52:12:434 [DEBUG] Unity: Try Connect To Server...
+2022/11/29/01:52:13:338 [WARN]  Unity: PUN is in development mode (development build). As the 'dev region' is not empty (eu) it overrides the found best region. See PhotonServerSettings.
+2022/11/29/01:52:13:693 [DEBUG] Unity: Connected To Server.
+2022/11/29/01:52:13:757 [DEBUG] Unity: Lobby joined
+2022/11/29/01:52:13:760 [DEBUG] Unity: numero giocatori è 1
+2022/11/29/01:52:15:515 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
+2022/11/29/01:52:23:633 [DEBUG] Unity: ;LOGLINE;Mayor;TimeFromCanvasAppearing:933,64 ms
+2022/11/29/01:52:27:236 [WARN]  Unity: BoxColliders does not support negative scale or size.
+The effective box size has been forced positive and is likely to give unexpected collision geometry.
+If you absolutely need to use negative scaling you can use the convex MeshCollider. Scene hierarchy path "Mayor/Hand_holder/NPC_RightHand/hands:l_hand_world/hands:b_l_hand/collider_palm"
+2022/11/29/10:19:02:147 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/10:19:02:204 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/10:19:02:205 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 0
+2022/11/29/10:19:02:206 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:19:02:206 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:19:02:207 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:19:02:207 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:19:02:208 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/10:19:02:209 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:19:02:209 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:19:02:210 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:19:02:211 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:19:02:211 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:19:02:212 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/10:19:02:212 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:19:02:213 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:19:02:213 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:19:02:214 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:19:02:214 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:19:02:215 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/10:19:02:215 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:19:02:216 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:19:02:216 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:19:02:217 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:19:02:217 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:19:05:534 [WARN]  Unity: PUN is in development mode (development build). As the 'dev region' is not empty (eu) it overrides the found best region. See PhotonServerSettings.
+2022/11/29/10:19:09:470 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
+2022/11/29/10:19:18:300 [DEBUG] Unity: ;LOGLINE;Mayor;TimeFromCanvasAppearing:1752,76 ms
+2022/11/29/10:19:21:905 [WARN]  Unity: BoxColliders does not support negative scale or size.
+The effective box size has been forced positive and is likely to give unexpected collision geometry.
+If you absolutely need to use negative scaling you can use the convex MeshCollider. Scene hierarchy path "Mayor/Hand_holder/NPC_RightHand/hands:l_hand_world/hands:b_l_hand/collider_palm"
+2022/11/29/10:19:25:599 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/10:19:25:600 [WARN]  Unity: Received OnSerialization for view ID 1002. We have no such PhotonView! Ignore this if you're joining or leaving a room. State: Leaving
+2022/11/29/10:19:25:601 [WARN]  Unity: Received OnSerialization for view ID 1001. We have no such PhotonView! Ignore this if you're joining or leaving a room. State: Leaving
+2022/11/29/10:19:25:602 [WARN]  Unity: Received OnSerialization for view ID 1002. We have no such PhotonView! Ignore this if you're joining or leaving a room. State: Leaving
+2022/11/29/10:19:25:605 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/10:19:25:606 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 0
+2022/11/29/10:19:25:606 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 1
+2022/11/29/10:19:25:607 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:19:25:607 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:19:25:608 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 1
+2022/11/29/10:19:25:608 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/10:19:25:609 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:19:25:609 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:19:25:610 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:19:25:610 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:19:25:611 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:19:25:612 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/10:19:25:612 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:19:25:613 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:19:25:613 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:19:25:614 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:19:25:614 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:19:25:615 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/10:19:25:615 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:19:25:616 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:19:25:616 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:19:25:617 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:19:25:617 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:19:31:164 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
+2022/11/29/10:23:19:807 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/10:23:19:863 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/10:23:19:864 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 0
+2022/11/29/10:23:19:864 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:23:19:865 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:23:19:865 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:23:19:866 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:23:19:866 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/10:23:19:867 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:23:19:868 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:23:19:868 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:23:19:869 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:23:19:869 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:23:19:870 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/10:23:19:871 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:23:19:871 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:23:19:872 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:23:19:872 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:23:19:873 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:23:19:873 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/10:23:19:874 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:23:19:874 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:23:19:875 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:23:19:875 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:23:19:876 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:23:23:493 [WARN]  Unity: PUN is in development mode (development build). As the 'dev region' is not empty (eu) it overrides the found best region. See PhotonServerSettings.
+2022/11/29/10:23:28:270 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
+2022/11/29/10:23:34:184 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:23:47:602 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:24:01:801 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:24:04:673 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:24:06:846 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:27:48:819 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/10:27:48:873 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/10:27:48:874 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 0
+2022/11/29/10:27:48:875 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:27:48:875 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:27:48:876 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:27:48:877 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:27:48:877 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/10:27:48:878 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:27:48:879 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:27:48:879 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:27:48:880 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:27:48:881 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:27:48:881 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/10:27:48:882 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:27:48:882 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:27:48:883 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:27:48:884 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:27:48:884 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:27:48:885 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/10:27:48:885 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:27:48:886 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:27:48:887 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:27:48:887 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:27:48:888 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:27:52:338 [WARN]  Unity: PUN is in development mode (development build). As the 'dev region' is not empty (eu) it overrides the found best region. See PhotonServerSettings.
+2022/11/29/10:27:56:983 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
+2022/11/29/10:28:01:738 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:28:17:063 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:28:19:110 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:28:34:509 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:28:36:152 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:28:37:157 [DEBUG] Unity: ;LOGLINE;White_Version;TimeFromCanvasAppearing:11530,04 ms
+2022/11/29/10:30:14:535 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/10:30:14:591 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/10:30:14:592 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 0
+2022/11/29/10:30:14:593 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:30:14:593 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:30:14:594 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:30:14:594 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:30:14:595 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/10:30:14:595 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:30:14:596 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:30:14:596 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:30:14:597 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:30:14:597 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:30:14:598 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/10:30:14:598 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:30:14:599 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:30:14:599 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:30:14:600 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:30:14:600 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:30:14:601 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/10:30:14:601 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:30:14:602 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:30:14:602 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:30:14:603 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:30:14:605 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:30:18:069 [WARN]  Unity: PUN is in development mode (development build). As the 'dev region' is not empty (eu) it overrides the found best region. See PhotonServerSettings.
+2022/11/29/10:30:30:026 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
+2022/11/29/10:30:30:502 [DEBUG] Unity: collider è Network Player H1(Clone) e canva è Handshake Confirm
+2022/11/29/10:30:32:377 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/10:30:32:378 [WARN]  Unity: Received OnSerialization for view ID 1002. We have no such PhotonView! Ignore this if you're joining or leaving a room. State: Leaving
+2022/11/29/10:30:32:380 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/10:30:32:380 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 0
+2022/11/29/10:30:32:382 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:30:32:382 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:30:32:383 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:30:32:383 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:30:32:384 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/10:30:32:385 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:30:32:385 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:30:32:386 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:30:32:386 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:30:32:387 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:30:32:387 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/10:30:32:388 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:30:32:389 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:30:32:389 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:30:32:390 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:30:32:390 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:30:32:391 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/10:30:32:391 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:30:32:392 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:30:32:393 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:30:32:393 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:30:32:394 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:30:36:651 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
+2022/11/29/10:30:37:141 [DEBUG] Unity: collider è Network Player H1(Clone) e canva è Handshake Confirm
+2022/11/29/10:30:38:375 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/10:30:38:377 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/10:30:38:378 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 0
+2022/11/29/10:30:38:378 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:30:38:379 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:30:38:380 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:30:38:380 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:30:38:381 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/10:30:38:381 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:30:38:382 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:30:38:383 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:30:38:384 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:30:38:384 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:30:38:385 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/10:30:38:385 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:30:38:386 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:30:38:386 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:30:38:387 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:30:38:388 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:30:38:388 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/10:30:38:389 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:30:38:389 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:30:38:390 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:30:38:390 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:30:38:391 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:30:46:899 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
+2022/11/29/10:30:47:358 [DEBUG] Unity: collider è Network Player H1(Clone) e canva è Handshake Confirm
+2022/11/29/10:31:40:120 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/10:31:40:170 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/10:31:40:171 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 0
+2022/11/29/10:31:40:172 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:31:40:172 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:31:40:173 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:31:40:174 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:31:40:174 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/10:31:40:175 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:31:40:175 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:31:40:176 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:31:40:176 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:31:40:177 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:31:40:177 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/10:31:40:178 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:31:40:178 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:31:40:179 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:31:40:179 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:31:40:180 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:31:40:180 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/10:31:40:181 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:31:40:181 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:31:40:182 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:31:40:182 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:31:40:183 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:32:10:690 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/10:32:10:743 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/10:32:10:743 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 0
+2022/11/29/10:32:10:744 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:32:10:745 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:32:10:745 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:32:10:746 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:32:10:746 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/10:32:10:747 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:32:10:747 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:32:10:748 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:32:10:748 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:32:10:749 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:32:10:749 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/10:32:10:750 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:32:10:750 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:32:10:751 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:32:10:751 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:32:10:752 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:32:10:752 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/10:32:10:753 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:32:10:753 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:32:10:754 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:32:10:755 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:32:10:755 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:32:15:037 [WARN]  Unity: PUN is in development mode (development build). As the 'dev region' is not empty (eu) it overrides the found best region. See PhotonServerSettings.
+2022/11/29/10:32:20:464 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
+2022/11/29/10:32:20:897 [DEBUG] Unity: collider è Network Player H1(Clone) e canva è Handshake Confirm
+2022/11/29/10:32:25:075 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:32:41:181 [DEBUG] Unity: collider è Network Player H1(Clone) e canva è Handshake Confirm
+2022/11/29/10:33:32:253 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:33:33:495 [DEBUG] Unity: collider è Network Player H1(Clone) e canva è Handshake Confirm
+2022/11/29/10:33:45:615 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:33:48:889 [DEBUG] Unity: collider è Network Player H1(Clone) e canva è Handshake Confirm
+2022/11/29/10:36:09:850 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/10:36:09:907 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/10:36:09:908 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 0
+2022/11/29/10:36:09:909 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:36:09:909 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:36:09:910 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:36:09:911 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:36:09:911 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/10:36:09:912 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:36:09:912 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:36:09:913 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:36:09:913 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:36:09:914 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:36:09:914 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/10:36:09:915 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:36:09:916 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:36:09:916 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:36:09:917 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:36:09:917 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:36:09:918 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/10:36:09:918 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:36:09:919 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:36:09:920 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:36:09:921 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:36:09:921 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:36:12:699 [WARN]  Unity: PUN is in development mode (development build). As the 'dev region' is not empty (eu) it overrides the found best region. See PhotonServerSettings.
+2022/11/29/10:36:18:680 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
+2022/11/29/10:36:22:354 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/10:36:22:355 [WARN]  Unity: Received OnSerialization for view ID 1002. We have no such PhotonView! Ignore this if you're joining or leaving a room. State: Leaving
+2022/11/29/10:36:22:357 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/10:36:22:358 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 1
+2022/11/29/10:36:22:359 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:36:22:359 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:36:22:360 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:36:22:360 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:36:22:361 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/10:36:22:362 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:36:22:362 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:36:22:363 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:36:22:363 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:36:22:364 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:36:22:364 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/10:36:22:366 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:36:22:366 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:36:22:367 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:36:22:367 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:36:22:368 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:36:22:368 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/10:36:22:369 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:36:22:370 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:36:22:370 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:36:22:371 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:36:22:371 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:36:22:429 [WARN]  Unity: Received OnSerialization for view ID 1002. We have no such PhotonView! Ignore this if you're joining or leaving a room. State: Leaving
+2022/11/29/10:36:30:809 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
+2022/11/29/10:36:33:362 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/10:36:33:365 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/10:36:33:365 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 2
+2022/11/29/10:36:33:366 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:36:33:367 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:36:33:367 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:36:33:368 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:36:33:368 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/10:36:33:369 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:36:33:370 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:36:33:371 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:36:33:371 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:36:33:372 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:36:33:373 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/10:36:33:374 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:36:33:375 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:36:33:375 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:36:33:376 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:36:33:377 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:36:33:377 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/10:36:33:378 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:36:33:378 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:36:33:379 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:36:33:379 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:36:33:380 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:36:49:901 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/10:36:49:952 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/10:36:49:953 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 0
+2022/11/29/10:36:49:954 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:36:49:954 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:36:49:955 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:36:49:956 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:36:49:956 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/10:36:49:957 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:36:49:957 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:36:49:958 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:36:49:958 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:36:49:959 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:36:49:959 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/10:36:49:960 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:36:49:960 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:36:49:961 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:36:49:961 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:36:49:962 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:36:49:963 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/10:36:49:963 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:36:49:964 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:36:49:965 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:36:49:965 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:36:49:966 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:36:53:396 [WARN]  Unity: PUN is in development mode (development build). As the 'dev region' is not empty (eu) it overrides the found best region. See PhotonServerSettings.
+2022/11/29/10:36:58:198 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
+2022/11/29/10:37:03:002 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:37:05:897 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:37:10:228 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:37:13:095 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:37:21:881 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:37:29:440 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:37:31:844 [DEBUG] Unity: ;LOGLINE;White_Version;TimeFromCanvasAppearing:3836,59 ms
+2022/11/29/10:41:25:680 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/10:41:25:728 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/10:41:25:729 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 0
+2022/11/29/10:41:25:729 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:41:25:730 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:41:25:731 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:41:25:732 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:41:25:732 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/10:41:25:733 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:41:25:733 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:41:25:734 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:41:25:734 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:41:25:735 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:41:25:735 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/10:41:25:736 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:41:25:736 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:41:25:737 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:41:25:737 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:41:25:738 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:41:25:738 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/10:41:25:739 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:41:25:739 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:41:25:740 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:41:25:741 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:41:25:741 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:41:29:186 [WARN]  Unity: PUN is in development mode (development build). As the 'dev region' is not empty (eu) it overrides the found best region. See PhotonServerSettings.
+2022/11/29/10:41:34:514 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
+2022/11/29/10:41:38:598 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:41:56:598 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:42:02:098 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:42:05:816 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:42:09:991 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:42:12:345 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:42:15:923 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:42:18:595 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:51:52:819 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/10:51:52:913 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/10:51:52:914 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 0
+2022/11/29/10:51:52:915 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:51:52:915 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:51:52:916 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:51:52:916 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:51:52:918 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/10:51:52:919 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:51:52:920 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:51:52:920 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:51:52:921 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:51:52:922 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:51:52:922 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/10:51:52:923 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:51:52:924 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:51:52:924 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:51:52:925 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:51:52:925 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:51:52:926 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/10:51:52:927 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:51:52:927 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:51:52:928 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:51:52:928 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:51:52:929 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:51:56:623 [WARN]  Unity: PUN is in development mode (development build). As the 'dev region' is not empty (eu) it overrides the found best region. See PhotonServerSettings.
+2022/11/29/10:52:02:764 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
+2022/11/29/10:52:09:433 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:52:20:005 [DEBUG] Unity: ;LOGLINE;White_Version;TimeFromCanvasAppearing:3725,52 ms
+2022/11/29/10:57:45:410 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/10:57:45:463 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/10:57:45:464 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 0
+2022/11/29/10:57:45:464 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:57:45:465 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:57:45:465 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:57:45:466 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:57:45:467 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/10:57:45:467 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:57:45:468 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:57:45:468 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:57:45:469 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:57:45:469 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:57:45:470 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/10:57:45:470 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:57:45:471 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:57:45:472 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:57:45:472 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:57:45:473 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:57:45:473 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/10:57:45:474 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:57:45:474 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:57:45:475 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:57:45:475 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:57:45:477 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:57:49:124 [WARN]  Unity: PUN is in development mode (development build). As the 'dev region' is not empty (eu) it overrides the found best region. See PhotonServerSettings.
+2022/11/29/10:57:54:078 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
+2022/11/29/10:57:59:250 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:58:00:392 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:58:13:895 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:58:16:318 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:58:28:137 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:58:59:884 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/10:58:59:886 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/10:58:59:887 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 2
+2022/11/29/10:58:59:887 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 1
+2022/11/29/10:58:59:888 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:58:59:888 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 2
+2022/11/29/10:58:59:889 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:58:59:889 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/10:58:59:890 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:58:59:891 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:58:59:891 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:58:59:892 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:58:59:892 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:58:59:893 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/10:58:59:893 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:58:59:894 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:58:59:894 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:58:59:895 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:58:59:895 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:58:59:896 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/10:58:59:897 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:58:59:897 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:58:59:898 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:58:59:898 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:58:59:899 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:59:01:967 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake2
+2022/11/29/10:59:07:174 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:59:30:090 [WARN]  Unity: Can not play a disabled audio source
+2022/11/29/10:59:37:193 [DEBUG] Unity: ;LOGLINE;White_Version;TimeFromCanvasAppearing:923,01 ms
+2022/11/29/10:59:43:303 [DEBUG] Unity: ;LOGLINE;White_Version;TimeFromCanvasAppearing:7034,22 ms
+2022/11/29/10:59:53:189 [DEBUG] Unity: ;LOGLINE;White_Version;TimeFromCanvasAppearing:936,87 ms
+2022/11/29/10:59:58:538 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/10:59:58:540 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/10:59:58:540 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 2
+2022/11/29/10:59:58:541 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 1
+2022/11/29/10:59:58:541 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:59:58:542 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 2
+2022/11/29/10:59:58:543 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:59:58:543 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/10:59:58:544 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 11
+2022/11/29/10:59:58:544 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 1
+2022/11/29/10:59:58:545 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:59:58:546 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 3
+2022/11/29/10:59:58:546 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 3
+2022/11/29/10:59:58:547 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/10:59:58:547 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:59:58:548 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:59:58:548 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:59:58:549 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:59:58:549 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/10:59:58:550 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/10:59:58:551 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/10:59:58:551 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/10:59:58:552 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/10:59:58:552 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/10:59:58:553 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/11:00:01:645 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake4
+2022/11/29/11:00:02:031 [WARN]  Unity: BoxColliders does not support negative scale or size.
+The effective box size has been forced positive and is likely to give unexpected collision geometry.
+If you absolutely need to use negative scaling you can use the convex MeshCollider. Scene hierarchy path "Network Player H3 0/Right Hand/RightHand/hands:l_hand_world/collider_palm"
+2022/11/29/11:00:16:300 [WARN]  Unity: BoxColliders does not support negative scale or size.
+The effective box size has been forced positive and is likely to give unexpected collision geometry.
+If you absolutely need to use negative scaling you can use the convex MeshCollider. Scene hierarchy path "Network Player H3(Clone)/Right Hand/RightHand/hands:l_hand_world/collider_palm"
+2022/11/29/11:00:22:866 [DEBUG] Unity: ;LOGLINE;White_Version;TimeFromCanvasAppearing:2167,59 ms
+2022/11/29/11:00:22:882 [WARN]  Unity: BoxColliders does not support negative scale or size.
+The effective box size has been forced positive and is likely to give unexpected collision geometry.
+If you absolutely need to use negative scaling you can use the convex MeshCollider. Scene hierarchy path "RightHand/hands:l_hand_world/collider_palm"
+2022/11/29/11:00:31:041 [DEBUG] Unity: ;LOGLINE;White_Version;TimeFromCanvasAppearing:6066,60 ms
+2022/11/29/11:00:36:677 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/11:00:36:679 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/11:00:36:680 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 2
+2022/11/29/11:00:36:680 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 1
+2022/11/29/11:00:36:681 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:00:36:681 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 2
+2022/11/29/11:00:36:682 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/11:00:36:682 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/11:00:36:683 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 11
+2022/11/29/11:00:36:684 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 1
+2022/11/29/11:00:36:684 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:00:36:685 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 3
+2022/11/29/11:00:36:685 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 3
+2022/11/29/11:00:36:686 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/11:00:36:686 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/11:00:36:687 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/11:00:36:687 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:00:36:688 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/11:00:36:688 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/11:00:36:689 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/11:00:36:689 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 2
+2022/11/29/11:00:36:690 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/11:00:36:691 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:00:36:691 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 2
+2022/11/29/11:00:36:692 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 2
+2022/11/29/11:00:36:745 [WARN]  Unity: Received OnSerialization for view ID 2002. We have no such PhotonView! Ignore this if you're joining or leaving a room. State: Leaving
+2022/11/29/11:00:38:945 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake3
+2022/11/29/11:00:39:357 [WARN]  Unity: BoxColliders does not support negative scale or size.
+The effective box size has been forced positive and is likely to give unexpected collision geometry.
+If you absolutely need to use negative scaling you can use the convex MeshCollider. Scene hierarchy path "Network Player H4 0/Right Hand/RightHand/hands:l_hand_world/collider_palm"
+2022/11/29/11:00:51:436 [WARN]  Unity: BoxColliders does not support negative scale or size.
+The effective box size has been forced positive and is likely to give unexpected collision geometry.
+If you absolutely need to use negative scaling you can use the convex MeshCollider. Scene hierarchy path "Network Player H4(Clone)/Right Hand/RightHand/hands:l_hand_world/collider_palm"
+2022/11/29/11:00:57:370 [DEBUG] Unity: ;LOGLINE;White_Version;TimeFromCanvasAppearing:1423,69 ms
+2022/11/29/11:00:57:380 [WARN]  Unity: BoxColliders does not support negative scale or size.
+The effective box size has been forced positive and is likely to give unexpected collision geometry.
+If you absolutely need to use negative scaling you can use the convex MeshCollider. Scene hierarchy path "RightHand/hands:l_hand_world/collider_palm"
+2022/11/29/11:01:01:389 [DEBUG] Unity: ;LOGLINE;White_Version;TimeFromCanvasAppearing:5442,06 ms
+2022/11/29/11:01:13:713 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/11:01:13:715 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/11:01:13:716 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 2
+2022/11/29/11:01:13:716 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 1
+2022/11/29/11:01:13:717 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:01:13:717 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 2
+2022/11/29/11:01:13:718 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/11:01:13:719 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/11:01:13:719 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 11
+2022/11/29/11:01:13:720 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 1
+2022/11/29/11:01:13:720 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:01:13:721 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 3
+2022/11/29/11:01:13:721 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 3
+2022/11/29/11:01:13:722 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/11:01:13:723 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 1
+2022/11/29/11:01:13:723 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/11:01:13:724 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:01:13:724 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/11:01:13:725 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 2
+2022/11/29/11:01:13:725 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/11:01:13:726 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 2
+2022/11/29/11:01:13:726 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/11:01:13:727 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:01:13:727 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 2
+2022/11/29/11:01:13:728 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 2
+2022/11/29/11:07:29:524 [WARN]  Unity: Disconnecting PUN due to recompile. Exit PlayMode.
+2022/11/29/11:10:56:639 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/11:10:56:690 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/11:10:56:690 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 0
+2022/11/29/11:10:56:691 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/11:10:56:692 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:10:56:692 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/11:10:56:693 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/11:10:56:693 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/11:10:56:694 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/11:10:56:695 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/11:10:56:695 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:10:56:696 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/11:10:56:696 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/11:10:56:697 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/11:10:56:697 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/11:10:56:698 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/11:10:56:698 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:10:56:699 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/11:10:56:699 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/11:10:56:700 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/11:10:56:700 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/11:10:56:701 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/11:10:56:701 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:10:56:702 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/11:10:56:703 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/11:11:00:200 [WARN]  Unity: PUN is in development mode (development build). As the 'dev region' is not empty (eu) it overrides the found best region. See PhotonServerSettings.
+2022/11/29/11:11:06:149 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake3
+2022/11/29/11:11:06:528 [WARN]  Unity: BoxColliders does not support negative scale or size.
+The effective box size has been forced positive and is likely to give unexpected collision geometry.
+If you absolutely need to use negative scaling you can use the convex MeshCollider. Scene hierarchy path "Network Player H4 0/Right Hand/RightHand/hands:l_hand_world/collider_palm"
+2022/11/29/11:11:06:528 [WARN]  Unity: BoxColliders does not support negative scale or size.
+The effective box size has been forced positive and is likely to give unexpected collision geometry.
+If you absolutely need to use negative scaling you can use the convex MeshCollider. Scene hierarchy path "Network Player H4(Clone)/Right Hand/RightHand/hands:l_hand_world/collider_palm"
+2022/11/29/11:11:16:809 [DEBUG] Unity: ;LOGLINE;White_Version;TimeFromCanvasAppearing:960,80 ms
+2022/11/29/11:11:16:822 [WARN]  Unity: BoxColliders does not support negative scale or size.
+The effective box size has been forced positive and is likely to give unexpected collision geometry.
+If you absolutely need to use negative scaling you can use the convex MeshCollider. Scene hierarchy path "RightHand/hands:l_hand_world/collider_palm"
+2022/11/29/11:16:30:856 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/11:16:30:910 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/11:16:30:911 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 0
+2022/11/29/11:16:30:911 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/11:16:30:912 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:16:30:912 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/11:16:30:913 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/11:16:30:913 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/11:16:30:914 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/11:16:30:914 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/11:16:30:915 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:16:30:916 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/11:16:30:916 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/11:16:30:917 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/11:16:30:917 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/11:16:30:918 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/11:16:30:918 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:16:30:919 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/11:16:30:919 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/11:16:30:920 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/11:16:30:920 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/11:16:30:921 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/11:16:30:922 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:16:30:922 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/11:16:30:923 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/11:16:34:329 [WARN]  Unity: PUN is in development mode (development build). As the 'dev region' is not empty (eu) it overrides the found best region. See PhotonServerSettings.
+2022/11/29/11:16:39:427 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake4
+2022/11/29/11:16:39:835 [WARN]  Unity: BoxColliders does not support negative scale or size.
+The effective box size has been forced positive and is likely to give unexpected collision geometry.
+If you absolutely need to use negative scaling you can use the convex MeshCollider. Scene hierarchy path "Network Player H3 0/Right Hand/RightHand/hands:l_hand_world/collider_palm"
+2022/11/29/11:16:39:835 [WARN]  Unity: BoxColliders does not support negative scale or size.
+The effective box size has been forced positive and is likely to give unexpected collision geometry.
+If you absolutely need to use negative scaling you can use the convex MeshCollider. Scene hierarchy path "Network Player H3(Clone)/Right Hand/RightHand/hands:l_hand_world/collider_palm"
+2022/11/29/11:16:44:407 [WARN]  Unity: BoxColliders does not support negative scale or size.
+The effective box size has been forced positive and is likely to give unexpected collision geometry.
+If you absolutely need to use negative scaling you can use the convex MeshCollider. Scene hierarchy path "RightHand/hands:l_hand_world/collider_palm"
+2022/11/29/11:16:56:759 [DEBUG] Unity: ;LOGLINE;White_Version;TimeFromCanvasAppearing:921,82 ms
+2022/11/29/11:17:15:163 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/11:17:15:172 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/11:17:15:175 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 0
+2022/11/29/11:17:15:179 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/11:17:15:183 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:17:15:185 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/11:17:15:186 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/11:17:15:190 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/11:17:15:190 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/11:17:15:191 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/11:17:15:192 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:17:15:193 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/11:17:15:196 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/11:17:15:200 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/11:17:15:204 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/11:17:15:206 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/11:17:15:208 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:17:15:213 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/11:17:15:217 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/11:17:15:220 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/11:17:15:221 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 2
+2022/11/29/11:17:15:222 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/11:17:15:223 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:17:15:224 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 2
+2022/11/29/11:17:15:225 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 1
+2022/11/29/11:17:18:804 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake3
+2022/11/29/11:17:19:136 [WARN]  Unity: BoxColliders does not support negative scale or size.
+The effective box size has been forced positive and is likely to give unexpected collision geometry.
+If you absolutely need to use negative scaling you can use the convex MeshCollider. Scene hierarchy path "Network Player H4 0/Right Hand/RightHand/hands:l_hand_world/collider_palm"
+2022/11/29/11:17:19:137 [WARN]  Unity: BoxColliders does not support negative scale or size.
+The effective box size has been forced positive and is likely to give unexpected collision geometry.
+If you absolutely need to use negative scaling you can use the convex MeshCollider. Scene hierarchy path "Network Player H4(Clone)/Right Hand/RightHand/hands:l_hand_world/collider_palm"
+2022/11/29/11:17:23:805 [WARN]  Unity: BoxColliders does not support negative scale or size.
+The effective box size has been forced positive and is likely to give unexpected collision geometry.
+If you absolutely need to use negative scaling you can use the convex MeshCollider. Scene hierarchy path "RightHand/hands:l_hand_world/collider_palm"
+2022/11/29/11:17:30:266 [DEBUG] Unity: ;LOGLINE;White_Version;TimeFromCanvasAppearing:1684,29 ms
+2022/11/29/11:17:38:265 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/11/29/11:17:38:266 [WARN]  Unity: Received OnSerialization for view ID 1002. We have no such PhotonView! Ignore this if you're joining or leaving a room. State: Leaving
+2022/11/29/11:17:38:269 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/11/29/11:17:38:270 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from experimenter count: 0
+2022/11/29/11:17:38:270 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/11:17:38:271 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:17:38:271 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/11:17:38:272 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/11:17:38:272 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/11/29/11:17:38:273 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 0
+2022/11/29/11:17:38:273 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/11:17:38:274 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:17:38:274 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 0
+2022/11/29/11:17:38:275 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 0
+2022/11/29/11:17:38:275 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/11/29/11:17:38:276 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 1
+2022/11/29/11:17:38:276 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/11:17:38:277 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:17:38:277 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 2
+2022/11/29/11:17:38:278 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 1
+2022/11/29/11:17:38:278 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/11/29/11:17:38:279 [DEBUG] Unity: ;LOGLINE;VERSION; Started interactions from experimenter count: 2
+2022/11/29/11:17:38:280 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Mayor count: 0
+2022/11/29/11:17:38:280 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Waitress count: 0
+2022/11/29/11:17:38:281 [DEBUG] Unity: ;LOGLINE;VERSION; Interactions started from Tester count: 2
+2022/11/29/11:17:38:281 [DEBUG] Unity: ;LOGLINE;VERSION; Finished interactions count (not counting interactions started from the Tester): 1

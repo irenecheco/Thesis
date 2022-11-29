@@ -17,6 +17,8 @@ public class HandshakeConfirmCanvas : MonoBehaviour, IPunObservable
     public bool confirmActive;
     private bool firstSound;
 
+    private System.DateTime initialTimeH1Player;
+
     private Color baseColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     private Color waitingColor = new Color(0.4135279f, 0.7409829f, 0.9056604f, 1.0f);
 
@@ -73,6 +75,12 @@ public class HandshakeConfirmCanvas : MonoBehaviour, IPunObservable
             player_rightMesh.GetComponent<SkinnedMeshRenderer>().material.color = waitingColor;
             if (firstSound == true)
             {
+                if (!this.transform.parent.GetComponent<PhotonView>().IsMine)
+                {
+                    InteractionsCount.startedInteractionsFromExperimenterH1++;
+                    initialTimeH1Player = System.DateTime.UtcNow;
+                    this.transform.FindChildRecursive("HandshakeConfirm Button").GetComponent<HandshakeActivation>().initialTimeH1Player = initialTimeH1Player;
+                }                
                 handshakeConfirm.GetComponent<AudioSource>().Play();
                 firstSound = false;
             }

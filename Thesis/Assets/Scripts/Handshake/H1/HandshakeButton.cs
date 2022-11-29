@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.XR;
 using Photon.Pun;
 using UnityEngine.UI;
+using NLog.Unity;
 using UnityEngine.InputSystem;
 
 public class HandshakeButton : MonoBehaviour
@@ -85,6 +86,9 @@ public class HandshakeButton : MonoBehaviour
                         _button.onClick.Invoke();
                     }
                 }
+
+                //NLogConfig.LogLine($"{"NomeAvatar"};Timepincpallo:{0.5:.2f}");
+                
                 /*if (mayor_head.GetComponent<MayorConfirmCanvas>().activeCanvas == true)
                 {
                     mayor_head.transform.FindChildRecursive("HandshakeConfirm Button").GetComponent<HandshakeActivationNPC>().StartHandshake();
@@ -119,6 +123,7 @@ public class HandshakeButton : MonoBehaviour
             myPlayerConfirm.GetComponent<HandshakeConfirmCanvas>().ActivateHandshakeConfirmCanvas();
             if (this.gameObject.name == "Handshake Button")
             {
+                InteractionsCount.startedInteractionsFromTesterH1++;
                 handshakeUI.GetComponent<Canvas>().enabled = false;
                 waitConfirmUI.GetComponent<Canvas>().enabled = true;
             }

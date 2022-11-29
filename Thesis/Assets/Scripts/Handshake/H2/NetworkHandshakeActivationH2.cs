@@ -97,7 +97,7 @@ public class NetworkHandshakeActivationH2 : MonoBehaviour
         }
         else if (playersIds[1] == PhotonNetwork.LocalPlayer.UserId)
         {
-            Debug.Log("Player locale è 1");
+            //Debug.Log("Player locale è 1");
             foreach (var item in PhotonNetwork.PlayerList)
             {
                 if (item.UserId == playersIds[0])

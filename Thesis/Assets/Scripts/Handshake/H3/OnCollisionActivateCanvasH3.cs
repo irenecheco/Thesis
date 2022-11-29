@@ -16,11 +16,12 @@ public class OnCollisionActivateCanvasH3 : MonoBehaviourPunCallbacks
     private GameObject rightHand;
     private GameObject rightHandController;
     private GameObject otherPlayerRightHand;
+    [SerializeField] private GameObject myNetRightHand;
 
     public bool firstEntered;
 
     public void Start()
-    {
+    {   
         rightHand = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
         rightHandController = rightHand.transform.parent.gameObject;
         firstEntered = true;

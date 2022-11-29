@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Photon.Pun;
 
 public class HandshakeFakeHand : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class HandshakeFakeHand : MonoBehaviour
     [SerializeField] private GameObject rightController;
     [SerializeField] private GameObject rightHand;
     private GameObject fakeHand_holder;
+    private GameObject localPlayer;
 
     private Animator fakeHandAnimator;
 
@@ -28,6 +30,15 @@ public class HandshakeFakeHand : MonoBehaviour
     {
         fakeHand_holder = this.transform.parent.gameObject;
         fakeHandAnimator = this.GetComponent<Animator>();
+
+        
+        foreach (var item in PhotonNetwork.PlayerList)
+        {
+            if (item.UserId == PhotonNetwork.LocalPlayer.UserId)
+            {
+                localPlayer = (GameObject)item.TagObject;
+            }
+        }
     }
 
     //Function invoked when handshake needs to start
@@ -51,8 +62,8 @@ public class HandshakeFakeHand : MonoBehaviour
         fakeHand_holder.transform.rotation = startingRotation;
 
         direction = Quaternion.LookRotation((otherPosition - myPosition), Vector3.up);
-        /*direction.x = 0;
-        direction.z = 0;*/
+        direction.x = 0;
+        direction.z = 0;
 
         fakeHand_holder.transform.DORotateQuaternion(direction * Quaternion.AngleAxis((float)10.0, transform.forward), time);
         //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float) 0.017), (float)(ending_y - 0.4), (midPosition.z - (float)0.015)), time);
@@ -81,7 +92,18 @@ public class HandshakeFakeHand : MonoBehaviour
         startingPosition = rightController.transform.position;
         startingRotation = rightController.transform.rotation;
 
-        fakeHand_holder.transform.position = new Vector3(startingPosition.x - (float)0.02, startingPosition.y, startingPosition.z - (float)0.09);
+        midPosition = Vector3.Lerp(otherPosition, myPosition, 0.5f);
+
+        /*if (localPlayer.GetComponent<firstPlayer>().isFirstPlayer)
+        {
+            fakeHand_holder.transform.position = new Vector3(startingPosition.x - (float)0.02, startingPosition.y, startingPosition.z - (float)0.02);
+        } else
+        {
+            //fakeHand_holder.transform.position = new Vector3(startingPosition.x + (float)0.02, startingPosition.y, startingPosition.z + (float)0.03);
+            fakeHand_holder.transform.position = startingPosition;
+        }*/
+
+        fakeHand_holder.transform.position = new Vector3(midPosition.x, startingPosition.y, midPosition.z);
         //fakeHand_holder.transform.position = startingPosition;
         fakeHand_holder.transform.rotation = startingRotation;
 

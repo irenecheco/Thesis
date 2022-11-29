@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
+using NLog.Unity;
 
 public class MayorConfirmCanvas : MonoBehaviour
 {
@@ -32,6 +33,12 @@ public class MayorConfirmCanvas : MonoBehaviour
     public bool activeCanvas;
     public bool isColliding;
     public bool firstHandshake;
+
+    public System.DateTime initialTimeH1Mayor;
+    private System.DateTime initialTimeH2Mayor;
+    private System.DateTime finalTimeH2Mayor;
+    private System.DateTime initialTimeH3Mayor;
+    private System.DateTime initialTimeH4Mayor;
 
     [SerializeField] private InputActionReference _enableHandshake2;
 
@@ -100,8 +107,10 @@ public class MayorConfirmCanvas : MonoBehaviour
                         {
                             if (firstHandshake == true)
                             {
-                                mayor_head_canvas.GetComponent<HandshakeActivationNPC>().StartHandshake();
                                 firstHandshake = false;
+                                finalTimeH2Mayor = System.DateTime.UtcNow;
+                                NLogConfig.LogLine($"{"Mayor"};TimeFromCanvasAppearing:{(finalTimeH2Mayor - initialTimeH2Mayor).TotalMilliseconds.ToString("#.00")} ms");
+                                mayor_head_canvas.GetComponent<HandshakeActivationNPC>().StartHandshake();
                             }
                         }
                     }                    
@@ -152,8 +161,16 @@ public class MayorConfirmCanvas : MonoBehaviour
         if (sceneIndex == 1)
         {
             mayor_confirm_button.GetComponent<Button>().interactable = true;
+
+            initialTimeH1Mayor = System.DateTime.UtcNow;
+            InteractionsCount.startedInteractionsFromMayorH1++;
+            this.transform.FindChildRecursive("HandshakeConfirm Button").GetComponent<HandshakeActivationNPC>().initialTimeH1Mayor = initialTimeH1Mayor;
+        } else if(sceneIndex == 2)
+        {
+            initialTimeH2Mayor = System.DateTime.UtcNow;
+            InteractionsCount.startedInteractionsFromMayorH2++;
         }
-        if(sceneIndex != 3 && sceneIndex != 4)
+        if(sceneIndex != 3 && sceneIndex != 4 && sceneIndex!=5)
         {
             mayor_head_canvas.GetComponent<Canvas>().enabled = true;
             mayor_head_canvas.GetComponent<AudioSource>().Play();
@@ -167,6 +184,9 @@ public class MayorConfirmCanvas : MonoBehaviour
                 mayor_hand_holder.GetComponent<ActivateBlueHand>().isReady = true;
                 if (mayor_hand_holder.GetComponent<ActivateBlueHand>().isCollidingWithMayor)
                 {
+                    InteractionsCount.startedInteractionsFromMayorH3++;
+                    initialTimeH3Mayor = System.DateTime.UtcNow;
+                    mayor_right.GetComponent<GrabbingNPC>().initialTimeH3Mayor = initialTimeH3Mayor;
                     mayor_rightMesh.GetComponent<SkinnedMeshRenderer>().material.color = waitingColor;
                     mayor_head_canvas.GetComponent<Canvas>().enabled = true;
                 }
@@ -176,6 +196,9 @@ public class MayorConfirmCanvas : MonoBehaviour
                 mayor_hand_holder.GetComponent<ActivateBlueHandH4>().isReady = true;
                 if (mayor_hand_holder.GetComponent<ActivateBlueHandH4>().isCollidingWithMayor)
                 {
+                    InteractionsCount.startedInteractionsFromMayorH4++;
+                    initialTimeH4Mayor = System.DateTime.UtcNow;
+                    mayor_right.GetComponent<GrabbingNPC>().initialTimeH4Mayor = initialTimeH4Mayor;
                     mayor_rightMesh.GetComponent<SkinnedMeshRenderer>().material.color = waitingColor;
                     mayor_head_canvas.GetComponent<Canvas>().enabled = true;
                 }

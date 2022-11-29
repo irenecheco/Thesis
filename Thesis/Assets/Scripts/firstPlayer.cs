@@ -6,12 +6,11 @@ using Photon.Pun;
 public class firstPlayer : MonoBehaviour, IPunObservable
 {
     public bool isFirstPlayer;
-    public int countPl;
+    //public int countPl;
 
     private void Start()
     {
-        countPl = PhotonNetwork.CountOfPlayers;
-        if (countPl <= 1)
+        if (NetworkManager.isEven == false)
         {
             isFirstPlayer = true;
         }

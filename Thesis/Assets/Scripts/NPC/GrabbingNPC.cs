@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.SceneManagement;
+using NLog.Unity;
 
 public class GrabbingNPC : MonoBehaviour
 {
@@ -27,6 +28,18 @@ public class GrabbingNPC : MonoBehaviour
     private GameObject npc_right_mesh;
 
     public Vector3 initialPosition;
+
+    public System.DateTime initialTimeH3Mayor;
+    private System.DateTime finalTimeH3Mayor;
+
+    public System.DateTime initialTimeH4Mayor;
+    private System.DateTime finalTimeH4Mayor;
+
+    public System.DateTime initialTimeH3Waitress;
+    private System.DateTime finalTimeH3Waitress;
+
+    public System.DateTime initialTimeH4Waitress;
+    private System.DateTime finalTimeH4Waitress;
 
     private int sceneIndex;
 
@@ -77,7 +90,19 @@ public class GrabbingNPC : MonoBehaviour
             rightController.GetComponent<HandController>().isGrabbingH3 = true;
             if(sceneIndex == 3)
             {
-                rightHand.GetComponent<GrabbingH3>().npcAnimationGoing = true;
+                if (npc.gameObject.name == "Mayor")
+                {
+                    InteractionsCount.finishedInteractionsH3++;
+                    finalTimeH3Mayor = System.DateTime.UtcNow;
+                    NLogConfig.LogLine($"{"Mayor"};TimeFromCanvasAppearing:{(finalTimeH3Mayor - initialTimeH3Mayor).TotalMilliseconds.ToString("#.00")} ms");
+                } else if (npc.gameObject.name == "Waitress")
+                {
+                    InteractionsCount.finishedInteractionsH3++;
+                    finalTimeH3Waitress = System.DateTime.UtcNow;
+                    NLogConfig.LogLine($"{"Waitress"};TimeFromCanvasAppearing:{(finalTimeH3Waitress - initialTimeH3Waitress).TotalMilliseconds.ToString("#.00")} ms");
+                }
+
+                    rightHand.GetComponent<GrabbingH3>().npcAnimationGoing = true;
             }
             this.GetComponent<Outline>().enabled = true;
             local_player_right.GetComponent<Outline>().enabled = true;
@@ -88,12 +113,25 @@ public class GrabbingNPC : MonoBehaviour
             {
                 npc_head_canvas = npc_head.transform.GetChild(0).gameObject;
                 npc_head_canvas.GetComponent<Canvas>().enabled = false;
+                this.transform.FindChildRecursive("hands:Lhand").gameObject.GetComponent<SkinnedMeshRenderer>().material.color = baseColor;
             } else if (npc.gameObject.name == "Mayor")
             {
                 this.transform.FindChildRecursive("hands:Lhand").gameObject.GetComponent<SkinnedMeshRenderer>().material.color = baseColor;
             }
             if(sceneIndex == 4)
             {
+                if (npc.gameObject.name == "Mayor")
+                {
+                    InteractionsCount.finishedInteractionsH4++;
+                    finalTimeH4Mayor = System.DateTime.UtcNow;
+                    NLogConfig.LogLine($"{"Mayor"};TimeFromCanvasAppearing:{(finalTimeH4Mayor - initialTimeH4Mayor).TotalMilliseconds.ToString("#.00")} ms");
+                }
+                else if (npc.gameObject.name == "Waitress")
+                {
+                    InteractionsCount.finishedInteractionsH4++;
+                    finalTimeH4Waitress = System.DateTime.UtcNow;
+                    NLogConfig.LogLine($"{"Waitress"};TimeFromCanvasAppearing:{(finalTimeH4Waitress - initialTimeH4Waitress).TotalMilliseconds.ToString("#.00")} ms");
+                }
                 rightHand.GetComponent<GrabbingH4>().npcAnimationGoing = true;
                 StartCoroutine(Wait());
             }

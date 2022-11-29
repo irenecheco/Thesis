@@ -12,6 +12,7 @@ public class OnCollisionDeactivateCanvasH4 : MonoBehaviourPunCallbacks
     //Code responsible for activating the handshake button when two players collide
 
     private GameObject messageCanvas;
+    private GameObject confirmCanvas;
     private GameObject rightHandController;
     private GameObject rightHand;
 
@@ -49,7 +50,9 @@ public class OnCollisionDeactivateCanvasH4 : MonoBehaviourPunCallbacks
                     {
                         //Debug.Log("Exit collision");
                         messageCanvas = otherPlayerHead.transform.GetChild(2).gameObject;
+                        confirmCanvas = otherPlayerHead.transform.GetChild(3).gameObject;
                         messageCanvas.GetComponent<Canvas>().enabled = false;
+                        confirmCanvas.GetComponent<Canvas>().enabled = false;
                         messageCanvas.GetComponent<AudioSource>().enabled = false;
                         rightHand.GetComponent<GrabbingH4>().isColliding = false;
                         
