@@ -134,19 +134,19 @@ public class GrabbingH3 : MonoBehaviour
                             //cannot handshake anymore
                             if (otherGrabbedFirst)
                             {
-                                InteractionsCount.finishedInteractionsH3++;
+                                InteractionsCount.finishedInteractionsWithExperimenterH3++;
                                 finalTimeH3Player = System.DateTime.UtcNow;
                                 if (otherNetHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == baseColor)
                                 {
-                                    NLogConfig.LogLine($"{"White_Version"};TimeFromCanvasAppearing:{(finalTimeH3Player - initialTimeH3Player).TotalMilliseconds.ToString("#.00")} ms");
+                                    NLogConfig.LogLine($"{"White_Version"};TimeFromCanvasAppearing;{(finalTimeH3Player - initialTimeH3Player).TotalSeconds.ToString("#.000")};s");
                                 }
                                 else if (otherNetHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == yellowColor)
                                 {
-                                    NLogConfig.LogLine($"{"Yellow_Version"};TimeFromCanvasAppearing:{(finalTimeH3Player - initialTimeH3Player).TotalMilliseconds.ToString("#.00")} ms");
+                                    NLogConfig.LogLine($"{"Yellow_Version"};TimeFromCanvasAppearing;{(finalTimeH3Player - initialTimeH3Player).TotalSeconds.ToString("#.000")};s");
                                 }
                                 else if (otherNetHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == greenColor)
                                 {
-                                    NLogConfig.LogLine($"{"Green_Version"};TimeFromCanvasAppearing:{(finalTimeH3Player - initialTimeH3Player).TotalMilliseconds.ToString("#.00")} ms");
+                                    NLogConfig.LogLine($"{"Green_Version"};TimeFromCanvasAppearing;{(finalTimeH3Player - initialTimeH3Player).TotalSeconds.ToString("#.000")};s");
                                 }
                                 otherGrabbedFirst = false;
                             }                            

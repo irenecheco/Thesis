@@ -406,6 +406,7 @@ GameObject:
   - component: {fileID: 92011697}
   - component: {fileID: 92011698}
   - component: {fileID: 92011699}
+  - component: {fileID: 92011700}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: Untagged
@@ -486,7 +487,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6238bde3936aaa449a63a5ddca4e644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filePath: Log.txt
+  filePath: Log.csv
+--- !u!114 &92011700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92011694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90868d6f8d8f5da42a03d26fa21595a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &93033115
 PrefabInstance:
   m_ObjectHideFlags: 0

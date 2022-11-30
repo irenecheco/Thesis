@@ -89,14 +89,14 @@ public class HandshakeActivationNPC : MonoBehaviour
         {
             if (confirmNPC.gameObject.name == "Mayor")
             {
-                InteractionsCount.finishedInteractionsH1++;
+                InteractionsCount.finishedInteractionsWithMayorH1++;
                 finalTimeH1Mayor = System.DateTime.UtcNow;
-                NLogConfig.LogLine($"{"Mayor"};TimeFromCanvasAppearing:{(finalTimeH1Mayor - initialTimeH1Mayor).TotalMilliseconds.ToString("#.00")} ms");
+                NLogConfig.LogLine($"{"Mayor"};TimeFromCanvasAppearing;{(finalTimeH1Mayor - initialTimeH1Mayor).TotalSeconds.ToString("#.000")}; s");
             } else if (confirmNPC.gameObject.name == "Waitress")
             {
-                InteractionsCount.finishedInteractionsH1++;
+                InteractionsCount.finishedInteractionsWithWaitressH1++;
                 finalTimeH1Waitress = System.DateTime.UtcNow;
-                NLogConfig.LogLine($"{"Waitress"};TimeFromCanvasAppearing:{(finalTimeH1Waitress - initialTimeH1Waitress).TotalMilliseconds.ToString("#.00")} ms");
+                NLogConfig.LogLine($"{"Waitress"};TimeFromCanvasAppearing;{(finalTimeH1Waitress - initialTimeH1Waitress).TotalSeconds.ToString("#.000")}; s");
             }
         } else if(sceneIndex == 2)
         {

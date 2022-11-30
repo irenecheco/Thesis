@@ -163,19 +163,19 @@ public class GrabbingH4 : MonoBehaviour
 
                             if (otherGrabbedFirst)
                             {
-                                InteractionsCount.finishedInteractionsH4++;
+                                InteractionsCount.finishedInteractionsWithExperimenterH4++;
                                 finalTimeH4Player = System.DateTime.UtcNow;
                                 if (otherNetHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == baseColor)
                                 {
-                                    NLogConfig.LogLine($"{"White_Version"};TimeFromCanvasAppearing:{(finalTimeH4Player - initialTimeH4Player).TotalMilliseconds.ToString("#.00")} ms");
+                                    NLogConfig.LogLine($"{"White_Version"};TimeFromCanvasAppearing;{(finalTimeH4Player - initialTimeH4Player).TotalSeconds.ToString("#.000")};s");
                                 }
                                 else if (otherNetHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == yellowColor)
                                 {
-                                    NLogConfig.LogLine($"{"Yellow_Version"};TimeFromCanvasAppearing:{(finalTimeH4Player - initialTimeH4Player).TotalMilliseconds.ToString("#.00")} ms");
+                                    NLogConfig.LogLine($"{"Yellow_Version"};TimeFromCanvasAppearing;{(finalTimeH4Player - initialTimeH4Player).TotalSeconds.ToString("#.000")};s");
                                 }
                                 else if (otherNetHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == greenColor)
                                 {
-                                    NLogConfig.LogLine($"{"Green_Version"};TimeFromCanvasAppearing:{(finalTimeH4Player - initialTimeH4Player).TotalMilliseconds.ToString("#.00")} ms");
+                                    NLogConfig.LogLine($"{"Green_Version"};TimeFromCanvasAppearing;{(finalTimeH4Player - initialTimeH4Player).TotalSeconds.ToString("#.000")};s");
                                 }
                                 otherGrabbedFirst = false;
                             }                            

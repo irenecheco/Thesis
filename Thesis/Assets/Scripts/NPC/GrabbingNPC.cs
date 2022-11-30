@@ -92,14 +92,14 @@ public class GrabbingNPC : MonoBehaviour
             {
                 if (npc.gameObject.name == "Mayor")
                 {
-                    InteractionsCount.finishedInteractionsH3++;
+                    InteractionsCount.finishedInteractionsWithMayorH3++;
                     finalTimeH3Mayor = System.DateTime.UtcNow;
-                    NLogConfig.LogLine($"{"Mayor"};TimeFromCanvasAppearing:{(finalTimeH3Mayor - initialTimeH3Mayor).TotalMilliseconds.ToString("#.00")} ms");
+                    NLogConfig.LogLine($"{"Mayor"};TimeFromCanvasAppearing;{(finalTimeH3Mayor - initialTimeH3Mayor).TotalSeconds.ToString("#.000")};s");
                 } else if (npc.gameObject.name == "Waitress")
                 {
-                    InteractionsCount.finishedInteractionsH3++;
+                    InteractionsCount.finishedInteractionsWithWaitressH3++;
                     finalTimeH3Waitress = System.DateTime.UtcNow;
-                    NLogConfig.LogLine($"{"Waitress"};TimeFromCanvasAppearing:{(finalTimeH3Waitress - initialTimeH3Waitress).TotalMilliseconds.ToString("#.00")} ms");
+                    NLogConfig.LogLine($"{"Waitress"};TimeFromCanvasAppearing;{(finalTimeH3Waitress - initialTimeH3Waitress).TotalSeconds.ToString("#.000")};s");
                 }
 
                     rightHand.GetComponent<GrabbingH3>().npcAnimationGoing = true;
@@ -122,15 +122,15 @@ public class GrabbingNPC : MonoBehaviour
             {
                 if (npc.gameObject.name == "Mayor")
                 {
-                    InteractionsCount.finishedInteractionsH4++;
+                    InteractionsCount.finishedInteractionsWithMayorH4++;
                     finalTimeH4Mayor = System.DateTime.UtcNow;
-                    NLogConfig.LogLine($"{"Mayor"};TimeFromCanvasAppearing:{(finalTimeH4Mayor - initialTimeH4Mayor).TotalMilliseconds.ToString("#.00")} ms");
+                    NLogConfig.LogLine($"{"Mayor"};TimeFromCanvasAppearing;{(finalTimeH4Mayor - initialTimeH4Mayor).TotalSeconds.ToString("#.000")};s");
                 }
                 else if (npc.gameObject.name == "Waitress")
                 {
-                    InteractionsCount.finishedInteractionsH4++;
+                    InteractionsCount.finishedInteractionsWithWaitressH4++;
                     finalTimeH4Waitress = System.DateTime.UtcNow;
-                    NLogConfig.LogLine($"{"Waitress"};TimeFromCanvasAppearing:{(finalTimeH4Waitress - initialTimeH4Waitress).TotalMilliseconds.ToString("#.00")} ms");
+                    NLogConfig.LogLine($"{"Waitress"};TimeFromCanvasAppearing;{(finalTimeH4Waitress - initialTimeH4Waitress).TotalSeconds.ToString("#.000")};s");
                 }
                 rightHand.GetComponent<GrabbingH4>().npcAnimationGoing = true;
                 StartCoroutine(Wait());

@@ -109,7 +109,8 @@ public class MayorConfirmCanvas : MonoBehaviour
                             {
                                 firstHandshake = false;
                                 finalTimeH2Mayor = System.DateTime.UtcNow;
-                                NLogConfig.LogLine($"{"Mayor"};TimeFromCanvasAppearing:{(finalTimeH2Mayor - initialTimeH2Mayor).TotalMilliseconds.ToString("#.00")} ms");
+                                InteractionsCount.finishedInteractionsWithMayorH2++;
+                                NLogConfig.LogLine($"{"Mayor"};TimeFromCanvasAppearing;{(finalTimeH2Mayor - initialTimeH2Mayor).TotalSeconds.ToString("#.000")};s");
                                 mayor_head_canvas.GetComponent<HandshakeActivationNPC>().StartHandshake();
                             }
                         }

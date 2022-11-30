@@ -46,17 +46,17 @@ public class HandshakeActivation : MonoBehaviour
 
         if (!confirmHead.GetComponent<PhotonView>().IsMine)
         {
-            InteractionsCount.finishedInteractionsH1++;
+            InteractionsCount.finishedInteractionsWithExperimenterH1++;
             finalTimeH1Player = System.DateTime.UtcNow;
             if(confirmHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == baseColor)
             {
-                NLogConfig.LogLine($"{"White_Version"};TimeFromCanvasAppearing:{(finalTimeH1Player - initialTimeH1Player).TotalMilliseconds.ToString("#.00")} ms");
+                NLogConfig.LogLine($"{"White_Version"};TimeFromCanvasAppearing;{(finalTimeH1Player - initialTimeH1Player).TotalSeconds.ToString("#.000")};s");
             } else if(confirmHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == yellowColor)
             {
-                NLogConfig.LogLine($"{"Yellow_Version"};TimeFromCanvasAppearing:{(finalTimeH1Player - initialTimeH1Player).TotalMilliseconds.ToString("#.00")} ms");
+                NLogConfig.LogLine($"{"Yellow_Version"};TimeFromCanvasAppearing;{(finalTimeH1Player - initialTimeH1Player).TotalSeconds.ToString("#.000")};s");
             } else if(confirmHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == greenColor)
             {
-                NLogConfig.LogLine($"{"Green_Version"};TimeFromCanvasAppearing:{(finalTimeH1Player - initialTimeH1Player).TotalMilliseconds.ToString("#.00")} ms");
+                NLogConfig.LogLine($"{"Green_Version"};TimeFromCanvasAppearing;{(finalTimeH1Player - initialTimeH1Player).TotalSeconds.ToString("#.000")};s");
             }
             
         }

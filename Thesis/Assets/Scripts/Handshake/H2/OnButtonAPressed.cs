@@ -76,19 +76,19 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
                             {
                                 if (animationGoing == false)
                                 {
-                                    InteractionsCount.finishedInteractionsH2++;
+                                    InteractionsCount.finishedInteractionsWithExperimenterH2++;
                                     finalTimeH2Player = System.DateTime.UtcNow;
                                     if (otherPlayerHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == baseColor)
                                     {
-                                        NLogConfig.LogLine($"{"White_Version"};TimeFromCanvasAppearing:{(finalTimeH2Player - initialTimeH2Player).TotalMilliseconds.ToString("#.00")} ms");
+                                        NLogConfig.LogLine($"{"White_Version"};TimeFromCanvasAppearing;{(finalTimeH2Player - initialTimeH2Player).TotalSeconds.ToString("#.000")};s");
                                     }
                                     else if (otherPlayerHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == yellowColor)
                                     {
-                                        NLogConfig.LogLine($"{"Yellow_Version"};TimeFromCanvasAppearing:{(finalTimeH2Player - initialTimeH2Player).TotalMilliseconds.ToString("#.00")} ms");
+                                        NLogConfig.LogLine($"{"Yellow_Version"};TimeFromCanvasAppearing;{(finalTimeH2Player - initialTimeH2Player).TotalSeconds.ToString("#.000")};s");
                                     }
                                     else if (otherPlayerHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == greenColor)
                                     {
-                                        NLogConfig.LogLine($"{"Green_Version"};TimeFromCanvasAppearing:{(finalTimeH2Player - initialTimeH2Player).TotalMilliseconds.ToString("#.00")} ms");
+                                        NLogConfig.LogLine($"{"Green_Version"};TimeFromCanvasAppearing;{(finalTimeH2Player - initialTimeH2Player).TotalSeconds.ToString("#.000")};s");
                                     }
                                     //Debug.Log("Entrambi gli isPressed sono true");
                                     animationGoing = true;

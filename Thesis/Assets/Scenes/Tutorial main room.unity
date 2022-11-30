@@ -6286,7 +6286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6238bde3936aaa449a63a5ddca4e644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filePath: Log.txt
+  filePath: Log.csv
 --- !u!114 &1315508685
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -83,7 +83,8 @@ public class HandshakeActivationNPC2 : MonoBehaviour
                         if (firstHandshake == true)
                         {
                             finalTimeH2Waitress = System.DateTime.UtcNow;
-                            NLogConfig.LogLine($"{"Waitress"};TimeFromCanvasAppearing:{(finalTimeH2Waitress - initialTimeH2Waitress).TotalMilliseconds.ToString("#.00")} ms");
+                            InteractionsCount.finishedInteractionsWithWaitressH2++;
+                            NLogConfig.LogLine($"{"Waitress"};TimeFromCanvasAppearing;{(finalTimeH2Waitress - initialTimeH2Waitress).TotalSeconds.ToString("#.000")};s");
                             this.GetComponent<HandshakeActivationNPC>().StartHandshake();
                             if(npc.name == "Waitress")
                             {
