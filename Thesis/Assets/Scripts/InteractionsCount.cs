@@ -48,6 +48,8 @@ public class InteractionsCount : MonoBehaviour
             NLogConfig.LogLine($"VERSION; Interactions started from Tester count: {startedInteractionsFromTesterH1}");
             NLogConfig.LogLine($"VERSION; Finished interactions count (not counting interactions started from the Tester): {finishedInteractionsH1}");
 
+            NLogConfig.LogLine("   ");
+
             NLogConfig.LogLine($"VERSION; Handshake 2");
             NLogConfig.LogLine($"VERSION; Started interactions from experimenter count: {startedInteractionsFromExperimenterH2}");
             NLogConfig.LogLine($"VERSION; Interactions started from Mayor count: {startedInteractionsFromMayorH2}");
@@ -55,12 +57,16 @@ public class InteractionsCount : MonoBehaviour
             NLogConfig.LogLine($"VERSION; Interactions started from Tester count: {startedInteractionsFromTesterH2}");
             NLogConfig.LogLine($"VERSION; Finished interactions count (not counting interactions started from the Tester): {finishedInteractionsH2}");
 
+            NLogConfig.LogLine("   ");
+
             NLogConfig.LogLine($"VERSION; Handshake 3");
             NLogConfig.LogLine($"VERSION; Started interactions from experimenter count: {startedInteractionsFromExperimenterH4}");
             NLogConfig.LogLine($"VERSION; Interactions started from Mayor count: {startedInteractionsFromMayorH4}");
             NLogConfig.LogLine($"VERSION; Interactions started from Waitress count: {startedInteractionsFromWaitressH4}");
             NLogConfig.LogLine($"VERSION; Interactions started from Tester count: {startedInteractionsFromTesterH4}");
             NLogConfig.LogLine($"VERSION; Finished interactions count (not counting interactions started from the Tester): {finishedInteractionsH4}");
+
+            NLogConfig.LogLine("   ");
 
             NLogConfig.LogLine($"VERSION; Handshake 4");
             NLogConfig.LogLine($"VERSION; Started interactions from experimenter count: {startedInteractionsFromExperimenterH3}");

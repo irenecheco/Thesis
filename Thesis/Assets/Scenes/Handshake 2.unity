@@ -2282,7 +2282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebc4cb7dad8a1f740a92ec0c2eb3b07f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logLevel: 2
+  logLevel: 0
   catchUnityLogs: 1
   logThreaded: 1
   handshakeKind: 2

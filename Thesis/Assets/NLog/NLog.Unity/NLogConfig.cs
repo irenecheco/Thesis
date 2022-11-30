@@ -33,7 +33,9 @@ namespace NLog.Unity {
                     Application.logMessageReceived += onLog;
                 else
                     Application.logMessageReceivedThreaded += onLog;
+                NLogConfig.LogLine($"================================================================================");
                 NLogConfig.LogLine($"VERSION;{handshakeKind}");
+                NLogConfig.LogLine("   ");
             }
         }
 

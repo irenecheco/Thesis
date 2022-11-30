@@ -23,9 +23,12 @@ namespace NLog.Unity {
         }
 
         void write(Logger logger, LogLevel logLevel, string message) {
-            message = _defaultFormatter.FormatMessage(logger, logLevel, message);
-            message = _timestampFormatter.FormatMessage(logger, logLevel, message);
-            _fileWriter.WriteLine(message);
+            if(logLevel == LogLevel.Debug)
+            {
+                message = _defaultFormatter.FormatMessage(logger, logLevel, message);
+                message = _timestampFormatter.FormatMessage(logger, logLevel, message);
+                _fileWriter.WriteLine(message);
+            }            
         }
     }
 }
