@@ -22,6 +22,8 @@ public class GrabbingH3 : MonoBehaviour
     public GameObject otherNetRightHand;
     public GameObject otherNetRightMesh;
 
+    [SerializeField] private GameObject leftHand;
+
     private GameObject rightController;
 
     private GameObject mainCamera;
@@ -152,6 +154,8 @@ public class GrabbingH3 : MonoBehaviour
                             }                            
                             firstFrameForCount = true;
                             firstFrameForCount2 = true;
+
+                            leftHand.GetComponent<TotalHandshakeCount>().UpdateCountOnCanvas();
 
                             rightController.GetComponent<ActionBasedController>().enableInputTracking = true;
                             rightController.GetComponent<HandController>().isGrabbingH3 = true;

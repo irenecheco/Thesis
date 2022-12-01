@@ -25,6 +25,7 @@ public class GrabbingNPC : MonoBehaviour
     private GameObject npc_head;
     private GameObject npc_head_canvas;
     [SerializeField]private GameObject rightController;
+    [SerializeField] private GameObject leftHand;
     private GameObject npc_right_mesh;
 
     public Vector3 initialPosition;
@@ -90,6 +91,7 @@ public class GrabbingNPC : MonoBehaviour
             rightController.GetComponent<HandController>().isGrabbingH3 = true;
             if(sceneIndex == 3)
             {
+                leftHand.GetComponent<TotalHandshakeCount>().UpdateCountOnCanvas();
                 if (npc.gameObject.name == "Mayor")
                 {
                     InteractionsCount.finishedInteractionsWithMayorH3++;

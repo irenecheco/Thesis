@@ -21,6 +21,7 @@ public class HandshakeFakeHand : MonoBehaviour
 
     [SerializeField] private GameObject rightController;
     [SerializeField] private GameObject rightHand;
+    [SerializeField] private GameObject leftHand;
     private GameObject fakeHand_holder;
     private GameObject localPlayer;
 
@@ -69,7 +70,7 @@ public class HandshakeFakeHand : MonoBehaviour
         //fakeHand_holder.transform.DOMove(new Vector3((midPosition.x + (float) 0.017), (float)(ending_y - 0.4), (midPosition.z - (float)0.015)), time);
         fakeHand_holder.transform.DOMove(new Vector3((midPosition.x), (float)(ending_y - 0.4), (midPosition.z)), time);
 
-        Invoke("SecondPartHandshake", time);
+        Invoke("SecondPartHandshake", time);        
     }
 
     //Once the fake hands are in position, this function triggers the up-and-down animation
@@ -84,6 +85,7 @@ public class HandshakeFakeHand : MonoBehaviour
             .Append(fakeHand_holder.transform.DOMoveY((float)(ending_y - 0.4), (float)0.25))
             .Play();*/
         fakeHandAnimator.Play("Handshake", -1, 0);
+        leftHand.GetComponent<TotalHandshakeCount>().UpdateCountOnCanvas();
         //fakeHandAnimator.speed = 0;
     }
 
@@ -119,6 +121,7 @@ public class HandshakeFakeHand : MonoBehaviour
 
         //Invoke("SecondPartHandshake", time);
         fakeHandAnimator.Play("Handshake", -1, 0);
+        leftHand.GetComponent<TotalHandshakeCount>().UpdateCountOnCanvas();
         //fakeHandAnimator.speed = 0;
     }
 }
