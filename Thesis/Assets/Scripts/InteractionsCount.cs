@@ -9,21 +9,29 @@ public class InteractionsCount : MonoBehaviour
     public static int startedInteractionsFromMayorH1 = 0;
     public static int startedInteractionsFromWaitressH1 = 0;
     public static int startedInteractionsFromTesterH1 = 0;
+    public static System.DateTime enterInH1Time;
+    public static System.DateTime exitInH1Time;
 
     public static int startedInteractionsFromExperimenterH2 = 0;
     public static int startedInteractionsFromMayorH2 = 0;
     public static int startedInteractionsFromWaitressH2 = 0;
     public static int startedInteractionsFromTesterH2 = 0;
+    public static System.DateTime enterInH2Time;
+    public static System.DateTime exitInH2Time;
 
     public static int startedInteractionsFromExperimenterH3 = 0;
     public static int startedInteractionsFromMayorH3 = 0;
     public static int startedInteractionsFromWaitressH3 = 0;
     public static int startedInteractionsFromTesterH3 = 0;
+    public static System.DateTime enterInH3Time;
+    public static System.DateTime exitInH3Time;
 
     public static int startedInteractionsFromExperimenterH4 = 0;
     public static int startedInteractionsFromMayorH4 = 0;
     public static int startedInteractionsFromWaitressH4 = 0;
     public static int startedInteractionsFromTesterH4 = 0;
+    public static System.DateTime enterInH4Time;
+    public static System.DateTime exitInH4Time;
 
     public static int finishedInteractionsWithExperimenterH1 = 0;
     public static int finishedInteractionsWithMayorH1 = 0;
@@ -78,6 +86,15 @@ public class InteractionsCount : MonoBehaviour
         NLogConfig.LogLine($"Finished interactions with experimenter count; {finishedInteractionsWithExperimenterH1}");
         NLogConfig.LogLine($"Finished interactions with Mayor count; {finishedInteractionsWithMayorH1}");
         NLogConfig.LogLine($"Finished interactions with Waitress count; {finishedInteractionsWithWaitressH1}");
+
+        if (exitInH1Time > enterInH1Time)
+        {
+            NLogConfig.LogLine($"Time in Handshake 1;{(exitInH1Time - enterInH1Time).TotalSeconds.ToString("#.000")}; s");
+        } else
+        {
+            NLogConfig.LogLine($"Time in Handshake 1;0.000; s");
+        }
+            
         //NLogConfig.LogLine($"Finished interactions count (not counting interactions started from the Tester); {finishedInteractionsH1}");
 
         NLogConfig.LogLine("   ");
@@ -90,6 +107,15 @@ public class InteractionsCount : MonoBehaviour
         NLogConfig.LogLine($"Finished interactions with experimenter count; {finishedInteractionsWithExperimenterH2}");
         NLogConfig.LogLine($"Finished interactions with Mayor count; {finishedInteractionsWithMayorH2}");
         NLogConfig.LogLine($"Finished interactions with Waitress count; {finishedInteractionsWithWaitressH2}");
+
+        if (exitInH2Time > enterInH2Time)
+        {
+            NLogConfig.LogLine($"Time in Handshake 2;{(exitInH2Time - enterInH2Time).TotalSeconds.ToString("#.000")}; s");
+        }else
+        {
+            NLogConfig.LogLine($"Time in Handshake 2;0.000; s");
+        }
+            
         //NLogConfig.LogLine($"Finished interactions count (not counting interactions started from the Tester); {finishedInteractionsH2}");
 
         NLogConfig.LogLine("   ");
@@ -102,6 +128,15 @@ public class InteractionsCount : MonoBehaviour
         NLogConfig.LogLine($"Finished interactions with experimenter count; {finishedInteractionsWithExperimenterH4}");
         NLogConfig.LogLine($"Finished interactions with Mayor count; {finishedInteractionsWithMayorH4}");
         NLogConfig.LogLine($"Finished interactions with Waitress count; {finishedInteractionsWithWaitressH4}");
+
+        if (exitInH4Time > enterInH4Time)
+        {
+            NLogConfig.LogLine($"Time in Handshake 3;{(exitInH4Time - enterInH4Time).TotalSeconds.ToString("#.000")}; s");
+        } else
+        {
+            NLogConfig.LogLine($"Time in Handshake 3;0.000; s");
+        }
+            
         //NLogConfig.LogLine($"Finished interactions count (not counting interactions started from the Tester); {finishedInteractionsH4}");
 
         NLogConfig.LogLine("   ");
@@ -114,6 +149,17 @@ public class InteractionsCount : MonoBehaviour
         NLogConfig.LogLine($"Finished interactions with experimenter count; {finishedInteractionsWithExperimenterH3}");
         NLogConfig.LogLine($"Finished interactions with Mayor count; {finishedInteractionsWithMayorH3}");
         NLogConfig.LogLine($"Finished interactions with Waitress count; {finishedInteractionsWithWaitressH3}");
+
+        if (exitInH3Time > enterInH3Time)
+        {
+            NLogConfig.LogLine($"Time in Handshake 4;{(exitInH3Time - enterInH3Time).TotalSeconds.ToString("#.000")}; s");
+        } else
+        {
+            NLogConfig.LogLine($"Time in Handshake 4;0.000; s");
+        }
+
+        NLogConfig.LogLine("   ");
+
         //NLogConfig.LogLine($"Finished interactions count (not counting interactions started from the Tester); {finishedInteractionsH3}");
     }
 }

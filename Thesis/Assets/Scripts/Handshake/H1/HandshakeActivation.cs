@@ -48,7 +48,8 @@ public class HandshakeActivation : MonoBehaviour
         {
             InteractionsCount.finishedInteractionsWithExperimenterH1++;
             finalTimeH1Player = System.DateTime.UtcNow;
-            if(confirmHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == baseColor)
+            NLogConfig.LogLine($"{"Avatar"};TimeFromCanvasAppearing;{(finalTimeH1Player - initialTimeH1Player).TotalSeconds.ToString("#.000")};s");
+            /*if(confirmHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == baseColor)
             {
                 NLogConfig.LogLine($"{"White_Version"};TimeFromCanvasAppearing;{(finalTimeH1Player - initialTimeH1Player).TotalSeconds.ToString("#.000")};s");
             } else if(confirmHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == yellowColor)
@@ -57,8 +58,8 @@ public class HandshakeActivation : MonoBehaviour
             } else if(confirmHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == greenColor)
             {
                 NLogConfig.LogLine($"{"Green_Version"};TimeFromCanvasAppearing;{(finalTimeH1Player - initialTimeH1Player).TotalSeconds.ToString("#.000")};s");
-            }
-            
+            }*/
+
         }
     }
 }

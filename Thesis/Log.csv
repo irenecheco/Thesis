@@ -1,602 +1,292 @@
-2022/12/01/12:54:05:295 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/12:54:05:305 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
-2022/12/01/12:54:05:307 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/12:54:31:729 [DEBUG] Unity: ;LOGLINE;Waitress;TimeFromCanvasAppearing;2,667; s
-2022/12/01/12:54:44:793 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/12:54:44:794 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
-2022/12/01/12:54:44:796 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/12:54:44:797 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/12:54:44:798 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 1
-2022/12/01/12:54:44:800 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/12:54:44:801 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/12:54:44:803 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/12:54:44:804 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 1
-2022/12/01/12:54:44:805 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/12:54:44:806 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
-2022/12/01/12:54:44:807 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/12:54:44:808 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/12:54:44:809 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/12:54:44:812 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/12:54:44:813 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/12:54:44:814 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/12:54:44:815 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/12:54:44:816 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/12:54:44:817 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
-2022/12/01/12:54:44:818 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/12:54:44:819 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/12:54:44:820 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/12:54:44:821 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/12:54:44:822 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/12:54:44:824 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/12:54:44:825 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/12:54:44:826 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/12:54:44:827 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
-2022/12/01/12:54:44:829 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/12:54:44:831 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/12:54:44:832 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/12:54:44:833 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/12:54:44:834 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/12:54:44:835 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/12:54:44:837 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/12:57:43:971 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/12:57:43:980 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
-2022/12/01/12:57:43:982 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/12:57:54:393 [DEBUG] Unity: ;LOGLINE;Waitress;TimeFromCanvasAppearing;1,672; s
-2022/12/01/12:58:15:040 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/12:58:15:040 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
-2022/12/01/12:58:15:042 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/12:58:15:044 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/12:58:15:046 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 2
-2022/12/01/12:58:15:047 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/12:58:15:049 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/12:58:15:050 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/12:58:15:051 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 1
-2022/12/01/12:58:15:052 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/12:58:15:054 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
-2022/12/01/12:58:15:056 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/12:58:15:057 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/12:58:15:058 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/12:58:15:060 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/12:58:15:061 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/12:58:15:062 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/12:58:15:063 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/12:58:15:065 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/12:58:15:066 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
-2022/12/01/12:58:15:068 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/12:58:15:069 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/12:58:15:071 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/12:58:15:073 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/12:58:15:074 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/12:58:15:075 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/12:58:15:076 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/12:58:15:078 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/12:58:15:079 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
-2022/12/01/12:58:15:080 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/12:58:15:081 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/12:58:15:083 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/12:58:15:085 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/12:58:15:086 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/12:58:15:087 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/12:58:15:089 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/12:59:59:093 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/12:59:59:103 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
-2022/12/01/12:59:59:105 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/12:59:59:155 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
-2022/12/01/12:59:59:157 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/12:59:59:159 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/12:59:59:160 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/12:59:59:161 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/12:59:59:163 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/12:59:59:165 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/12:59:59:167 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/12:59:59:168 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/12:59:59:170 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
-2022/12/01/12:59:59:171 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/12:59:59:173 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/12:59:59:174 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/12:59:59:175 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/12:59:59:177 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/12:59:59:179 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/12:59:59:180 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/12:59:59:182 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/12:59:59:183 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
-2022/12/01/12:59:59:185 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/12:59:59:187 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/12:59:59:189 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/12:59:59:190 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/12:59:59:192 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/12:59:59:194 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/12:59:59:195 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/12:59:59:196 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/12:59:59:198 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
-2022/12/01/12:59:59:200 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/12:59:59:202 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/12:59:59:203 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/12:59:59:205 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/12:59:59:206 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/12:59:59:208 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/12:59:59:209 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:00:08:174 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:00:08:175 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
-2022/12/01/01:00:08:177 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:00:12:562 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:00:12:563 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
-2022/12/01/01:00:12:566 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:00:12:571 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
-2022/12/01/01:00:12:573 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:00:12:575 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:00:12:576 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:00:12:579 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:00:12:580 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:00:12:582 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:00:12:583 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:00:12:585 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:00:12:587 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
-2022/12/01/01:00:12:590 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:00:12:591 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:00:12:593 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:00:12:595 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:00:12:597 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:00:12:599 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:00:12:601 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:00:12:603 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:00:12:604 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
-2022/12/01/01:00:12:605 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:00:12:608 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:00:12:610 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:00:12:612 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:00:12:614 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:00:12:615 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:00:12:617 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:00:12:619 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:00:12:621 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
-2022/12/01/01:00:12:622 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:00:12:625 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:00:12:626 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:00:12:628 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:00:12:630 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:00:12:631 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:00:12:633 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:00:17:504 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:00:17:505 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
-2022/12/01/01:00:17:507 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:00:39:885 [DEBUG] Unity: ;LOGLINE;White_Version;TimeFromCanvasAppearing;5,781;s
-2022/12/01/01:01:05:479 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:01:05:480 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
-2022/12/01/01:01:05:482 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 1
-2022/12/01/01:01:05:483 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 1
-2022/12/01/01:01:05:485 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:01:05:486 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 1
-2022/12/01/01:01:05:488 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 1
-2022/12/01/01:01:05:490 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:01:05:491 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:01:05:493 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:01:05:494 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
-2022/12/01/01:01:05:496 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:01:05:498 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:01:05:499 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:01:05:501 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:01:05:503 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:01:05:504 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:01:05:506 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:01:05:508 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:01:05:509 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
-2022/12/01/01:01:05:510 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:01:05:512 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:01:05:513 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:01:05:515 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:01:05:516 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:01:05:517 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:01:05:519 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:01:05:520 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:01:05:521 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
-2022/12/01/01:01:05:523 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:01:05:524 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:01:05:525 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:01:05:527 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:01:05:528 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:01:05:530 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:01:05:532 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:03:16:458 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:03:16:466 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake2
-2022/12/01/01:03:16:468 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:03:26:887 [DEBUG] Unity: ;LOGLINE;Waitress;TimeFromCanvasAppearing;1,462;s
-2022/12/01/01:03:37:363 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:03:37:364 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
-2022/12/01/01:03:37:365 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:03:37:367 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:03:37:369 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:03:37:370 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:03:37:372 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:03:37:375 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:03:37:376 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:03:37:378 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:03:37:379 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
-2022/12/01/01:03:37:381 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:03:37:382 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:03:37:384 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 1
-2022/12/01/01:03:37:385 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:03:37:387 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:03:37:389 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:03:37:390 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 1
-2022/12/01/01:03:37:392 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:03:37:395 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
-2022/12/01/01:03:37:397 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:03:37:398 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:03:37:400 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:03:37:401 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:03:37:403 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:03:37:403 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:03:37:406 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:03:37:407 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:03:37:408 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
-2022/12/01/01:03:37:410 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:03:37:411 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:03:37:412 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:03:37:414 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:03:37:416 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:03:37:417 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:03:37:419 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:03:55:866 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:03:55:877 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake2
-2022/12/01/01:03:55:879 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:04:24:466 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:04:24:467 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
-2022/12/01/01:04:24:470 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:04:24:472 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:04:24:474 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:04:24:475 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:04:24:477 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:04:24:479 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:04:24:481 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:04:24:483 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:04:24:485 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
-2022/12/01/01:04:24:487 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:04:24:489 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:04:24:491 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:04:24:493 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:04:24:495 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:04:24:498 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:04:24:500 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:04:24:501 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:04:24:503 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
-2022/12/01/01:04:24:505 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:04:24:507 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:04:24:509 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:04:24:511 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:04:24:513 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:04:24:515 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:04:24:516 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:04:24:518 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:04:24:520 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
-2022/12/01/01:04:24:522 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:04:24:524 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:04:24:525 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:04:24:527 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:04:24:529 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:04:24:532 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:04:24:533 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:05:27:731 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:05:27:741 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake4
-2022/12/01/01:05:27:743 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:05:43:112 [DEBUG] Unity: ;LOGLINE;Waitress;TimeFromCanvasAppearing;1,052;s
-2022/12/01/01:05:50:711 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:05:50:712 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
-2022/12/01/01:05:50:713 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:05:50:715 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:05:50:717 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:05:50:718 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:05:50:720 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:05:50:722 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:05:50:723 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:05:50:725 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:05:50:727 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
-2022/12/01/01:05:50:729 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:05:50:731 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:05:50:733 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:05:50:735 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:05:50:736 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:05:50:737 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:05:50:739 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:05:50:741 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:05:50:742 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
-2022/12/01/01:05:50:744 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:05:50:746 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:05:50:747 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:05:50:749 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:05:50:750 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:05:50:753 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:05:50:754 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:05:50:756 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:05:50:757 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
-2022/12/01/01:05:50:759 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:05:50:760 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:05:50:763 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 1
-2022/12/01/01:05:50:765 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:05:50:767 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:05:50:768 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:05:50:770 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 1
-2022/12/01/01:07:35:280 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:07:35:291 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake4
-2022/12/01/01:07:35:293 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:07:44:362 [DEBUG] Unity: ;LOGLINE;Waitress;TimeFromCanvasAppearing;1,005;s
-2022/12/01/01:07:50:827 [DEBUG] Unity: ;LOGLINE;Waitress;TimeFromCanvasAppearing;,592;s
-2022/12/01/01:07:57:714 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:07:57:715 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
-2022/12/01/01:07:57:717 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:07:57:719 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:07:57:721 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:07:57:722 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:07:57:724 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:07:57:726 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:07:57:727 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:07:57:730 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:07:57:731 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
-2022/12/01/01:07:57:733 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:07:57:735 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:07:57:736 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:07:57:737 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:07:57:739 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:07:57:740 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:07:57:741 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:07:57:743 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:07:57:745 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
-2022/12/01/01:07:57:747 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:07:57:748 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:07:57:749 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:07:57:751 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:07:57:752 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:07:57:754 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:07:57:755 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:07:57:756 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:07:57:758 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
-2022/12/01/01:07:57:760 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:07:57:762 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:07:57:764 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 2
-2022/12/01/01:07:57:765 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:07:57:767 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:07:57:768 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:07:57:770 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 2
-2022/12/01/01:08:50:131 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:08:50:141 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake3
-2022/12/01/01:08:50:144 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:08:58:561 [DEBUG] Unity: ;LOGLINE;Waitress;TimeFromCanvasAppearing;,568;s
-2022/12/01/01:09:12:428 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:09:12:429 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
-2022/12/01/01:09:12:431 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:09:12:433 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:09:12:435 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:09:12:436 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:09:12:438 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:09:12:439 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:09:12:441 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:09:12:443 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:09:12:445 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
-2022/12/01/01:09:12:446 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:09:12:448 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:09:12:450 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:09:12:451 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:09:12:453 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:09:12:455 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:09:12:456 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:09:12:459 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:09:12:460 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
-2022/12/01/01:09:12:462 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:09:12:463 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:09:12:465 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 1
-2022/12/01/01:09:12:466 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:09:12:469 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:09:12:470 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:09:12:472 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 1
-2022/12/01/01:09:12:475 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:09:12:476 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
-2022/12/01/01:09:12:478 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:09:12:479 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:09:12:481 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:09:12:483 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:09:12:484 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:09:12:485 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:09:12:488 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:11:55:534 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:11:55:542 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
-2022/12/01/01:11:55:544 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:11:55:593 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
-2022/12/01/01:11:55:595 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:11:55:597 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:11:55:599 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:11:55:601 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:11:55:602 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:11:55:603 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:11:55:605 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:11:55:607 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:11:55:608 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
-2022/12/01/01:11:55:610 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:11:55:612 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:11:55:614 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:11:55:615 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:11:55:616 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:11:55:618 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:11:55:619 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:11:55:621 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:11:55:623 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
-2022/12/01/01:11:55:624 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:11:55:627 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:11:55:629 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:11:55:630 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:11:55:631 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:11:55:633 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:11:55:635 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:11:55:637 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:11:55:638 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
-2022/12/01/01:11:55:640 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:11:55:641 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:11:55:643 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:11:55:644 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:11:55:646 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:11:55:648 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:11:55:649 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:12:04:488 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:12:04:490 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
-2022/12/01/01:12:04:492 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:12:29:010 [DEBUG] Unity: ;LOGLINE;White_Version;TimeFromCanvasAppearing;5,723;s
-2022/12/01/01:12:38:848 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:12:38:850 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
-2022/12/01/01:12:38:852 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:12:38:857 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
-2022/12/01/01:12:38:859 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 1
-2022/12/01/01:12:38:860 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 1
-2022/12/01/01:12:38:862 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:12:38:864 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 1
-2022/12/01/01:12:38:866 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 1
-2022/12/01/01:12:38:868 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:12:38:870 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:12:38:871 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:12:38:873 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
-2022/12/01/01:12:38:875 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:12:38:877 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:12:38:878 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:12:38:880 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:12:38:881 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:12:38:883 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:12:38:885 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:12:38:886 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:12:38:887 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
-2022/12/01/01:12:38:889 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:12:38:891 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:12:38:892 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:12:38:894 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:12:38:896 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:12:38:898 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:12:38:899 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:12:38:900 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:12:38:903 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
-2022/12/01/01:12:38:905 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:12:38:906 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:12:38:908 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:12:38:910 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:12:38:912 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:12:38:913 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:12:38:915 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:12:41:364 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:12:41:366 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake2
-2022/12/01/01:12:41:377 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:13:22:402 [DEBUG] Unity: ;LOGLINE;White_Version;TimeFromCanvasAppearing;2,260;s
-2022/12/01/01:14:15:951 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:14:15:952 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
-2022/12/01/01:14:15:953 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:14:15:958 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
-2022/12/01/01:14:15:961 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 1
-2022/12/01/01:14:15:963 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 1
-2022/12/01/01:14:15:964 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:14:15:966 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 1
-2022/12/01/01:14:15:968 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 1
-2022/12/01/01:14:15:969 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:14:15:971 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:14:15:973 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:14:15:975 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
-2022/12/01/01:14:15:976 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 3
-2022/12/01/01:14:15:978 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 1
-2022/12/01/01:14:15:979 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:14:15:981 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:14:15:983 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 1
-2022/12/01/01:14:15:985 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:14:15:986 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:14:15:988 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:14:15:989 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
-2022/12/01/01:14:15:991 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:14:15:992 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:14:15:994 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:14:15:995 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:14:15:997 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:14:15:999 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:14:16:001 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:14:16:002 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:14:16:003 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
-2022/12/01/01:14:16:005 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:14:16:006 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:14:16:008 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:14:16:010 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:14:16:012 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:14:16:013 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:14:16:015 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:14:18:320 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:14:18:323 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake3
-2022/12/01/01:14:18:325 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:15:22:183 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:15:22:184 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
-2022/12/01/01:15:22:186 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:15:22:190 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
-2022/12/01/01:15:22:191 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 1
-2022/12/01/01:15:22:195 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 1
-2022/12/01/01:15:22:196 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:15:22:199 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 1
-2022/12/01/01:15:22:201 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 1
-2022/12/01/01:15:22:203 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:15:22:205 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:15:22:207 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:15:22:209 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
-2022/12/01/01:15:22:211 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 3
-2022/12/01/01:15:22:212 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 1
-2022/12/01/01:15:22:214 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:15:22:216 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:15:22:218 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 1
-2022/12/01/01:15:22:220 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:15:22:221 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:15:22:223 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:15:22:225 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
-2022/12/01/01:15:22:226 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:15:22:227 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:15:22:229 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:15:22:230 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 3
-2022/12/01/01:15:22:232 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:15:22:234 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:15:22:235 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:15:22:237 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:15:22:239 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
-2022/12/01/01:15:22:241 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:15:22:242 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:15:22:244 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:15:22:245 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:15:22:246 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:15:22:249 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:15:22:250 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:15:24:741 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:15:24:743 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake4
-2022/12/01/01:15:24:745 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:15:40:688 [DEBUG] Unity: ;LOGLINE;White_Version;TimeFromCanvasAppearing;1,022;s
-2022/12/01/01:16:00:033 [DEBUG] Unity: ;LOGLINE;================================================================================
-2022/12/01/01:16:00:034 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
-2022/12/01/01:16:00:035 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 1
-2022/12/01/01:16:00:037 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 1
-2022/12/01/01:16:00:039 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:16:00:040 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 1
-2022/12/01/01:16:00:042 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 1
-2022/12/01/01:16:00:043 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:16:00:045 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:16:00:047 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:16:00:049 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
-2022/12/01/01:16:00:051 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 3
-2022/12/01/01:16:00:052 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 1
-2022/12/01/01:16:00:054 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:16:00:055 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
-2022/12/01/01:16:00:057 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 1
-2022/12/01/01:16:00:059 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:16:00:060 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:16:00:062 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:16:00:063 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
-2022/12/01/01:16:00:065 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
-2022/12/01/01:16:00:067 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:16:00:069 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:16:00:070 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 3
-2022/12/01/01:16:00:071 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
-2022/12/01/01:16:00:073 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:16:00:075 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
-2022/12/01/01:16:00:077 [DEBUG] Unity: ;LOGLINE;   
-2022/12/01/01:16:00:079 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
-2022/12/01/01:16:00:081 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 1
-2022/12/01/01:16:00:082 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
-2022/12/01/01:16:00:084 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
-2022/12/01/01:16:00:086 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 3
-2022/12/01/01:16:00:088 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 1
-2022/12/01/01:16:00:089 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
-2022/12/01/01:16:00:091 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/03:23:30:854 [DEBUG] Unity: ;LOGLINE;================================================================================
+2022/12/03/03:23:30:865 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/12/03/03:23:30:866 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/03:23:30:910 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/12/03/03:23:30:911 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
+2022/12/03/03:23:30:912 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
+2022/12/03/03:23:30:913 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/03:23:30:914 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
+2022/12/03/03:23:30:916 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
+2022/12/03/03:23:30:917 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/03:23:30:918 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/03:23:30:920 [DEBUG] Unity: ;LOGLINE;Time in Handshake 1;0.000; s
+2022/12/03/03:23:30:921 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/03:23:30:922 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/12/03/03:23:30:923 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
+2022/12/03/03:23:30:924 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
+2022/12/03/03:23:30:925 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/03:23:30:926 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
+2022/12/03/03:23:30:927 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
+2022/12/03/03:23:30:928 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/03:23:30:929 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/03:23:30:930 [DEBUG] Unity: ;LOGLINE;Time in Handshake 2;0.000; s
+2022/12/03/03:23:30:931 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/03:23:30:932 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/12/03/03:23:30:935 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
+2022/12/03/03:23:30:936 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
+2022/12/03/03:23:30:937 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/03:23:30:938 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
+2022/12/03/03:23:30:939 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
+2022/12/03/03:23:30:940 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/03:23:30:942 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/03:23:30:942 [DEBUG] Unity: ;LOGLINE;Time in Handshake 3;0.000; s
+2022/12/03/03:23:30:943 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/03:23:30:944 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/12/03/03:23:30:946 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
+2022/12/03/03:23:30:946 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
+2022/12/03/03:23:30:948 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/03:23:30:949 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
+2022/12/03/03:23:30:950 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
+2022/12/03/03:23:30:952 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/03:23:30:952 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/03:23:30:954 [DEBUG] Unity: ;LOGLINE;Time in Handshake 4;0.000; s
+2022/12/03/03:23:30:955 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/03:23:56:359 [DEBUG] Unity: ;LOGLINE;================================================================================
+2022/12/03/03:23:56:360 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake1
+2022/12/03/03:23:56:361 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/03:25:17:342 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;1,373;s
+2022/12/03/03:25:46:667 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;2,200;s
+2022/12/03/03:26:26:247 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;1,309;s
+2022/12/03/03:28:40:848 [DEBUG] Unity: ;LOGLINE;================================================================================
+2022/12/03/03:28:40:849 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/12/03/03:28:40:851 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/03:28:40:858 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/12/03/03:28:40:859 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 7
+2022/12/03/03:28:40:860 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 1
+2022/12/03/03:28:40:862 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/03:28:40:863 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 4
+2022/12/03/03:28:40:864 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 3
+2022/12/03/03:28:40:866 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/03:28:40:867 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/03:28:40:868 [DEBUG] Unity: ;LOGLINE;Time in Handshake 1;283,793; s
+2022/12/03/03:28:40:869 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/03:28:40:870 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/12/03/03:28:40:872 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
+2022/12/03/03:28:40:873 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
+2022/12/03/03:28:40:874 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/03:28:40:876 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
+2022/12/03/03:28:40:876 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
+2022/12/03/03:28:40:878 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/03:28:40:879 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/03:28:40:881 [DEBUG] Unity: ;LOGLINE;Time in Handshake 2;63805674519,913; s
+2022/12/03/03:28:40:882 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/03:28:40:883 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/12/03/03:28:40:884 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
+2022/12/03/03:28:40:885 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
+2022/12/03/03:28:40:886 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/03:28:40:887 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
+2022/12/03/03:28:40:888 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
+2022/12/03/03:28:40:889 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/03:28:40:891 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/03:28:40:892 [DEBUG] Unity: ;LOGLINE;Time in Handshake 3;63805674519,913; s
+2022/12/03/03:28:40:893 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/03:28:40:894 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/12/03/03:28:40:896 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
+2022/12/03/03:28:40:896 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
+2022/12/03/03:28:40:898 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/03:28:40:899 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
+2022/12/03/03:28:40:900 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
+2022/12/03/03:28:40:901 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/03:28:40:903 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/03:28:40:904 [DEBUG] Unity: ;LOGLINE;Time in Handshake 4;63805674519,913; s
+2022/12/03/03:28:40:905 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/03:49:31:644 [DEBUG] Unity: ;LOGLINE;================================================================================
+2022/12/03/03:49:31:645 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake4
+2022/12/03/03:49:31:646 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/03:50:59:355 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;1,945;s
+2022/12/03/03:51:05:862 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;,793;s
+2022/12/03/03:51:10:429 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;2,450;s
+2022/12/03/03:51:35:085 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;,293;s
+2022/12/03/03:51:41:948 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;1,628;s
+2022/12/03/03:52:26:359 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;1,030;s
+2022/12/03/03:52:35:353 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;1,100;s
+2022/12/03/03:52:53:479 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;12,432;s
+2022/12/03/03:53:06:747 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;1,031;s
+2022/12/03/03:53:11:637 [DEBUG] Unity: ;LOGLINE;================================================================================
+2022/12/03/03:53:11:638 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/12/03/03:53:11:640 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/03:53:11:647 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/12/03/03:53:11:649 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 7
+2022/12/03/03:53:11:650 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 1
+2022/12/03/03:53:11:651 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/03:53:11:652 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 4
+2022/12/03/03:53:11:654 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 3
+2022/12/03/03:53:11:655 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/03:53:11:656 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/03:53:11:657 [DEBUG] Unity: ;LOGLINE;Time in Handshake 1;1754,818; s
+2022/12/03/03:53:11:658 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/03:53:11:660 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/12/03/03:53:11:662 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
+2022/12/03/03:53:11:664 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
+2022/12/03/03:53:11:665 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/03:53:11:666 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
+2022/12/03/03:53:11:667 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
+2022/12/03/03:53:11:669 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/03:53:11:670 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/03:53:11:671 [DEBUG] Unity: ;LOGLINE;Time in Handshake 2;63805675990,937; s
+2022/12/03/03:53:11:673 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/03:53:11:674 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/12/03/03:53:11:675 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
+2022/12/03/03:53:11:676 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
+2022/12/03/03:53:11:678 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/03:53:11:679 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
+2022/12/03/03:53:11:681 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
+2022/12/03/03:53:11:682 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/03:53:11:683 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/03:53:11:685 [DEBUG] Unity: ;LOGLINE;Time in Handshake 3;63805675990,937; s
+2022/12/03/03:53:11:687 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/03:53:11:688 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/12/03/03:53:11:690 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 18
+2022/12/03/03:53:11:691 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
+2022/12/03/03:53:11:692 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/03:53:11:694 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 11
+2022/12/03/03:53:11:695 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 9
+2022/12/03/03:53:11:696 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/03:53:11:698 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/03:53:11:699 [DEBUG] Unity: ;LOGLINE;Time in Handshake 4;219,480; s
+2022/12/03/03:53:11:700 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/03:58:48:389 [DEBUG] Unity: ;LOGLINE;================================================================================
+2022/12/03/03:58:48:390 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake3
+2022/12/03/03:58:48:392 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/03:59:47:881 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;,599;s
+2022/12/03/03:59:51:446 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;,543;s
+2022/12/03/04:00:09:349 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;,098;s
+2022/12/03/04:00:29:481 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;1,310;s
+2022/12/03/04:00:32:724 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;,028;s
+2022/12/03/04:01:09:368 [DEBUG] Unity: ;LOGLINE;================================================================================
+2022/12/03/04:01:09:369 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/12/03/04:01:09:370 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/04:01:09:379 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/12/03/04:01:09:380 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 7
+2022/12/03/04:01:09:382 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 1
+2022/12/03/04:01:09:384 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/04:01:09:385 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 4
+2022/12/03/04:01:09:386 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 3
+2022/12/03/04:01:09:388 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/04:01:09:389 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/04:01:09:391 [DEBUG] Unity: ;LOGLINE;Time in Handshake 1;2232,244; s
+2022/12/03/04:01:09:392 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/04:01:09:393 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/12/03/04:01:09:394 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 0
+2022/12/03/04:01:09:396 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
+2022/12/03/04:01:09:397 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/04:01:09:399 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 0
+2022/12/03/04:01:09:400 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 0
+2022/12/03/04:01:09:401 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/04:01:09:403 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/04:01:09:404 [DEBUG] Unity: ;LOGLINE;Time in Handshake 2;63805676468,364; s
+2022/12/03/04:01:09:406 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/04:01:09:407 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/12/03/04:01:09:409 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 8
+2022/12/03/04:01:09:410 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
+2022/12/03/04:01:09:411 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/04:01:09:413 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 11
+2022/12/03/04:01:09:414 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 5
+2022/12/03/04:01:09:415 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/04:01:09:416 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/04:01:09:418 [DEBUG] Unity: ;LOGLINE;Time in Handshake 3;140,126; s
+2022/12/03/04:01:09:419 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/04:01:09:420 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/12/03/04:01:09:422 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 18
+2022/12/03/04:01:09:423 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
+2022/12/03/04:01:09:424 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/04:01:09:426 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 11
+2022/12/03/04:01:09:427 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 9
+2022/12/03/04:01:09:428 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/04:01:09:429 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/04:01:09:431 [DEBUG] Unity: ;LOGLINE;Time in Handshake 4;696,907; s
+2022/12/03/04:01:09:432 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/04:04:39:012 [DEBUG] Unity: ;LOGLINE;================================================================================
+2022/12/03/04:04:39:013 [DEBUG] Unity: ;LOGLINE;VERSION;Handshake2
+2022/12/03/04:04:39:015 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/04:05:40:401 [DEBUG] Unity: Entra qui
+2022/12/03/04:05:40:403 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;,616;s
+2022/12/03/04:06:00:141 [DEBUG] Unity: Entra qui
+2022/12/03/04:06:00:143 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;1,046;s
+2022/12/03/04:06:15:624 [DEBUG] Unity: Entra qui
+2022/12/03/04:06:15:625 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;,559;s
+2022/12/03/04:07:32:556 [DEBUG] Unity: Entra qui
+2022/12/03/04:07:32:557 [DEBUG] Unity: ;LOGLINE;Avatar;TimeFromCanvasAppearing;73,107;s
+2022/12/03/04:08:42:084 [DEBUG] Unity: ;LOGLINE;================================================================================
+2022/12/03/04:08:42:085 [DEBUG] Unity: ;LOGLINE;VERSION;StartMenu
+2022/12/03/04:08:42:086 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/04:08:42:089 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/12/03/04:08:42:091 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 7
+2022/12/03/04:08:42:093 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 1
+2022/12/03/04:08:42:094 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/04:08:42:096 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 4
+2022/12/03/04:08:42:098 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 3
+2022/12/03/04:08:42:100 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/04:08:42:101 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/04:08:42:103 [DEBUG] Unity: ;LOGLINE;Time in Handshake 1;2684,766; s
+2022/12/03/04:08:42:104 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/04:08:42:106 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/12/03/04:08:42:107 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 12
+2022/12/03/04:08:42:109 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 1
+2022/12/03/04:08:42:110 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/04:08:42:112 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 3
+2022/12/03/04:08:42:113 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 4
+2022/12/03/04:08:42:114 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/04:08:42:116 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/04:08:42:117 [DEBUG] Unity: ;LOGLINE;Time in Handshake 2;242,008; s
+2022/12/03/04:08:42:119 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/04:08:42:120 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/12/03/04:08:42:122 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 8
+2022/12/03/04:08:42:123 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
+2022/12/03/04:08:42:125 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/04:08:42:126 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 11
+2022/12/03/04:08:42:128 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 5
+2022/12/03/04:08:42:129 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/04:08:42:130 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/04:08:42:132 [DEBUG] Unity: ;LOGLINE;Time in Handshake 3;592,648; s
+2022/12/03/04:08:42:133 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/04:08:42:135 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/12/03/04:08:42:136 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 18
+2022/12/03/04:08:42:139 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
+2022/12/03/04:08:42:140 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/04:08:42:142 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 11
+2022/12/03/04:08:42:143 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 9
+2022/12/03/04:08:42:145 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/04:08:42:147 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/04:08:42:149 [DEBUG] Unity: ;LOGLINE;Time in Handshake 4;1149,428; s
+2022/12/03/04:08:42:150 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/04:24:45:822 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 1
+2022/12/03/04:24:45:823 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 7
+2022/12/03/04:24:45:824 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 1
+2022/12/03/04:24:45:826 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/04:24:45:827 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 4
+2022/12/03/04:24:45:829 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 3
+2022/12/03/04:24:45:830 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/04:24:45:831 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/04:24:45:833 [DEBUG] Unity: ;LOGLINE;Time in Handshake 1;2684,766; s
+2022/12/03/04:24:45:834 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/04:24:45:836 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 2
+2022/12/03/04:24:45:836 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 12
+2022/12/03/04:24:45:838 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 1
+2022/12/03/04:24:45:840 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/04:24:45:841 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 3
+2022/12/03/04:24:45:842 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 4
+2022/12/03/04:24:45:844 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/04:24:45:846 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/04:24:45:847 [DEBUG] Unity: ;LOGLINE;Time in Handshake 2;242,008; s
+2022/12/03/04:24:45:848 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/04:24:45:849 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 3
+2022/12/03/04:24:45:851 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 8
+2022/12/03/04:24:45:852 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
+2022/12/03/04:24:45:854 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/04:24:45:856 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 11
+2022/12/03/04:24:45:856 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 5
+2022/12/03/04:24:45:859 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/04:24:45:860 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/04:24:45:862 [DEBUG] Unity: ;LOGLINE;Time in Handshake 3;592,648; s
+2022/12/03/04:24:45:863 [DEBUG] Unity: ;LOGLINE;   
+2022/12/03/04:24:45:864 [DEBUG] Unity: ;LOGLINE;VERSION; Handshake 4
+2022/12/03/04:24:45:865 [DEBUG] Unity: ;LOGLINE;Interactions started from experimenter count; 18
+2022/12/03/04:24:45:866 [DEBUG] Unity: ;LOGLINE;Interactions started from Mayor count; 0
+2022/12/03/04:24:45:868 [DEBUG] Unity: ;LOGLINE;Interactions started from Waitress count; 0
+2022/12/03/04:24:45:870 [DEBUG] Unity: ;LOGLINE;Interactions started from Tester count; 11
+2022/12/03/04:24:45:872 [DEBUG] Unity: ;LOGLINE;Finished interactions with experimenter count; 9
+2022/12/03/04:24:45:873 [DEBUG] Unity: ;LOGLINE;Finished interactions with Mayor count; 0
+2022/12/03/04:24:45:875 [DEBUG] Unity: ;LOGLINE;Finished interactions with Waitress count; 0
+2022/12/03/04:24:45:876 [DEBUG] Unity: ;LOGLINE;Time in Handshake 4;1149,428; s
+2022/12/03/04:24:45:876 [DEBUG] Unity: ;LOGLINE;   

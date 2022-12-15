@@ -74,11 +74,15 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
                             //Debug.Log($"{isPressed} mio e {otherPlayerHead.transform.GetComponent<OnButtonAPressed>().isPressed} altro");
                             if (otherPlayerHead.transform.GetComponent<OnButtonAPressed>().isPressed)
                             {
+                                Debug.Log("Entra qui");
                                 if (animationGoing == false)
                                 {
+                                    animationGoing = true;
+                                    myPlayer.GetComponent<NetworkHandshakeActivationH2>().CallActivationOverNetwork(player1ID, player2ID);
                                     InteractionsCount.finishedInteractionsWithExperimenterH2++;
                                     finalTimeH2Player = System.DateTime.UtcNow;
-                                    if (otherPlayerHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == baseColor)
+                                    NLogConfig.LogLine($"{"Avatar"};TimeFromCanvasAppearing;{(finalTimeH2Player - initialTimeH2Player).TotalSeconds.ToString("#.000")};s");
+                                    /*if (otherPlayerHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == baseColor)
                                     {
                                         NLogConfig.LogLine($"{"White_Version"};TimeFromCanvasAppearing;{(finalTimeH2Player - initialTimeH2Player).TotalSeconds.ToString("#.000")};s");
                                     }
@@ -89,10 +93,8 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
                                     else if (otherPlayerHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == greenColor)
                                     {
                                         NLogConfig.LogLine($"{"Green_Version"};TimeFromCanvasAppearing;{(finalTimeH2Player - initialTimeH2Player).TotalSeconds.ToString("#.000")};s");
-                                    }
-                                    //Debug.Log("Entrambi gli isPressed sono true");
-                                    animationGoing = true;
-                                    myPlayer.GetComponent<NetworkHandshakeActivationH2>().CallActivationOverNetwork(player1ID, player2ID);
+                                    }*/
+                                    //Debug.Log("Entrambi gli isPressed sono true");                                    
                                 }
                             }
                         }

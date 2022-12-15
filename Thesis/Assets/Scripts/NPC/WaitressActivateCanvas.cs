@@ -91,6 +91,7 @@ public class WaitressActivateCanvas : MonoBehaviour
         {
             if(sceneIndex == 1)
             {
+                npcHead.transform.FindChildRecursive("HandshakeConfirm Button").GetComponent<HandshakeActivationNPC>().initialTimeH1Waitress = System.DateTime.UtcNow;
                 origin.GetComponent<ActiveHandController>().isCollidingWithWaitress = true;
                 if (leftHand.transform.parent.gameObject.GetComponent<XRRayInteractor>().enabled == true)
                 {

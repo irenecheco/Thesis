@@ -138,7 +138,8 @@ public class GrabbingH3 : MonoBehaviour
                             {
                                 InteractionsCount.finishedInteractionsWithExperimenterH3++;
                                 finalTimeH3Player = System.DateTime.UtcNow;
-                                if (otherNetHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == baseColor)
+                                NLogConfig.LogLine($"{"Avatar"};TimeFromCanvasAppearing;{(finalTimeH3Player - initialTimeH3Player).TotalSeconds.ToString("#.000")};s");
+                                /*if (otherNetHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == baseColor)
                                 {
                                     NLogConfig.LogLine($"{"White_Version"};TimeFromCanvasAppearing;{(finalTimeH3Player - initialTimeH3Player).TotalSeconds.ToString("#.000")};s");
                                 }
@@ -149,7 +150,7 @@ public class GrabbingH3 : MonoBehaviour
                                 else if (otherNetHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == greenColor)
                                 {
                                     NLogConfig.LogLine($"{"Green_Version"};TimeFromCanvasAppearing;{(finalTimeH3Player - initialTimeH3Player).TotalSeconds.ToString("#.000")};s");
-                                }
+                                }*/
                                 otherGrabbedFirst = false;
                             }                            
                             firstFrameForCount = true;

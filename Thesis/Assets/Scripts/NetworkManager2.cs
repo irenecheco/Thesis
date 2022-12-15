@@ -43,6 +43,19 @@ public class NetworkManager2 : MonoBehaviourPunCallbacks
         roomOptions.IsOpen = true;
         roomOptions.PublishUserId = true;
 
+        if(roomSettings.sceneIndex == 1)
+        {
+            InteractionsCount.enterInH1Time = System.DateTime.UtcNow;
+        } else if(roomSettings.sceneIndex == 2)
+        {
+            InteractionsCount.enterInH2Time = System.DateTime.UtcNow;
+        } else if(roomSettings.sceneIndex == 3)
+        {
+            InteractionsCount.enterInH3Time = System.DateTime.UtcNow;
+        } else if(roomSettings.sceneIndex == 4)
+        {
+            InteractionsCount.enterInH4Time = System.DateTime.UtcNow;
+        }
         PhotonNetwork.JoinOrCreateRoom(roomSettings.Name, roomOptions, TypedLobby.Default);
     }
 
