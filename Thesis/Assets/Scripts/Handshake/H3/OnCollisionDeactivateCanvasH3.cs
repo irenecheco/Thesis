@@ -22,14 +22,12 @@ public class OnCollisionDeactivateCanvasH3 : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject localNetRightHand;
 
     public bool firstExited;
-    private bool wasGrabbed;
 
     public void Start()
     {
         rightHandController = GameObject.Find("Camera Offset/RightHand Controller");
         rightHand = rightHandController.transform.FindChildRecursive("RightHand").gameObject;
         firstExited = true;
-        wasGrabbed = false;
     }
 
     //Function called on trigger entered: it activates the handshake button only if the two heads collide

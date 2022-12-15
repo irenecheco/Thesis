@@ -26,7 +26,6 @@ public class NetworkHandshakePressedA : MonoBehaviour
     private Color waitingColor = new Color(0.4135279f, 0.7409829f, 0.9056604f, 1.0f);
 
     private string handshake2_messageCanva = "Handshake 2 message";
-    private string handshake2_waitingCanva = "Handshake 2 waiting";
     private string handshake2_confirmCanva = "Handshake 2 confirm";
 
     private PhotonView photonView;

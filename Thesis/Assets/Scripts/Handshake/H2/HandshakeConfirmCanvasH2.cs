@@ -9,8 +9,6 @@ public class HandshakeConfirmCanvasH2 : MonoBehaviour,  IPunObservable
     //Code responsible for the confirm canvas (if it has to be shown or not) through the network
 
     private bool confirmActive;
-    private GameObject handshake2ConfirmCanvas;
-    private bool previousFrame;
 
     private PhotonView parentPhotonView;
 
@@ -30,8 +28,6 @@ public class HandshakeConfirmCanvasH2 : MonoBehaviour,  IPunObservable
 
     void Start()
     {
-        handshake2ConfirmCanvas = this.gameObject;
-        previousFrame = false;
         parentPhotonView = this.transform.parent.GetComponent<PhotonView>();
     }
 
@@ -39,53 +35,11 @@ public class HandshakeConfirmCanvasH2 : MonoBehaviour,  IPunObservable
     public void ActivateHandshakeConfirmCanvas()
     {
         confirmActive = true;
-        /*if(handshake2ConfirmCanvas != null)
-        {
-            handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled = true;
-            handshake2ConfirmCanvas.GetComponent<AudioSource>().enabled = true;
-            handshake2ConfirmCanvas.GetComponent<AudioSource>().Play();
-        }*/
     }
 
     //Called when the confirm canvas needs to be disabled
     public void DeactivateHandshakeConfirmCanvas()
     {
         confirmActive = false;
-        /*if (handshake2ConfirmCanvas != null)
-        {
-            handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled = false;
-        }*/
     }
-
-    /*void Update()
-    {
-        //Check if the bool is true to enable or disable the canvas
-        if (!parentPhotonView.IsMine)
-        {
-            if (confirmActive == false)
-            {
-                if (previousFrame == true)
-                {
-                    if (handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled == true)
-                    {
-                        handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled = false;
-                    }
-                    previousFrame = false;
-                }
-            }
-            else
-            {
-                if (previousFrame == false)
-                {
-                    if (handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled == false)
-                    {
-                        handshake2ConfirmCanvas.transform.GetComponent<Canvas>().enabled = true;
-                        handshake2ConfirmCanvas.GetComponent<AudioSource>().enabled = true;
-                        handshake2ConfirmCanvas.GetComponent<AudioSource>().Play();
-                    }
-                    previousFrame = true;
-                }
-            }
-        }        
-    }*/
 }

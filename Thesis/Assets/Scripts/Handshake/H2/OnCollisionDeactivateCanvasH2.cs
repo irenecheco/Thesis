@@ -22,7 +22,6 @@ public class OnCollisionDeactivateCanvasH2 : MonoBehaviour
     private Color baseColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
     private string handshake2_messageCanva = "Handshake 2 message";
-    private string handshake2_waitingCanva = "Handshake 2 waiting";
     private string handshake2_confirmCanva = "Handshake 2 confirm";
 
     public bool firstExited;

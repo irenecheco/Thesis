@@ -32,9 +32,6 @@ public class NetworkPlayer : MonoBehaviourPunCallbacks, IPunInstantiateMagicCall
 
     private int sceneIndex;
 
-    private bool newUpdateHand = false;
-    private bool newUpdateControllers = false;
-
     void Start()
     {
         sceneIndex = SceneManager.GetActiveScene().buildIndex;

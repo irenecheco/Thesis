@@ -9,8 +9,6 @@ public class HandshakeWaitingCanvasH2 : MonoBehaviour, IPunObservable
     //Code responsible for the waiting canvas (if it has to be shown or not) through the network
 
     private bool waitingActive;
-    private GameObject handshake2WaitingCanvas;
-    private bool previousFrame;
 
     private PhotonView parentPhotonView;
 
@@ -30,8 +28,6 @@ public class HandshakeWaitingCanvasH2 : MonoBehaviour, IPunObservable
 
     void Start()
     {
-        handshake2WaitingCanvas = this.gameObject;
-        previousFrame = false;
         parentPhotonView = this.transform.parent.GetComponent<PhotonView>();
     }
 
@@ -39,43 +35,11 @@ public class HandshakeWaitingCanvasH2 : MonoBehaviour, IPunObservable
     public void ActivateHandshakeWaitingCanvas()
     {
         waitingActive = true;
-        /*if(handshake2WaitingCanvas != null)
-        {
-            handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = true;
-        }*/
     }
 
     //Called when the waiting canvas needs to be disabled
     public void DeactivateHandshakeWaitingCanvas()
     {
         waitingActive = false;
-        /*if(handshake2WaitingCanvas != null)
-        {
-            handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = false;
-        }*/
     }
-
-    /*void Update()
-    {
-        //Check if the bool is true to enable or disable the canvas
-        if (!parentPhotonView.IsMine)
-        {
-            if (waitingActive == false)
-            {
-                if (previousFrame == true)
-                {
-                    handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = false;
-                    previousFrame = false;
-                }
-            }
-            else
-            {
-                if (previousFrame == false)
-                {
-                    handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = true;
-                    previousFrame = true;
-                }
-            }
-        }        
-    }*/
 }

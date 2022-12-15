@@ -23,8 +23,6 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
     private GameObject handMesh;
 
     private Color baseColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-    private Color yellowColor = new Color(0.8679245f, 0.8271183f, 0.4208615f, 1.0f);
-    private Color greenColor = new Color(0.4291207f, 0.7924528f, 0.6037189f, 1.0f);
 
     private string player1ID;
     private string player2ID;
@@ -37,8 +35,6 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
 
     public System.DateTime initialTimeH2Player;
     private System.DateTime finalTimeH2Player;
-
-    private string handshake2_messageCanva = "Handshake 2 message";
 
     [SerializeField] private InputActionReference _enableHandshake2;
 
@@ -81,20 +77,7 @@ public class OnButtonAPressed : MonoBehaviour, IPunObservable
                                     myPlayer.GetComponent<NetworkHandshakeActivationH2>().CallActivationOverNetwork(player1ID, player2ID);
                                     InteractionsCount.finishedInteractionsWithExperimenterH2++;
                                     finalTimeH2Player = System.DateTime.UtcNow;
-                                    NLogConfig.LogLine($"{"Avatar"};TimeFromCanvasAppearing;{(finalTimeH2Player - initialTimeH2Player).TotalSeconds.ToString("#.000")};s");
-                                    /*if (otherPlayerHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == baseColor)
-                                    {
-                                        NLogConfig.LogLine($"{"White_Version"};TimeFromCanvasAppearing;{(finalTimeH2Player - initialTimeH2Player).TotalSeconds.ToString("#.000")};s");
-                                    }
-                                    else if (otherPlayerHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == yellowColor)
-                                    {
-                                        NLogConfig.LogLine($"{"Yellow_Version"};TimeFromCanvasAppearing;{(finalTimeH2Player - initialTimeH2Player).TotalSeconds.ToString("#.000")};s");
-                                    }
-                                    else if (otherPlayerHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == greenColor)
-                                    {
-                                        NLogConfig.LogLine($"{"Green_Version"};TimeFromCanvasAppearing;{(finalTimeH2Player - initialTimeH2Player).TotalSeconds.ToString("#.000")};s");
-                                    }*/
-                                    //Debug.Log("Entrambi gli isPressed sono true");                                    
+                                    NLogConfig.LogLine($"{"Avatar"};TimeFromCanvasAppearing;{(finalTimeH2Player - initialTimeH2Player).TotalSeconds.ToString("#.000")};s");                                 
                                 }
                             }
                         }

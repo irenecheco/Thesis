@@ -25,19 +25,12 @@ public class GrabbingH4 : MonoBehaviour
 
     private GameObject rightController;
 
-    private GameObject mainCamera;
-    private GameObject headLocal;
     private GameObject messageCanvas;
-    private GameObject confirmCanvas;
 
     private string myId;
-    private string otherPlayerId;
-
-    private bool areShaking;
 
     public bool npcAnimationGoing;
 
-    private int frameNumber;
     private bool firstFrame;
     public bool isColliding;
     private bool firstFrameForCount;
@@ -51,8 +44,6 @@ public class GrabbingH4 : MonoBehaviour
     private System.DateTime finalTimeH4Player;
 
     private Color baseColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-    private Color yellowColor = new Color(0.8679245f, 0.8271183f, 0.4208615f, 1.0f);
-    private Color greenColor = new Color(0.4291207f, 0.7924528f, 0.6037189f, 1.0f);
     private Color waitingColor = new Color(0.4135279f, 0.7409829f, 0.9056604f, 1.0f);
 
     [SerializeField] private InputActionReference _releaseHandshake4;
@@ -63,12 +54,8 @@ public class GrabbingH4 : MonoBehaviour
 
         myId = PhotonNetwork.LocalPlayer.UserId;
 
-        //mainCamera = Camera.main.gameObject;
-        //headLocal = mainCamera.transform.GetChild(0).gameObject;
         messageCanvas = this.transform.GetChild(3).gameObject;
 
-        areShaking = false;
-        frameNumber = 0;
         firstFrame = true;
         isColliding = false;
         npcAnimationGoing = false;
@@ -84,7 +71,6 @@ public class GrabbingH4 : MonoBehaviour
                 {
                     
                     rightController.GetComponent<XRDirectInteractor>().allowSelect = true;
-                    //rightController.GetComponent<ActionBasedController>().enableInputTracking = true;
                     myNetPlayer.GetComponent<NetworkGrabMessageActivationH4>().animationGoing = false;
                     rightController.GetComponent<HandController>().isGrabbingH3 = false;
                     myNetRightController.GetComponent<NetworkHandController>().isGrabbingH3 = false;
@@ -120,7 +106,6 @@ public class GrabbingH4 : MonoBehaviour
     public void SetReleasing(GameObject otherNetPlRightHand, string otherPlId)
     {
         myNetRightHand.GetComponent<MessageActivationH4>().isGrabbing = false;
-        //otherNetRightHand = otherNetPlRightHand;
     }
 
     void Update()
@@ -166,18 +151,6 @@ public class GrabbingH4 : MonoBehaviour
                                 InteractionsCount.finishedInteractionsWithExperimenterH4++;
                                 finalTimeH4Player = System.DateTime.UtcNow;
                                 NLogConfig.LogLine($"{"Avatar"};TimeFromCanvasAppearing;{(finalTimeH4Player - initialTimeH4Player).TotalSeconds.ToString("#.000")};s");
-                                /*if (otherNetHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == baseColor)
-                                {
-                                    NLogConfig.LogLine($"{"White_Version"};TimeFromCanvasAppearing;{(finalTimeH4Player - initialTimeH4Player).TotalSeconds.ToString("#.000")};s");
-                                }
-                                else if (otherNetHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == yellowColor)
-                                {
-                                    NLogConfig.LogLine($"{"Yellow_Version"};TimeFromCanvasAppearing;{(finalTimeH4Player - initialTimeH4Player).TotalSeconds.ToString("#.000")};s");
-                                }
-                                else if (otherNetHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == greenColor)
-                                {
-                                    NLogConfig.LogLine($"{"Green_Version"};TimeFromCanvasAppearing;{(finalTimeH4Player - initialTimeH4Player).TotalSeconds.ToString("#.000")};s");
-                                }*/
                                 otherGrabbedFirst = false;
                             }                            
 
@@ -193,8 +166,7 @@ public class GrabbingH4 : MonoBehaviour
                             this.GetComponent<CollidingH4>().otherNetRightHand = otherNetRightHand;
                             this.GetComponent<CollidingH4>().isGrabbing = true;
                             otherNetGrabMessageCanvas.GetComponent<Canvas>().enabled = false;
-                            otherNetGrabConfirmCanvas.GetComponent<Canvas>().enabled = false;
-                            areShaking = true;                            
+                            otherNetGrabConfirmCanvas.GetComponent<Canvas>().enabled = false;                         
 
                             //Haptic, visual and sound feedback are provided during the handshake
                             this.GetComponent<HapticController>().SendHaptics2H3();
@@ -207,8 +179,6 @@ public class GrabbingH4 : MonoBehaviour
                             firstFrameForCount2 = true;
 
                             SaveAndCallActivation(otherNetPlayer, otherNetRightHand);
-
-                            //this.GetComponent<Animator>().Play("Handshake", -1, 0);
 
                             Invoke("disableOutline", 0.30f);
                         }
@@ -230,7 +200,6 @@ public class GrabbingH4 : MonoBehaviour
                         rightController.GetComponent<HandController>().isGrabbingH3 = true;
                         myNetRightController.GetComponent<NetworkHandController>().isGrabbingH3 = true;
 
-                        areShaking = false;
                         firstFrame = true;
                         firstFrameForCount = true;
                     }
@@ -289,7 +258,6 @@ public class GrabbingH4 : MonoBehaviour
                     rightController.GetComponent<HandController>().isGrabbingH3 = false;
                 }                
                 myNetRightController.GetComponent<NetworkHandController>().isGrabbingH3 = false;
-                areShaking = false;
                 firstFrame = true;
             }
         }

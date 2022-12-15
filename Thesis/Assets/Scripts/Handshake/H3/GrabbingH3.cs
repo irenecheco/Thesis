@@ -26,16 +26,11 @@ public class GrabbingH3 : MonoBehaviour
 
     private GameObject rightController;
 
-    private GameObject mainCamera;
-    private GameObject headLocal;
     private GameObject messageCanvas;
 
     private string myId;
     private string otherPlayerId;
 
-    private bool areShaking;
-
-    private int frameNumber;
     private bool firstFrame;
     private bool firstFrameForCount;
     private bool firstFrameForCount2;
@@ -47,8 +42,6 @@ public class GrabbingH3 : MonoBehaviour
     private System.DateTime finalTimeH3Player;
 
     private Color baseColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-    private Color yellowColor = new Color(0.8679245f, 0.8271183f, 0.4208615f, 1.0f);
-    private Color greenColor = new Color(0.4291207f, 0.7924528f, 0.6037189f, 1.0f);
     private Color waitingColor = new Color(0.4135279f, 0.7409829f, 0.9056604f, 1.0f);
 
     void Start()
@@ -58,12 +51,8 @@ public class GrabbingH3 : MonoBehaviour
 
         myId = PhotonNetwork.LocalPlayer.UserId;
 
-        //mainCamera = Camera.main.gameObject;
-        //headLocal = mainCamera.transform.GetChild(0).gameObject;
         messageCanvas = this.transform.GetChild(3).gameObject;
 
-        areShaking = false;
-        frameNumber = 0;
         firstFrame = true;
         firstFrameForCount = true;
         firstFrameForCount2 = true;
@@ -139,18 +128,6 @@ public class GrabbingH3 : MonoBehaviour
                                 InteractionsCount.finishedInteractionsWithExperimenterH3++;
                                 finalTimeH3Player = System.DateTime.UtcNow;
                                 NLogConfig.LogLine($"{"Avatar"};TimeFromCanvasAppearing;{(finalTimeH3Player - initialTimeH3Player).TotalSeconds.ToString("#.000")};s");
-                                /*if (otherNetHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == baseColor)
-                                {
-                                    NLogConfig.LogLine($"{"White_Version"};TimeFromCanvasAppearing;{(finalTimeH3Player - initialTimeH3Player).TotalSeconds.ToString("#.000")};s");
-                                }
-                                else if (otherNetHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == yellowColor)
-                                {
-                                    NLogConfig.LogLine($"{"Yellow_Version"};TimeFromCanvasAppearing;{(finalTimeH3Player - initialTimeH3Player).TotalSeconds.ToString("#.000")};s");
-                                }
-                                else if (otherNetHead.transform.FindChildRecursive("Sphere").gameObject.GetComponent<MeshRenderer>().material.color == greenColor)
-                                {
-                                    NLogConfig.LogLine($"{"Green_Version"};TimeFromCanvasAppearing;{(finalTimeH3Player - initialTimeH3Player).TotalSeconds.ToString("#.000")};s");
-                                }*/
                                 otherGrabbedFirst = false;
                             }                            
                             firstFrameForCount = true;
@@ -171,7 +148,6 @@ public class GrabbingH3 : MonoBehaviour
                             this.GetComponent<CollidingH3>().isGrabbing = true;
                             otherNetGrabMessageCanvas.GetComponent<Canvas>().enabled = false;
                             otherNetGrabConfirmCanvas.GetComponent<Canvas>().enabled = false;
-                            areShaking = true;
 
                             //Haptic, visual and sound feedback are provided during the handshake
                             this.GetComponent<HapticController>().SendHaptics2H3();
@@ -200,7 +176,6 @@ public class GrabbingH3 : MonoBehaviour
                         rightController.GetComponent<HandController>().isGrabbingH3 = true;                        
                         myNetRightController.GetComponent<NetworkHandController>().isGrabbingH3 = true;
 
-                        areShaking = false;
                         firstFrame = true;
                         firstFrameForCount = true;
                     }
@@ -259,7 +234,6 @@ public class GrabbingH3 : MonoBehaviour
                     rightController.GetComponent<HandController>().isGrabbingH3 = false;
                 }
                 myNetRightController.GetComponent<NetworkHandController>().isGrabbingH3 = false;
-                areShaking = false;
                 firstFrame = true;
             }
         }

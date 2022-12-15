@@ -22,7 +22,6 @@ public class OnCollisionDeactivateCanvasH4 : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject localNetRightHand;
 
     public bool firstExited;
-    private bool wasGrabbed;
 
     private Color baseColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
@@ -31,7 +30,6 @@ public class OnCollisionDeactivateCanvasH4 : MonoBehaviourPunCallbacks
         rightHandController = GameObject.Find("Camera Offset/RightHand Controller");
         rightHand = rightHandController.transform.FindChildRecursive("RightHand").gameObject;
         firstExited = true;
-        wasGrabbed = false;
     }
 
     //Function called on trigger entered: it activates the handshake button only if the two heads collide
