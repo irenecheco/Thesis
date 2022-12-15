@@ -10,6 +10,9 @@ public class HandshakeWaitingCanvasH2 : MonoBehaviour, IPunObservable
 
     private bool waitingActive;
     private GameObject handshake2WaitingCanvas;
+    private bool previousFrame;
+
+    private PhotonView parentPhotonView;
 
     //Method of the Photon Pun library that lets you keep track of a variable through the network (class IPunObservable)
     //In this case it keeps track of a bool that is true when the waiting canvas needs to be active
@@ -28,31 +31,51 @@ public class HandshakeWaitingCanvasH2 : MonoBehaviour, IPunObservable
     void Start()
     {
         handshake2WaitingCanvas = this.gameObject;
-        handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = false;
+        previousFrame = false;
+        parentPhotonView = this.transform.parent.GetComponent<PhotonView>();
     }
 
     //Called when the waiting canvas needs to be active
-    public void ActivateHandshakeConfirmCanvas()
+    public void ActivateHandshakeWaitingCanvas()
     {
         waitingActive = true;
+        /*if(handshake2WaitingCanvas != null)
+        {
+            handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = true;
+        }*/
     }
 
     //Called when the waiting canvas needs to be disabled
-    public void DeactivateHandshakeConfirmCanvas()
+    public void DeactivateHandshakeWaitingCanvas()
     {
         waitingActive = false;
-    }
-
-    void Update()
-    {
-        //Check if the bool is true to enable or disable the canvas
-        if (waitingActive == false)
+        /*if(handshake2WaitingCanvas != null)
         {
             handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = false;
-        }
-        else
-        {
-            handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = true;
-        }
+        }*/
     }
+
+    /*void Update()
+    {
+        //Check if the bool is true to enable or disable the canvas
+        if (!parentPhotonView.IsMine)
+        {
+            if (waitingActive == false)
+            {
+                if (previousFrame == true)
+                {
+                    handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = false;
+                    previousFrame = false;
+                }
+            }
+            else
+            {
+                if (previousFrame == false)
+                {
+                    handshake2WaitingCanvas.transform.GetComponent<Canvas>().enabled = true;
+                    previousFrame = true;
+                }
+            }
+        }        
+    }*/
 }

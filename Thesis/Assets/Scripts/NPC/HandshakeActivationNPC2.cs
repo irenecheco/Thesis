@@ -5,6 +5,8 @@ using Photon.Pun;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.InputSystem;
+using NLog.Unity;
 
 public class HandshakeActivationNPC2 : MonoBehaviour
 {
@@ -17,24 +19,11 @@ public class HandshakeActivationNPC2 : MonoBehaviour
     private GameObject npcLeft;
     private GameObject npcRight;
     private GameObject npcHandHolder;
-    private GameObject npcMessage;
+    //private GameObject npcMessage;
 
-    private GameObject rightHand;
-    private GameObject leftHand;
-    private GameObject rightController;
-    private GameObject leftController;
-    private GameObject player;
-    private GameObject camera;
-
-    private Animator rightHandAnimator;
     private Animator animator_NPC_head;
     private Animator animator_NPC_left;
     private Animator animator_NPC_right;
-
-    private Vector3 direction;
-    private Vector3 direction2;
-    private float y_angle;
-    private float y_angle2;
 
     private Vector3 initial_hand_holder_position;
     private Quaternion initial_hand_holder_rotation;
@@ -42,9 +31,14 @@ public class HandshakeActivationNPC2 : MonoBehaviour
     public bool isCollidingWithWaitress;
     public bool firstHandshake;
 
-    private List<InputDevice> devices = new List<InputDevice>();
+    public System.DateTime initialTimeH2Waitress;
+    private System.DateTime finalTimeH2Waitress;
+
+    [SerializeField] private InputActionReference _enableHandshake2;
+
+    /*private List<InputDevice> devices = new List<InputDevice>();
     private InputDeviceCharacteristics rControllerCharacteristics = InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
-    private InputDevice targetDevice;
+    private InputDevice targetDevice;*/
 
     void Start()
     {
@@ -52,14 +46,14 @@ public class HandshakeActivationNPC2 : MonoBehaviour
         isCollidingWithWaitress = false;
         firstHandshake = true;
 
-        if (this.gameObject.name != "NPC_RightHand")
-        {
+        //if (this.gameObject.name != "NPC_RightHand")
+        //{
             npc = this.gameObject;
             npcHead = npc.transform.GetChild(0).gameObject;
             npcLeft = npc.transform.GetChild(1).gameObject;
             npcHandHolder = npc.transform.GetChild(2).gameObject;
             npcRight = npcHandHolder.transform.GetChild(0).gameObject;
-        }
+        /*}
         else
         {
             npcRight = this.gameObject;
@@ -67,14 +61,7 @@ public class HandshakeActivationNPC2 : MonoBehaviour
             npc = npcHandHolder.transform.parent.gameObject;
             npcHead = npc.transform.GetChild(0).gameObject;
             npcLeft = npc.transform.GetChild(1).gameObject;
-        }
-
-        rightController = GameObject.Find("Camera Offset/RightHand Controller");
-        leftController = GameObject.Find("Camera Offset/LefttHand Controller");
-        rightHand = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
-        player = GameObject.Find("Player");
-        camera = GameObject.Find("Camera Offset/Main Camera");
-        rightHandAnimator = rightHand.GetComponent<Animator>();
+        }*/
 
         animator_NPC_head = npcHead.GetComponent<Animator>();
         animator_NPC_left = npcLeft.GetComponent<Animator>();
@@ -85,18 +72,59 @@ public class HandshakeActivationNPC2 : MonoBehaviour
 
         if (sceneIndex == 2)
         {
-            npcMessage = npcHead.transform.GetChild(0).gameObject;
+            //npcMessage = npcHead.transform.GetChild(0).gameObject;
 
-            InputDevices.GetDevicesWithCharacteristics(rControllerCharacteristics, devices);
+            _enableHandshake2.action.started += ctx =>
+            {
+                if (isCollidingWithWaitress == true)
+                {
+                    if (npcHead.GetComponent<AngleOfViewControl>().isLooking)
+                    {
+                        if (firstHandshake == true)
+                        {
+                            finalTimeH2Waitress = System.DateTime.UtcNow;
+                            InteractionsCount.finishedInteractionsWithWaitressH2++;
+                            NLogConfig.LogLine($"{"Waitress"};TimeFromCanvasAppearing;{(finalTimeH2Waitress - initialTimeH2Waitress).TotalSeconds.ToString("#.000")};s");
+                            this.GetComponent<HandshakeActivationNPC>().StartHandshake();
+                            if(npc.name == "Waitress")
+                            {
+                                animator_NPC_right.SetBool("Waiting", false);
+                                animator_NPC_left.SetBool("Waiting", false);
+                                animator_NPC_head.SetBool("Waiting", false);
+                            }                            
+                            firstHandshake = false;
+                            npcHead.transform.GetChild(0).gameObject.GetComponent<Canvas>().enabled = false;
+                        }
+                    }                    
+                }
+            };
+
+            /*InputDevices.GetDevicesWithCharacteristics(rControllerCharacteristics, devices);
 
             if (devices.Count > 0)
             {
                 targetDevice = devices[0];
-            }
+            }*/
         }
     }
 
-    private void Update()
+    public void secondSpeech()
+    {
+        if (sceneIndex != 3 && sceneIndex != 4)
+        {
+            npcHandHolder.transform.position = initial_hand_holder_position;
+            npcHandHolder.transform.rotation = initial_hand_holder_rotation;
+        }
+        npcHead.GetComponent<AudioSource>().Play();
+        if (npc.gameObject.name == "Waitress")
+        {
+            animator_NPC_head.Play("WaitressSpeech_head");
+            animator_NPC_right.Play("WaitressSpeech_right");
+            animator_NPC_left.Play("WaitressSpeech_left");
+        }
+    }
+
+    /*private void Update()
     {
         if(sceneIndex == 2)
         {
@@ -109,16 +137,16 @@ public class HandshakeActivationNPC2 : MonoBehaviour
 
                     if (primaryButtonValue)
                     {
-                        StartHandshake();
+                        this.GetComponent<HandshakeActivationNPC>().StartHandshake();
                         firstHandshake = false;
                     }
                 }
             }
         }        
-    }
+    }*/
 
     //Function called when handshake button pressed: it calls the method to activate the animation
-    public void StartHandshake()
+    /*public void StartHandshake()
     {
         StartCoroutine(Wait());
     }
@@ -174,13 +202,13 @@ public class HandshakeActivationNPC2 : MonoBehaviour
         {
             player.transform.rotation = new Quaternion(0, 0, 0, 0);
             player.transform.rotation = Quaternion.Euler(0, y_angle, 0);
-            player.transform.Translate(new Vector3((float)(-0.026), 0, (float)(-0.540)), Space.Self);
+            player.transform.Translate(new Vector3((float)(-0.008), 0, (float)(-0.5)), Space.Self);
         }
         else
         {
             player.transform.rotation = new Quaternion(0, 0, 0, 0);
             player.transform.rotation = Quaternion.Euler(0, (y_angle - 180), 0);
-            player.transform.Translate(new Vector3((float)(+0.026), 0, (float)(+0.540)), Space.Self);
+            player.transform.Translate(new Vector3((float)(+0.008), 0, (float)(+0.5)), Space.Self);
         }
 
         if (y_angle2 < 0)
@@ -198,35 +226,25 @@ public class HandshakeActivationNPC2 : MonoBehaviour
         {
             npcHandHolder.transform.rotation = new Quaternion(0, 0, 0, 0);
             npcHandHolder.transform.rotation = Quaternion.Euler(0, y_angle2, 0);
-            npcHandHolder.transform.Translate(new Vector3((float)(-0.026), 0, (float)(-0.540)), Space.Self);
+            npcHandHolder.transform.Translate(new Vector3((float)(-0.035), 0, (float)(-0.540)), Space.Self);
         }
         else
         {
             npcHandHolder.transform.rotation = new Quaternion(0, 0, 0, 0);
             npcHandHolder.transform.rotation = Quaternion.Euler(0, (y_angle2 - 180), 0);
-            npcHandHolder.transform.Translate(new Vector3((float)(+0.026), 0, (float)(+0.540)), Space.Self);
+            npcHandHolder.transform.Translate(new Vector3((float)(+0.035), 0, (float)(+0.540)), Space.Self);
         }
 
         rightHandAnimator.Play("Handshake", -1, 0);
         animator_NPC_right.Play("Waitress_handshake", 0, 0);
         animator_NPC_head.Play("Waitress_handshake_head", 0, 0);
         animator_NPC_left.Play("Waitress_handshake_left", 0, 0);
-
-    }
-
-    public void secondSpeech()
-    {
-        if(sceneIndex != 3)
-        {
-            npcHandHolder.transform.position = initial_hand_holder_position;
-            npcHandHolder.transform.rotation = initial_hand_holder_rotation;
-        }        
-        npcHead.GetComponent<AudioSource>().Play();
-        if(npc.gameObject.name == "Waitress")
-        {
-            animator_NPC_head.Play("WaitressSpeech_head");
-            animator_NPC_right.Play("WaitressSpeech_right");
-            animator_NPC_left.Play("WaitressSpeech_left");
-        }        
-    }
+        
+        if(sceneIndex == 1)
+        {            
+            GameObject canvas;
+            canvas = leftHand.transform.GetChild(2).gameObject;
+            canvas.GetComponent<Canvas>().enabled = false;
+        }
+    }*/
 }

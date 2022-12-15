@@ -27,10 +27,11 @@ public class HandController : MonoBehaviour
         if (isGrabbingH3 == false)
         {
             hand.SetGrip(controller.selectAction.action.ReadValue<float>());
+            hand.SetTrigger(controller.activateAction.action.ReadValue<float>());
         } else
         {
             hand.SetGrip(0);
-        }
-        hand.SetTrigger(controller.activateAction.action.ReadValue<float>());
+            hand.SetTrigger(0);
+        }        
     }
 }

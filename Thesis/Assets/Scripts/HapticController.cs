@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.SceneManagement;
 
 public class HapticController : MonoBehaviour
 {
     //Code responsible for haptics on the controller
 
-    public XRBaseController rightController;
+    public XRBaseController controller;
     public float amplitude = 0.4f;
     public float duration = 0.5f;
     public float amplitude1H3 = 0.2f;
@@ -16,12 +17,53 @@ public class HapticController : MonoBehaviour
     public float amplitude2H3 = 0.3f;
     public float duration2H3 = 1.5f;
 
+    private int sceneIndex;
+
+    private void Start()
+    {
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
+    }
+
     //Function called whenever an haptic is needed (handshake in H1 and H2)
     public void SendHaptics()
     {
-        if(rightController != null)
+        if(controller != null)
         {
-            rightController.SendHapticImpulse(amplitude, duration);
+            controller.SendHapticImpulse(amplitude, duration);                     
+        }
+    }
+
+    public void SendHapticsinAnimation()
+    {
+        if (controller != null)
+        {
+            controller.SendHapticImpulse(amplitude, duration);
+            if (this.gameObject.name == "FakeRightHand")
+            {
+                if (this.gameObject.GetComponent<AudioSource>() != null)
+                {
+                    if(sceneIndex!= 4)
+                    {
+                        this.gameObject.GetComponent<AudioSource>().Play();
+                    }
+                }
+
+                if (this.gameObject.GetComponent<Outline>() != null)
+                {
+                    this.gameObject.GetComponent<Outline>().enabled = true;
+                    StartCoroutine(Wait());
+                }
+            }
+        } else
+        {
+            if (this.gameObject.name == "FakeRightHand")
+            {
+                if (this.gameObject.GetComponent<Outline>() != null)
+                {
+                    this.gameObject.GetComponent<Outline>().enabled = true;
+                    StartCoroutine(Wait());
+                }
+            }
         }
     }
 
@@ -29,18 +71,25 @@ public class HapticController : MonoBehaviour
     //and they can handshake
     public void SendHaptics1H3()
     {
-        if (rightController != null)
+        if (controller != null)
         {
-            rightController.SendHapticImpulse(amplitude1H3, duration1H3);
+            controller.SendHapticImpulse(amplitude1H3, duration1H3);
         }
     }
 
     //Second one in stronger and longer
     public void SendHaptics2H3()
     {
-        if (rightController != null)
+        if (controller != null)
         {
-            rightController.SendHapticImpulse(amplitude2H3, duration2H3);
+            controller.SendHapticImpulse(amplitude2H3, duration2H3);
         }
+    }
+
+    public IEnumerator Wait()
+    {
+        double time = 0.3;
+        yield return new WaitForSeconds((float)time);
+        this.gameObject.GetComponent<Outline>().enabled = false;
     }
 }

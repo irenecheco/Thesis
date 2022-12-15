@@ -20,13 +20,29 @@ public class NetworkGrabMessageActivationH3 : MonoBehaviour
 
     private GameObject GrabbingNetPlayer;
     private GameObject GrabbingNetHead;
+    private GameObject GrabbingNetRightHand;
+    private GameObject GrabbingNetRightMesh;
+    private GameObject GrabbingNetConfirmCanvas;
     private GameObject GrabbingNetMessageCanvas;
 
     private GameObject ReleasedNetPlayer;
     private GameObject ReleasedNetRightController;
     private GameObject ReleasedNetRightHand;
+    private GameObject ReleasedNetRightMesh;
     private GameObject ReleasedNetHead;
     private GameObject ReleasedNetMessageCanvas;
+    private GameObject ReleasedNetConfirmCanvas;
+
+    private GameObject ReleasingNetPlayer;
+    private GameObject ReleasingNetRightController;
+    private GameObject ReleasingNetRightHand;
+    private GameObject ReleasingNetRightMesh;
+    private GameObject ReleasingNetHead;
+    private GameObject ReleasingNetConfirmCanvas;
+    private GameObject ReleasingNetMessageCanvas;
+
+    private Color baseColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+    private Color waitingColor = new Color(0.4135279f, 0.7409829f, 0.9056604f, 1.0f);
 
     void Start()
     {
@@ -72,8 +88,7 @@ public class NetworkGrabMessageActivationH3 : MonoBehaviour
         if(plGrabbed == PhotonNetwork.LocalPlayer.UserId)
         {
             //My user id is in position 1: my hand is being grabbed
-
-            rightHand.GetComponent<HapticController>().SendHaptics1H3();
+                        
             foreach (var item in PhotonNetwork.PlayerList)
             {
                 if (item.UserId == plGrabbed)
@@ -84,25 +99,41 @@ public class NetworkGrabMessageActivationH3 : MonoBehaviour
                 }
             }
 
-            //If I'm not already grabbing the other users's hand, a message appears in front of me
-            if(GrabbedNetRightHand.GetComponent<MessageActivationH3>().isGrabbing == false)
+            if (GrabbedNetPlayer.GetComponent<PhotonView>().IsMine && GrabbedNetPlayer != null)
             {
-                foreach (var item in PhotonNetwork.PlayerList)
+                //this is the local net player
+                if (GrabbedNetRightHand.GetComponent<MessageActivationH3>().isGrabbing == false)
                 {
-                    if (item.UserId == plGrabbing)
-                    {
-                        GrabbingNetPlayer = (GameObject)item.TagObject;
-                        GrabbingNetHead = GrabbingNetPlayer.transform.GetChild(0).gameObject;
-                        GrabbingNetMessageCanvas = GrabbingNetHead.transform.GetChild(2).gameObject;
-                    }
-                }
+                    //If I'm not already grabbing the other users's hand, I receive an haptic feedback
+                    rightHand.GetComponent<HapticController>().SendHaptics1H3();
 
-                GrabbingNetMessageCanvas.GetComponent<Canvas>().enabled = true;
-            }
+                    foreach (var item in PhotonNetwork.PlayerList)
+                    {
+                        if (item.UserId == plGrabbing)
+                        {
+                            GrabbingNetPlayer = (GameObject)item.TagObject;
+                            GrabbingNetHead = GrabbingNetPlayer.transform.GetChild(0).gameObject;
+                            GrabbingNetRightHand = GrabbingNetPlayer.transform.FindChildRecursive("RightHand").gameObject;
+                            GrabbingNetRightMesh = GrabbingNetRightHand.transform.FindChildRecursive("hands:Lhand").gameObject;
+                            GrabbingNetMessageCanvas = GrabbingNetHead.transform.GetChild(2).gameObject;
+                            GrabbingNetConfirmCanvas = GrabbingNetHead.transform.GetChild(3).gameObject;
+                        }
+                    }
+                    //I have saved the user who is grabbing me
+                    //His hand turns blue and a message appears under his head
+                    GrabbingNetRightMesh.GetComponent<SkinnedMeshRenderer>().material.color = waitingColor;
+                    GrabbingNetMessageCanvas.GetComponent<Canvas>().enabled = false;
+                    GrabbingNetConfirmCanvas.GetComponent<Canvas>().enabled = true;
+                }
+            } //else we are both grabbing -> we can handshake
         } else if(plGrabbing == PhotonNetwork.LocalPlayer.UserId)
         {
-            //My user id is in position 0: I'm grabbing, I get an haptic feedback
-            rightHand.GetComponent<HapticController>().SendHaptics1H3();
+            if (this.transform.GetComponent<PhotonView>().IsMine)
+            {
+                //My user id is in position 0: I'm grabbing, I get an haptic feedback
+                rightHand.GetComponent<HapticController>().SendHaptics1H3();
+                //My movement should freeze and I should see a waiting message 
+            }            
         }
     }
 
@@ -125,19 +156,91 @@ public class NetworkGrabMessageActivationH3 : MonoBehaviour
                     ReleasedNetPlayer = (GameObject)item.TagObject;
                     ReleasedNetRightController = ReleasedNetPlayer.transform.GetChild(2).gameObject;
                     ReleasedNetRightHand = ReleasedNetRightController.transform.GetChild(0).gameObject;
+                    ReleasedNetRightMesh = ReleasedNetRightHand.transform.FindChildRecursive("hands:Lhand").gameObject;
                     ReleasedNetHead = ReleasedNetPlayer.transform.GetChild(0).gameObject;
                     ReleasedNetMessageCanvas = ReleasedNetHead.transform.GetChild(2).gameObject;
+                    ReleasedNetConfirmCanvas = ReleasedNetHead.transform.GetChild(3).gameObject;
+                }
+            }
+            foreach (var item in PhotonNetwork.PlayerList)
+            {
+                if (item.UserId == plReleasing)
+                {
+                    ReleasingNetPlayer = (GameObject)item.TagObject;
+                    ReleasingNetHead = ReleasingNetPlayer.transform.GetChild(0).gameObject;
+                    ReleasingNetRightController = ReleasingNetPlayer.transform.GetChild(2).gameObject;
+                    ReleasingNetRightHand = ReleasingNetRightController.transform.GetChild(0).gameObject;
+                    ReleasingNetRightMesh = ReleasedNetRightController.transform.FindChildRecursive("hands:Lhand").gameObject;
+                    ReleasingNetMessageCanvas = ReleasingNetHead.transform.GetChild(2).gameObject;
+                    ReleasingNetConfirmCanvas = ReleasingNetHead.transform.GetChild(3).gameObject;
                 }
             }
 
-            //If the other user is still grabbing my hand, a message appears in front of me
-            if (ReleasedNetRightHand.GetComponent<MessageActivationH3>().isGrabbing == true)
+            if (ReleasingNetPlayer.GetComponent<PhotonView>().IsMine)
             {
-                ReleasedNetMessageCanvas.GetComponent<Canvas>().enabled = true;
-            } else
-            {
-                ReleasedNetMessageCanvas.GetComponent<Canvas>().enabled = false;
+                //this is the local net player
+
+                if (ReleasedNetRightHand.GetComponent<MessageActivationH3>().isGrabbing == true)
+                {
+                    //If the other user is still grabbing my hand, a message appears in front of me and his hand turns blue
+                    ReleasedNetConfirmCanvas.GetComponent<Canvas>().enabled = true;
+                    ReleasedNetMessageCanvas.GetComponent<Canvas>().enabled = false;
+                    ReleasedNetRightMesh.GetComponent<SkinnedMeshRenderer>().material.color = waitingColor;
+                }
+                else
+                {
+                    //The other user is not grabbing me as well, so everything gets back to normal
+                    ReleasedNetConfirmCanvas.GetComponent<Canvas>().enabled = false;
+                    ReleasedNetMessageCanvas.GetComponent<Canvas>().enabled = true;
+                    ReleasedNetRightMesh.GetComponent<SkinnedMeshRenderer>().material.color = baseColor;
+                    //ReleasedNetRightHand.GetComponent<MessageActivationH3>().DeactivateMessage();
+                }
             }
+        } else if(plReleased == PhotonNetwork.LocalPlayer.UserId)
+        {
+            //My user id is in position 1: my hand is getting released
+            foreach (var item in PhotonNetwork.PlayerList)
+            {
+                if (item.UserId == plReleased)
+                {
+                    ReleasedNetPlayer = (GameObject)item.TagObject;
+                    ReleasedNetRightController = GrabbedNetPlayer.transform.GetChild(2).gameObject;
+                    ReleasedNetRightHand = GrabbedNetRightController.transform.GetChild(0).gameObject;
+                }
+            }
+
+            if (ReleasedNetPlayer.GetComponent<PhotonView>().IsMine)
+            {
+                //this is the local net player
+
+                if (ReleasedNetRightHand.GetComponent<MessageActivationH3>().isGrabbing == false)
+                {
+                    //I am not grabbing the other user hand, so everything gets back to normal
+                    foreach (var item in PhotonNetwork.PlayerList)
+                    {
+                        if (item.UserId == plReleasing)
+                        {
+                            ReleasingNetPlayer = (GameObject)item.TagObject;
+                            ReleasingNetHead = ReleasingNetPlayer.transform.GetChild(0).gameObject;
+                            ReleasingNetRightController = ReleasingNetPlayer.transform.GetChild(2).gameObject;
+                            ReleasingNetRightHand = ReleasingNetRightController.transform.GetChild(0).gameObject;
+                            ReleasingNetRightMesh = ReleasedNetRightController.transform.FindChildRecursive("hands:Lhand").gameObject;
+                            ReleasingNetMessageCanvas = ReleasingNetHead.transform.GetChild(2).gameObject;
+                            ReleasingNetConfirmCanvas = ReleasingNetHead.transform.GetChild(3).gameObject;
+                        }
+                    }
+                    ReleasingNetRightMesh.GetComponent<SkinnedMeshRenderer>().material.color = baseColor;
+                    ReleasingNetMessageCanvas.GetComponent<Canvas>().enabled = true;
+                    ReleasingNetConfirmCanvas.GetComponent<Canvas>().enabled = false;
+                }
+                else
+                {
+                    //I am still grabbing other user hand, I get an haptic feedback
+                    rightHand.GetComponent<HapticController>().SendHaptics1H3();
+                    //My movement should freeze and I should see a waiting message
+                    //ReleasedNetRightHand.GetComponent<MessageActivationH3>().ActivateMessage();
+                }
+            }      
         }
     }
 }

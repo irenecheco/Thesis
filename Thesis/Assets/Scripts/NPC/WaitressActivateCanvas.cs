@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
+using Unity.XR.CoreUtils;
 
 public class WaitressActivateCanvas : MonoBehaviour
 {
@@ -11,9 +12,12 @@ public class WaitressActivateCanvas : MonoBehaviour
 
     private int sceneIndex;
 
-    private GameObject leftHand;
-    private GameObject handshake_canvas;
-    private GameObject handshake_button;
+    [SerializeField] private GameObject leftHand;
+    [SerializeField] private GameObject rightHand;
+    private GameObject handshake_canvas_l;
+    private GameObject handshake_canvas_r;
+    private GameObject handshake_button_l;
+    private GameObject handshake_button_r;
 
     private GameObject npcHead;
     private GameObject npcMessage;
@@ -27,18 +31,24 @@ public class WaitressActivateCanvas : MonoBehaviour
     private Animator animator_NPC_left;
     private Animator animator_NPC_right;
 
-    private GameObject environment;
+    [SerializeField] private GameObject environment;
+    private GameObject rightHandController;
+
+    private XROrigin origin;
 
     void Start()
     {
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        environment = GameObject.Find("Environment");
 
         if (sceneIndex == 1)
         {
-            leftHand = GameObject.Find("Camera Offset/LeftHand Controller/LeftHand");
-            handshake_canvas = leftHand.transform.GetChild(2).gameObject;
-            handshake_button = handshake_canvas.transform.GetChild(1).gameObject;
+            handshake_canvas_l = leftHand.transform.GetChild(2).gameObject;
+            handshake_canvas_r = rightHand.transform.GetChild(2).gameObject;
+            handshake_button_l = handshake_canvas_l.transform.GetChild(1).gameObject;
+            handshake_button_r = handshake_canvas_r.transform.GetChild(1).gameObject;
+            handshake_canvas_l.GetComponent<Canvas>().enabled = false;
+            handshake_canvas_r.GetComponent<Canvas>().enabled = false;
+            origin = FindObjectOfType<XROrigin>();
         }        
 
         npc = this.gameObject;
@@ -63,37 +73,87 @@ public class WaitressActivateCanvas : MonoBehaviour
         if (sceneIndex == 3)
         {
             npcRight.GetComponent<XRGrabInteractable>().enabled = false;
+            npcMessage = npcHead.transform.GetChild(0).gameObject;
+            rightHandController = rightHand.transform.parent.gameObject;
+        }
+
+        if(sceneIndex == 4)
+        {
+            npcRight.GetComponent<XRGrabInteractable>().enabled = false;
+            npcMessage = npcHead.transform.GetChild(0).gameObject;
+            rightHandController = rightHand.transform.parent.gameObject;
         }
     }
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.name == "Main Camera")
+        if (collider.gameObject.name == "Head Local")
         {
             if(sceneIndex == 1)
             {
-                handshake_button.GetComponent<Button>().interactable = true;
-                handshake_button.GetComponent<HandshakeButton>().isCollidingWithWaitress = true;
-
+                npcHead.transform.FindChildRecursive("HandshakeConfirm Button").GetComponent<HandshakeActivationNPC>().initialTimeH1Waitress = System.DateTime.UtcNow;
+                origin.GetComponent<ActiveHandController>().isCollidingWithWaitress = true;
+                if (leftHand.transform.parent.gameObject.GetComponent<XRRayInteractor>().enabled == true)
+                {
+                    handshake_canvas_l.GetComponent<Canvas>().enabled = true;                    
+                    leftHand.GetComponent<HapticController>().amplitude = 0.2f;
+                    leftHand.GetComponent<HapticController>().duration = 0.2f;
+                    leftHand.GetComponent<HapticController>().SendHaptics();
+                    handshake_canvas_l.GetComponent<AudioSource>().Play();
+                }
+                else
+                {
+                    handshake_canvas_r.GetComponent<Canvas>().enabled = true;                    
+                    rightHand.GetComponent<HapticController>().amplitude = 0.2f;
+                    rightHand.GetComponent<HapticController>().duration = 0.2f;
+                    rightHand.GetComponent<HapticController>().SendHaptics();
+                    handshake_canvas_r.GetComponent<AudioSource>().Play();
+                }
+                handshake_button_l.GetComponent<HandshakeButton>().isCollidingWithWaitress = true;
+                handshake_button_r.GetComponent<HandshakeButton>().isCollidingWithWaitress = true;
             } else if(sceneIndex == 2)
             {
                 npcMessage.GetComponent<Canvas>().enabled = true;
+                npcMessage.GetComponent<AudioSource>().enabled = true;
+                npcMessage.GetComponent<AudioSource>().Play();
                 npc.GetComponent<HandshakeActivationNPC2>().isCollidingWithWaitress = true;
+                //Debug.Log($"{npc.GetComponent<HandshakeActivationNPC2>().isCollidingWithWaitress}");
             } else if (sceneIndex == 3)
             {
                 npcRight.GetComponent<XRGrabInteractable>().enabled = true;
+                npcMessage.GetComponent<Canvas>().enabled = true;
+                npcMessage.GetComponent<AudioSource>().enabled = true;
+                npcMessage.GetComponent<AudioSource>().Play();
+                rightHandController.GetComponent<XRDirectInteractor>().allowSelect = true;
+                npcRight.GetComponent<GrabbingNPC>().releasedForCollision = false;
+            } else if(sceneIndex == 4)
+            {
+                npcRight.GetComponent<XRGrabInteractable>().enabled = true;
+                npcMessage.GetComponent<Canvas>().enabled = true;
+                npcMessage.GetComponent<AudioSource>().enabled = true;
+                npcMessage.GetComponent<AudioSource>().Play();
+                rightHandController.GetComponent<XRDirectInteractor>().allowSelect = true;
+                npcRight.GetComponent<GrabbingNPC>().releasedForCollision = false;
             }
+
+            animator_NPC_head.SetBool("Waiting", true);
+            animator_NPC_left.SetBool("Waiting", true);
+            animator_NPC_right.SetBool("Waiting", true);
         }
     }
 
     private void OnTriggerExit(Collider collider)
     {
-        if (collider.gameObject.name == "Main Camera")
+        if (collider.gameObject.name == "Head Local")
         {
             if(sceneIndex == 1)
             {
-                handshake_button.GetComponent<Button>().interactable = false;
-                handshake_button.GetComponent<HandshakeButton>().isCollidingWithWaitress = false;
+                handshake_button_l.GetComponent<HandshakeButton>().isCollidingWithWaitress = false;
+                handshake_canvas_l.GetComponent<Canvas>().enabled = false;
+                handshake_button_l.GetComponent<HandshakeButton>().firstHandshake = true;
+                handshake_button_r.GetComponent<HandshakeButton>().isCollidingWithWaitress = false;
+                handshake_canvas_r.GetComponent<Canvas>().enabled = false;
+                handshake_button_r.GetComponent<HandshakeButton>().firstHandshake = true;
             } else if(sceneIndex == 2)
             {
                 npcMessage.GetComponent<Canvas>().enabled = false;
@@ -101,12 +161,40 @@ public class WaitressActivateCanvas : MonoBehaviour
                 npc.GetComponent<HandshakeActivationNPC2>().firstHandshake = true;
             } else if (sceneIndex == 3)
             {
+                if(npcRight.GetComponent<GrabbingNPC>().isGrabbing == true)
+                {
+                    rightHandController.GetComponent<XRDirectInteractor>().allowSelect = false;
+                    npcRight.GetComponent<GrabbingNPC>().releasedForCollision = true;
+                }                
                 npcRight.GetComponent<XRGrabInteractable>().enabled = false;
+                npcMessage.GetComponent<Canvas>().enabled = false;
+                
+            } else if(sceneIndex == 4)
+            {
+                if (npcRight.GetComponent<GrabbingNPC>().isGrabbing == true)
+                {
+                    rightHandController.GetComponent<XRDirectInteractor>().allowSelect = false;
+                    npcRight.GetComponent<GrabbingNPC>().releasedForCollision = true;
+                }
+                npcRight.GetComponent<XRGrabInteractable>().enabled = false;
+                npcMessage.GetComponent<Canvas>().enabled = false;
             }
 
-            animator_NPC_head.Play("WaitressIdle_head");
-            animator_NPC_right.Play("WaitressIdle_right");
-            animator_NPC_left.Play("WaitressIdle_left");
+            if (animator_NPC_head.GetCurrentAnimatorStateInfo(0).IsName("Waitress_waiting_head"))
+            {
+                animator_NPC_head.SetBool("Waiting", false);
+                animator_NPC_right.SetBool("Waiting", false);
+                animator_NPC_left.SetBool("Waiting", false);
+            } else
+            {
+                animator_NPC_head.SetBool("Waiting", false);
+                animator_NPC_right.SetBool("Waiting", false);
+                animator_NPC_left.SetBool("Waiting", false);
+                animator_NPC_head.Play("WaitressIdle_head");
+                animator_NPC_right.Play("WaitressIdle_right");
+                animator_NPC_left.Play("WaitressIdle_left");
+            }
+                        
 
             if (npcHead.GetComponent<AudioSource>().isPlaying)
             {
@@ -122,6 +210,7 @@ public class WaitressActivateCanvas : MonoBehaviour
                     Destroy(coffeCupTemp);
                     environment.GetComponent<FruitSpawner>().SpawnCoffee();
                     coffeeTray.transform.GetChild(0).gameObject.GetComponent<XRGrabInteractable>().enabled = false;
+                    leftHand.GetComponent<SetCoffeeGrab>().childexists = false;
                 }
             }            
         }

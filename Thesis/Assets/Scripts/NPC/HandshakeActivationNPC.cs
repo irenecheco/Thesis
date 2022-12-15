@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
+using DG.Tweening;
+using NLog.Unity;
 
 public class HandshakeActivationNPC : MonoBehaviour
 {
@@ -13,26 +16,29 @@ public class HandshakeActivationNPC : MonoBehaviour
     private GameObject confirmCanvas;
     private GameObject confirmHead;
     private GameObject confirmNPC;
-    private GameObject confirmLeft;
-    private GameObject confirmRight;
+    private GameObject NPC_rightHand;
+    private GameObject NPC_rightMesh;
     private GameObject confirmNPCHandHolder;
 
-    private GameObject rightHand;
-    private GameObject leftHand;
-    private GameObject rightController;
-    private GameObject leftController;
-    private GameObject player;
-    private GameObject camera;
+    [SerializeField] private GameObject rightHand;
+    [SerializeField] private GameObject fakeHand_holder;
+    [SerializeField] private GameObject fakeHand;
+    [SerializeField] private GameObject fakeHandNPC_holder;
+    [SerializeField] private GameObject fakeHandNPC;
+    [SerializeField] private GameObject camera;
+    [SerializeField] private GameObject NPCHand_holder;
 
-    private Animator rightHandAnimator;
-    private Animator animator_NPC_head;
-    private Animator animator_NPC_left;
-    private Animator animator_NPC_right;
+    private System.DateTime finalTimeH1Mayor;
+    public System.DateTime initialTimeH1Mayor;
+    private System.DateTime finalTimeH2Mayor;
+    public System.DateTime initialTimeH2Mayor;
 
-    private Vector3 direction;
-    private Vector3 direction2;
-    private float y_angle;
-    private float y_angle2;
+    private System.DateTime finalTimeH1Waitress;
+    public System.DateTime initialTimeH1Waitress;
+
+    private System.DateTime firstDate;
+
+    private Color baseColor = new Color(0.8000001f, 0.4848836f, 0.3660862f, 1.0f);
 
     void Start()
     {
@@ -40,128 +46,89 @@ public class HandshakeActivationNPC : MonoBehaviour
 
         if(sceneIndex == 1)
         {
-            confirmCanvas = this.gameObject.transform.parent.gameObject;
-            confirmHead = confirmCanvas.transform.parent.gameObject;
-            confirmNPC = confirmHead.transform.parent.gameObject;
-            confirmLeft = confirmNPC.transform.GetChild(1).gameObject;
+            if(this.gameObject.name != "Waitress")
+            {
+                confirmCanvas = this.gameObject.transform.parent.gameObject;
+                confirmHead = confirmCanvas.transform.parent.gameObject;
+                confirmNPC = confirmHead.transform.parent.gameObject;
+                
+            } else
+            {
+                confirmNPC = this.gameObject;
+                confirmHead = confirmNPC.transform.GetChild(0).gameObject;
+            }
             confirmNPCHandHolder = confirmNPC.transform.GetChild(2).gameObject;
-            confirmRight = confirmNPCHandHolder.transform.GetChild(0).gameObject;
+            NPC_rightHand = confirmNPCHandHolder.transform.GetChild(0).gameObject;
+            NPC_rightMesh = NPC_rightHand.transform.FindChildRecursive("hands:Lhand").gameObject;
+            fakeHand = fakeHand_holder.transform.GetChild(0).gameObject;            
 
         } else if(sceneIndex == 2)
         {
-            confirmCanvas = this.gameObject;
-            confirmHead = confirmCanvas.transform.parent.gameObject;
-            confirmNPC = confirmHead.transform.parent.gameObject;
-            confirmLeft = confirmNPC.transform.GetChild(1).gameObject;
+            if (this.gameObject.name != "Waitress")
+            {
+                confirmCanvas = this.gameObject;
+                confirmHead = confirmCanvas.transform.parent.gameObject;
+                confirmNPC = confirmHead.transform.parent.gameObject;
+            }
+            else
+            {
+                confirmNPC = this.gameObject;
+                confirmHead = confirmNPC.transform.GetChild(0).gameObject;
+            }
             confirmNPCHandHolder = confirmNPC.transform.GetChild(2).gameObject;
-            confirmRight = confirmNPCHandHolder.transform.GetChild(0).gameObject;
+            NPC_rightHand = confirmNPCHandHolder.transform.GetChild(0).gameObject;
+            NPC_rightMesh = NPC_rightHand.transform.FindChildRecursive("hands:Lhand").gameObject;
+            fakeHand = fakeHand_holder.transform.GetChild(0).gameObject;
         }        
-
-        rightController = GameObject.Find("Camera Offset/RightHand Controller");
-        leftController = GameObject.Find("Camera Offset/LefttHand Controller");
-        rightHand = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
-        player = GameObject.Find("Player");
-        camera = GameObject.Find("Camera Offset/Main Camera");
-        rightHandAnimator = rightHand.GetComponent<Animator>();
-
-        animator_NPC_head = confirmHead.GetComponent<Animator>();
-        animator_NPC_left = confirmLeft.GetComponent<Animator>();
-        animator_NPC_right = confirmRight.GetComponent<Animator>();
     }
 
     //Function called when confirm button pressed: it saves the ids and call the methed to activate the animation over the network
     public void StartHandshake()
     {
-        StartCoroutine(Wait());
+        if(sceneIndex == 1)
+        {
+            if (confirmNPC.gameObject.name == "Mayor")
+            {
+                InteractionsCount.finishedInteractionsWithMayorH1++;
+                finalTimeH1Mayor = System.DateTime.UtcNow;
+                NLogConfig.LogLine($"{"Mayor"};TimeFromCanvasAppearing;{(finalTimeH1Mayor - initialTimeH1Mayor).TotalSeconds.ToString("#.000")}; s");
+            } else if (confirmNPC.gameObject.name == "Waitress")
+            {
+                InteractionsCount.finishedInteractionsWithWaitressH1++;
+                finalTimeH1Waitress = System.DateTime.UtcNow;
+                NLogConfig.LogLine($"{"Waitress"};TimeFromCanvasAppearing;{(finalTimeH1Waitress - initialTimeH1Waitress).TotalSeconds.ToString("#.000")}; s");
+            }
+        } else if(sceneIndex == 2)
+        {
+            if (confirmNPC.gameObject.name == "Mayor")
+            {
+                //devi ancora settare initial time
+                //finalTimeH2Mayor = System.DateTime.Now;
+                //NLogConfig.LogLine($"{"Mayor"};TimeFromCanvasAppearing:{(finalTimeH2Mayor - initialTimeH2Mayor).TotalMilliseconds.ToString("#.00")} ms");
+            }
+        }
+        
+        Invoke("SetParam", .25f);
     }
 
     //Coroutine that trigger the animation on the player
-    public IEnumerator Wait()
+    public void SetParam()
     {
-        double time = 0.25;
-        yield return new WaitForSeconds((float)time);
-        float starting_y = 0;
-        Vector3 midPosition;
+        rightHand.SetActive(false);
+        fakeHand.SetActive(true);
 
-        if (camera.transform.position.y <= confirmHead.transform.position.y)
-        {
-            starting_y = camera.transform.position.y;
-        }
-        else
-        {
-            starting_y = confirmHead.transform.position.y;
-        }
+        NPC_rightHand.SetActive(false);
+        fakeHandNPC.SetActive(true);
 
-        Destroy(rightController.GetComponent("HandController"));
-        rightHand.GetComponent<Hand>().flag = true;
-        rightHand.transform.parent = player.transform;
-        midPosition = Vector3.Lerp(confirmHead.transform.position, camera.transform.position, 0.5f);
-        player.transform.position = new Vector3(midPosition.x, (float)(starting_y - 0.4), midPosition.z);
-        confirmNPCHandHolder.transform.position = new Vector3(midPosition.x, (float)(starting_y - 0.4), midPosition.z);
-        //confirmNPCHandHolder.transform.position = Vector3.MoveTowards(transform.position, new Vector3(midPosition.x, (float)(starting_y - 0.4), midPosition.z), Time.deltaTime * 10f);
-        direction = (confirmHead.transform.position - camera.transform.position).normalized;
-        direction2 = (camera.transform.position - confirmHead.transform.position).normalized;
+        fakeHandNPC.GetComponent<SetBackComponent>().rightHand = NPC_rightHand;
 
-        y_angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-        y_angle2 = Mathf.Atan2(direction2.x, direction2.z) * Mathf.Rad2Deg;
+        fakeHand.GetComponent<HandshakeFakeHand>().DoHandshake(camera.transform.position, confirmHead.transform.position);
+        fakeHandNPC.GetComponent<HandshakeFakeHandNPC>().DoHandshake(confirmHead.transform.position, camera.transform.position, NPCHand_holder);
 
-        float camera_y_angle = camera.transform.rotation.eulerAngles.y;
-        float NPCHead_y_angle = confirmHead.transform.rotation.eulerAngles.y;
-
-        if (y_angle < 0)
+        if(confirmNPC.gameObject.name == "Mayor")
         {
-            float offset = -y_angle;
-            y_angle = 360 - offset;
-        }
-        if (camera_y_angle < 0)
-        {
-            float offset = camera_y_angle;
-            camera_y_angle = 360 - offset;
-        }
-        if ((y_angle - 90) < camera_y_angle && camera_y_angle < (y_angle + 90))
-        {
-            player.transform.rotation = new Quaternion(0, 0, 0, 0);
-            player.transform.rotation = Quaternion.Euler(0, y_angle, 0);
-            player.transform.Translate(new Vector3((float)(-0.026), 0, (float)(-0.540)), Space.Self);
-        }
-        else
-        {
-            player.transform.rotation = new Quaternion(0, 0, 0, 0);
-            player.transform.rotation = Quaternion.Euler(0, (y_angle - 180), 0);
-            player.transform.Translate(new Vector3((float)(+0.026), 0, (float)(+0.540)), Space.Self);
-        }
-
-        if (y_angle2 < 0)
-        {
-            float offset = -y_angle2;
-            y_angle2 = 360 - offset;
-        }
-        if (NPCHead_y_angle < 0)
-        {
-            float offset = NPCHead_y_angle;
-            NPCHead_y_angle = 360 - offset;
-        }
-
-        if ((y_angle2 - 90) < NPCHead_y_angle && NPCHead_y_angle < (y_angle2 + 90))
-        {
-            confirmNPCHandHolder.transform.rotation = new Quaternion(0, 0, 0, 0);
-            confirmNPCHandHolder.transform.rotation = Quaternion.Euler(0, y_angle2, 0);
-            //confirmNPCHandHolder.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, y_angle2, 0), Time.deltaTime * 10f);
-            confirmNPCHandHolder.transform.Translate(new Vector3((float)(-0.026), 0, (float)(-0.540)), Space.Self);
-        }
-        else
-        {
-            confirmNPCHandHolder.transform.rotation = new Quaternion(0, 0, 0, 0);
-            confirmNPCHandHolder.transform.rotation = Quaternion.Euler(0, (y_angle2 - 180), 0);
-            //confirmNPCHandHolder.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, (y_angle2 - 180), 0), Time.deltaTime * 10f);
-            confirmNPCHandHolder.transform.Translate(new Vector3((float)(+0.026), 0, (float)(+0.540)), Space.Self);
-        }
-
-        yield return new WaitForSeconds((float)time);
-        rightHandAnimator.Play("Handshake", -1, 0);
-        animator_NPC_right.speed = 1;
-        animator_NPC_right.Play("Mayor_handshake", 0, 0);
-
-        confirmCanvas.GetComponent<Canvas>().enabled = false;
+            confirmCanvas.GetComponent<Canvas>().enabled = false;
+            NPC_rightMesh.GetComponent<SkinnedMeshRenderer>().material.color = baseColor;
+        }        
     }
 }

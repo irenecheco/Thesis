@@ -19,6 +19,9 @@ public class NetworkManager2 : MonoBehaviourPunCallbacks
 
     public List<DefaultRoom> defaultRooms;
 
+    public int countPl = 0;
+    private GameObject localPlayer;
+
     //Function called when user wants to get back to handshake selection
     public void BackToTutorialMainRoom()
     {
@@ -39,20 +42,49 @@ public class NetworkManager2 : MonoBehaviourPunCallbacks
         roomOptions.IsVisible = true;
         roomOptions.IsOpen = true;
         roomOptions.PublishUserId = true;
+
+        if(roomSettings.sceneIndex == 1)
+        {
+            InteractionsCount.enterInH1Time = System.DateTime.UtcNow;
+        } else if(roomSettings.sceneIndex == 2)
+        {
+            InteractionsCount.enterInH2Time = System.DateTime.UtcNow;
+        } else if(roomSettings.sceneIndex == 3)
+        {
+            InteractionsCount.enterInH3Time = System.DateTime.UtcNow;
+        } else if(roomSettings.sceneIndex == 4)
+        {
+            InteractionsCount.enterInH4Time = System.DateTime.UtcNow;
+        }
         PhotonNetwork.JoinOrCreateRoom(roomSettings.Name, roomOptions, TypedLobby.Default);
     }
 
     //Functions called when player joins a room: mainly for debug
     public override void OnJoinedRoom()
     {
-        Debug.Log("Joined A Room");
+        //Debug.Log("Joined A Room");
         base.OnJoinedRoom();
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        Debug.Log("A new player joined the room");
+        //Debug.Log("A new player joined the room");
         base.OnPlayerEnteredRoom(newPlayer);
+        /*countPl = PhotonNetwork.CountOfPlayers;
+        foreach (var item in PhotonNetwork.PlayerList)
+        {
+            if (item.UserId == PhotonNetwork.LocalPlayer.UserId)
+            {
+                localPlayer = (GameObject)item.TagObject;
+            }
+        }
+        if (countPl <= 1)
+        {
+            localPlayer.GetComponent<firstPlayer>().isFirstPlayer = true;
+        }
+        else
+        {
+            localPlayer.GetComponent<firstPlayer>().isFirstPlayer = false;
+        }*/
     }
-
 }

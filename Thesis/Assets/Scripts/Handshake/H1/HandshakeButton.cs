@@ -4,80 +4,101 @@ using UnityEngine;
 using UnityEngine.XR;
 using Photon.Pun;
 using UnityEngine.UI;
+using NLog.Unity;
+using UnityEngine.InputSystem;
 
 public class HandshakeButton : MonoBehaviour
 {
     //Code responsible to trigger the confirm canvas once a user press the handshake button (H1)
 
-    private GameObject player;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject rightController;
+    [SerializeField] private GameObject waitress;
+    [SerializeField] private GameObject mayor_head;
+
     private GameObject myPlayer;
     private GameObject myPlayerHead;
     private GameObject myPlayerConfirm;
     private GameObject handshakeUI;
     private GameObject waitConfirmUI;
-    private GameObject leftHand;
-    private GameObject rightHand;
-    private GameObject rightController;
+    private GameObject hand;
 
-    private List<InputDevice> devices = new List<InputDevice>();
+    /*private List<UnityEngine.XR.InputDevice> devices = new List<UnityEngine.XR.InputDevice>();
     private InputDeviceCharacteristics lControllerCharacteristics = InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller;
-    private InputDevice targetDevice;
+    private UnityEngine.XR.InputDevice targetDevice;*/
 
-    public RuntimeAnimatorController mayor_anim_controller;
+    //public RuntimeAnimatorController mayor_anim_controller;
 
     public bool isCollidingWithWaitress;
+    public bool firstHandshake;
+    public GameObject collidingPlayerHead;
+
+    [SerializeField] private InputActionReference _enableHandshake;
+    private Button _button;
+    private Canvas _canvas;
 
     void Start()
     {
         isCollidingWithWaitress = false;
+        firstHandshake = true;
 
-        if (this.gameObject.name != "NPC_RightHand")
+        if(player != null)
         {
-            rightHand = GameObject.Find("Camera Offset/RightHand Controller/RightHand");
-            rightController = GameObject.Find("Camera Offset/RightHand Controller");
+            player.transform.position = rightController.transform.position;
+        }        
+        handshakeUI = this.gameObject.transform.parent.gameObject;
+        hand = handshakeUI.transform.parent.gameObject;
+        waitConfirmUI = hand.transform.GetChild(3).gameObject;
+        waitConfirmUI.GetComponent<Canvas>().enabled = false;
 
-            player = GameObject.Find("Player");
-            player.transform.position = GameObject.Find("Camera Offset/RightHand Controller").transform.position;
-            if (this.gameObject.name == "Handshake Button")
-            {
-                handshakeUI = this.gameObject.transform.parent.gameObject;
-                leftHand = handshakeUI.transform.parent.gameObject;
-                waitConfirmUI = leftHand.transform.GetChild(3).gameObject;
-                waitConfirmUI.GetComponent<Canvas>().enabled = false;
-            }
+        /*InputDevices.GetDevicesWithCharacteristics(lControllerCharacteristics, devices);
 
-            InputDevices.GetDevicesWithCharacteristics(lControllerCharacteristics, devices);
-
-            if (devices.Count > 0)
-            {
-                targetDevice = devices[0];
-            }
-        }
-    }
-
-    //Checks every frame is the left controller buttons are pressed, if X is pressed handshake button onClick is 
-    //invoked
-    public void Update()
-    {
-        if(this.gameObject.name != "NPC_RightHand")
+        if (devices.Count > 0)
         {
-            targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue);
+            targetDevice = devices[0];
+        }*/
 
-            if (this.gameObject.name == "Handshake Button")
+        _button = this.GetComponent<Button>();
+        _canvas = handshakeUI.GetComponent<Canvas>();
+
+        //When primary button in pressed, if user is colliding with waitress or player, it starts the handshake
+
+        _enableHandshake.action.performed += ctx => {
+            if(_canvas!= null)
             {
-                if (this.GetComponent<Button>().interactable == true)
+                if (_canvas.enabled == true)
                 {
-                    if (primaryButtonValue)
+                    if (collidingPlayerHead != null)
                     {
-                        this.GetComponent<Button>().onClick.Invoke();
+                        GameObject confirmCanvas = collidingPlayerHead.transform.GetChild(0).gameObject;
+                        //Debug.Log($"Entra qui e confirm canvas è {confirmCanvas.GetComponent<HandshakeConfirmCanvas>().confirmActive}");
+                        if (confirmCanvas.GetComponent<HandshakeConfirmCanvas>().confirmActive == true)
+                        {
+                            confirmCanvas.transform.GetChild(2).gameObject.GetComponent<HandshakeActivation>().CallHeadMethod();
+                        }
+                        else
+                        {
+                            _button.onClick.Invoke();
+                        }
+                    }
+                    else
+                    {
+                        _button.onClick.Invoke();
                     }
                 }
+
+                //NLogConfig.LogLine($"{"NomeAvatar"};Timepincpallo:{0.5:.2f}");
+                
+                /*if (mayor_head.GetComponent<MayorConfirmCanvas>().activeCanvas == true)
+                {
+                    mayor_head.transform.FindChildRecursive("HandshakeConfirm Button").GetComponent<HandshakeActivationNPC>().StartHandshake();
+                }*/
             }
-        }
+        };
     }
 
     //Function called on the pressed handshake button: it changes the canvas that the player who pressed the button
-    //sees and it activates on his head the confrim canvas
+    //sees and it activates on his head the confirm canvas
     public void OnHandshakePressed()
     {
         if(isCollidingWithWaitress == false)
@@ -102,24 +123,19 @@ public class HandshakeButton : MonoBehaviour
             myPlayerConfirm.GetComponent<HandshakeConfirmCanvas>().ActivateHandshakeConfirmCanvas();
             if (this.gameObject.name == "Handshake Button")
             {
+                InteractionsCount.startedInteractionsFromTesterH1++;
                 handshakeUI.GetComponent<Canvas>().enabled = false;
                 waitConfirmUI.GetComponent<Canvas>().enabled = true;
             }
         }
         else
         {
-            GameObject waitress;
-            waitress = GameObject.Find("Waitress");
-            waitress.GetComponent<HandshakeActivationNPC2>().StartHandshake();
+            if(firstHandshake == true)
+            {
+                waitress.GetComponent<HandshakeActivationNPC>().StartHandshake();
+                firstHandshake = false;
+                handshakeUI.GetComponent<Canvas>().enabled = false;
+            }            
         }
-    }
-
-    //Called at the hand of the animation: it sets backe the parent and the components
-    public void SetBackComponent()
-    {
-        rightHand.transform.parent = rightController.transform;
-        rightController.AddComponent<HandController>();
-        rightController.GetComponent<HandController>().hand = rightHand.GetComponent<Hand>();
-        rightHand.GetComponent<Hand>().flag = false;
     }
 }

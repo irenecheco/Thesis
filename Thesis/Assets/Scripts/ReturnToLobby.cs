@@ -16,6 +16,11 @@ public class ReturnToLobby : MonoBehaviour
 
     public void OnClick_ReturnToLobby()
     {
+        InteractionsCount.exitInH1Time = System.DateTime.UtcNow;
+        InteractionsCount.exitInH2Time = System.DateTime.UtcNow;
+        InteractionsCount.exitInH3Time = System.DateTime.UtcNow;
+        InteractionsCount.exitInH4Time = System.DateTime.UtcNow;
+
         Destroy(networkVoice);
         PhotonNetwork.LeaveRoom();
         PhotonNetwork.LoadLevel(0);
